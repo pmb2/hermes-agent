@@ -1320,7 +1320,24 @@ def _apply_env_overrides(config: GatewayConfig) -> None:
     if discord_token:
         discord_config = _enable_from_env(Platform.DISCORD)
         discord_config.token = discord_token
-    
+
+    # Custom API base URL & version (Spacebar / any Discord-compatible API)
+    discord_api_base = os.getenv("DISCORD_API_BASE") or os.getenv("SPACEBAR_API_BASE")
+    if discord_api_base:
+        if Platform.DISCORD not in config.platforms:
+            config.platforms[Platform.DISCORD] = PlatformConfig()
+        dc = config.platforms[Platform.DISCORD]
+        if dc.extra is None:
+            dc.extra = {}
+        dc.extra["base_url"] = discord_api_base.rstrip("/")
+        # Inject api_version from env, default to 9 for Spacebar
+        _api_ver = os.getenv("DISCORD_API_VERSION") or os.getenv("SPACEBAR_API_VERSION") or "9"
+        dc.extra["api_version"] = int(_api_ver) if _api_ver.isdigit() else 9
+        logger.debug(
+            "Discord API base override: %s (v%s)",
+            discord_api_base, dc.extra["api_version"],
+        )
+
     discord_home = os.getenv("DISCORD_HOME_CHANNEL")
     if discord_home and Platform.DISCORD in config.platforms:
         config.platforms[Platform.DISCORD].home_channel = HomeChannel(

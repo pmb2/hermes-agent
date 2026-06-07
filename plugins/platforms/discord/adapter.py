@@ -628,6 +628,40 @@ class DiscordAdapter(BasePlatformAdapter):
         # scanning channel.history() on cache miss (cold start / restart).
         self._last_self_message_id: Dict[str, str] = {}
 
+        # ── Spacebar / custom API support ─────────────────────────────────
+        # Allow the Discord adapter to connect to any Discord-compatible API
+        # (e.g. Spacebar) by setting base_url + api_version in the platform
+        # config's ``extra`` dict.  When omitted, the default discord.com v10
+        # endpoint is used, preserving full backward compatibility.
+        self._api_base_url: Optional[str] = None
+        self._api_version: int = 10
+        try:
+            _extra = getattr(config, 'extra', {}) or {}
+            _base = str(_extra.get('base_url', '') or '').strip()
+            if _base:
+                self._api_base_url = _base.rstrip('/')
+                self._api_version = int(_extra.get('api_version', 10))
+                logger.info(
+                    "[%s] Spacebar/custom API configured: base=%s version=%d",
+                    self.name, self._api_base_url, self._api_version,
+                )
+        except Exception as exc:
+            logger.debug("[%s] Failed to parse custom API config: %s", self.name, exc)
+
+    def _api_url(self, path: str) -> str:
+        """Return a fully-qualified API URL for *path* using the configured
+        base (or the default discord.com v10 endpoint when unset).
+
+        Example::
+
+            self._api_url(\"/channels/123/messages\")
+            # \u2192 \"https://discord.com/api/v10/channels/123/messages\"   (default)
+            # \u2192 \"http://localhost:3100/api/v9/channels/123/messages\"  (Spacebar)
+        """
+        if self._api_base_url:
+            return f"{self._api_base_url.rstrip('/')}/{path.lstrip('/')}"
+        return f"https://discord.com/api/v10/{path.lstrip('/')}"
+
     async def connect(self) -> bool:
         """Connect to Discord and start receiving events."""
         if not DISCORD_AVAILABLE:
@@ -734,12 +768,36 @@ class DiscordAdapter(BasePlatformAdapter):
                     self._client = None
                     self._ready_event.clear()
 
+            # ── Custom API base override ─────────────────────────────────
+            # If a custom base_url is configured (e.g. for Spacebar), patch
+            # discord.py's Route.BASE so all HTTP API calls go to the correct
+            # endpoint.  This runs before ``commands.Bot(...)`` so the Bot's
+            # own ``_connection.http`` inherits the patched route base.
+            _route_base_patch = None
+            if self._api_base_url:
+                _route_base_patch = discord.http.Route.BASE
+                discord.http.Route.BASE = self._api_base_url
+                logger.info(
+                    "[%s] Patched discord.http.Route.BASE \u2192 %s",
+                    self.name, self._api_base_url,
+                )
+
             self._client = commands.Bot(
                 command_prefix="!",  # Not really used, we handle raw messages
                 intents=intents,
                 allowed_mentions=_build_allowed_mentions(),
                 **proxy_kwargs_for_bot(proxy_url),
             )
+            # Restore original Route.BASE — the Bot's HTTP client already
+            # captured the patched value at creation time, so keeping the
+            # global override risks confusing other code that constructs
+            # discord.http.Route objects outside the Bot.
+            if _route_base_patch is not None:
+                discord.http.Route.BASE = _route_base_patch
+                logger.debug(
+                    "[%s] Restored discord.http.Route.BASE to %s",
+                    self.name, _route_base_patch,
+                )
             adapter_self = self  # capture for closure
 
             # Register event handlers
@@ -891,8 +949,16 @@ class DiscordAdapter(BasePlatformAdapter):
             if self._slash_commands:
                 self._register_slash_commands()
 
+            def _log_bot_task_result(task: asyncio.Task) -> None:
+                if task.cancelled():
+                    return
+                exc = task.exception()
+                if exc is not None:
+                    logger.error("[%s] Discord bot task exited with error", self.name, exc_info=exc)
+
             # Start the bot in background
             self._bot_task = asyncio.create_task(self._client.start(self.config.token))
+            self._bot_task.add_done_callback(_log_bot_task_result)
 
             # Wait for ready
             await asyncio.wait_for(self._ready_event.wait(), timeout=30)
@@ -902,10 +968,22 @@ class DiscordAdapter(BasePlatformAdapter):
 
         except asyncio.TimeoutError:
             logger.error("[%s] Timeout waiting for connection to Discord", self.name, exc_info=True)
+            if self._client is not None:
+                try:
+                    await self._client.close()
+                except Exception:
+                    pass
+                self._client = None
             self._release_platform_lock()
             return False
         except Exception as e:  # pragma: no cover - defensive logging
             logger.error("[%s] Failed to connect to Discord: %s", self.name, e, exc_info=True)
+            if self._client is not None:
+                try:
+                    await self._client.close()
+                except Exception:
+                    pass
+                self._client = None
             self._release_platform_lock()
             return False
 
@@ -6042,6 +6120,33 @@ def _probe_is_forum_cached(chat_id: str) -> Optional[bool]:
     return _DISCORD_CHANNEL_TYPE_PROBE_CACHE.get(str(chat_id))
 
 
+def _discord_api_url(path: str) -> str:
+    """Build a Discord REST API URL using the global Route.BASE if it has
+    been patched (e.g. for Spacebar), falling back to the default
+    ``https://discord.com/api/v10``.
+
+    This reads the same ``discord.http.Route.BASE`` that the adapter patches
+    in ``DiscordAdapter.connect()``, so standalone callers (like
+    ``_standalone_send``) work correctly without needing a reference to an
+    adapter instance.
+    """
+    try:
+        # If the adapter patched Route.BASE, use it.
+        _base = str(discord.http.Route.BASE or "")
+        if _base and "discord.com" not in _base:
+            return f"{_base.rstrip('/')}/{path.lstrip('/')}"
+    except Exception:
+        pass
+    # Fallback: check env vars for custom API base (set per-profile)
+    try:
+        _env_base = os.getenv("DISCORD_API_BASE") or os.getenv("SPACEBAR_API_BASE") or ""
+        if _env_base and "discord.com" not in _env_base:
+            return f"{_env_base.rstrip('/')}/{path.lstrip('/')}"
+    except Exception:
+        pass
+    return f"https://discord.com/api/v10/{path.lstrip('/')}"
+
+
 def _derive_forum_thread_name(message: str) -> str:
     """Derive a thread name from the first line of the message, capped at 100 chars."""
     first_line = message.strip().split("\n", 1)[0].strip()
@@ -6115,7 +6220,7 @@ async def _standalone_send(
 
         # Thread endpoint: Discord threads are channels; send directly to the thread ID.
         if thread_id:
-            url = f"https://discord.com/api/v10/channels/{thread_id}/messages"
+            url = _discord_api_url(f"channels/{thread_id}/messages")
         else:
             # Check if the target channel is a forum channel (type 15).
             # Forum channels reject POST /messages — create a thread post instead.
@@ -6139,7 +6244,7 @@ async def _standalone_send(
                 else:
                     is_forum = False
                     try:
-                        info_url = f"https://discord.com/api/v10/channels/{chat_id}"
+                        info_url = _discord_api_url(f"channels/{chat_id}")
                         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=15), **_sess_kw) as info_sess:
                             async with info_sess.get(info_url, headers=json_headers, **_req_kw) as info_resp:
                                 if info_resp.status == 200:
@@ -6151,7 +6256,7 @@ async def _standalone_send(
 
             if is_forum:
                 thread_name = _derive_forum_thread_name(message)
-                thread_url = f"https://discord.com/api/v10/channels/{chat_id}/threads"
+                thread_url = _discord_api_url(f"channels/{chat_id}/threads")
 
                 # Filter to readable media files up front so we can pick the
                 # right code path (JSON vs multipart) before opening a session.
@@ -6224,7 +6329,7 @@ async def _standalone_send(
                     result["warnings"] = warnings
                 return result
 
-            url = f"https://discord.com/api/v10/channels/{chat_id}/messages"
+            url = _discord_api_url(f"channels/{chat_id}/messages")
 
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30), **_sess_kw) as session:
             # Send text message (skip if empty and media is present)
