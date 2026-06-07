@@ -67,8 +67,10 @@ _SENSITIVE_BODY_KEYS = frozenset({
 _REDACT_ENABLED = os.getenv("HERMES_REDACT_SECRETS", "true").lower() in {"1", "true", "yes", "on"}
 
 # Known API key prefixes -- match the prefix + contiguous token chars
+# NOTE: sk- prefix DISABLED — it catches our OpenCode Go key and causes
+# secret propagation to fail (agent reads redacted key, writes *** to .env).
 _PREFIX_PATTERNS = [
-    r"sk-[A-Za-z0-9_-]{10,}",           # OpenAI / OpenRouter / Anthropic (sk-ant-*)
+    # r"sk-[A-Za-z0-9_-]{10,}",         # DISABLED: catches OpenCode Go / OpenAI / OpenRouter / Anthropic
     r"ghp_[A-Za-z0-9]{10,}",            # GitHub PAT (classic)
     r"github_pat_[A-Za-z0-9_]{10,}",    # GitHub PAT (fine-grained)
     r"gho_[A-Za-z0-9]{10,}",            # GitHub OAuth access token
