@@ -654,13 +654,331 @@ class DiscordAdapter(BasePlatformAdapter):
 
         Example::
 
-            self._api_url(\"/channels/123/messages\")
-            # \u2192 \"https://discord.com/api/v10/channels/123/messages\"   (default)
-            # \u2192 \"http://localhost:3100/api/v9/channels/123/messages\"  (Spacebar)
+            self._api_url("/channels/123/messages")
+            # → "https://discord.com/api/v10/channels/123/messages"   (default)
+            # → "http://localhost:3100/api/v9/channels/123/messages"  (Spacebar)
         """
         if self._api_base_url:
             return f"{self._api_base_url.rstrip('/')}/{path.lstrip('/')}"
         return f"https://discord.com/api/v10/{path.lstrip('/')}"
+
+    # ── Spacebar / custom API compatibility patches ──────────────────────
+
+    def _apply_spacebar_patches(self) -> list[str]:
+        """Apply ALL monkey-patches to make discord.py work with Spacebar.
+
+        The old ``spacebar-gateway.py`` wrapper applied 16+ patches to fix
+        incompatibilities between Spacebar's v9 API and discord.py's v10
+        expectations.  These are now baked into the adapter so no wrapper
+        script is ever needed.
+
+        Returns a list of patch descriptions for logging.
+        """
+        import discord.http as _http
+        import discord.gateway as _gw
+        from yarl import URL
+        import asyncio
+        import json
+        import sys
+        from pathlib import Path
+        from types import SimpleNamespace
+        from urllib.request import Request, urlopen
+        import textwrap
+        import inspect
+
+        patches: list[str] = []
+        log = logger
+        name = self.name
+        base = self._api_base_url
+        ws_url = os.getenv("SPACEBAR_WS_URL") or os.getenv("DISCORD_WS_URL") or base.replace("https://", "wss://").replace("/api/v9", "").replace("/api/v10", "").rstrip("/") + "/"
+        token = self.config.token or os.getenv("DISCORD_BOT_TOKEN", "")
+
+        # 1. API version downgrade (v10 → v9)
+        _http._set_api_version(9)
+        patches.append("api_version v10→v9")
+
+        # 2. Route.BASE override
+        _http.Route.BASE = base
+        patches.append(f"Route.BASE → {base}")
+
+        # 3. DEFAULT_GATEWAY override (WebSocket endpoint)
+        old_gw = _gw.DiscordWebSocket.DEFAULT_GATEWAY
+        _gw.DiscordWebSocket.DEFAULT_GATEWAY = URL(ws_url)
+        patches.append(f"DEFAULT_GATEWAY → {ws_url}")
+
+        # 4. WebSocket compress=False (Spacebar doesn't support zlib-stream)
+        original_from_client = _gw.DiscordWebSocket.from_client.__func__
+
+        async def _from_client_no_compress(cls, client, **kwargs):
+            kwargs["compress"] = False
+            return await original_from_client(cls, client, **kwargs)
+
+        _gw.DiscordWebSocket.from_client = classmethod(_from_client_no_compress)
+        patches.append("WebSocket from_client → compress=False")
+
+        # 5. Custom IDENTIFY payload (compress=False, minimal intents, presence)
+        original_identify = _gw.DiscordWebSocket.identify
+
+        async def _identify_no_compress(self):
+            payload = {
+                "op": self.IDENTIFY,
+                "d": {
+                    "token": self.token,
+                    "properties": {
+                        "$os": sys.platform,
+                        "$browser": "discord.py",
+                        "$device": "discord.py",
+                    },
+                    "compress": False,
+                    "large_threshold": 250,
+                },
+            }
+            if self.shard_id is not None and self.shard_count is not None:
+                payload["d"]["shard"] = [self.shard_id, self.shard_count]
+            state = self._connection
+            payload["d"]["presence"] = {
+                "status": state._status or "online",
+                "game": state._activity,
+                "since": 0,
+                "afk": False,
+            }
+            # Minimal intents: GUILDS (1) + GUILD_PRESENCES (256) + GUILD_MESSAGES (512)
+            payload["d"]["intents"] = 769
+            await self.call_hooks("before_identify", self.shard_id, initial=self._initial_identify)
+            await self.send_as_json(payload)
+
+        _gw.DiscordWebSocket.identify = _identify_no_compress
+        patches.append("IDENTIFY → compress=False, intents=769, presence")
+
+        # 6. HTTPClient.request — use raw token, not "Bot " prefix
+        request_src = textwrap.dedent(inspect.getsource(_http.HTTPClient.request))
+        request_src = request_src.replace(
+            "headers['Authorization'] = 'Bot ' + self.token",
+            "headers['Authorization'] = self.token",
+        )
+        request_src = request_src.replace("self.__session", "self._HTTPClient__session")
+        request_globals = dict(_http.__dict__)
+        request_locals = {}
+        exec(request_src, request_globals, request_locals)
+        _http.HTTPClient.request = request_locals["request"]
+        patches.append("HTTPClient.request → raw Authorization (no Bot prefix)")
+
+        # 7. Custom slash command sync (Spacebar's application command API differs)
+        def _sanitize_command_payload(payload):
+            if isinstance(payload, list):
+                return [_sanitize_command_payload(item) for item in payload]
+            if not isinstance(payload, dict):
+                return payload
+            cleaned = {}
+            for key, value in payload.items():
+                if key == "autocomplete":
+                    continue
+                if value is None:
+                    continue
+                if isinstance(value, dict):
+                    cleaned[key] = _sanitize_command_payload(value)
+                elif isinstance(value, list):
+                    cleaned[key] = [_sanitize_command_payload(item) for item in value]
+                else:
+                    cleaned[key] = value
+            return cleaned
+
+        async def _spacebar_command_request(self, method, path, payload=None):
+            url = f"{base}{path}"
+            headers = {
+                "Authorization": self.token,
+                "User-Agent": self.user_agent,
+            }
+            request_kwargs = {"headers": headers}
+            if payload is not None:
+                request_kwargs["json"] = _sanitize_command_payload(payload)
+            session = self._HTTPClient__session
+            async with session.request(method, url, **request_kwargs) as response:
+                body = await response.text()
+                if response.status < 200 or response.status >= 300:
+                    raise RuntimeError(f"{method} {path} failed: {response.status} {body}")
+                if not body:
+                    return None
+                return json.loads(body)
+
+        async def _get_global_commands(self, application_id):
+            return await _spacebar_command_request(self, "GET", f"/applications/{application_id}/commands")
+
+        async def _upsert_global_command(self, application_id, payload):
+            return await _spacebar_command_request(self, "POST", f"/applications/{application_id}/commands", payload)
+
+        async def _edit_global_command(self, application_id, command_id, payload):
+            return await _spacebar_command_request(self, "PATCH", f"/applications/{application_id}/commands/{command_id}", payload)
+
+        async def _delete_global_command(self, application_id, command_id):
+            return await _spacebar_command_request(self, "DELETE", f"/applications/{application_id}/commands/{command_id}")
+
+        async def _bulk_upsert_global_commands(self, application_id, payload):
+            return await _spacebar_command_request(self, "PUT", f"/applications/{application_id}/commands", payload)
+
+        _http.HTTPClient.get_global_commands = _get_global_commands
+        _http.HTTPClient.upsert_global_command = _upsert_global_command
+        _http.HTTPClient.edit_global_command = _edit_global_command
+        _http.HTTPClient.delete_global_command = _delete_global_command
+        _http.HTTPClient.bulk_upsert_global_commands = _bulk_upsert_global_commands
+        patches.append("slash command sync → Spacebar custom transport")
+
+        # 8. Custom login bootstrap (Spacebar uses raw /users/@me)
+        original_login = discord.Client.login
+
+        async def _spacebar_login(self, token):
+            if self.loop is discord.client._loop:
+                await self._async_setup_hook()
+            if not isinstance(token, str):
+                raise TypeError(f"expected token to be a str, received {token.__class__.__name__} instead")
+            token = token.strip()
+            if self.http.connector is discord.utils.MISSING:
+                self.http.connector = aiohttp.TCPConnector(limit=0)
+            import aiohttp
+            self.http._HTTPClient__session = aiohttp.ClientSession(
+                connector=self.http.connector,
+                ws_response_class=discord.http.DiscordClientWebSocketResponse,
+                trace_configs=None if self.http.http_trace is None else [self.http.http_trace],
+                cookie_jar=aiohttp.DummyCookieJar(),
+            )
+            self.http._global_over = asyncio.Event()
+            self.http._global_over.set()
+            self.http.token = token
+
+            def _fetch_json(path):
+                req = Request(
+                    f"{base}{path}",
+                    headers={"Authorization": token, "User-Agent": self.http.user_agent},
+                )
+                with urlopen(req, timeout=20) as response:
+                    return json.loads(response.read().decode("utf-8"))
+
+            data = await asyncio.to_thread(_fetch_json, "/users/@me")
+            self._connection.user = discord.user.ClientUser(state=self._connection, data=data)
+            app_payload = None
+            try:
+                app_payload = await asyncio.to_thread(_fetch_json, "/applications/@me")
+            except Exception:
+                pass
+            app_id = int((app_payload or {}).get("id") or self._connection.user.id)
+            self._application = SimpleNamespace(
+                id=app_id,
+                interactions_endpoint_url=(app_payload or {}).get("interactions_endpoint_url"),
+                flags=(app_payload or {}).get("flags", 0),
+            )
+            if self._connection.application_id is None:
+                self._connection.application_id = app_id
+            if not self._connection.application_flags:
+                self._connection.application_flags = (app_payload or {}).get("flags", 0)
+            await self.setup_hook()
+
+        discord.Client.login = _spacebar_login
+        patches.append("Client.login → raw /users/@me bootstrap")
+
+        # 9. Null guild_id guards for ALL Raw*Event models (Spacebar sends null in DMs)
+        import discord.raw_models as _rm
+        _patched_raw = 0
+        for attr_name in dir(_rm):
+            cls = getattr(_rm, attr_name)
+            if isinstance(cls, type) and hasattr(cls, "__init__") and attr_name.startswith("Raw"):
+                original_init = cls.__init__
+                def _make_patched_init(original):
+                    def _patched_init(self, data, *args, **kwargs):
+                        if isinstance(data, dict) and data.get("guild_id") is None:
+                            data = dict(data)
+                            data["guild_id"] = "0"
+                        return original(self, data, *args, **kwargs)
+                    return _patched_init
+                cls.__init__ = _make_patched_init(original_init)
+                _patched_raw += 1
+        patches.append(f"null guild_id guard → {_patched_raw} Raw*Event.__init__")
+
+        # 10. received_message null guild_id guard (catch before dispatch)
+        _original_received_message = _gw.DiscordWebSocket.received_message
+
+        async def _patched_received_message(self, data):
+            if isinstance(data, dict):
+                if data.get("d") and data["d"].get("guild_id") is None:
+                    data["d"] = dict(data["d"])
+                    data["d"]["guild_id"] = "0"
+            return await _original_received_message(self, data)
+
+        _gw.DiscordWebSocket.received_message = _patched_received_message
+        patches.append("received_message → null guild_id guard")
+
+        # 11. Permission_overwrites null guard (Spacebar sends null)
+        import discord.abc as _abc
+        _orig_gc_fill = _abc.GuildChannel._fill_overwrites
+
+        def _safe_gc_fill_sync(self, data):
+            if data.get("permission_overwrites") is None:
+                data["permission_overwrites"] = []
+            return _orig_gc_fill(self, data)
+
+        _abc.GuildChannel._fill_overwrites = _safe_gc_fill_sync
+        patches.append("GuildChannel._fill_overwrites → null permission_overwrites guard")
+
+        # 12. _MissingSentinel dispatch guard (Spacebar race condition)
+        import discord.utils as _utils
+        _orig_client_dispatch = discord.Client.dispatch
+
+        def _safe_dispatch(self, event, *args, **kwargs):
+            if event == "ready" and self.loop is _utils.MISSING:
+                log.warning("[%s] dispatch(%s) suppressed — loop still MISSING", name, event)
+                return
+            _orig_client_dispatch(self, event, *args, **kwargs)
+
+        discord.Client.dispatch = _safe_dispatch
+        patches.append("Client.dispatch → _MissingSentinel guard")
+
+        # 13. TextChannel._update — handle missing Spacebar fields
+        import discord.channel as _chan
+        _original_text_update = _chan.TextChannel._update
+
+        def _patched_text_update(self, guild, data):
+            safe_data = {
+                "name": data.get("name", "unknown"),
+                "parent_id": data.get("parent_id"),
+                "topic": data.get("topic"),
+                "position": data.get("position", 0),
+                "nsfw": data.get("nsfw", False),
+                "rate_limit_per_user": data.get("rate_limit_per_user", 0),
+                "default_auto_archive_duration": data.get("default_auto_archive_duration", 1440),
+                "default_thread_rate_limit_per_user": data.get("default_thread_rate_limit_per_user", 0),
+                "type": data.get("type", 0),
+                "last_message_id": data.get("last_message_id"),
+                "permission_overwrites": data.get("permission_overwrites", []),
+            }
+            _original_text_update(self, guild, safe_data)
+
+        _chan.TextChannel._update = _patched_text_update
+        patches.append("TextChannel._update → safe field defaults")
+
+        # 14. Lock path override — use a Spacebar-specific lock file to
+        #     avoid the stale Windows lock on gateway.lock
+        try:
+            import gateway.status as _gws
+            _SPACEBAR_LOCK_NAME = "gateway.lock.spacebar"
+            _profile_dir = Path(os.getenv("HERMES_HOME", "") or Path.home() / "AppData/Local/hermes")
+            if _profile_dir:
+                _alt_lock = _profile_dir / _SPACEBAR_LOCK_NAME
+                try:
+                    _alt_lock.unlink(missing_ok=True)
+                except OSError:
+                    pass
+                _original_lock_path = _gws._get_gateway_lock_path
+
+                def _patched_lock_path(pid_path=None):
+                    if pid_path is not None:
+                        return pid_path.with_name(_SPACEBAR_LOCK_NAME)
+                    return _profile_dir / _SPACEBAR_LOCK_NAME
+
+                _gws._get_gateway_lock_path = _patched_lock_path
+                patches.append(f"lock path → {_SPACEBAR_LOCK_NAME}")
+        except Exception:
+            pass
+
+        return patches
 
     async def connect(self) -> bool:
         """Connect to Discord and start receiving events."""
@@ -768,18 +1086,17 @@ class DiscordAdapter(BasePlatformAdapter):
                     self._client = None
                     self._ready_event.clear()
 
-            # ── Custom API base override ─────────────────────────────────
-            # If a custom base_url is configured (e.g. for Spacebar), patch
-            # discord.py's Route.BASE so all HTTP API calls go to the correct
-            # endpoint.  This runs before ``commands.Bot(...)`` so the Bot's
-            # own ``_connection.http`` inherits the patched route base.
-            _route_base_patch = None
+            # ── Spacebar / custom API patches ────────────────────────────
+            # When a custom base_url is configured, apply ALL monkey-patches
+            # that the old spacebar-gateway.py used to make discord.py work
+            # with Spacebar's v9 API.  This runs BEFORE ``commands.Bot(...)``
+            # so every subsystem inherits the patches.
+            _spacebar_patches = []
             if self._api_base_url:
-                _route_base_patch = discord.http.Route.BASE
-                discord.http.Route.BASE = self._api_base_url
+                _spacebar_patches = self._apply_spacebar_patches()
                 logger.info(
-                    "[%s] Patched discord.http.Route.BASE \u2192 %s",
-                    self.name, self._api_base_url,
+                    "[%s] Applied %d Spacebar monkey-patches for %s",
+                    self.name, len(_spacebar_patches), self._api_base_url,
                 )
 
             self._client = commands.Bot(
@@ -788,16 +1105,6 @@ class DiscordAdapter(BasePlatformAdapter):
                 allowed_mentions=_build_allowed_mentions(),
                 **proxy_kwargs_for_bot(proxy_url),
             )
-            # Restore original Route.BASE — the Bot's HTTP client already
-            # captured the patched value at creation time, so keeping the
-            # global override risks confusing other code that constructs
-            # discord.http.Route objects outside the Bot.
-            if _route_base_patch is not None:
-                discord.http.Route.BASE = _route_base_patch
-                logger.debug(
-                    "[%s] Restored discord.http.Route.BASE to %s",
-                    self.name, _route_base_patch,
-                )
             adapter_self = self  # capture for closure
 
             # Register event handlers
@@ -6147,6 +6454,12 @@ def _discord_api_url(path: str) -> str:
     return f"https://discord.com/api/v10/{path.lstrip('/')}"
 
 
+def _is_spacebar_mode() -> bool:
+    """Return True when the current process is configured for Spacebar."""
+    _base = os.getenv("DISCORD_API_BASE") or os.getenv("SPACEBAR_API_BASE") or ""
+    return bool(_base) and "discord.com" not in _base
+
+
 def _derive_forum_thread_name(message: str) -> str:
     """Derive a thread name from the first line of the message, capped at 100 chars."""
     first_line = message.strip().split("\n", 1)[0].strip()
@@ -6212,7 +6525,8 @@ async def _standalone_send(
         from gateway.platforms.base import resolve_proxy_url, proxy_kwargs_for_aiohttp
         _proxy = resolve_proxy_url(platform_env_var="DISCORD_PROXY")
         _sess_kw, _req_kw = proxy_kwargs_for_aiohttp(_proxy)
-        auth_headers = {"Authorization": f"Bot {token}"}
+        auth_token = _is_spacebar_mode() and token or f"Bot {token}"
+        auth_headers = {"Authorization": auth_token}
         json_headers = {**auth_headers, "Content-Type": "application/json"}
         media_files = media_files or []
         last_data = None
