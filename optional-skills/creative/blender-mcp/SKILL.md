@@ -4,8 +4,11 @@ description: Control Blender directly from Hermes via socket connection to the b
 version: 1.0.0
 requires: Blender 4.3+ (desktop instance required, headless not supported)
 author: alireza78a
-tags: [blender, 3d, animation, modeling, bpy, mcp]
 platforms: [linux, macos, windows]
+metadata:
+  hermes:
+    tags: [blender, 3d, animation, modeling, bpy, mcp]
+    triggers: [blender, 3d, animation, modeling, mcp, bpy, cgi, 3d-modeling]
 ---
 
 # Blender MCP

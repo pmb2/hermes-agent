@@ -12,8 +12,27 @@ import pytest
 from plugins.memory.mem0 import Mem0MemoryProvider
 
 
+class FakeResponse:
+    """Mimics httpx.Response — just enough for the mem0 HTTP layer."""
+
+    def __init__(self, json_data):
+        self._json_data = json_data
+
+    def raise_for_status(self):
+        pass
+
+    def json(self):
+        return self._json_data
+
+
 class FakeClientV2:
-    """Fake Mem0 client that returns v2-style dict responses and captures call kwargs."""
+    """Fake httpx.Client that returns v2-style dict responses and captures calls.
+
+    Production code calls:
+      - client.post("/search", json={...})  → FakeResponse(json)
+      - client.get("/memories", params={})   → FakeResponse(json)
+      - client.post("/memories", json={...}) → FakeResponse(json)
+    """
 
     def __init__(self, search_results=None, all_results=None):
         self._search_results = search_results or {"results": []}
@@ -22,16 +41,21 @@ class FakeClientV2:
         self.captured_get_all = {}
         self.captured_add = []
 
-    def search(self, **kwargs):
-        self.captured_search = kwargs
-        return self._search_results
+    def post(self, url, **kwargs):
+        payload = kwargs.get("json", {})
+        if url == "/search":
+            self.captured_search = payload
+            return FakeResponse(self._search_results)
+        elif url == "/memories":
+            self.captured_add.append(payload)
+            return FakeResponse({"results": []})
+        return FakeResponse({})
 
-    def get_all(self, **kwargs):
-        self.captured_get_all = kwargs
-        return self._all_results
-
-    def add(self, messages, **kwargs):
-        self.captured_add.append({"messages": messages, **kwargs})
+    def get(self, url, params=None):
+        if url == "/memories":
+            self.captured_get_all = params or {}
+            return FakeResponse(self._all_results)
+        return FakeResponse({})
 
 
 # ---------------------------------------------------------------------------
@@ -69,8 +93,8 @@ class TestMem0FiltersV2:
 
         provider.handle_tool_call("mem0_profile", {})
 
-        assert client.captured_get_all["filters"] == {"user_id": "u123"}
-        assert "user_id" not in {k for k in client.captured_get_all if k != "filters"}
+        assert client.captured_get_all["user_id"] == "u123"
+        # profile uses _read_filters() which returns {"user_id": "u123"}
 
     def test_prefetch_uses_filters(self, monkeypatch):
         client = FakeClientV2()

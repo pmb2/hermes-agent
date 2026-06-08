@@ -1570,3 +1570,96 @@ class TestApprovalTimeoutIsNotConsent:
         assert last_post.get("choice") == "timeout", (
             f"hook choice should be 'timeout' on no-response, got {last_post.get('choice')!r}"
         )
+
+
+class TestDockerComposeLifecycle:
+    """"docker compose restart|stop|kill|down" must be detected as dangerous."""
+
+    def test_docker_compose_restart_is_dangerous(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose restart web")
+        assert is_dangerous is True, f"docker compose restart should be dangerous, got: {desc}"
+        assert "docker" in (desc or "").lower()
+
+    def test_docker_compose_stop_is_dangerous(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose stop db")
+        assert is_dangerous is True, f"docker compose stop should be dangerous, got: {desc}"
+        assert "docker" in (desc or "").lower()
+
+    def test_docker_compose_kill_is_dangerous(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose kill worker")
+        assert is_dangerous is True, f"docker compose kill should be dangerous, got: {desc}"
+        assert "docker" in (desc or "").lower()
+
+    def test_docker_compose_down_is_dangerous(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose down -v")
+        assert is_dangerous is True, f"docker compose down should be dangerous, got: {desc}"
+        assert "docker" in (desc or "").lower()
+
+    def test_docker_compose_up_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose up -d")
+        assert is_dangerous is False, f"docker compose up should be safe, got: {desc}"
+        assert key is None
+
+    def test_docker_compose_build_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose build")
+        assert is_dangerous is False, f"docker compose build should be safe, got: {desc}"
+        assert key is None
+
+    def test_docker_compose_pull_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose pull")
+        assert is_dangerous is False, f"docker compose pull should be safe, got: {desc}"
+        assert key is None
+
+    def test_docker_compose_logs_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose logs -f")
+        assert is_dangerous is False, f"docker compose logs should be safe, got: {desc}"
+        assert key is None
+
+    def test_docker_compose_ps_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker compose ps")
+        assert is_dangerous is False, f"docker compose ps should be safe, got: {desc}"
+        assert key is None
+
+
+class TestDockerLifecycle:
+    """"docker restart|stop|kill" must be detected as dangerous."""
+
+    def test_docker_restart_is_dangerous(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker restart my-container")
+        assert is_dangerous is True, f"docker restart should be dangerous, got: {desc}"
+        assert "docker" in (desc or "").lower()
+
+    def test_docker_stop_is_dangerous(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker stop my-container")
+        assert is_dangerous is True, f"docker stop should be dangerous, got: {desc}"
+        assert "docker" in (desc or "").lower()
+
+    def test_docker_kill_is_dangerous(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker kill my-container")
+        assert is_dangerous is True, f"docker kill should be dangerous, got: {desc}"
+        assert "docker" in (desc or "").lower()
+
+    def test_docker_ps_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker ps -a")
+        assert is_dangerous is False, f"docker ps should be safe, got: {desc}"
+        assert key is None
+
+    def test_docker_run_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker run -it ubuntu bash")
+        assert is_dangerous is False, f"docker run should be safe, got: {desc}"
+        assert key is None
+
+    def test_docker_exec_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker exec -it my-container ls")
+        assert is_dangerous is False, f"docker exec should be safe, got: {desc}"
+        assert key is None
+
+    def test_docker_build_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker build -t my-image .")
+        assert is_dangerous is False, f"docker build should be safe, got: {desc}"
+        assert key is None
+
+    def test_docker_pull_is_safe(self):
+        is_dangerous, key, desc = detect_dangerous_command("docker pull nginx:latest")
+        assert is_dangerous is False, f"docker pull should be safe, got: {desc}"
+        assert key is None

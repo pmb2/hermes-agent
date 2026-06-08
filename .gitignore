@@ -123,3 +123,18 @@ scripts/out/
 # stores the published notes. They are not a build artifact and must never be
 # committed to the repo root. See the hermes-release skill.
 RELEASE_v*.md
+# Local TTS model files & voice data — large binaries, not repo artifacts
+kokoro*.onnx
+voices.bin
+voices.json
+
+# Scratch/test helpers
+mem0_helper.py
+read_file_raw.sh
+
+# Python coverage artifacts (recurring untracked nuisance, cycles 13-18+)
+.coverage
+
+# Local DBs from testing/developing
+*.db
+

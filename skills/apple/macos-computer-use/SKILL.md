@@ -11,7 +11,7 @@ metadata:
   hermes:
     tags: [computer-use, macos, desktop, automation, gui]
     category: desktop
-    related_skills: [browser]
+    # browser removed — it's a toolset, not a skill
 ---
 
 # macOS Computer Use (universal, any-model)

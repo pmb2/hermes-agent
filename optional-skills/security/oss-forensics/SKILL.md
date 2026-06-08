@@ -6,18 +6,20 @@ description: |
   collection, hypothesis formation/validation, and structured forensic reporting.
   Inspired by RAPTOR's 1800+ line OSS Forensics system.
 platforms: [linux, macos, windows]
-category: security
-triggers:
-  - "investigate this repository"
-  - "investigate [owner/repo]"
-  - "check for supply chain compromise"
-  - "recover deleted commits"
-  - "forensic analysis of [owner/repo]"
-  - "was this repo compromised"
-  - "supply chain attack"
-  - "suspicious commit"
-  - "force push detected"
-  - "IOC extraction"
+metadata:
+  hermes:
+    tags: [oss, forensics, security, github, supply-chain]
+    triggers:
+      - "investigate this repository"
+      - "investigate [owner/repo]"
+      - "check for supply chain compromise"
+      - "recover deleted commits"
+      - "forensic analysis of [owner/repo]"
+      - "was this repo compromised"
+      - "supply chain attack"
+      - "suspicious commit"
+      - "force push detected"
+      - "IOC extraction"
 toolsets:
   - terminal
   - web

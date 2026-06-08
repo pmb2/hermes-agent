@@ -1,0 +1,5 @@
+name: mempalace
+version: 1.0.0
+description: "MemPalace — local persistent memory via ChromaDB + semantic search. No API key required."
+pip_dependencies:
+  - mempalace>=3.3.0

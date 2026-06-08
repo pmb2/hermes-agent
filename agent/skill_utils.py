@@ -455,6 +455,33 @@ def extract_skill_conditions(frontmatter: Dict[str, Any]) -> Dict[str, List]:
     }
 
 
+def extract_skill_triggers(frontmatter: Dict[str, Any]) -> List[str]:
+    """Extract trigger keywords/keyphrases from skill frontmatter.
+
+    Skills declare triggers in their metadata as a list of keywords or
+    short phrases that describe what tasks should activate this skill::
+
+        metadata:
+          hermes:
+            triggers:
+              - task: keyword
+              - "multi-word trigger phrase"
+
+    Triggers are used at inference time to auto-suggest skills that match
+    the user's current task, without requiring explicit skill_view() calls.
+    """
+    metadata = frontmatter.get("metadata")
+    if not isinstance(metadata, dict):
+        return []
+    hermes = metadata.get("hermes") or {}
+    if not isinstance(hermes, dict):
+        return []
+    raw = hermes.get("triggers", [])
+    if isinstance(raw, str):
+        raw = [raw]
+    return [str(t).strip() for t in raw if t and str(t).strip()]
+
+
 # ── Skill config extraction ───────────────────────────────────────────────
 
 

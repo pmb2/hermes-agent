@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [finance, valuation, dcf, excel, openpyxl, modeling, investment-banking]
     related_skills: [excel-author, pptx-author, comps-analysis, lbo-model, 3-statement-model]
+    triggers: [finance, dcf, valuation, excel, investment-banking, intrinsic-value, equity-analysis, discounted-cash-flow]
 ---
 
 ## Environment

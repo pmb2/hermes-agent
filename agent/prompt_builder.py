@@ -18,6 +18,7 @@ from agent.runtime_cwd import resolve_agent_cwd
 from agent.skill_utils import (
     extract_skill_conditions,
     extract_skill_description,
+    extract_skill_triggers,
     get_all_skills_dirs,
     get_disabled_skill_names,
     iter_skill_index_files,
@@ -923,7 +924,7 @@ CONTEXT_TRUNCATE_TAIL_RATIO = 0.2
 _SKILLS_PROMPT_CACHE_MAX = 8
 _SKILLS_PROMPT_CACHE: OrderedDict[tuple, str] = OrderedDict()
 _SKILLS_PROMPT_CACHE_LOCK = threading.Lock()
-_SKILLS_SNAPSHOT_VERSION = 1
+_SKILLS_SNAPSHOT_VERSION = 2
 
 
 def _skills_prompt_snapshot_path() -> Path:
@@ -1018,6 +1019,7 @@ def _build_snapshot_entry(
         "description": description,
         "platforms": [str(p).strip() for p in platforms if str(p).strip()],
         "conditions": extract_skill_conditions(frontmatter),
+        "triggers": extract_skill_triggers(frontmatter),
     }
 
 
@@ -1080,6 +1082,43 @@ def _skill_should_show(
             return False
 
     return True
+
+
+def _format_mcp_server_index() -> str:
+    """Build a compact line listing the MCP servers configured in config.yaml.
+
+    Returns a multi-line string like:
+      - postgres: PostgreSQL database operations (pg_execute_query, pg_execute_mutation, ...)
+      - tradingview: Market data & trading analysis
+
+    Gracefully handles the case where MCP is not installed or not configured.
+    """
+    try:
+        from tools.mcp_tool import _load_mcp_config, _servers
+    except (ImportError, Exception):
+        return "  (MCP not available — install with `pip install hermes-agent[mcp]`)"
+    config = _load_mcp_config()
+    if not config:
+        return "  (no MCP servers configured in config.yaml)"
+    lines = []
+    for srv_name, srv_cfg in sorted(config.items()):
+        if not srv_cfg.get("enabled", True):
+            continue
+        url = srv_cfg.get("url", "")
+        command = srv_cfg.get("command", "")
+        transport = "HTTP" if url else "stdio"
+        # Try to count connected tools
+        connected = _servers.get(srv_name)
+        tool_count = 0
+        if connected and hasattr(connected, "_registered_tool_names"):
+            tool_count = len(connected._registered_tool_names)
+        tool_hint = f" ({tool_count} tools)" if tool_count else ""
+        lines.append(
+            f"  - {srv_name}: {transport}{tool_hint}"
+        )
+    if not lines:
+        return "  (all MCP servers disabled)"
+    return "\n".join(lines)
 
 
 def build_skills_system_prompt(
@@ -1162,9 +1201,17 @@ def build_skills_system_prompt(
             str(k): str(v)
             for k, v in (snapshot.get("category_descriptions") or {}).items()
         }
+        # Collect triggers from snapshot entries
+        trigger_map: dict[str, list[str]] = {}
+        for entry in snapshot.get("skills", []):
+            fm_name = entry.get("frontmatter_name") or ""
+            trigs = entry.get("triggers") or []
+            if trigs:
+                trigger_map[fm_name] = trigs[:4]
     else:
         # Cold path: full filesystem scan + write snapshot for next time
         skill_entries: list[dict] = []
+        trigger_map = {}
         for skill_file in iter_skill_index_files(skills_dir, "SKILL.md"):
             is_compatible, frontmatter, desc = _parse_skill_file(skill_file)
             entry = _build_snapshot_entry(skill_file, skills_dir, frontmatter, desc)
@@ -1204,6 +1251,12 @@ def build_skills_system_prompt(
             skill_entries,
             category_descriptions,
         )
+        # Collect triggers from cold-path parsed entries
+        for entry in skill_entries:
+            fm_name = entry.get("frontmatter_name") or ""
+            trigs = entry.get("triggers") or []
+            if trigs:
+                trigger_map[fm_name] = trigs[:4]
 
     # ── External skill directories ─────────────────────────────────────
     # Scan external dirs directly (no snapshot caching — they're read-only
@@ -1260,6 +1313,7 @@ def build_skills_system_prompt(
         result = ""
     else:
         index_lines = []
+
         for category in sorted(skills_by_category.keys()):
             cat_desc = category_descriptions.get(category, "")
             if cat_desc:
@@ -1272,17 +1326,29 @@ def build_skills_system_prompt(
                 if name in seen:
                     continue
                 seen.add(name)
-                if desc:
+                trigs = trigger_map.get(name)
+                if desc and trigs:
+                    index_lines.append(f"    - {name}: {desc} [triggers: {' '.join(trigs)}]")
+                elif desc:
                     index_lines.append(f"    - {name}: {desc}")
+                elif trigs:
+                    index_lines.append(f"    - {name} [triggers: {' '.join(trigs)}]")
                 else:
                     index_lines.append(f"    - {name}")
 
         result = (
             "## Skills (mandatory)\n"
-            "Before replying, scan the skills below. If a skill matches or is even partially relevant "
-            "to your task, you MUST load it with skill_view(name) and follow its instructions. "
+            "Before replying, mentally classify the user's request into one or more task categories "
+            "(e.g. debugging, refactoring, testing, architecture, research, deployment, configuration, "
+            "code review, data analysis, security, performance, frontend, devops, MCP tool invocation). "
+            "Then scan the skills below and select the ones whose description, name, or trigger keywords "
+            "match your task category. If a skill matches or is even partially relevant, you MUST load "
+            "it with skill_view(name) and follow its instructions. "
             "Err on the side of loading — it is always better to have context you don't need "
             "than to miss critical steps, pitfalls, or established workflows. "
+            "Skills tagged with [triggers: ...] show keywords that indicate when they apply. "
+            "For example, if the task is 'debug a test failure', look for skills with triggers like "
+            "'debugging troubleshooting root-cause investigation testing'. "
             "Skills contain specialized knowledge — API endpoints, tool-specific commands, "
             "and proven workflows that outperform general-purpose approaches. Load the skill "
             "even if you think you could handle the task with basic tools like web_search or terminal. "
@@ -1299,11 +1365,23 @@ def build_skills_system_prompt(
             "If a skill you loaded was missing steps, had wrong commands, or needed "
             "pitfalls you discovered, update it before finishing.\n"
             "\n"
+            "### MCP Servers (auto-inferred)\n"
+            "You have configured MCP servers whose tools are registered as function-call tools. "
+            "These tools are automatically available — the following MCP servers are connected:\n"
+            + _format_mcp_server_index() + "\n"
+            "MCP tools are selected by the same inference as any other tool: read their name "
+            "and description, and call them when the task matches their purpose. When a task "
+            "involves database queries, use the postgres MCP tools. For market data or trading "
+            "analysis, use tradingview tools. For company research or contract management, use "
+            "bizdev-agent tools. For web interaction, use the browser tools. You don't need to "
+            "hesitate — if an MCP tool's name/description aligns with the user's request, call it.\n"
+            "\n"
             "<available_skills>\n"
             + "\n".join(index_lines) + "\n"
             "</available_skills>\n"
             "\n"
-            "Only proceed without loading a skill if genuinely none are relevant to the task."
+            "Only proceed without loading a skill if genuinely none are relevant to the task. "
+            "For MCP tools, just use them directly — no need to 'load' them."
         )
 
     # ── Store in LRU cache ────────────────────────────────────────────

@@ -8,7 +8,9 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [skills, authoring, hermes-agent, conventions, skill-md]
-    related_skills: [plan, requesting-code-review]
+    related_skills: [writing-plans, requesting-code-review]
+    triggers: [skill-authoring, skill-md, skill-creation, skill-editing, skill-maintenance, skill-audit]
+
 ---
 
 # Authoring Hermes-Agent Skills (in-repo)

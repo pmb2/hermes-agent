@@ -27,6 +27,7 @@ export { scrollFastPathStats, type ScrollFastPathStats } from './ink/render-node
 export { createRoot, forceRedraw, default as render, renderSync } from './ink/root.js'
 export { stringWidth } from './ink/stringWidth.js'
 export { wrapAnsi } from './ink/wrapAnsi.js'
+export { sanitizeDimension, sanitizeTerminalSize } from './ink/terminalDimensions.js'
 export { isXtermJs } from './ink/terminal.js'
 export type { MouseTrackingMode } from './ink/termio/dec.js'
 export { default as TextInput, UncontrolledTextInput } from 'ink-text-input'

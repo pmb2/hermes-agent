@@ -789,6 +789,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'reference/faq',
+        'reference/changelog',
       ],
     },
   ],

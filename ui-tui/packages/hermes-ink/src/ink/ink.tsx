@@ -18,7 +18,8 @@ import { colorize } from './colorize.js'
 import App from './components/App.js'
 import type { CursorAdvanceNotifier } from './components/CursorAdvanceContext.js'
 import type { CursorDeclaration, CursorDeclarationSetter } from './components/CursorDeclarationContext.js'
-import { FRAME_INTERVAL_MS } from './constants.js'
+import { FRAME_INTERVAL_MS, MAX_COLUMNS, MAX_ROWS, MIN_COLUMNS, MIN_ROWS } from './constants.js'
+import { sanitizeDimension } from './terminalDimensions.js'
 import * as dom from './dom.js'
 import { markDirty } from './dom.js'
 import { KeyboardEvent } from './events/keyboard-event.js'
@@ -332,8 +333,8 @@ export default class Ink {
       stdout: options.stdout,
       stderr: options.stderr
     }
-    this.terminalColumns = options.stdout.columns || 80
-    this.terminalRows = options.stdout.rows || 24
+    this.terminalColumns = sanitizeDimension(options.stdout.columns, MIN_COLUMNS, MAX_COLUMNS, 80)
+    this.terminalRows = sanitizeDimension(options.stdout.rows, MIN_ROWS, MAX_ROWS, 24)
     this.altScreenParkPatch = makeAltScreenParkPatch(this.terminalRows)
     this.stylePool = new StylePool()
     this.charPool = new CharPool()
@@ -486,8 +487,8 @@ export default class Ink {
   // one microtask per burst: vscode fires many SIGWINCHes per panel
   // drag, each ~80ms uncoalesced = event loop visibly locks up.
   private handleResize = () => {
-    const cols = this.options.stdout.columns || 80
-    const rows = this.options.stdout.rows || 24
+    const cols = sanitizeDimension(this.options.stdout.columns, MIN_COLUMNS, MAX_COLUMNS, 80)
+    const rows = sanitizeDimension(this.options.stdout.rows, MIN_ROWS, MAX_ROWS, 24)
     const dimsChanged = cols !== this.terminalColumns || rows !== this.terminalRows
 
     // Terminals often emit 2+ resize events for one user action
@@ -709,8 +710,8 @@ export default class Ink {
     // an extra React re-render cycle.
     flushInteractionTime()
     const renderStart = performance.now()
-    const terminalWidth = this.options.stdout.columns || 80
-    const terminalRows = this.options.stdout.rows || 24
+    const terminalWidth = sanitizeDimension(this.options.stdout.columns, MIN_COLUMNS, MAX_COLUMNS, 80)
+    const terminalRows = sanitizeDimension(this.options.stdout.rows, MIN_ROWS, MAX_ROWS, 24)
 
     const frame = this.renderer({
       frontFrame: this.frontFrame,

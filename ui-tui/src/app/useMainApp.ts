@@ -1,4 +1,4 @@
-import { type ScrollBoxHandle, useApp, useHasSelection, useSelection, useStdout, useTerminalTitle } from '@hermes/ink'
+import { sanitizeDimension, type ScrollBoxHandle, useApp, useHasSelection, useSelection, useStdout, useTerminalTitle } from '@hermes/ink'
 import { useStore } from '@nanostores/react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
@@ -138,14 +138,14 @@ export async function startPromptLiveSession({
 export function useMainApp(gw: GatewayClient) {
   const { exit } = useApp()
   const { stdout } = useStdout()
-  const [cols, setCols] = useState(stdout?.columns ?? 80)
+  const [cols, setCols] = useState(sanitizeDimension(stdout?.columns, 1, 2000, 80))
 
   useEffect(() => {
     if (!stdout) {
       return
     }
 
-    const sync = () => setCols(stdout.columns ?? 80)
+    const sync = () => setCols(sanitizeDimension(stdout.columns, 1, 2000, 80))
 
     stdout.on('resize', sync)
 
@@ -575,7 +575,7 @@ export function useMainApp(gw: GatewayClient) {
           scrollRef.current.scrollToBottom()
         }
 
-        void rpc<TerminalResizeResponse>('terminal.resize', { cols: stdout.columns ?? 80, session_id: ui.sid })
+        void rpc<TerminalResizeResponse>('terminal.resize', { cols: sanitizeDimension(stdout.columns, 1, 2000, 80), session_id: ui.sid })
       }, 100)
     }
 

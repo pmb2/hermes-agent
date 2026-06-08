@@ -1271,6 +1271,7 @@ Subcommands:
 | `export <output> [--session-id ID]` | Export sessions to JSONL. |
 | `delete <session-id>` | Delete one session. |
 | `prune` | Delete old sessions. |
+| `optimize` | Compact FTS5 indexes and reclaim storage — merges segments for faster search (5× on text, 3× on trigram) and frees index pages. Runs automatically inside `prune`; this subcommand does it on-demand without deleting rows. Reports before/after store size. |
 | `stats` | Show session-store statistics. |
 | `rename <session-id> <title>` | Set or change a session title. |
 

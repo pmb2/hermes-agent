@@ -6,7 +6,8 @@ automatic deduplication via the Mem0 Platform API.
 Original PR #2933 by kartik-mem0, adapted to MemoryProvider ABC.
 
 Config via environment variables:
-  MEM0_API_KEY       — Mem0 Platform API key (required)
+  MEM0_API_KEY       — Mem0 Platform API key (optional for self-hosted)
+  MEM0_BASE_URL      — Mem0 server base URL (e.g. http://localhost:8888)
   MEM0_USER_ID       — User identifier (default: hermes-user)
   MEM0_AGENT_ID      — Agent identifier (default: hermes)
 
@@ -48,6 +49,7 @@ def _load_config() -> dict:
 
     config = {
         "api_key": os.environ.get("MEM0_API_KEY", ""),
+        "host": os.environ.get("MEM0_BASE_URL", ""),
         "user_id": os.environ.get("MEM0_USER_ID", "hermes-user"),
         "agent_id": os.environ.get("MEM0_AGENT_ID", "hermes"),
         "rerank": True,
@@ -124,6 +126,7 @@ class Mem0MemoryProvider(MemoryProvider):
         self._client = None
         self._client_lock = threading.Lock()
         self._api_key = ""
+        self._host = ""
         self._user_id = "hermes-user"
         self._agent_id = "hermes"
         self._rerank = True
@@ -141,7 +144,7 @@ class Mem0MemoryProvider(MemoryProvider):
 
     def is_available(self) -> bool:
         cfg = _load_config()
-        return bool(cfg.get("api_key"))
+        return bool(cfg.get("api_key") or cfg.get("host"))
 
     def save_config(self, values, hermes_home):
         """Write config to $HERMES_HOME/mem0.json."""
@@ -160,23 +163,38 @@ class Mem0MemoryProvider(MemoryProvider):
 
     def get_config_schema(self):
         return [
-            {"key": "api_key", "description": "Mem0 Platform API key", "secret": True, "required": True, "env_var": "MEM0_API_KEY", "url": "https://app.mem0.ai"},
+            {"key": "api_key", "description": "Mem0 Platform API key (not needed with self-hosted host)", "secret": True, "required": False, "env_var": "MEM0_API_KEY", "url": "https://app.mem0.ai"},
+            {"key": "host", "description": "Mem0 server base URL (e.g. http://localhost:8888)", "default": ""},
             {"key": "user_id", "description": "User identifier", "default": "hermes-user"},
             {"key": "agent_id", "description": "Agent identifier", "default": "hermes"},
             {"key": "rerank", "description": "Enable reranking for recall", "default": "true", "choices": ["true", "false"]},
         ]
 
     def _get_client(self):
-        """Thread-safe client accessor with lazy initialization."""
+        """Thread-safe client accessor with lazy initialization.
+
+        Uses direct HTTP calls (via httpx) instead of the MemoryClient SDK,
+        which only supports the cloud API.  Works with any OpenAPI-compatible
+        self-hosted mem0 server.
+        """
         with self._client_lock:
             if self._client is not None:
                 return self._client
             try:
-                from mem0 import MemoryClient
-                self._client = MemoryClient(api_key=self._api_key)
-                return self._client
+                import httpx
             except ImportError:
-                raise RuntimeError("mem0 package not installed. Run: pip install mem0ai")
+                raise RuntimeError("httpx not installed. Run: pip install httpx")
+
+            headers = {"Content-Type": "application/json"}
+            if self._api_key:
+                headers["Authorization"] = f"Token {self._api_key}"
+
+            self._client = httpx.Client(
+                base_url=self._host or "https://api.mem0.ai",
+                headers=headers,
+                timeout=30.0,
+            )
+            return self._client
 
     def _is_breaker_open(self) -> bool:
         """Return True if the circuit breaker is tripped (too many failures)."""
@@ -204,6 +222,7 @@ class Mem0MemoryProvider(MemoryProvider):
     def initialize(self, session_id: str, **kwargs) -> None:
         self._config = _load_config()
         self._api_key = self._config.get("api_key", "")
+        self._host = self._config.get("host", "")
         # Prefer gateway-provided user_id for per-user memory scoping;
         # fall back to config/env default for CLI (single-user) sessions.
         self._user_id = kwargs.get("user_id") or self._config.get("user_id", "hermes-user")
@@ -252,12 +271,13 @@ class Mem0MemoryProvider(MemoryProvider):
         def _run():
             try:
                 client = self._get_client()
-                results = self._unwrap_results(client.search(
-                    query=query,
-                    filters=self._read_filters(),
-                    rerank=self._rerank,
-                    top_k=5,
-                ))
+                resp = client.post("/search", json={
+                    "query": query,
+                    "filters": self._read_filters(),
+                    "top_k": 5,
+                })
+                resp.raise_for_status()
+                results = self._unwrap_results(resp.json())
                 if results:
                     lines = [r.get("memory", "") for r in results if r.get("memory")]
                     with self._prefetch_lock:
@@ -282,7 +302,14 @@ class Mem0MemoryProvider(MemoryProvider):
                     {"role": "user", "content": user_content},
                     {"role": "assistant", "content": assistant_content},
                 ]
-                client.add(messages, **self._write_filters())
+                filters = self._write_filters()
+                resp = client.post("/memories", json={
+                    "messages": messages,
+                    "user_id": filters.get("user_id"),
+                    "agent_id": filters.get("agent_id"),
+                    "infer": True,
+                })
+                resp.raise_for_status()
                 self._record_success()
             except Exception as e:
                 self._record_failure()
@@ -311,7 +338,10 @@ class Mem0MemoryProvider(MemoryProvider):
 
         if tool_name == "mem0_profile":
             try:
-                memories = self._unwrap_results(client.get_all(filters=self._read_filters()))
+                filters = self._read_filters()
+                resp = client.get("/memories", params=filters)
+                resp.raise_for_status()
+                memories = self._unwrap_results(resp.json())
                 self._record_success()
                 if not memories:
                     return json.dumps({"result": "No memories stored yet."})
@@ -328,12 +358,14 @@ class Mem0MemoryProvider(MemoryProvider):
             rerank = args.get("rerank", False)
             top_k = min(int(args.get("top_k", 10)), 50)
             try:
-                results = self._unwrap_results(client.search(
-                    query=query,
-                    filters=self._read_filters(),
-                    rerank=rerank,
-                    top_k=top_k,
-                ))
+                resp = client.post("/search", json={
+                    "query": query,
+                    "filters": self._read_filters(),
+                    "rerank": rerank,
+                    "top_k": top_k,
+                })
+                resp.raise_for_status()
+                results = self._unwrap_results(resp.json())
                 self._record_success()
                 if not results:
                     return json.dumps({"result": "No relevant memories found."})
@@ -348,11 +380,14 @@ class Mem0MemoryProvider(MemoryProvider):
             if not conclusion:
                 return tool_error("Missing required parameter: conclusion")
             try:
-                client.add(
-                    [{"role": "user", "content": conclusion}],
-                    **self._write_filters(),
-                    infer=False,
-                )
+                filters = self._write_filters()
+                resp = client.post("/memories", json={
+                    "messages": [{"role": "user", "content": conclusion}],
+                    "user_id": filters.get("user_id"),
+                    "agent_id": filters.get("agent_id"),
+                    "infer": False,
+                })
+                resp.raise_for_status()
                 self._record_success()
                 return json.dumps({"result": "Fact stored."})
             except Exception as e:
