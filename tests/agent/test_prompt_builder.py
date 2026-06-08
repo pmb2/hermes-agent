@@ -2,6 +2,7 @@
 
 import builtins
 import importlib
+import json
 import logging
 import sys
 
@@ -1164,6 +1165,28 @@ class TestBuildSkillsSystemPromptConditional:
         )
         result = build_skills_system_prompt()
         assert "duckduckgo" in result
+
+    def test_rejects_old_snapshot_version(self, monkeypatch, tmp_path):
+        """When the disk snapshot has an old version, it should be rejected
+        and rebuilt from scratch (cold path)."""
+        monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+        skill_dir = tmp_path / "skills" / "general" / "notes"
+        skill_dir.mkdir(parents=True)
+        (skill_dir / "SKILL.md").write_text(
+            "---\nname: notes\ndescription: Take notes\n---\n"
+        )
+        # Write a snapshot with version 1 (current is 2)
+        snap_path = tmp_path / ".skills_prompt_snapshot.json"
+        old_manifest = {"skills/general/notes/SKILL.md": [42, 123]}
+        snap_path.write_text(
+            json.dumps({"version": 1, "manifest": old_manifest, "skills": [], "category_descriptions": {}})
+        )
+        # First call triggers snapshot rejection + cold path rebuild
+        result = build_skills_system_prompt()
+        assert "notes" in result, "Skill should appear after rebuilding from scratch"
+        # Snapshot should now be rewritten with current version
+        rewritten = json.loads(snap_path.read_text(encoding="utf-8"))
+        assert rewritten["version"] == 2, "Snapshot should be rewritten with current version"
 
     def test_null_metadata_does_not_crash(self, monkeypatch, tmp_path):
         """Regression: metadata key present but null should not AttributeError."""
