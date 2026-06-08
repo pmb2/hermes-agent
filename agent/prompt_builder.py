@@ -1112,7 +1112,12 @@ def _format_mcp_server_index() -> str:
         tool_count = 0
         if connected and hasattr(connected, "_registered_tool_names"):
             tool_count = len(connected._registered_tool_names)
-        tool_hint = f" ({tool_count} tools)" if tool_count else ""
+        if connected is None:
+            tool_hint = " (not connected)"
+        elif tool_count:
+            tool_hint = f" ({tool_count} tools)"
+        else:
+            tool_hint = " (0 tools)"
         lines.append(
             f"  - {srv_name}: {transport}{tool_hint}"
         )
