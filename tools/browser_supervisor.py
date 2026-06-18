@@ -311,6 +311,7 @@ class CDPSupervisor:
         self._pending_calls: Dict[int, asyncio.Future] = {}
         self._ws: Optional[ClientConnection] = None
         self._page_session_id: Optional[str] = None
+        self._page_target_id: Optional[str] = None  # target ID for the current page tab
         self._child_sessions: Dict[str, Dict[str, Any]] = {}  # session_id -> info
 
         # Dialog auto-dismiss watchdog handles (per dialog id).
@@ -566,6 +567,148 @@ class CDPSupervisor:
 
         return {"ok": True, "result": value, "result_type": result_type}
 
+    # ── Tab navigation and management ────────────────────────────────────────
+
+    def navigate(self, url: str, timeout: float = 15.0) -> Dict[str, Any]:
+        """Navigate the current page to ``url`` in-place, without opening a new tab.
+
+        Uses CDP ``Page.navigate`` on the already-attached page session so the
+        same tab is reused across subsequent ``browser_navigate`` calls within
+        a task.  Returns ``{"ok": True, "frame_id": "...", "url": "..."}`` on
+        success or ``{"ok": False, "error": "..."}`` on failure.
+
+        Safe to call from any thread — sync bridge onto the supervisor loop.
+        """
+        loop = self._loop
+        if loop is None or not loop.is_running():
+            return {"ok": False, "error": "supervisor loop is not running"}
+        with self._state_lock:
+            if not self._active:
+                return {"ok": False, "error": "supervisor is not active"}
+            session_id = self._page_session_id
+        if not session_id:
+            return {"ok": False, "error": "no page session attached"}
+
+        async def _do_nav():
+            result = await self._cdp(
+                "Page.navigate",
+                {"url": url},
+                session_id=session_id,
+                timeout=timeout,
+            )
+            result_payload = result.get("result", {})
+            error_text = result_payload.get("errorText")
+            if error_text:
+                return {"ok": False, "error": f"Navigation failed: {error_text}"}
+            return {
+                "ok": True,
+                "frame_id": result_payload.get("frameId"),
+                "url": result_payload.get("url") or url,
+                "loader_id": result_payload.get("loaderId"),
+            }
+
+        from agent.async_utils import safe_schedule_threadsafe
+        try:
+            fut = safe_schedule_threadsafe(_do_nav(), loop)
+            if fut is None:
+                return {"ok": False, "error": "supervisor loop unavailable for navigation"}
+            return fut.result(timeout=timeout + 1)
+        except Exception as exc:
+            return {"ok": False, "error": f"{type(exc).__name__}: {exc}"}
+
+    def close_current_tab(self, timeout: float = 5.0) -> Dict[str, Any]:
+        """Close the current page tab via CDP ``Target.closeTarget``.
+
+        After closing, the tab is gone from the browser window.  Further
+        ``navigate()`` calls will fail with "no page session attached" until
+        the supervisor reconnects to a new page target.
+        """
+        loop = self._loop
+        if loop is None or not loop.is_running():
+            return {"ok": False, "error": "supervisor loop is not running"}
+        with self._state_lock:
+            if not self._active:
+                return {"ok": False, "error": "supervisor is not active"}
+            target_id = self._page_target_id
+        if not target_id:
+            return {"ok": False, "error": "no page target id available"}
+
+        async def _do_close():
+            await self._cdp(
+                "Target.closeTarget",
+                {"targetId": target_id},
+                timeout=timeout,
+            )
+            return {"ok": True}
+
+        from agent.async_utils import safe_schedule_threadsafe
+        try:
+            fut = safe_schedule_threadsafe(_do_close(), loop)
+            if fut is None:
+                return {"ok": False, "error": "supervisor loop unavailable"}
+            return fut.result(timeout=timeout + 1)
+        except Exception as exc:
+            return {"ok": False, "error": f"{type(exc).__name__}: {exc}"}
+
+    def get_open_tabs(self) -> Dict[str, Any]:
+        """List all open page targets (tabs) via CDP ``Target.getTargets``.
+
+        Returns ``{"ok": True, "tabs": [{"targetId": ..., "url": ..., "title": ...}, ...]}``.
+        """
+        loop = self._loop
+        if loop is None or not loop.is_running():
+            return {"ok": False, "error": "supervisor loop is not running"}
+
+        async def _do_list():
+            result = await self._cdp("Target.getTargets", timeout=5.0)
+            targets = result.get("result", {}).get("targetInfos", [])
+            tabs = [
+                {"targetId": t["targetId"], "url": t.get("url", ""), "title": t.get("title", "")}
+                for t in targets if t.get("type") == "page"
+            ]
+            return {"ok": True, "tabs": tabs}
+
+        from agent.async_utils import safe_schedule_threadsafe
+        try:
+            fut = safe_schedule_threadsafe(_do_list(), loop)
+            if fut is None:
+                return {"ok": False, "error": "supervisor loop unavailable"}
+            return fut.result(timeout=10.0)
+        except Exception as exc:
+            return {"ok": False, "error": f"{type(exc).__name__}: {exc}"}
+
+    def close_tab(self, target_id: str, timeout: float = 5.0) -> Dict[str, Any]:
+        """Close a specific tab (target) via CDP ``Target.closeTarget``.
+
+        Args:
+            target_id: The CDP target ID of the tab to close (from ``get_open_tabs()``).
+            timeout: Max seconds to wait for the CDP response.
+
+        Returns ``{"ok": True}`` on success or ``{"ok": False, "error": "..."}``.
+        """
+        loop = self._loop
+        if loop is None or not loop.is_running():
+            return {"ok": False, "error": "supervisor loop is not running"}
+        if not target_id:
+            return {"ok": False, "error": "target_id is required"}
+
+        async def _do_close():
+            await self._cdp(
+                "Target.closeTarget",
+                {"targetId": target_id},
+                timeout=timeout,
+            )
+            return {"ok": True}
+
+        from agent.async_utils import safe_schedule_threadsafe
+        try:
+            fut = safe_schedule_threadsafe(_do_close(), loop)
+            if fut is None:
+                return {"ok": False, "error": "supervisor loop unavailable"}
+            return fut.result(timeout=timeout + 1)
+        except Exception as exc:
+            return {"ok": False, "error": f"{type(exc).__name__}: {exc}"}
+
     # ── Supervisor loop internals ────────────────────────────────────────────
 
     def _thread_main(self) -> None:
@@ -706,6 +849,7 @@ class CDPSupervisor:
         else:
             target_id = page_target["targetId"]
 
+        self._page_target_id = target_id
         attach = await self._cdp(
             "Target.attachToTarget",
             {"targetId": target_id, "flatten": True},

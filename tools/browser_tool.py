@@ -1182,6 +1182,24 @@ _cleanup_done = False
 # especially when subagents are doing multi-step browser tasks.
 BROWSER_SESSION_INACTIVITY_TIMEOUT = env_int("BROWSER_INACTIVITY_TIMEOUT", 300)
 
+
+def _get_tab_reuse_enabled() -> bool:
+    """Return True when the browser should reuse existing tabs instead of opening new ones.
+
+    Controlled by ``browser.tab_reuse`` in ``config.yaml`` (default True).
+    When disabled, every ``browser_navigate`` opens a new tab (legacy behavior).
+    """
+    try:
+        from hermes_cli.config import read_raw_config
+        cfg = read_raw_config()
+        val = cfg_get(cfg, "browser", "tab_reuse")
+        if val is not None:
+            return bool(val)
+    except Exception as e:
+        logger.debug("Could not read tab_reuse from config: %s", e)
+    return True
+
+
 # Track last activity time per session
 _session_last_activity: Dict[str, float] = {}
 
@@ -1270,6 +1288,57 @@ def _cleanup_inactive_browser_sessions():
                     del _session_last_activity[task_id]
         except Exception as e:
             logger.warning("Error cleaning up inactive session %s: %s", task_id, e)
+
+
+def _cleanup_extra_tabs():
+    """Close surplus browser tabs in active sessions to prevent tab proliferation.
+
+    For sessions with an active CDP supervisor, lists all open tabs and closes
+    any beyond the first (keeping only the currently-active page).  This is a
+    safety net -- tab reuse in ``browser_navigate`` is the primary defence.
+    """
+    try:
+        from tools.browser_supervisor import SUPERVISOR_REGISTRY  # type: ignore[import-not-found]
+    except Exception:
+        return
+
+    with _cleanup_lock:
+        active_task_ids = list(_active_sessions.keys())
+
+    for task_id in active_task_ids:
+        try:
+            supervisor = SUPERVISOR_REGISTRY.get(task_id)
+            if supervisor is None:
+                continue
+            snap = supervisor.snapshot()
+            if not snap.active:
+                continue
+            tabs_result = supervisor.get_open_tabs()
+            if not tabs_result.get("ok"):
+                continue
+            tabs = tabs_result.get("tabs", [])
+            if len(tabs) <= 1:
+                continue
+
+            current_target_id = supervisor._page_target_id
+            closed_count = 0
+            for tab in tabs:
+                if tab.get("targetId") == current_target_id:
+                    continue
+                try:
+                    supervisor.close_tab(tab["targetId"], timeout=3.0)
+                    closed_count += 1
+                    logger.debug("Tab GC: closed surplus tab %s", tab.get("url", "?")[:80])
+                except Exception as exc:
+                    logger.debug("Tab GC close failed for %s: %s", tab.get("url", "?"), exc)
+
+            if closed_count > 0:
+                logger.info(
+                    "Tab GC: closed %d surplus tabs for task=%s (kept current)",
+                    closed_count, task_id,
+                )
+        except Exception as exc:
+            logger.debug("Tab GC failed for task=%s: %s", task_id, exc)
 
 
 def _write_owner_pid(socket_dir: str, session_name: str) -> None:
@@ -1423,6 +1492,12 @@ def _browser_cleanup_thread_worker():
             _cleanup_inactive_browser_sessions()
         except Exception as e:
             logger.warning("Cleanup thread error: %s", e)
+
+        # Tab garbage collection: close extra tabs in active sessions
+        try:
+            _cleanup_extra_tabs()
+        except Exception as e:
+            logger.debug("Tab GC error (non-critical): %s", e)
 
         # Sleep in 1-second intervals so we can stop quickly if needed
         for _ in range(30):
@@ -2288,6 +2363,74 @@ def _truncate_snapshot(snapshot_text: str, max_chars: int = 8000) -> str:
 # Browser Tool Functions
 # ============================================================================
 
+
+def _try_navigate_same_tab(task_id: str, url: str) -> Dict[str, Any]:
+    """Navigate the existing tab to ``url`` instead of opening a new one.
+
+    Precedence:
+      1. CDP supervisor ``Page.navigate`` (cloud/CDP sessions)
+      2. ``agent-browser eval window.location = '<url>'`` (local sessions)
+      3. ``agent-browser open <url>`` (fallback -- creates a new tab)
+
+    Returns a result dict with the same shape as ``_run_browser_command``
+    (``{"success": ..., "data": {...}}`` or ``{"success": False, "error": ...}``).
+    """
+    # Strategy 1: CDP supervisor Page.navigate (cloud / cdp_url sessions)
+    try:
+        from tools.browser_supervisor import SUPERVISOR_REGISTRY  # type: ignore[import-not-found]
+
+        supervisor = SUPERVISOR_REGISTRY.get(task_id)
+        if supervisor is not None:
+            snap = supervisor.snapshot()
+            if snap.active:
+                nav_result = supervisor.navigate(url, timeout=15.0)
+                if nav_result.get("ok"):
+                    logger.debug(
+                        "Tab reuse (CDP Page.navigate) for task=%s -> %s",
+                        task_id, nav_result.get("url", url)[:80],
+                    )
+                    return {
+                        "success": True,
+                        "data": {
+                            "url": nav_result.get("url", url),
+                            "title": "",
+                            "_via": "cdp_navigate",
+                        },
+                    }
+                logger.debug(
+                    "CDP navigate failed for task=%s: %s; trying fallback",
+                    task_id, nav_result.get("error", "unknown"),
+                )
+    except Exception as exc:
+        logger.debug("CDP supervisor navigate attempt failed for %s: %s", task_id, exc)
+
+    # Strategy 2: agent-browser eval (local mode -- navigate current tab via JS)
+    # Only works if the page isn't on about:blank or a crashed state.
+    # Safe: encodes URL as a JS string with proper escaping.
+    try:
+        escaped_url = url.replace("\\", "\\\\").replace("'", "\\'")
+        eval_result = _run_browser_command(
+            task_id, "eval", [f"window.location.href = '{escaped_url}'"],
+            timeout=15,
+        )
+        if eval_result.get("success"):
+            logger.debug("Tab reuse (eval) for task=%s -> %s", task_id, url[:80])
+            return {
+                "success": True,
+                "data": {"url": url, "title": "", "_via": "eval_navigate"},
+            }
+        logger.debug(
+            "eval navigate failed for task=%s: %s; falling back to new tab",
+            task_id, eval_result.get("error", "unknown"),
+        )
+    except Exception as exc:
+        logger.debug("eval navigate attempt failed for %s: %s", task_id, exc)
+
+    # Strategy 3: Fall back to agent-browser open (new tab -- last resort)
+    logger.info("Tab reuse unavailable for task=%s; opening new tab", task_id)
+    return _run_browser_command(task_id, "open", [url], timeout=max(_get_command_timeout(), 60))
+
+
 def browser_navigate(url: str, task_id: Optional[str] = None) -> str:
     """
     Navigate to a URL in the browser.
@@ -2389,7 +2532,15 @@ def browser_navigate(url: str, task_id: Optional[str] = None) -> str:
         session_info["_first_nav"] = False
         _maybe_start_recording(nav_session_key)
 
-    result = _run_browser_command(nav_session_key, "open", [url], timeout=max(_get_command_timeout(), 60))
+    # Reuse existing tab on subsequent navigations to avoid tab proliferation.
+    # First navigation uses agent-browser open (creates the tab/session).
+    # Subsequent navigations reuse the same tab via CDP Page.navigate or
+    # agent-browser eval, falling back to a new tab if those fail.
+    # Can be disabled with browser.tab_reuse: false in config.yaml.
+    if is_first_nav or not _get_tab_reuse_enabled():
+        result = _run_browser_command(nav_session_key, "open", [url], timeout=max(_get_command_timeout(), 60))
+    else:
+        result = _try_navigate_same_tab(nav_session_key, url)
 
     # Remember which session served this nav so snapshot/click/fill/...
     # on the same task_id hit it (critical when hybrid routing has both a

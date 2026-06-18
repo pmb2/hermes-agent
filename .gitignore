@@ -138,3 +138,10 @@ read_file_raw.sh
 # Local DBs from testing/developing
 *.db
 
+# Scraped data files — real estate/property page dumps from web scraping
+# workflows. Never part of the Hermes Agent codebase.
+page*_*.txt
+
+# Desktop demo-run scratch output (hermes writes demo/*.txt during recorded
+# walkthroughs). Throwaway artifacts, never part of the app.
+apps/desktop/demo/
