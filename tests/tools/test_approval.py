@@ -587,6 +587,9 @@ class TestSensitiveRedirectPattern:
         late_home = tmp_path / "late-home"
         late_home.mkdir()
         monkeypatch.setenv("HOME", str(late_home))
+        # On Windows, os.path.expanduser("~") ignores HOME and reads
+        # USERPROFILE instead. Must patch both for the test to work.
+        monkeypatch.setenv("USERPROFILE", str(late_home))
 
         dangerous, key, desc = detect_dangerous_command(f"echo x > {late_home}/.bashrc")
         assert dangerous is True
