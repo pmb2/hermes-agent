@@ -571,23 +571,34 @@ def _normalize_command_for_detection(command: str) -> str:
     command = command.replace('\x00', '')
     # Normalize Unicode (fullwidth Latin, halfwidth Katakana, etc.)
     command = unicodedata.normalize('NFKC', command)
-    # Strip shell backslash-escapes: r\m → rm. Prevents \-injection bypass.
-    command = re.sub(r'\\([^\n])', r'\1', command)
-    # Strip empty-string literals that split tokens: r''m → rm, r"\"m → rm.
-    command = re.sub(r"''|\"\"", '', command)
-    # Fold the current user's resolved absolute home path into ~/ at detection
-    # time so static user-sensitive patterns catch /home/alice/.bashrc the same
-    # way they catch ~/.bashrc. Do not snapshot this at import time: tests and
-    # profile/session launchers can set HOME after this module is imported.
-    command = _rewrite_resolved_user_home(command)
     # Fold the resolved absolute active-profile home path into the canonical
     # ~/.hermes/ form so the Hermes config/env patterns catch it. In Docker and
     # gateway deployments the agent often references the resolved absolute path
     # directly (e.g. `sed -i ... /home/hermes/.hermes/config.yaml`) rather than
     # ~, $HOME, or $HERMES_HOME. Done at detection time (not via an import-time
-    # pattern snapshot) so it tracks the live HERMES_HOME even when that is set
-    # after this module is imported — as the hermetic test conftest does.
+    # snapshot) so tests can set HERMES_HOME after this module is imported.
+    # Must run BEFORE _rewrite_resolved_user_home: on Windows the Hermes home
+    # is under C:\Users\<user>\AppData\Local\hermes, and the user-home rewrite
+    # would replace the C:\Users\<user>\ prefix, leaving the hermes-home pattern
+    # with a mangled ~/AppData\Local\hermes\ that the static patterns miss.
     command = _rewrite_resolved_hermes_home(command)
+    # Fold the current user's resolved absolute home path into ~/ at detection
+    # time so static user-sensitive patterns catch /home/alice/.bashrc the same
+    # way they catch ~/.bashrc. Do this AFTER _rewrite_resolved_hermes_home so
+    # the absolute Hermes home path is already replaced.
+    command = _rewrite_resolved_user_home(command)
+    # Normalize remaining Windows backslash path separators to forward slashes
+    # BEFORE the shell-escape stripping below. The path rewrites consume the
+    # home prefix backslashes but leave subpath backslashes intact (e.g.
+    # .ssh\authorized_keys). The stripping regex fuses these into
+    # .sshauthorized_keys, which no pattern matches.
+    command = command.replace("\\", "/")
+    # Strip shell backslash-escapes: r\m → rm. Prevents \-injection bypass.
+    # Run AFTER path rewriting so Windows absolute paths survive intact
+    # through the home-path folding steps above.
+    command = re.sub(r'\\([^\\n])', r'\1', command)
+    # Strip empty-string literals that split tokens: r''m → rm, r"\"m → rm.
+    command = re.sub(r"''|\"\"", '', command)
     return command
 
 
@@ -614,10 +625,24 @@ def _rewrite_resolved_user_home(command: str) -> str:
         seen.add(path)
         # Require an absolute path below root so a bad HOME cannot rewrite the
         # whole filesystem namespace.
-        normalized = path.rstrip("/")
+        # Normalise to forward slashes so we handle both POSIX paths
+        # (/home/...) and Windows paths (C:\\Users\\...) with the same
+        # `/` start-with / component-count guard.
+        normalized = path.rstrip("/").replace("\\", "/")
         if not normalized.startswith("/") or normalized.count("/") < 2:
-            continue
+            # Windows absolute paths like C:\\Users\\... are still
+            # absolute — check for a drive letter as alternative guard.
+            if not re.match(r'^[A-Za-z]:/', normalized):
+                continue
+        # Replace both the forward-slash and backslash form of the path
+        # so the command string is caught regardless of the separator
+        # convention the user's shell produced.
         command = command.replace(normalized + "/", "~/")
+        command = command.replace(normalized.replace("/", "\\") + "\\", "~/")
+        # Handle mixed-separator paths: Path.__str__ uses backslashes on
+        # Windows, but the command may use forward slashes beyond the path
+        # boundary (e.g. f"{late_home}/.bashrc").
+        command = command.replace(normalized.replace("/", "\\") + "/", "~/")
     return command
 
 
@@ -647,10 +672,22 @@ def _rewrite_resolved_hermes_home(command: str) -> str:
         # unrelated paths: require an absolute path with at least one non-root
         # component. The active profile home is always a real directory like
         # /home/hermes/.hermes or a per-test tempdir, never a bare root.
-        normalized = path.rstrip("/")
+        # Normalise to forward slashes so we handle both POSIX paths
+        # (/home/...) and Windows paths (C:\Users\...) with the same
+        # `/` start-with / component-count guard.
+        normalized = path.rstrip("/").replace("\\", "/")
         if not normalized.startswith("/") or normalized.count("/") < 2:
-            continue
+            # Windows absolute paths like C:\Users\... are still
+            # absolute — check for a drive letter as alternative guard.
+            if not re.match(r'^[A-Za-z]:/', normalized):
+                continue
+        # Replace both the forward-slash and backslash form of the path
+        # so the command string is caught regardless of the separator
+        # convention the user's shell produced.
         command = command.replace(normalized + "/", "~/.hermes/")
+        command = command.replace(normalized.replace("/", "\\") + "\\", "~/.hermes/")
+        # Handle mixed-separator paths (backslash path + forward-slash suffix)
+        command = command.replace(normalized.replace("/", "\\") + "/", "~/.hermes/")
     return command
 
 
