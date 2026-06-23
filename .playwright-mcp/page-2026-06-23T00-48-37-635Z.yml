@@ -1,0 +1,162 @@
+- generic [ref=e1]:
+  - dialog "Cookie banner" [active] [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - paragraph [ref=e6]:
+          - text: This website stores cookies on your computer. These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media. To find out more about the cookies we use, see our
+          - link "Privacy Policy" [ref=e7] [cursor=pointer]:
+            - /url: https://pipl.com/resources/privacy-documents/
+          - text: .
+        - paragraph [ref=e8]
+        - paragraph [ref=e9]:
+          - text: "If you are a resident of California or any other jurisdiction that recognizes your right to opt-out of the sale or sharing of your information, you may do so by completing the form here:"
+          - link "Do Not Sell or Share My Information" [ref=e10] [cursor=pointer]:
+            - /url: https://pipl.com/privacy-documents/ccpa-opt-out-form?__hstc=38498236.8aa45d9d8d75158221c13a6978affaf2.1765487672256.1766077983611.1766153307915.5&__hssc=38498236.2.1766153307915&__hsfp=2508713841&hsCtaTracking=f47ce206-6476-4259-af65-6e9ec4474dc6%7C916f3fdf-1cc3-4978-b7e7-8bd10cfdcbdb
+      - paragraph [ref=e11]: If you decline, your information won’t be tracked when you visit this website. A single cookie will be used in your browser to remember your preference not to be tracked.
+      - generic [ref=e13]:
+        - button "Cookies settings" [ref=e14] [cursor=pointer]
+        - generic [ref=e15]:
+          - button "Accept All" [ref=e16] [cursor=pointer]
+          - button "Decline All" [ref=e17] [cursor=pointer]
+  - generic [ref=e18]:
+    - banner [ref=e20]:
+      - generic [ref=e25]:
+        - link "pipl-logo" [ref=e31] [cursor=pointer]:
+          - /url: http://pipl.com
+          - img "pipl-logo" [ref=e32]
+        - generic [ref=e34]:
+          - generic [ref=e40]:
+            - link "Contact Sales" [ref=e41] [cursor=pointer]:
+              - /url: http://pipl.com/contact
+            - link "Log In" [ref=e42] [cursor=pointer]:
+              - /url: http://pipl.com/search
+          - button "Open menu" [ref=e48] [cursor=pointer]:
+            - img
+    - main [ref=e49]:
+      - generic [ref=e53]:
+        - generic [ref=e57]:
+          - generic [ref=e58]: 404 Error
+          - heading "Sorry, the page you were looking for at this URL was not found." [level=1] [ref=e60]
+        - link "Go Back to Homepage" [ref=e64] [cursor=pointer]:
+          - /url: /
+    - contentinfo [ref=e66]:
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - generic [ref=e76]:
+            - heading "About the company" [level=4] [ref=e77]
+            - paragraph [ref=e78]: The deepest source of global payment and identity data.
+            - paragraph [ref=e79]:
+              - link "Learn why you should choose Pipl." [ref=e80] [cursor=pointer]:
+                - /url: http://pipl.com/why-pipl
+          - generic [ref=e85]:
+            - link [ref=e86] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/pipl-inc/
+              - img [ref=e89]
+            - link [ref=e93] [cursor=pointer]:
+              - /url: https://twitter.com/pipl_com
+              - img [ref=e96]
+        - generic [ref=e106]:
+          - generic [ref=e109]:
+            - generic [ref=e110]:
+              - link "Solutions":
+                - /url: "#"
+            - list [ref=e111]:
+              - listitem [ref=e112]:
+                - link "Search" [ref=e113] [cursor=pointer]:
+                  - /url: http://pipl.com/solutions/search
+              - listitem [ref=e114]:
+                - link "Trust" [ref=e115] [cursor=pointer]:
+                  - /url: http://pipl.com/solutions/trust
+              - listitem [ref=e116]:
+                - link "Elements" [ref=e117] [cursor=pointer]:
+                  - /url: http://pipl.com/solutions/identity-elements
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - link "Industries":
+                - /url: "#"
+            - list [ref=e122]:
+              - listitem [ref=e123]:
+                - link "Payment Platforms" [ref=e124] [cursor=pointer]:
+                  - /url: http://pipl.com/industries/payment-platforms
+              - listitem [ref=e125]:
+                - link "Ecommerce" [ref=e126] [cursor=pointer]:
+                  - /url: http://pipl.com/industries/ecommerce
+              - listitem [ref=e127]:
+                - link "Marketplaces" [ref=e128] [cursor=pointer]:
+                  - /url: http://pipl.com/industries/marketplaces
+          - generic [ref=e131]:
+            - generic [ref=e132]:
+              - link "Use Cases":
+                - /url: "#"
+            - list [ref=e133]:
+              - listitem [ref=e134]:
+                - link "Payment Fraud" [ref=e135] [cursor=pointer]:
+                  - /url: http://pipl.com/use-cases/payment-fraud
+              - listitem [ref=e136]:
+                - link "Investigations" [ref=e137] [cursor=pointer]:
+                  - /url: http://pipl.com/use-cases/crime-and-fraud-investigations
+              - listitem [ref=e138]:
+                - link "Background Search" [ref=e139] [cursor=pointer]:
+                  - /url: http://pipl.com/use-cases/background-search
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - link "Resources":
+                - /url: "#"
+            - list [ref=e144]:
+              - listitem [ref=e145]:
+                - link "Library" [ref=e146] [cursor=pointer]:
+                  - /url: http://pipl.com/resources/library
+              - listitem [ref=e147]:
+                - link "Blog" [ref=e148] [cursor=pointer]:
+                  - /url: http://pipl.com/resources/blog
+              - listitem [ref=e149]:
+                - link "For Developers" [ref=e150] [cursor=pointer]:
+                  - /url: https://docs.pipl.com/docs
+              - listitem [ref=e151]:
+                - link "Pipl vs Competitors" [ref=e152] [cursor=pointer]:
+                  - /url: http://pipl.com/ppc/review-compare-alternatives-pricing-competitors-analysis
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - link "Company":
+                - /url: "#"
+            - list [ref=e157]:
+              - listitem [ref=e158]:
+                - link "About us" [ref=e159] [cursor=pointer]:
+                  - /url: http://pipl.com/company
+              - listitem [ref=e160]:
+                - link "Careers" [ref=e161] [cursor=pointer]:
+                  - /url: http://pipl.com/company/careers
+              - listitem [ref=e162]:
+                - link "Contact us" [ref=e163] [cursor=pointer]:
+                  - /url: http://pipl.com/contact
+          - generic [ref=e166]:
+            - generic [ref=e167]:
+              - link "Customers":
+                - /url: "#"
+            - list [ref=e168]:
+              - listitem [ref=e169]:
+                - link "Sign In" [ref=e170] [cursor=pointer]:
+                  - /url: http://pipl.com/search/
+              - listitem [ref=e171]:
+                - link "Support" [ref=e172] [cursor=pointer]:
+                  - /url: http://pipl.com/customer-support
+      - generic [ref=e178]:
+        - generic [ref=e184]: Copyright © 2024 Pipl®
+        - generic [ref=e190]:
+          - list [ref=e191]:
+            - listitem [ref=e192]:
+              - link "Website Terms of Use" [ref=e193] [cursor=pointer]:
+                - /url: http://pipl.com/tos
+            - listitem [ref=e194]:
+              - link "Product Terms of Service" [ref=e195] [cursor=pointer]:
+                - /url: http://pipl.com/product-tos
+            - listitem [ref=e196]:
+              - link "Privacy Center" [ref=e197] [cursor=pointer]:
+                - /url: http://pipl.com/privacy-center
+            - listitem [ref=e198]:
+              - link "Privacy Policy" [ref=e199] [cursor=pointer]:
+                - /url: http://pipl.com/resources/privacy-documents/privacy-policy
+            - listitem [ref=e200]:
+              - link "Do Not Sell or Share my Information" [ref=e201] [cursor=pointer]:
+                - /url: http://pipl.com/resources/privacy-documents/california-privacy-notice-individuals
+          - paragraph [ref=e202]

@@ -1,0 +1,35 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - heading "suppression.peopleconnect.us" [level=1] [ref=e5]
+      - heading "Performing security verification" [level=2] [ref=e6]
+      - paragraph [ref=e7]: This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.
+      - alert [ref=e14]:
+        - generic [ref=e15]:
+          - heading "Why is this verification taking longer?" [level=2] [ref=e16]
+          - paragraph [ref=e17]: This verification can take longer due to an older computer or a slow internet connection.
+          - paragraph [ref=e18]: "What to do next:"
+          - list [ref=e19]:
+            - listitem [ref=e20]: Wait briefly. Refreshing the page will restart the security verification and may take longer.
+            - listitem [ref=e21]:
+              - text: If the verification still does not complete,
+              - link "refresh this page" [ref=e22] [cursor=pointer]:
+                - /url: "#"
+              - text: .
+            - listitem [ref=e23]:
+              - text: If you are still stuck on this page after a page refresh, refer to Cloudflare’s
+              - link "troubleshooting documentation" [ref=e24] [cursor=pointer]:
+                - /url: /cdn-cgi/challenge-platform/help
+              - text: for more help.
+  - contentinfo [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e29]:
+        - text: "Ray ID:"
+        - code [ref=e30]: a10471ff9e63db40
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - text: Performance and Security by
+          - link "Cloudflare" [ref=e33] [cursor=pointer]:
+            - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m
+        - link "Privacy" [ref=e35] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/privacypolicy/

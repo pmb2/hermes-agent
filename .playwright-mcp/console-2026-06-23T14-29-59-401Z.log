@@ -1,0 +1,16 @@
+[    1272ms] Uncaught Error: Looks like your website URL has changed. To ensure the proper functioning of your banner, update the registered URL on your CookieYes account (navigate to the Organizations & Sites page (https://app.cookieyes.com/settings/organizations-and-sites) and click the More button associated with your site). Then, reload this page to retry. If the issue persists, please contact us at https://www.cookieyes.com/support.
+    at <anonymous> (https://cdn-cookieyes.com/client_data/ef08b1fa5f41fc4525c31cb4/script.js:0:89079)
+    at <anonymous> (https://cdn-cookieyes.com/client_data/ef08b1fa5f41fc4525c31cb4/script.js:0:98209)
+    at <anonymous> (https://cdn-cookieyes.com/client_data/ef08b1fa5f41fc4525c31cb4/script.js:0:98212)
+[    1727ms] [ERROR] HierarchyRequestError: Failed to execute 'appendChild' on 'Node': This node type does not support this method.
+    at Object.appendChild (https://checkpeople.com/pub/11.0.18/commons/app.js:2:47026)
+    at _ (https://checkpeople.com/pub/11.0.18/commons/app.js:2:60531)
+    at m (https://checkpeople.com/pub/11.0.18/commons/app.js:2:60162)
+    at w (https://checkpeople.com/pub/11.0.18/commons/app.js:2:60605)
+    at N (https://checkpeople.com/pub/11.0.18/commons/app.js:2:63991)
+    at N (https://checkpeople.com/pub/11.0.18/commons/app.js:2:63926)
+    at N (https://checkpeople.com/pub/11.0.18/commons/app.js:2:63926)
+    at N (https://checkpeople.com/pub/11.0.18/commons/app.js:2:63926)
+    at N (https://checkpeople.com/pub/11.0.18/commons/app.js:2:63926)
+    at N (https://checkpeople.com/pub/11.0.18/commons/app.js:2:63926) @ :0
+[    1863ms] [LOG] trustedsite-inline  rescan enabled @ https://checkpeople.com/pub/11.0.18/vendors/app.js:1

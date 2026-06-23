@@ -1,0 +1,321 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e2] [cursor=pointer]
+      - link "Accessibility help" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en
+  - generic [ref=e8]:
+    - search [ref=e9]:
+      - generic [ref=e12]:
+        - link "Go to Google home" [ref=e13] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&ictx=0&sa=X&ved=0ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQpYkNCAw
+          - img "Go to Google home" [ref=e14]
+        - generic [ref=e15]:
+          - combobox "Search" [ref=e18]: "\"Paragon Capital Lending\" Fairburn GA phone \"Paragon Capital Lending\" Fairburn GA phone"
+          - generic [ref=e19]:
+            - button "Clear" [ref=e21] [cursor=pointer]:
+              - img [ref=e23]
+            - generic [ref=e26]:
+              - button "Search by voice" [ref=e27] [cursor=pointer]:
+                - img [ref=e28]
+              - button "Search by image" [ref=e30] [cursor=pointer]:
+                - img [ref=e31]
+        - button "Search" [ref=e33] [cursor=pointer]:
+          - img [ref=e36]
+    - generic [ref=e38]:
+      - button "Settings" [ref=e40] [cursor=pointer]:
+        - img [ref=e43]
+      - button "Share" [ref=e46] [cursor=pointer]:
+        - img [ref=e50]
+      - generic [ref=e52]:
+        - button "Google apps" [ref=e54] [cursor=pointer]:
+          - img [ref=e55]
+        - link "Sign in" [ref=e59] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3D%2522Paragon%2BCapital%2BLending%2522%2BFairburn%2BGA%2Bphone&ec=futura_srp_og_si_72236_p
+  - generic [ref=e61]:
+    - navigation [ref=e67]:
+      - generic [ref=e73]:
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - link "AI Mode" [ref=e78] [cursor=pointer]:
+              - /url: /search?q=%22Paragon+Capital+Lending%22+Fairburn+GA+phone&sca_esv=7c3c44d1206346ec&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3W5XJB4r_6kBibpWEKcxJjw8sUVycU3qWy9F5K-XKtFcV-oaByDXVe1oM3NNV2-x9-Y3TFwm13KSRCr5Jtj9LuO7rAfXp745_uuX2Ew2U0QnH-lgA1poLuUjta8IRyRov0_BRTA&aep=1&ntc=1&sa=X&ved=2ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQ2J8OegQIDRAD
+              - generic [ref=e81]: AI Mode
+          - listitem [ref=e82]:
+            - link "All" [disabled] [ref=e83]:
+              - generic [ref=e85]: All
+          - listitem [ref=e86]:
+            - link "Forums" [ref=e87] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=18&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3W5XJB4r_6kBibpWEKcxJjw8sUVycU3qWy9F5K-XKtFcV-oaByDXVe1oM3NNV2-x9-Y3TFwm13KSRCr5Jtj9LuO7rAfXp745_uuX2Ew2U0QnH-lgA1poLuUjta8IRyRov0_BRTA&q=%22Paragon+Capital+Lending%22+Fairburn+GA+phone&sa=X&ved=2ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQs6gLegQIFxAB
+              - generic [ref=e89]: Forums
+          - listitem [ref=e90]:
+            - link "Images" [ref=e91] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3W5XJB4r_6kBibpWEKcxJjw8sUVycU3qWy9F5K-XKtFcV-oaByDXVe1oM3NNV2-x9-Y3TFwm13KSRCr5Jtj9LuO7rAfXp745_uuX2Ew2U0QnH-lgA1poLuUjta8IRyRov0_BRTA&q=%22Paragon+Capital+Lending%22+Fairburn+GA+phone&sa=X&ved=2ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQtKgLegQIGRAB
+              - generic [ref=e93]: Images
+          - listitem [ref=e94]:
+            - link "Shopping" [ref=e95] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=28&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3W5XJB4r_6kBibpWEKcxJjw8sUVycU3qWy9F5K-XKtFcV-oaByDXVe1oM3NNV2-x9-Y3TFwm13KSRCr5Jtj9LuO7rAfXp745_uuX2Ew2U0QnH-lgA1poLuUjta8IRyRov0_BRTA&q=%22Paragon+Capital+Lending%22+Fairburn+GA+phone&ved=1t:220175&ictx=111
+              - generic [ref=e97]: Shopping
+          - listitem [ref=e98]:
+            - link "Videos" [ref=e99] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=7&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3W5XJB4r_6kBibpWEKcxJjw8sUVycU3qWy9F5K-XKtFcV-oaByDXVe1oM3NNV2-x9-Y3TFwm13KSRCr5Jtj9LuO7rAfXp745_uuX2Ew2U0QnH-lgA1poLuUjta8IRyRov0_BRTA&q=%22Paragon+Capital+Lending%22+Fairburn+GA+phone&sa=X&ved=2ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQtKgLegQIFRAB
+              - generic [ref=e101]: Videos
+          - listitem [ref=e102]:
+            - link "News" [ref=e103] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&q=%22Paragon+Capital+Lending%22+Fairburn+GA+phone&tbm=nws&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3W5XJB4r_6kBibpWEKcxJjw8sUVycU3qWy9F5K-XKtFcV-oaByDXVe1oM3NNV2-x9-Y3TFwm13KSRCr5Jtj9LuO7rAfXp745_uuX2Ew2U0QnH-lgA1poLuUjta8IRyRov0_BRTA&sa=X&ved=2ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQ0pQJegQIGBAB
+              - generic [ref=e105]: News
+          - listitem [ref=e106]:
+            - button "More filters" [ref=e107] [cursor=pointer]:
+              - generic "More filters" [ref=e108]:
+                - generic [ref=e109]:
+                  - generic [ref=e110]: More
+                  - img [ref=e112]
+        - button "Tools" [ref=e115] [cursor=pointer]:
+          - generic [ref=e117]:
+            - generic [ref=e118]: Tools
+            - img [ref=e120]
+    - heading "Search Results" [level=1] [ref=e122]
+    - main [ref=e124]:
+      - generic [ref=e131]:
+        - heading "Fairburn, GA" [level=2] [ref=e132]:
+          - img [ref=e135]:
+            - img [ref=e136]
+          - generic [ref=e139]: Fairburn, GA
+        - generic [ref=e141]:
+          - text: ∙
+          - button "Choose area" [ref=e142] [cursor=pointer]
+        - button "How location is used" [ref=e145] [cursor=pointer]:
+          - img [ref=e147]
+      - generic [ref=e152]:
+        - generic [ref=e154]:
+          - generic [ref=e157]:
+            - generic [ref=e161]:
+              - generic [ref=e171]:
+                - link "Map of Paragon Capital Lending Inc" [ref=e173] [cursor=pointer]:
+                  - /url: /maps/place/Paragon+Capital+Lending+Inc/data=!4m2!3m1!1s0x0:0xa104f3a920d22683?sa=X&ved=1t:2428&ictx=111
+                  - img "Map of Paragon Capital Lending Inc" [ref=e175]
+                - link "Map of Paragon Capital Lending Inc" [ref=e177] [cursor=pointer]:
+                  - /url: /maps/place/Paragon+Capital+Lending+Inc/data=!4m2!3m1!1s0x0:0xa104f3a920d22683?sa=X&ved=1t:2428&ictx=111
+                  - img "Map of Paragon Capital Lending Inc" [ref=e179]
+              - generic [ref=e183]:
+                - heading "Paragon Capital Lending Inc" [level=2] [ref=e186]
+                - generic [ref=e189]: Mortgage lender
+              - generic [ref=e196]:
+                - generic [ref=e210]:
+                  - link "Website" [ref=e212] [cursor=pointer]:
+                    - /url: http://mylendingdepot.com/
+                    - generic [ref=e213]:
+                      - img [ref=e215]
+                      - generic [ref=e217]: Website
+                  - link "Reviews" [ref=e219] [cursor=pointer]:
+                    - /url: /search?sca_esv=7c3c44d1206346ec&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_xzupDPaeN21Is0GoEyOQ2dVj_ZAkTM8CaJQOcWzw6N_fY3le_wWjB_shduwlSy6f3fS4ICaJCFTKFXH88XqXvypF5ym68kkCMKRvmhcKqcHVzSaUA%3D%3D&q=Paragon+Capital+Lending+Inc+Reviews&sa=X&ved=2ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQ0bkNegQIMRAF
+                    - generic [ref=e220]:
+                      - img [ref=e222]
+                      - generic [ref=e224]: Reviews
+                  - button "Save Paragon Capital Lending Inc to collection" [ref=e229] [cursor=pointer]:
+                    - img [ref=e230]
+                    - generic [ref=e232]: Save
+                  - button "Share" [ref=e235] [cursor=pointer]:
+                    - generic [ref=e236]:
+                      - img [ref=e238]
+                      - generic [ref=e240]: Share
+                  - button "Call" [ref=e242] [cursor=pointer]:
+                    - generic [ref=e243]:
+                      - img [ref=e245]
+                      - generic [ref=e247]: Call
+                - generic [ref=e253]:
+                  - generic [ref=e257]:
+                    - generic [ref=e258]:
+                      - link "Phone" [ref=e259] [cursor=pointer]:
+                        - /url: /search?sca_esv=7c3c44d1206346ec&q=mylendingdepot+phone&ludocid=11602666447738906243&sa=X&ved=2ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQ6BN6BAgoEAI
+                      - text: ":"
+                    - link "Call Phone Number (407) 662-0237" [ref=e262] [cursor=pointer]:
+                      - /url: "#"
+                      - text: (407) 662-0237
+                  - generic [ref=e264]:
+                    - generic [ref=e265]:
+                      - link "Hours" [ref=e266] [cursor=pointer]:
+                        - /url: /search?sca_esv=7c3c44d1206346ec&q=mylendingdepot+hours&ludocid=11602666447738906243&sa=X&ved=2ahUKEwil37vWi5uVAxW0lSsGHZ8VFgYQ6BN6BAgpEAI
+                      - text: ":"
+                    - button "Open · Closes 6 PM" [ref=e268]:
+                      - generic [ref=e274]: Open · Closes 6 PM
+                  - button "Suggest an edit" [ref=e283] [cursor=pointer]
+                - generic [ref=e293]:
+                  - generic [ref=e294]:
+                    - heading "Reviews" [level=3] [ref=e295]
+                    - button "More info" [ref=e300] [cursor=pointer]:
+                      - img [ref=e302]
+                    - generic [ref=e304]:
+                      - button "Write a review" [ref=e308] [cursor=pointer]:
+                        - generic [ref=e309]: Write a review
+                      - link "Add photos" [ref=e311] [cursor=pointer]:
+                        - /url: "#"
+                  - button "Be the first to review" [ref=e316] [cursor=pointer]:
+                    - generic [ref=e317]: Be the first to review
+                - generic [ref=e327]:
+                  - generic [ref=e328]:
+                    - heading "From Paragon Capital Lending Inc" [level=3] [ref=e329]
+                    - button "Report description" [ref=e331]:
+                      - img [ref=e332]
+                  - generic [ref=e334]: "\"Residential, Business and Commercial Lending. Refinancing, Equity Lending, Construction Loans, Land and Equipment loans. Collateral loans.\""
+            - link "About this data" [ref=e336] [cursor=pointer]:
+              - /url: https://support.google.com/local-listings?p=how_google_sources
+          - generic [ref=e345]:
+            - generic [ref=e346]:
+              - generic [ref=e347]:
+                - link "Call Phone Number (407) 662-0237" [ref=e349] [cursor=pointer]:
+                  - /url: "#"
+                  - text: (407) 662-0237
+                - generic [ref=e350]: Paragon Capital Lending Inc, Primary Phone
+              - list [ref=e354]:
+                - button "Call Phone Number +14076620237" [ref=e355] [cursor=pointer]:
+                  - generic [ref=e356]:
+                    - img [ref=e358]
+                    - text: Call
+                - link "Directions" [ref=e360] [cursor=pointer]:
+                  - /url: /maps/dir//Paragon+Capital+Lending+Inc/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x4af8ace4701aeef1:0xa104f3a920d22683?sa=X&ved=1t:97007&ictx=111
+                  - generic [ref=e361]:
+                    - img [ref=e363]
+                    - text: Directions
+                - button "Copy Phone Number (407) 662-0237" [ref=e370] [cursor=pointer]:
+                  - generic [ref=e371]:
+                    - img [ref=e373]
+                    - text: Copy
+                    - textbox [ref=e378]: (407) 662-0237
+            - table
+        - generic [ref=e389]:
+          - heading "Thinking Searching Thinking a little longer" [level=2] [ref=e393]:
+            - generic [ref=e394]:
+              - generic [ref=e396]: Thinking
+              - generic [ref=e398]: Searching
+              - generic [ref=e400]: Thinking a little longer
+          - progressbar "Generating" [ref=e402]
+        - generic [ref=e455]:
+          - heading "Web results" [level=2] [ref=e456]
+          - generic [ref=e457]:
+            - generic [ref=e460]:
+              - link "STATE OF GEORGIA Georgia Corporations Division (.gov) https://ecorp.sos.ga.gov › DownloadFile" [ref=e462] [cursor=pointer]:
+                - /url: https://ecorp.sos.ga.gov/BusinessSearch/DownloadFile?filingNo=23720863
+                - heading "STATE OF GEORGIA" [level=3] [ref=e463]
+                - generic [ref=e465]:
+                  - img [ref=e470]
+                  - generic [ref=e472]:
+                    - generic [ref=e474]: Georgia Corporations Division (.gov)
+                    - generic [ref=e476]: https://ecorp.sos.ga.gov › DownloadFile
+              - generic [ref=e477]:
+                - generic:
+                  - generic: PDF
+              - button "About this result" [ref=e478] [cursor=pointer]:
+                - img [ref=e481]
+            - generic [ref=e485]:
+              - text: ":"
+              - emphasis [ref=e486]: PARAGON CAPITAL LENDING
+              - text: "INC. CONTROL NUMBER. : 21226603. BUSINESS TYPE. : Domestic Profit Corporation. ANNUAL REGISTRATION PERIOD : 2022. BUSINESS INFORMATION ..."
+        - generic [ref=e491]:
+          - heading "People also ask" [level=2] [ref=e493]
+          - button "Is Fairburn, GA expensive to live?" [ref=e500] [cursor=pointer]:
+            - generic [ref=e502]: Is Fairburn, GA expensive to live?
+            - img [ref=e505]
+        - generic [ref=e510]:
+          - heading "Web results" [level=2] [ref=e511]
+          - generic [ref=e512]:
+            - generic [ref=e515]:
+              - link "Best citibank near Atlanta, GA 30349 Yelp https://m.yelp.com › Financial Services › Citibank" [ref=e517] [cursor=pointer]:
+                - /url: https://m.yelp.com/search?find_desc=citibank&find_loc=GA%2C+GA+30349
+                - heading "Best citibank near Atlanta, GA 30349" [level=3] [ref=e518]
+                - generic [ref=e524]:
+                  - generic [ref=e526]: Yelp
+                  - generic [ref=e528]: https://m.yelp.com › Financial Services › Citibank
+              - button "About this result" [ref=e529] [cursor=pointer]:
+                - img [ref=e532]
+            - generic [ref=e535]:
+              - generic [ref=e536]:
+                - emphasis [ref=e537]: Paragon Capital Lending
+                - text: "- citibank near me - Atlanta,"
+                - emphasis [ref=e538]: Georgia
+                - text: . 10.
+                - emphasis [ref=e539]: Paragon
+                - text: ... 1165
+                - emphasis [ref=e540]: Fairburn
+                - text: Rd SW, Atlanta,
+                - emphasis [ref=e541]: GA
+                - text: 30331. (404) 469-0857. This Suntrust is ...
+              - link "Read more" [ref=e542] [cursor=pointer]:
+                - /url: https://m.yelp.com/search?find_desc=citibank&find_loc=GA,+GA+30349#:~:text=10.%20Paragon%20Capital%20Lending&text=This%20Suntrust%20is%20conveniently%20located,Fairburn%20Rd%20and%20Cascade%20Rd.
+            - img "Rated 3.3 out of 5, (354) user reviews" [ref=e547]:
+              - text: "3.3"
+              - img [ref=e548]
+              - text: (354)
+        - generic [ref=e554]:
+          - generic [ref=e557]:
+            - link "Active business entities in Fairburn, GA City-Data.com https://www.city-data.com › business-entities › Fairburn-..." [ref=e559] [cursor=pointer]:
+              - /url: https://www.city-data.com/business-entities/Fairburn-GA-P.html
+              - heading "Active business entities in Fairburn, GA" [level=3] [ref=e560]
+              - generic [ref=e566]:
+                - generic [ref=e568]: City-Data.com
+                - generic [ref=e570]: https://www.city-data.com › business-entities › Fairburn-...
+            - button "About this result" [ref=e571] [cursor=pointer]:
+              - img [ref=e574]
+          - generic [ref=e577]:
+            - generic [ref=e578]:
+              - text: Business entities in Georgia;
+              - emphasis [ref=e579]: Fairburn
+              - text: ","
+              - emphasis [ref=e580]: GA
+              - text: . Active business entities in ...
+              - emphasis [ref=e581]: PARAGON CAPITAL LENDING
+              - text: INC. 2050 Liberty Heights, Fairburn 30213. PARENTS FOR ...
+            - link "Read more" [ref=e582] [cursor=pointer]:
+              - /url: https://www.city-data.com/business-entities/Fairburn-GA-P.html#:~:text=Business%20entities%20in%20Georgia,business%20entities%20in%20Fairburn%2C%20GA&text=PARAGON%20CAPITAL%20LENDING%20INC,PARENTS%20FOR%20THE%20COMMUNITY%20INC
+        - generic [ref=e586]:
+          - generic [ref=e589]:
+            - link "Chase Bank Atlanta, GA 30349 - Last Updated June 2026 Yelp https://www.yelp.com › Financial Services › Chase Bank" [ref=e591] [cursor=pointer]:
+              - /url: https://www.yelp.com/search?find_desc=Chase+Bank&find_loc=Atlanta%2C+GA+30349
+              - heading "Chase Bank Atlanta, GA 30349 - Last Updated June 2026" [level=3] [ref=e592]
+              - generic [ref=e598]:
+                - generic [ref=e600]: Yelp
+                - generic [ref=e602]: https://www.yelp.com › Financial Services › Chase Bank
+            - button "About this result" [ref=e603] [cursor=pointer]:
+              - img [ref=e606]
+          - generic [ref=e609]:
+            - generic [ref=e610]:
+              - text: "1165"
+              - emphasis [ref=e611]: Fairburn
+              - text: Rd SW, Atlanta,
+              - emphasis [ref=e612]: GA
+              - text: 30331. This Suntrust is conveniently ...
+              - emphasis [ref=e613]: Paragon Capital Lending
+              - text: "- Chase Bank near me - Atlanta,"
+              - emphasis [ref=e614]: Georgia
+              - text: . 51.
+              - emphasis [ref=e615]: Paragon
+              - text: ...
+            - link "Read more" [ref=e616] [cursor=pointer]:
+              - /url: https://www.yelp.com/search?find_desc=Chase+Bank&find_loc=Atlanta,+GA+30349#:~:text=1165%20Fairburn%20Rd%20SW%2C%20Atlanta%2C,Fairburn%20Rd%20and%20Cascade%20Rd.&text=51.%20Paragon%20Capital%20Lending
+          - img "Rated 2.8 out of 5, (561) user reviews" [ref=e621]:
+            - text: "2.8"
+            - img [ref=e622]
+            - text: (561)
+      - generic:
+        - generic:
+          - navigation
+      - navigation
+    - contentinfo [ref=e626]:
+      - heading "Footer Links" [level=1] [ref=e627]
+      - generic [ref=e631]:
+        - generic [ref=e635]:
+          - button "12302, New York - From your IP address" [ref=e637] [cursor=pointer]:
+            - generic [ref=e638]: 12302, New York
+            - generic [ref=e640]:
+              - text: "-"
+              - generic [ref=e641]: From your IP address
+          - text: "-"
+          - button "Update location" [ref=e643] [cursor=pointer]: Update location
+        - generic [ref=e646]:
+          - link "Help" [ref=e647] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en&fg=1
+          - link "Send feedback" [ref=e648] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e649] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en&fg=1
+          - link "Terms" [ref=e650] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en&fg=1

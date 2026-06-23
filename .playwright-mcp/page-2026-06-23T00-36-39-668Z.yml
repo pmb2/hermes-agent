@@ -1,0 +1,205 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Cloudflare home" [ref=e6] [cursor=pointer]:
+        - /url: https://www.cloudflare.com
+        - img "Cloudflare logo" [ref=e7]
+      - navigation [ref=e20]:
+        - link "Home" [ref=e21] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/
+        - link "Support" [ref=e22] [cursor=pointer]:
+          - /url: https://support.cloudflare.com/
+        - link "Abuse Policy" [ref=e23] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/trust-hub/abuse-approach/
+        - link "Log In" [ref=e24] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/a/login
+        - link "Sign Up" [ref=e25] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/a/sign-up
+      - generic [ref=e27]:
+        - combobox "Theme" [ref=e28] [cursor=pointer]:
+          - generic [ref=e30]:
+            - img [ref=e31]
+            - text: System
+          - img [ref=e35]
+        - textbox [ref=e37]: system
+  - main [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e98]: Submit an abuse report
+        - generic [ref=e99]:
+          - heading "General" [level=1] [ref=e100]
+          - generic [ref=e102]:
+            - combobox "Abuse type" [ref=e103] [cursor=pointer]:
+              - generic [ref=e104]: General
+              - img [ref=e106]
+            - textbox [ref=e108]: general
+      - generic [ref=e109]:
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - paragraph [ref=e115]: Your full name
+            - textbox "Your full name" [ref=e117]: Paul Backus
+          - generic [ref=e118]:
+            - paragraph [ref=e121]: Your email address
+            - textbox "Your email address" [ref=e123]: justplainpaulie@gmail.com
+          - generic [ref=e124]:
+            - paragraph [ref=e127]: Confirm email address
+            - textbox "Confirm email address" [ref=e129]: justplainpaulie@gmail.com
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - paragraph [ref=e133]: Title
+              - paragraph [ref=e134]: Optional
+            - textbox "Title" [ref=e136]
+          - generic [ref=e137]:
+            - generic [ref=e138]:
+              - paragraph [ref=e140]: Company name
+              - paragraph [ref=e141]: Optional
+            - textbox "Company name" [ref=e143]
+          - generic [ref=e144]:
+            - generic [ref=e145]:
+              - paragraph [ref=e147]: Telephone
+              - paragraph [ref=e148]: Optional
+            - textbox "Telephone" [ref=e150]
+          - generic [ref=e151]:
+            - paragraph [ref=e154]: Evidence URLs
+            - textbox "Evidence URLs" [ref=e156]:
+              - /placeholder: Place each URL on a separate line
+              - text: https://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - paragraph [ref=e160]: Source IPs
+              - paragraph [ref=e161]: Optional
+            - textbox "Source IPs" [ref=e163]:
+              - /placeholder: Place each IP address on a separate line
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - paragraph [ref=e167]: Destination IPs
+              - paragraph [ref=e168]: Optional
+            - textbox "Destination IPs" [ref=e170]:
+              - /placeholder: Place each IP address on a separate line
+          - generic [ref=e171]:
+            - generic [ref=e172]:
+              - paragraph [ref=e174]: Destination ports and protocols
+              - paragraph [ref=e175]: Optional
+            - textbox "Destination ports and protocols" [ref=e177]:
+              - /placeholder: e.g. 22/TCP
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - paragraph [ref=e181]: Logs or other evidence of abuse
+              - paragraph [ref=e184]:
+                - generic [ref=e185]:
+                  - text: This field may be released by Cloudflare to third parties such as the
+                  - link "Lumen Database" [ref=e186] [cursor=pointer]:
+                    - /url: https://lumendatabase.org/
+                  - text: .
+            - textbox "Logs or other evidence of abuse" [ref=e188]:
+              - /placeholder: Provide a detailed description of the infringment, including any necessary access details and the exact steps needed to view the content.
+              - text: "This website (allrecentarrests.org) has published a false and defamatory page claiming Paul Backus is \"currently incarcerated\" in Schenectady, New York. The page contains zero verifiable details: no inmate ID, no charges, no booking photo, no booking date. This is an auto-generated data broker page created by scraping public records and fabricating an incarceration claim. This false information damages reputation and causes emotional distress. The page URL is https://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/"
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - paragraph [ref=e192]: Reporter current country
+              - paragraph [ref=e193]: Optional
+              - paragraph [ref=e195]: Location in which the abuse was observed
+            - generic [ref=e197]:
+              - combobox "Reporter current country" [ref=e198] [cursor=pointer]:
+                - generic [ref=e199]: Select a country
+                - img [ref=e201]
+              - textbox [ref=e203]
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - paragraph [ref=e207]: User agent
+              - paragraph [ref=e208]: Optional
+              - paragraph [ref=e210]: "Please provide the browser name and version (ie: \"Chrome/124.0\") and/or the Operating System (ie: \"macOS\")"
+            - textbox "User agent" [ref=e212]:
+              - /placeholder: e.g., Chrome/124.0 macOS
+          - generic [ref=e213]:
+            - generic [ref=e214]:
+              - paragraph [ref=e216]: Comments
+              - paragraph [ref=e217]: Optional
+              - paragraph [ref=e220]: Comments are kept internal to Cloudflare and not shared with the host or customer as part of regular processing.
+            - textbox "Comments" [ref=e222]:
+              - /placeholder: Any additional comments
+          - generic [ref=e224]:
+            - paragraph [ref=e226]: Who should be notified?
+            - paragraph [ref=e227]: "Because Cloudflare does not have the ability to remove content from a website, it is our practice to forward abuse complaints to entities like the hosting provider and/or website owner to follow up. Please specify:"
+            - generic [ref=e228]:
+              - generic [ref=e230]:
+                - checkbox "Please forward my report to the website hosting provider." [checked] [disabled] [ref=e231]:
+                  - img [ref=e233]
+                - checkbox [checked] [disabled] [ref=e235]
+                - generic [ref=e236]: Please forward my report to the website hosting provider.
+              - generic [ref=e239] [cursor=pointer]:
+                - checkbox "Include my name and contact information with the report to the website hosting provider." [ref=e240]
+                - checkbox [ref=e241]
+                - generic [ref=e242]: Include my name and contact information with the report to the website hosting provider.
+            - generic [ref=e243]:
+              - generic [ref=e245]:
+                - checkbox "Please forward my report to the website owner." [checked] [disabled] [ref=e246]:
+                  - img [ref=e248]
+                - checkbox [checked] [disabled] [ref=e250]
+                - generic [ref=e251]: Please forward my report to the website owner.
+              - generic [ref=e254] [cursor=pointer]:
+                - checkbox "Include my name and contact information with the report to the website owner." [ref=e255]
+                - checkbox [ref=e256]
+                - generic [ref=e257]: Include my name and contact information with the report to the website owner.
+          - generic [ref=e259]:
+            - paragraph [ref=e261]: DSA certification of bona fide belief
+            - paragraph [ref=e262]: By checking this box, you confirm that you have a bona fide belief that the information and allegations contained in this report are accurate and complete. Please note that, to the extent this report concerns a website using one of Cloudflare's hosting services, Cloudflare may require this box to be checked before engaging in the notice and action process.
+            - generic [ref=e264] [cursor=pointer]:
+              - checkbox "DSA certification of bona fide belief" [checked] [active] [ref=e265]:
+                - img [ref=e282]
+              - checkbox [checked] [ref=e266]
+              - generic [ref=e267]: DSA certification of bona fide belief
+          - button "Submit" [disabled] [ref=e272]
+        - complementary [ref=e273]:
+          - generic [ref=e275]:
+            - emphasis [ref=e276]: How to submit a report
+            - generic [ref=e277]:
+              - text: To file a report with Cloudflare, please select the appropriate category on the reporting form. Please be sure to fill out each field requested in the form and be as specific as possible regarding the content and its location on the website. You may submit up to 250 URLs at a time. An explanation of our approach to abuse and what you can expect us to do in response to your report is available
+              - link "here" [ref=e278] [cursor=pointer]:
+                - /url: https://www.cloudflare.com/trust-hub/abuse-approach/
+              - text: . Please note that reports submitted through this form are subject to Cloudflare's
+              - link "privacy policy" [ref=e279] [cursor=pointer]:
+                - /url: https://www.cloudflare.com/privacypolicy/
+              - text: ", and that reports may be released by Cloudflare to third parties such as the"
+              - link "Lumen Database" [ref=e280] [cursor=pointer]:
+                - /url: https://lumendatabase.org/
+              - text: .
+  - contentinfo [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - link "Facebook" [ref=e54] [cursor=pointer]:
+          - /url: https://www.facebook.com/Cloudflare/
+          - img "Facebook" [ref=e55]
+        - link "Twitter" [ref=e56] [cursor=pointer]:
+          - /url: https://twitter.com/Cloudflare
+          - img "Twitter" [ref=e57]
+        - link "LinkedIn" [ref=e58] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/cloudflare-inc-
+          - img "LinkedIn" [ref=e59]
+        - link "Youtube" [ref=e60] [cursor=pointer]:
+          - /url: https://www.youtube.com/cloudflare
+          - img "Youtube" [ref=e61]
+        - link "Instagram" [ref=e62] [cursor=pointer]:
+          - /url: https://www.instagram.com/cloudflare
+          - img "Instagram" [ref=e63]
+      - generic [ref=e64]:
+        - generic [ref=e65]: © 2026 Cloudflare, Inc.
+        - generic [ref=e66]:
+          - text: "|"
+          - link "Privacy Policy" [ref=e67] [cursor=pointer]:
+            - /url: https://www.cloudflare.com/privacypolicy/
+        - generic [ref=e68]:
+          - text: "|"
+          - link "Terms of Use" [ref=e69] [cursor=pointer]:
+            - /url: https://www.cloudflare.com/website-terms/
+        - generic [ref=e70]:
+          - text: "|"
+          - link "Disclosure" [ref=e71] [cursor=pointer]:
+            - /url: https://www.cloudflare.com/disclosure/
+        - generic [ref=e72]:
+          - text: "|"
+          - link "Trademark" [ref=e73] [cursor=pointer]:
+            - /url: https://www.cloudflare.com/trademark/
+        - generic [ref=e74]:
+          - text: "|"
+          - button "Cookie preferences" [ref=e75] [cursor=pointer]

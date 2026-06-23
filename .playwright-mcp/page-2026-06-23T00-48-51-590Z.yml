@@ -1,0 +1,159 @@
+- generic [ref=e1]:
+  - alert [ref=e2]: Press Alt+1 for screen-reader mode, Alt+0 to cancel
+  - button "Use Website In a Screen-Reader Mode" [ref=e3]
+  - link "Accessibility Screen-Reader Guide, Feedback, and Issue Reporting | New window" [ref=e4] [cursor=pointer]:
+    - /url: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+  - generic:
+    - generic:
+      - region "Skip Links":
+        - generic:
+          - link "Skip to Content":
+            - /url: "#acsbContent"
+            - text: Skip to Content
+            - generic:
+              - generic: ↵
+              - text: ENTER
+  - dialog [ref=e5]:
+    - generic [ref=e6]:
+      - img [ref=e7]
+      - text: Simplify Text
+    - button [ref=e9] [cursor=pointer]:
+      - img [ref=e10]
+  - 'button "Open accessiBe: accessibility options, statement and help" [ref=e13] [cursor=pointer]':
+    - generic:
+      - img [ref=e14]
+      - img
+      - img
+  - dialog "Cookie banner" [active] [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e20]:
+        - paragraph [ref=e21]:
+          - text: This website stores cookies on your computer. These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media. To find out more about the cookies we use, see our
+          - link "Privacy Policy" [ref=e22] [cursor=pointer]:
+            - /url: https://pipl.com/resources/privacy-documents/
+          - text: .
+        - paragraph [ref=e23]
+        - paragraph [ref=e24]:
+          - text: "If you are a resident of California or any other jurisdiction that recognizes your right to opt-out of the sale or sharing of your information, you may do so by completing the form here:"
+          - link "Do Not Sell or Share My Information" [ref=e25] [cursor=pointer]:
+            - /url: https://pipl.com/privacy-documents/ccpa-opt-out-form?__hstc=38498236.8aa45d9d8d75158221c13a6978affaf2.1765487672256.1766077983611.1766153307915.5&__hssc=38498236.2.1766153307915&__hsfp=2508713841&hsCtaTracking=f47ce206-6476-4259-af65-6e9ec4474dc6%7C916f3fdf-1cc3-4978-b7e7-8bd10cfdcbdb
+      - paragraph [ref=e26]: If you decline, your information won’t be tracked when you visit this website. A single cookie will be used in your browser to remember your preference not to be tracked.
+      - generic [ref=e28]:
+        - button "Cookies settings" [ref=e29] [cursor=pointer]
+        - generic [ref=e30]:
+          - button "Accept All" [ref=e31] [cursor=pointer]
+          - button "Decline All" [ref=e32] [cursor=pointer]
+  - generic [ref=e33]:
+    - banner [ref=e34]:
+      - generic [ref=e36]:
+        - link "pipl-logo" [ref=e38] [cursor=pointer]:
+          - /url: http://pipl.com
+          - img "pipl-logo" [ref=e39]
+        - generic:
+          - generic:
+            - navigation
+    - main [ref=e44]:
+      - generic [ref=e51]:
+        - generic [ref=e58]:
+          - heading "CCPA - Opt Out" [level=1] [ref=e59]: CCPA - Opt Out
+          - generic [ref=e61]:
+            - strong [ref=e63]: This form is meant to be used only by residents of California exercising their opt-out rights pursuant to the CCPA.
+            - generic [ref=e64]:
+              - text: If you are not a resident of California, please use
+              - link "this form." [ref=e65] [cursor=pointer]:
+                - /url: /personal-information-removal-request
+            - generic [ref=e66]: Use the fields below to provide the information you would like to have removed from our databases. The more information you provide, the more accurate and faster the process will be.
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e79]: Full Name*
+            - textbox [ref=e81]
+          - generic [ref=e82]:
+            - generic [ref=e84]: Email Address*
+            - textbox "Email Address*" [ref=e86]:
+              - /placeholder: ""
+          - generic [ref=e87]:
+            - generic [ref=e89]: Phone Number*
+            - textbox [ref=e91]
+          - generic [ref=e92]:
+            - generic [ref=e94]: Address*
+            - textbox [ref=e96]
+          - generic [ref=e97]:
+            - generic [ref=e98]: Message
+            - textbox "Message" [ref=e100]:
+              - /placeholder: ""
+          - generic [ref=e101]:
+            - generic [ref=e103]: Solve this math problem to continue*
+            - generic [ref=e104]:
+              - generic [ref=e105]:
+                - generic [ref=e106]: "9"
+                - generic [ref=e107]: +
+                - generic [ref=e108]: "10"
+                - generic [ref=e109]: =
+              - spinbutton "Solve this math problem to continue*" [ref=e110]
+          - iframe [ref=e118]:
+            - generic [ref=f21e2]:
+              - generic [ref=f21e3]:
+                - checkbox "I'm not a robot" [ref=f21e7]
+                - generic [ref=f21e11]: I'm not a robot
+                - generic [ref=f21e13]:
+                  - text: reCAPTCHA is changing its terms of service.
+                  - link "Take action." [ref=f21e14] [cursor=pointer]:
+                    - /url: https://google.com/recaptcha/admin/migrate
+              - generic [ref=f21e18]: reCAPTCHA
+          - button "Submit" [disabled] [ref=e121] [cursor=pointer]
+    - contentinfo [ref=e124]:
+      - generic [ref=e126]:
+        - generic [ref=e127]:
+          - generic:
+            - link:
+              - /url: /
+          - heading "About the company" [level=6] [ref=e130]
+          - generic [ref=e131]: "Nobody knows people like Pipl - the #1 source for online identity and trust."
+          - navigation "Navigation Menu" [ref=e134]:
+            - menu [ref=e135]:
+              - menuitem "Learn why you should choose Pipl." [ref=e136] [cursor=pointer]
+          - generic [ref=e140]:
+            - link [ref=e141] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/pipl-inc/
+              - img [ref=e144]
+            - link [ref=e147] [cursor=pointer]:
+              - /url: https://twitter.com/pipl_com
+              - img [ref=e150]
+        - generic [ref=e154]:
+          - generic [ref=e155]:
+            - heading "Who We Serve" [level=6] [ref=e156]
+            - navigation "Navigation Menu" [ref=e159]:
+              - menu [ref=e160]:
+                - menuitem "Online Marketplaces and Communities" [ref=e161] [cursor=pointer]
+                - menuitem "Online Media and Content" [ref=e162] [cursor=pointer]
+                - menuitem "Online Commerce and Payments" [ref=e163] [cursor=pointer]
+                - menuitem "Crime and Fraud Investigation Teams" [ref=e164] [cursor=pointer]
+                - menuitem "People and Background Search Platforms" [ref=e165] [cursor=pointer]
+          - generic [ref=e166]:
+            - heading "Resources" [level=6] [ref=e167]
+            - navigation "Navigation Menu" [ref=e170]:
+              - menu [ref=e171]:
+                - menuitem "Library" [ref=e172] [cursor=pointer]
+                - menuitem "Blog" [ref=e173] [cursor=pointer]
+                - menuitem "For Developers" [ref=e174] [cursor=pointer]
+          - generic [ref=e175]:
+            - heading "Company" [level=6] [ref=e176]
+            - navigation "Navigation Menu" [ref=e179]:
+              - menu [ref=e180]:
+                - menuitem "About Us" [ref=e181] [cursor=pointer]
+                - menuitem "Careers" [ref=e182] [cursor=pointer]
+                - menuitem "Contact Us" [ref=e183] [cursor=pointer]
+          - generic [ref=e184]:
+            - heading "Customers" [level=6] [ref=e185]
+            - navigation "Navigation Menu" [ref=e188]:
+              - menu [ref=e189]:
+                - menuitem "Sign In" [ref=e190] [cursor=pointer]
+                - menuitem "Support" [ref=e191] [cursor=pointer]
+      - generic [ref=e193]:
+        - generic [ref=e195]: Copyright © 2026 Pipl®
+        - navigation "Navigation Menu" [ref=e200]:
+          - menu [ref=e201]:
+            - menuitem "Website Terms of Use" [ref=e202] [cursor=pointer]
+            - menuitem "Privacy Center" [ref=e203] [cursor=pointer]
+            - menuitem "Privacy Policy" [ref=e204] [cursor=pointer]
+            - menuitem "Do Not Sell or Share my Information" [ref=e205] [cursor=pointer]

@@ -1,0 +1,18 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - heading "suppression.peopleconnect.us" [level=1] [ref=e5]
+      - heading "Performing security verification" [level=2] [ref=e6]
+      - paragraph [ref=e7]: This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.
+  - contentinfo [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e29]:
+        - text: "Ray ID:"
+        - code [ref=e30]: a10471ff9e63db40
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - text: Performance and Security by
+          - link "Cloudflare" [ref=e33] [cursor=pointer]:
+            - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m
+        - link "Privacy" [ref=e35] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/privacypolicy/

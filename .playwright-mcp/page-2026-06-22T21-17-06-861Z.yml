@@ -1,0 +1,308 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "P Cape Coral Plumbing Pros" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "Home" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e7] [cursor=pointer]:
+          - /url: /services
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Reviews" [ref=e9] [cursor=pointer]:
+          - /url: /reviews
+      - generic [ref=e10]:
+        - link "+15555550100" [ref=e11] [cursor=pointer]:
+          - /url: tel:15555550100
+          - img [ref=e12]
+          - text: "+15555550100"
+        - link "Call Now" [ref=e14] [cursor=pointer]:
+          - /url: tel:15555550100
+  - main [ref=e15]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - img [ref=e21]
+        - text: Licensed & Insured — Serving Cape Coral FL
+      - heading "Professional Plumbing Services in Cape Coral FL" [level=1] [ref=e23]:
+        - text: Professional Plumbing Services
+        - text: in Cape Coral FL
+      - paragraph [ref=e24]: Need plumbing services in Cape Coral FL? Contact Cape Coral Plumbing Pros for fast, professional service. Licensed & insured, satisfaction guaranteed.
+      - generic [ref=e25]:
+        - link "Call +15555550100" [ref=e26] [cursor=pointer]:
+          - /url: tel:15555550100
+          - img [ref=e27]
+          - text: Call +15555550100
+        - link "Get a Free Quote" [ref=e29] [cursor=pointer]:
+          - /url: "#quote"
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - img [ref=e32]
+          - text: 1200+ Jobs Completed
+        - generic [ref=e34]:
+          - img [ref=e35]
+          - text: 6+ Years Experience
+        - generic [ref=e37]:
+          - img [ref=e38]
+          - text: Licensed & Insured
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]: "4.8"
+        - generic [ref=e44]:
+          - img [ref=e45]
+          - img [ref=e47]
+          - img [ref=e49]
+          - img [ref=e51]
+          - img [ref=e53]
+        - paragraph [ref=e55]: 47 reviews
+      - generic [ref=e56]:
+        - generic [ref=e57]: 6+
+        - paragraph [ref=e58]: Years Experience
+      - generic [ref=e59]:
+        - generic [ref=e60]: 1200+
+        - paragraph [ref=e61]: Jobs Completed
+      - generic [ref=e62]:
+        - generic [ref=e63]: Same Day
+        - paragraph [ref=e64]: Service Available
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - text: Our Services
+        - heading "Professional Plumbing Services in Your Area" [level=2] [ref=e68]
+        - paragraph [ref=e69]: From emergency repairs to planned maintenance, we handle it all with expertise you can trust.
+      - generic [ref=e70]:
+        - link "Emergency Plumbing Service 24/7 emergency plumbing services in Cape Coral FL. Fast response for urgent issues. 24/7 availability 60-minute response Same-day service" [ref=e71] [cursor=pointer]:
+          - /url: /services/emergency-service
+          - img [ref=e73]
+          - heading "Emergency Plumbing Service" [level=3] [ref=e75]
+          - paragraph [ref=e76]: 24/7 emergency plumbing services in Cape Coral FL. Fast response for urgent issues.
+          - list [ref=e77]:
+            - listitem [ref=e78]:
+              - img [ref=e79]
+              - text: 24/7 availability
+            - listitem [ref=e81]:
+              - img [ref=e82]
+              - text: 60-minute response
+            - listitem [ref=e84]:
+              - img [ref=e85]
+              - text: Same-day service
+        - link "Residential Plumbing Complete plumbing solutions for your home in Cape Coral FL. Quality guaranteed. Free estimates Licensed technicians Satisfaction guaranteed" [ref=e87] [cursor=pointer]:
+          - /url: /services/residential
+          - img [ref=e89]
+          - heading "Residential Plumbing" [level=3] [ref=e91]
+          - paragraph [ref=e92]: Complete plumbing solutions for your home in Cape Coral FL. Quality guaranteed.
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - img [ref=e95]
+              - text: Free estimates
+            - listitem [ref=e97]:
+              - img [ref=e98]
+              - text: Licensed technicians
+            - listitem [ref=e100]:
+              - img [ref=e101]
+              - text: Satisfaction guaranteed
+        - link "Commercial Plumbing Professional plumbing services for businesses in Cape Coral FL. Minimize downtime. Flexible scheduling Volume discounts Preventive maintenance" [ref=e103] [cursor=pointer]:
+          - /url: /services/commercial
+          - img [ref=e105]
+          - heading "Commercial Plumbing" [level=3] [ref=e107]
+          - paragraph [ref=e108]: Professional plumbing services for businesses in Cape Coral FL. Minimize downtime.
+          - list [ref=e109]:
+            - listitem [ref=e110]:
+              - img [ref=e111]
+              - text: Flexible scheduling
+            - listitem [ref=e113]:
+              - img [ref=e114]
+              - text: Volume discounts
+            - listitem [ref=e116]:
+              - img [ref=e117]
+              - text: Preventive maintenance
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - text: How It Works
+        - heading "Getting Help Is Easy" [level=2] [ref=e122]
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e125]: "1"
+          - heading "Describe Your Issue" [level=3] [ref=e126]
+          - paragraph [ref=e127]: Tell us about your Plumbing problem through our quick form or a phone call. We'll ask the right questions to understand what you need.
+        - generic [ref=e128]:
+          - generic [ref=e129]: "2"
+          - heading "Get Matched Fast" [level=3] [ref=e130]
+          - paragraph [ref=e131]: We connect you with the right local pro for your specific job. Expect a call or message within hours — even for emergencies.
+        - generic [ref=e132]:
+          - generic [ref=e133]: "3"
+          - heading "Done Right" [level=3] [ref=e134]
+          - paragraph [ref=e135]: Licensed, insured professionals handle the job from start to finish. Backed by our satisfaction guarantee.
+    - generic [ref=e138]:
+      - generic [ref=e139]:
+        - text: Get Help Now
+        - heading "Request a Free Quote" [level=2] [ref=e140]
+        - paragraph [ref=e141]: Tell us about your Plumbing needs and we'll get back to you within hours with a clear, upfront quote. No hidden fees, no obligations.
+        - generic [ref=e142]:
+          - generic [ref=e143]:
+            - img [ref=e145]
+            - generic [ref=e147]:
+              - heading "Call us directly" [level=3] [ref=e148]
+              - link "+15555550100" [ref=e149] [cursor=pointer]:
+                - /url: tel:15555550100
+          - generic [ref=e150]:
+            - img [ref=e152]
+            - generic [ref=e154]:
+              - heading "Fast response" [level=3] [ref=e155]
+              - paragraph [ref=e156]: Most quotes are delivered within 2 hours during business hours
+          - generic [ref=e157]:
+            - img [ref=e159]
+            - generic [ref=e161]:
+              - heading "Licensed & Insured" [level=3] [ref=e162]
+              - paragraph [ref=e163]: Every job is backed by $2M general liability insurance
+      - generic [ref=e165]:
+        - generic [ref=e166]:
+          - text: Full Name
+          - textbox "Full Name" [ref=e167]:
+            - /placeholder: John Smith
+        - generic [ref=e168]:
+          - text: Phone Number
+          - textbox "Phone Number" [ref=e169]:
+            - /placeholder: (518) 555-0123
+        - generic [ref=e170]:
+          - text: Email
+          - textbox "Email" [ref=e171]:
+            - /placeholder: john@example.com
+        - generic [ref=e172]:
+          - text: What do you need help with?
+          - textbox "What do you need help with?" [ref=e173]:
+            - /placeholder: Describe your issue...
+        - button "Send Request" [ref=e174]
+        - paragraph
+    - generic [ref=e176]:
+      - generic [ref=e177]:
+        - text: Why Choose Us
+        - heading "Trusted by Cape Coral FL Homeowners" [level=2] [ref=e178]
+      - generic [ref=e179]:
+        - generic [ref=e180]:
+          - heading "What Our Customers Say" [level=3] [ref=e181]:
+            - text: What Our Customers Say
+            - generic [ref=e182]:
+              - img [ref=e183]
+              - img [ref=e185]
+              - img [ref=e187]
+              - img [ref=e189]
+              - img [ref=e191]
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - text: Michael R.
+                - generic [ref=e196]:
+                  - img [ref=e197]
+                  - img [ref=e199]
+                  - img [ref=e201]
+                  - img [ref=e203]
+                  - img [ref=e205]
+              - paragraph [ref=e207]: “Best plumbers in town. Fixed my burst pipe at 11PM on a Saturday. Saved our basement!”
+              - paragraph [ref=e208]: June 2026
+            - generic [ref=e209]:
+              - generic [ref=e210]:
+                - text: Jennifer L.
+                - generic [ref=e211]:
+                  - img [ref=e212]
+                  - img [ref=e214]
+                  - img [ref=e216]
+                  - img [ref=e218]
+                  - img [ref=e220]
+              - paragraph [ref=e222]: “Professional from start to finish. They installed a new water heater same day when ours failed. Fair price too.”
+              - paragraph [ref=e223]: May 2026
+            - generic [ref=e224]:
+              - generic [ref=e225]:
+                - text: David W.
+                - generic [ref=e226]:
+                  - img [ref=e227]
+                  - img [ref=e229]
+                  - img [ref=e231]
+                  - img [ref=e233]
+                  - img [ref=e235]
+              - paragraph [ref=e237]: “Been using them for years. Always show up on time, do great work, and clean up after themselves. Can't ask for more.”
+              - paragraph [ref=e238]: April 2026
+          - link "Read all 47 reviews" [ref=e239] [cursor=pointer]:
+            - /url: /reviews
+            - text: Read all 47 reviews
+            - img [ref=e240]
+        - generic [ref=e242]:
+          - heading "Why Local Pros?" [level=3] [ref=e243]
+          - generic [ref=e244]:
+            - generic [ref=e245]:
+              - img [ref=e247]
+              - generic [ref=e249]:
+                - heading "Licensed & Insured" [level=4] [ref=e250]
+                - paragraph [ref=e251]: Every professional is fully licensed and carries $2M general liability insurance for your protection.
+            - generic [ref=e252]:
+              - img [ref=e254]
+              - generic [ref=e256]:
+                - heading "Fast Response Times" [level=4] [ref=e257]
+                - paragraph [ref=e258]: We understand emergencies don't wait. Most calls are returned within 2 hours.
+            - generic [ref=e259]:
+              - img [ref=e261]
+              - generic [ref=e263]:
+                - heading "Upfront Pricing" [level=4] [ref=e264]
+                - paragraph [ref=e265]: No hidden fees, no surprises. You'll know the cost before any work begins.
+            - generic [ref=e266]:
+              - img [ref=e268]
+              - generic [ref=e270]:
+                - heading "Satisfaction Guarantee" [level=4] [ref=e271]
+                - paragraph [ref=e272]: If you're not happy with the work, we'll make it right. Period.
+    - generic [ref=e274]:
+      - generic [ref=e275]:
+        - text: FAQ
+        - heading "Frequently Asked Questions" [level=2] [ref=e276]
+        - paragraph [ref=e277]: Common questions about our Plumbing services in your area.
+      - generic [ref=e278]:
+        - group [ref=e279]:
+          - generic "How quickly can you respond to emergencies?" [ref=e280]:
+            - text: How quickly can you respond to emergencies?
+            - img [ref=e281]
+        - group [ref=e283]:
+          - generic "Are your plumbers licensed and insured?" [ref=e284]:
+            - text: Are your plumbers licensed and insured?
+            - img [ref=e285]
+        - group [ref=e287]:
+          - generic "Do you provide free estimates?" [ref=e288]:
+            - text: Do you provide free estimates?
+            - img [ref=e289]
+        - group [ref=e291]:
+          - generic "What areas do you serve?" [ref=e292]:
+            - text: What areas do you serve?
+            - img [ref=e293]
+  - contentinfo [ref=e295]:
+    - generic [ref=e296]:
+      - generic [ref=e297]:
+        - generic [ref=e298]:
+          - generic [ref=e299]: P Cape Coral Plumbing Pros
+          - paragraph [ref=e300]: Need plumbing services in Cape Coral FL? Contact Cape Coral Plumbing Pros for fast, professional service. Licensed & insured, satisfaction guaranteed.
+          - link "+15555550100" [ref=e301] [cursor=pointer]:
+            - /url: tel:15555550100
+            - img [ref=e302]
+            - text: "+15555550100"
+        - generic [ref=e304]:
+          - heading "Service Area" [level=3] [ref=e305]
+          - list [ref=e306]:
+            - listitem [ref=e307]:
+              - img [ref=e308]
+              - text: Cape Coral FL
+            - listitem [ref=e311]:
+              - img [ref=e312]
+              - text: Cape Coral
+            - listitem [ref=e315]:
+              - img [ref=e316]
+              - text: Greater Cape Coral FL Area
+        - generic [ref=e319]:
+          - heading "Business Hours" [level=3] [ref=e320]
+          - paragraph [ref=e321]: "Mon-Fri: 7AM-7PM | Sat: 8AM-5PM | Sun: Closed"
+          - heading "Quick Links" [level=3] [ref=e322]
+          - navigation [ref=e323]:
+            - link "Home" [ref=e324] [cursor=pointer]:
+              - /url: /
+            - link "Services" [ref=e325] [cursor=pointer]:
+              - /url: /services
+            - link "About" [ref=e326] [cursor=pointer]:
+              - /url: /about
+            - link "Reviews" [ref=e327] [cursor=pointer]:
+              - /url: /reviews
+      - paragraph [ref=e329]: © 2026 Cape Coral Plumbing Pros. Licensed & Insured. All rights reserved.

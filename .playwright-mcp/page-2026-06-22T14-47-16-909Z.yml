@@ -1,0 +1,358 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e2] [cursor=pointer]
+      - link "Accessibility help" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en
+  - generic [ref=e8]:
+    - search [ref=e9]:
+      - generic [ref=e12]:
+        - link "Go to Google home" [ref=e13] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&ictx=0&sa=X&ved=0ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4QpYkNCAw
+          - img "Go to Google home" [ref=e14]
+        - generic [ref=e15]:
+          - combobox "Search" [ref=e18]: "\"Estero Development Partners\" phone Rock Hill SC \"Estero Development Partners\" phone Rock Hill SC"
+          - generic [ref=e19]:
+            - button "Clear" [ref=e21] [cursor=pointer]:
+              - img [ref=e23]
+            - generic [ref=e26]:
+              - button "Search by voice" [ref=e27] [cursor=pointer]:
+                - img [ref=e28]
+              - button "Search by image" [ref=e30] [cursor=pointer]:
+                - img [ref=e31]
+        - button "Search" [ref=e33] [cursor=pointer]:
+          - img [ref=e36]
+    - generic [ref=e38]:
+      - button "Settings" [ref=e40] [cursor=pointer]:
+        - img [ref=e43]
+      - button "Share" [ref=e46] [cursor=pointer]:
+        - img [ref=e50]
+      - generic [ref=e52]:
+        - button "Google apps" [ref=e54] [cursor=pointer]:
+          - img [ref=e55]
+        - link "Sign in" [ref=e59] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3D%2522Estero%2BDevelopment%2BPartners%2522%2Bphone%2BRock%2BHill%2BSC&ec=futura_srp_og_si_72236_p
+  - generic [ref=e61]:
+    - navigation [ref=e67]:
+      - generic [ref=e73]:
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - link "AI Mode" [ref=e78] [cursor=pointer]:
+              - /url: /search?q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&sca_esv=7c3c44d1206346ec&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1pgN3jaVPpJtZ8IN28B_o1lrnInJ4fmy1uDhCkg_MAOwKvpejobTPemolIbej6zIsEI1xPhZp72TWstEk-iOWn7cDVDxUSEIaqcIDXyHPsZz9JGVFk5X8KKHdb_yeRVa8t4A7MxdL-wcoFrf8tkmPI-sxsgyp87ui8_X7leAXqSl9Trbvg&aep=1&ntc=1&sa=X&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q2J8OegQIERAD
+              - generic [ref=e81]: AI Mode
+          - listitem [ref=e82]:
+            - link "All" [disabled] [ref=e83]:
+              - generic [ref=e85]: All
+          - listitem [ref=e86]:
+            - link "Maps" [ref=e87] [cursor=pointer]:
+              - /url: https://maps.google.com/maps?sca_esv=7c3c44d1206346ec&output=search&q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1pgN3jaVPpJtZ8IN28B_o1lrnInJ4fmy1uDhCkg_MAOwKvpejobTPemolIbej6zIsEI1xPhZp72TWstEk-iOWn7cDVDxUSEIaqcIDXyHPsZz9JGVFk5X8KKHdb_yeRVa8t4A7MxdL-wcoFrf8tkmPI-sxsgyp87ui8_X7leAXqSl9Trbvg&entry=mc&ved=1t:200715&ictx=111
+              - generic [ref=e89]: Maps
+          - listitem [ref=e90]:
+            - link "Images" [ref=e91] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1pgN3jaVPpJtZ8IN28B_o1lrnInJ4fmy1uDhCkg_MAOwKvpejobTPemolIbej6zIsEI1xPhZp72TWstEk-iOWn7cDVDxUSEIaqcIDXyHPsZz9JGVFk5X8KKHdb_yeRVa8t4A7MxdL-wcoFrf8tkmPI-sxsgyp87ui8_X7leAXqSl9Trbvg&q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&sa=X&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4QtKgLegQIFRAB
+              - generic [ref=e93]: Images
+          - listitem [ref=e94]:
+            - link "Forums" [ref=e95] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=18&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1pgN3jaVPpJtZ8IN28B_o1lrnInJ4fmy1uDhCkg_MAOwKvpejobTPemolIbej6zIsEI1xPhZp72TWstEk-iOWn7cDVDxUSEIaqcIDXyHPsZz9JGVFk5X8KKHdb_yeRVa8t4A7MxdL-wcoFrf8tkmPI-sxsgyp87ui8_X7leAXqSl9Trbvg&q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&sa=X&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Qs6gLegQIEhAB
+              - generic [ref=e97]: Forums
+          - listitem [ref=e98]:
+            - link "News" [ref=e99] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&tbm=nws&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1pgN3jaVPpJtZ8IN28B_o1lrnInJ4fmy1uDhCkg_MAOwKvpejobTPemolIbej6zIsEI1xPhZp72TWstEk-iOWn7cDVDxUSEIaqcIDXyHPsZz9JGVFk5X8KKHdb_yeRVa8t4A7MxdL-wcoFrf8tkmPI-sxsgyp87ui8_X7leAXqSl9Trbvg&sa=X&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q0pQJegQIFBAB
+              - generic [ref=e101]: News
+          - listitem [ref=e102]:
+            - link "Shopping" [ref=e103] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=28&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1pgN3jaVPpJtZ8IN28B_o1lrnInJ4fmy1uDhCkg_MAOwKvpejobTPemolIbej6zIsEI1xPhZp72TWstEk-iOWn7cDVDxUSEIaqcIDXyHPsZz9JGVFk5X8KKHdb_yeRVa8t4A7MxdL-wcoFrf8tkmPI-sxsgyp87ui8_X7leAXqSl9Trbvg&q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&ved=1t:220175&ictx=111
+              - generic [ref=e105]: Shopping
+          - listitem [ref=e106]:
+            - button "More filters" [ref=e107] [cursor=pointer]:
+              - generic "More filters" [ref=e108]:
+                - generic [ref=e109]:
+                  - generic [ref=e110]: More
+                  - img [ref=e112]
+        - button "Tools" [ref=e115] [cursor=pointer]:
+          - generic [ref=e117]:
+            - generic [ref=e118]: Tools
+            - img [ref=e120]
+    - heading "Search Results" [level=1] [ref=e122]
+    - main [ref=e124]:
+      - generic [ref=e128]:
+        - generic [ref=e139]:
+          - heading "Thinking" [level=2] [ref=e143]:
+            - generic [ref=e144]: Thinking
+          - progressbar "Generating" [ref=e145]
+        - generic [ref=e149]:
+          - heading "Web results" [level=2] [ref=e150]
+          - generic [ref=e151]:
+            - generic [ref=e154]:
+              - link "Lindsay Jarvis – Owner (left) - Estero Investment estero-investments.com https://estero-investments.com › ABOUT" [ref=e156] [cursor=pointer]:
+                - /url: https://estero-investments.com/about/estero/
+                - heading "Lindsay Jarvis – Owner (left) - Estero Investment" [level=3] [ref=e157]
+                - generic [ref=e163]:
+                  - generic [ref=e165]: estero-investments.com
+                  - generic [ref=e167]: https://estero-investments.com › ABOUT
+              - button "About this result" [ref=e168] [cursor=pointer]:
+                - img [ref=e171]
+            - generic [ref=e174]:
+              - generic [ref=e175]:
+                - text: Kevin Burrell is a founding partner of both
+                - emphasis [ref=e176]: Estero Development Partners
+                - text: and Buller River Development Partners, organizations deeply rooted in the evolving ...
+              - link "Read more" [ref=e177] [cursor=pointer]:
+                - /url: https://estero-investments.com/about/estero/#:~:text=Kevin%20Burrell%20is%20a%20founding,dynamics%20of%20real%20estate%20development.
+        - generic [ref=e181]:
+          - generic [ref=e184]:
+            - link "Buller River Development Partners, LP & Estero ... Alignable https://www.alignable.com › rock-hill-sc › buller-river-..." [ref=e186] [cursor=pointer]:
+              - /url: https://www.alignable.com/rock-hill-sc/buller-river-developments-llc
+              - heading "Buller River Development Partners, LP & Estero ..." [level=3] [ref=e187]
+              - generic [ref=e193]:
+                - generic [ref=e195]: Alignable
+                - generic [ref=e197]: https://www.alignable.com › rock-hill-sc › buller-river-...
+            - button "About this result" [ref=e198] [cursor=pointer]:
+              - img [ref=e201]
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - text: Buller River Development Partners, LP &
+              - emphasis [ref=e206]: Estero Development Partners
+              - text: ", LP."
+              - emphasis [ref=e207]: Rock Hill
+              - text: ","
+              - emphasis [ref=e208]: SC
+              - text: . Highly Recommended (9). Real Estate Investment Firm · Real Estate ...
+            - link "Read more" [ref=e209] [cursor=pointer]:
+              - /url: https://www.alignable.com/rock-hill-sc/buller-river-developments-llc#:~:text=Buller%20River%20Development%20Partners%2C%20LP,Real%20Estate%20Investment%20Firm
+        - generic [ref=e213]:
+          - generic [ref=e216]:
+            - link "Detail by Entity Name - Sunbiz.org - Division of Corporations MyFlorida.com (.gov) https://search.sunbiz.org › Inquiry › SearchResults" [ref=e218] [cursor=pointer]:
+              - /url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?InquiryType=EntityName&InquiryDirectionType=PreviousRecord&SearchTerm=ESTERO%20BLVD.%20LLC&SearchNameOrder=ESTERODEVELOPMENTS%20M170000030120&ListNameOrder=ESTEROCOUNTRYCLUB%20N334381&Detail=FL.DOS.Corporations.Shared.Contracts.FilingRecord
+              - heading "Detail by Entity Name - Sunbiz.org - Division of Corporations" [level=3] [ref=e219]
+              - generic [ref=e225]:
+                - generic [ref=e227]: MyFlorida.com (.gov)
+                - generic [ref=e229]: https://search.sunbiz.org › Inquiry › SearchResults
+            - button "About this result" [ref=e230] [cursor=pointer]:
+              - img [ref=e233]
+          - generic [ref=e236]:
+            - generic [ref=e237]:
+              - text: Detail by Entity Name. Foreign Limited Partnership.
+              - emphasis [ref=e238]: ESTERO DEVELOPMENT PARTNERS
+              - text: ", LP ... Fort Mill,"
+              - emphasis [ref=e239]: SC
+              - text: "29715. Changed: 03/03/2022. Mailing Address. 234 Kingsley ..."
+            - link "Read more" [ref=e240] [cursor=pointer]:
+              - /url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?InquiryType=EntityName&InquiryDirectionType=PreviousRecord&SearchTerm=ESTERO+BLVD.+LLC&SearchNameOrder=ESTERODEVELOPMENTS+M170000030120&ListNameOrder=ESTEROCOUNTRYCLUB+N334381&Detail=FL.DOS.Corporations.Shared.Contracts.FilingRecord#:~:text=Detail%20by%20Entity%20Name,ESTERO%20DEVELOPMENT%20PARTNERS%2C%20LP&text=Fort%20Mill%2C%20SC%2029715,234%20Kingsley%20Park%20Drive
+        - generic [ref=e244]:
+          - generic [ref=e247]:
+            - link "PREPARED 1/04/21, 7:39:09 PROGRAM BP412L ... City of North Port, FL (.gov) https://www.northportfl.gov › files › assets › main" [ref=e249] [cursor=pointer]:
+              - /url: https://www.northportfl.gov/files/assets/main/v/1/building-amp-planning/monthly-and-yearly-reports/issued-permits-and-certificate-of-occupancies/december-2020-monthly-report.pdf
+              - heading "PREPARED 1/04/21, 7:39:09 PROGRAM BP412L ..." [level=3] [ref=e250]
+              - generic [ref=e256]:
+                - generic [ref=e258]: City of North Port, FL (.gov)
+                - generic [ref=e260]: https://www.northportfl.gov › files › assets › main
+            - generic [ref=e261]:
+              - generic:
+                - generic: PDF
+            - button "About this result" [ref=e262] [cursor=pointer]:
+              - img [ref=e265]
+          - generic [ref=e267]:
+            - generic [ref=e268]:
+              - generic [ref=e269]: Dec 31, 2020 —
+              - generic [ref=e270]:
+                - emphasis [ref=e271]: ESTERO DEVELOPMENT PARTNERS
+                - text: LP. 725 CHERRY RD.
+                - emphasis [ref=e272]: ROCK HILL SC
+                - text: "29732."
+                - emphasis [ref=e273]: ESTERO DEVELOPMENT PARTNERS
+                - text: LP. 725 CHERRY RD.
+                - emphasis [ref=e274]: ROCK HILL SC
+                - text: "29732."
+                - emphasis [ref=e275]: ESTERO
+                - text: ...
+              - link "Read more" [ref=e276] [cursor=pointer]:
+                - /url: https://www.northportfl.gov/files/assets/main/v/1/building-amp-planning/monthly-and-yearly-reports/issued-permits-and-certificate-of-occupancies/december-2020-monthly-report.pdf#:~:text=ESTERO%20DEVELOPMENT%20PARTNERS%20LP,ESTERO%20DEVELOPMENT%20PARTNERS%20LP
+            - generic [ref=e277]: 29 pages
+        - generic [ref=e281]:
+          - generic [ref=e284]:
+            - link "Property Record Information for 402108356021 Charlotte County Property Appraiser https://www.ccappraiser.com › Show_parcel" [ref=e286] [cursor=pointer]:
+              - /url: https://www.ccappraiser.com/Show_parcel.asp?acct=402108356021&gen=T&tax=T&bld=T&oth=T&sal=T&lnd=T&leg=T
+              - heading "Property Record Information for 402108356021" [level=3] [ref=e287]
+              - generic [ref=e293]:
+                - generic [ref=e295]: Charlotte County Property Appraiser
+                - generic [ref=e297]: https://www.ccappraiser.com › Show_parcel
+            - button "About this result" [ref=e298] [cursor=pointer]:
+              - img [ref=e301]
+          - generic [ref=e304]:
+            - generic [ref=e305]:
+              - text: "Owner:"
+              - emphasis [ref=e306]: ESTERO DEVELOPMENT PARTNERS
+              - text: PO BOX 3234.
+              - emphasis [ref=e307]: ROCK HILL
+              - text: ","
+              - emphasis [ref=e308]: SC
+              - text: 29732. Online ... For more information, please
+              - emphasis [ref=e309]: contact
+              - text: Building Construction Services at 941-743- ...
+            - link "Read more" [ref=e310] [cursor=pointer]:
+              - /url: https://www.ccappraiser.com/Show_parcel.asp?acct=402108356021&gen=T&tax=T&bld=T&oth=T&sal=T&lnd=T&leg=T#:~:text=Owner%3A,Online%20Address%20Change&text=For%20more%20information%2C%20please%20contact,Building%20Construction%20Services%20at%20941%2D743%2D1201.
+        - generic [ref=e314]:
+          - generic [ref=e317]:
+            - link "Building Permits Received Residential Lee County Southwest Florida https://www.leegov.com › rpts › ULCRPRWeek2" [ref=e319] [cursor=pointer]:
+              - /url: https://www.leegov.com/dcd/rpts/Documents/CurrentMonth/ULCRPRWeek2.PDF
+              - heading "Building Permits Received Residential" [level=3] [ref=e320]
+              - generic [ref=e326]:
+                - generic [ref=e328]: Lee County Southwest Florida
+                - generic [ref=e330]: https://www.leegov.com › rpts › ULCRPRWeek2
+            - generic [ref=e331]:
+              - generic:
+                - generic: PDF
+            - button "About this result" [ref=e332] [cursor=pointer]:
+              - img [ref=e335]
+          - generic [ref=e337]:
+            - generic [ref=e338]:
+              - generic [ref=e339]: Apr 19, 2026 —
+              - generic [ref=e340]:
+                - emphasis [ref=e341]: ESTERO DEVELOPMENT PARTNERS
+                - text: . PO BOX 3234.
+                - emphasis [ref=e342]: ROCK HILL
+                - text: ","
+                - emphasis [ref=e343]: SC
+                - text: 29732. RES2026-03072. 04/14/2026. Construction of a new single family residenc. 3813 LA ...
+              - link "Read more" [ref=e344] [cursor=pointer]:
+                - /url: https://www.leegov.com/dcd/rpts/Documents/CurrentMonth/ULCRPRWeek2.PDF#:~:text=ESTERO%20DEVELOPMENT%20PARTNERS,LA%20RUE%20ST%2C%20FORT%20MYERS%2C
+            - generic [ref=e345]: 35 pages
+        - generic [ref=e349]:
+          - generic [ref=e352]:
+            - link "Real Estate Details Manatee County Tax Collector https://secure.taxcollector.com › ptaxweb › editPropertyS..." [ref=e354] [cursor=pointer]:
+              - /url: https://secure.taxcollector.com/ptaxweb/editPropertySearch2.action?action=detail&fromLocation=PAO2&accountNumber=2292605059&taxYear=2024&geoCd=94038
+              - heading "Real Estate Details" [level=3] [ref=e355]
+              - generic [ref=e361]:
+                - generic [ref=e363]: Manatee County Tax Collector
+                - generic [ref=e365]: https://secure.taxcollector.com › ptaxweb › editPropertyS...
+            - button "About this result" [ref=e366] [cursor=pointer]:
+              - img [ref=e369]
+          - generic [ref=e373]:
+            - text: Navigate to the payment section below to view/print receipts. PROPERTY DETAIL.
+            - emphasis [ref=e374]: ESTERO DEVELOPMENT PARTNERS
+            - text: LP 725 CHERRY RD UNIT 3234.
+            - emphasis [ref=e375]: ROCK HILL
+            - text: ","
+            - emphasis [ref=e376]: SC
+            - text: "29732."
+        - generic [ref=e380]:
+          - generic [ref=e383]:
+            - link "914 S Battleground Ave, Kings Mountain, NC 28086 [Lot/Land] Homes.com https://www.homes.com › ... › Kings Mountain › 28086" [ref=e385] [cursor=pointer]:
+              - /url: https://www.homes.com/property/914-s-battleground-ave-kings-mountain-nc/7lr2cxmpzc30h/
+              - heading "914 S Battleground Ave, Kings Mountain, NC 28086 [Lot/Land]" [level=3] [ref=e386]
+              - generic [ref=e392]:
+                - generic [ref=e394]: Homes.com
+                - generic [ref=e396]: https://www.homes.com › ... › Kings Mountain › 28086
+            - button "About this result" [ref=e397] [cursor=pointer]:
+              - img [ref=e400]
+          - generic [ref=e404]:
+            - text: Mortgage History ; Previous Owner,
+            - emphasis [ref=e405]: Estero Development Partners
+            - text: ", $396,000 ; Previous Owner,"
+            - emphasis [ref=e406]: Estero Development Partners
+            - text: ", $702,000."
+        - generic [ref=e410]:
+          - generic [ref=e413]:
+            - link "prepared 12/13/21, 8:32:11 City of North Port, FL (.gov) https://www.northportfl.gov › files › assets › main" [ref=e415] [cursor=pointer]:
+              - /url: https://www.northportfl.gov/files/assets/main/v/1/building-amp-planning/monthly-and-yearly-reports/issued-permits-and-certificate-of-occupancies/november-2021-monthly-report.pdf
+              - heading "prepared 12/13/21, 8:32:11" [level=3] [ref=e416]
+              - generic [ref=e422]:
+                - generic [ref=e424]: City of North Port, FL (.gov)
+                - generic [ref=e426]: https://www.northportfl.gov › files › assets › main
+            - generic [ref=e427]:
+              - generic:
+                - generic: PDF
+            - button "About this result" [ref=e428] [cursor=pointer]:
+              - img [ref=e431]
+          - generic [ref=e433]:
+            - generic [ref=e434]:
+              - generic [ref=e435]: Nov 30, 2021 —
+              - generic [ref=e436]:
+                - emphasis [ref=e437]: ESTERO DEVELOPMENT PARTNERS
+                - text: LP. -----------. 5/10/21. $287047 ...
+                - emphasis [ref=e438]: ROCK HILL SC
+                - text: 29732. MAGILL WILLIAM. MAGILL DONNA. 13913 RINUCCIO ST. VENICE ...
+              - link "Read more" [ref=e439] [cursor=pointer]:
+                - /url: https://www.northportfl.gov/files/assets/main/v/1/building-amp-planning/monthly-and-yearly-reports/issued-permits-and-certificate-of-occupancies/november-2021-monthly-report.pdf#:~:text=ESTERO%20DEVELOPMENT%20PARTNERS%20LP,%24287047&text=ROCK%20HILL%20SC%2029732,VENICE%20FL%2034293
+            - generic [ref=e440]: 34 pages
+        - generic [ref=e444]:
+          - generic [ref=e447]:
+            - link "Building Permits Received Residential Lee County Southwest Florida https://www.leegov.com › PlanningCommunities" [ref=e449] [cursor=pointer]:
+              - /url: https://www.leegov.com/dcd/rpts/Documents/PlanningCommunities/BldPrmtRES_RECpc_Lehigh.pdf
+              - heading "Building Permits Received Residential" [level=3] [ref=e450]
+              - generic [ref=e456]:
+                - generic [ref=e458]: Lee County Southwest Florida
+                - generic [ref=e460]: https://www.leegov.com › PlanningCommunities
+            - generic [ref=e461]:
+              - generic:
+                - generic: PDF
+            - button "About this result" [ref=e462] [cursor=pointer]:
+              - img [ref=e465]
+          - generic [ref=e467]:
+            - generic [ref=e468]:
+              - generic [ref=e469]: Apr 2, 2026 —
+              - generic [ref=e470]:
+                - emphasis [ref=e471]: ESTERO DEVELOPMENT PARTNERS
+                - text: . PO BOX 3234.
+                - emphasis [ref=e472]: ROCK HILL
+                - text: ","
+                - emphasis [ref=e473]: SC
+                - text: 29732. 3813 LA RUE ST, FORT. MYERS, FL 33905. RES2026-03072. Construction of a new ...
+              - link "Read more" [ref=e474] [cursor=pointer]:
+                - /url: https://www.leegov.com/dcd/rpts/Documents/PlanningCommunities/BldPrmtRES_RECpc_Lehigh.pdf#:~:text=ESTERO%20DEVELOPMENT%20PARTNERS,Construction%20of%20a%20new%20single
+            - generic [ref=e475]: 43 pages
+      - generic [ref=e477]:
+        - generic [ref=e482]:
+          - heading "People also search for" [level=2] [ref=e484]
+          - generic [ref=e486]:
+            - link "Estero development partners phone rock hill sc address" [ref=e491] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&q=Estero+development+partners+phone+rock+hill+sc+address&sa=X&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q1QJ6BAglEAE
+              - generic [ref=e492]:
+                - generic [ref=e497]: Estero development partners phone rock hill sc address
+                - img [ref=e501]
+            - link "Estero Developments" [ref=e507] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&q=Estero+Developments&sa=X&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q1QJ6BAgmEAE
+              - generic [ref=e508]:
+                - generic [ref=e513]: Estero Developments
+                - img [ref=e517]
+        - navigation [ref=e519]:
+          - heading "Page Navigation" [level=1] [ref=e520]
+          - text: "1"
+          - link "Page 2" [ref=e523] [cursor=pointer]:
+            - /url: /search?q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&sca_esv=7c3c44d1206346ec&ei=9Uo5avXdHNfrmLQPjdXs8AI&start=10&sa=N&sstk=AU9db-B28yEvwFuuR5bbhMXzQaGYZMwfyzgEhwcyy8KXjxg62G_gIipp6adiKxCNwvklkuuBjBXu3q8cFmVNvRecr55LlPwgi8yEjg&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q8tMDegQIIxAE
+            - text: "2"
+          - link "Page 3" [ref=e525] [cursor=pointer]:
+            - /url: /search?q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&sca_esv=7c3c44d1206346ec&ei=9Uo5avXdHNfrmLQPjdXs8AI&start=20&sa=N&sstk=AU9db-B28yEvwFuuR5bbhMXzQaGYZMwfyzgEhwcyy8KXjxg62G_gIipp6adiKxCNwvklkuuBjBXu3q8cFmVNvRecr55LlPwgi8yEjg&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q8tMDegQIIxAG
+            - text: "3"
+          - link "Page 4" [ref=e527] [cursor=pointer]:
+            - /url: /search?q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&sca_esv=7c3c44d1206346ec&ei=9Uo5avXdHNfrmLQPjdXs8AI&start=30&sa=N&sstk=AU9db-B28yEvwFuuR5bbhMXzQaGYZMwfyzgEhwcyy8KXjxg62G_gIipp6adiKxCNwvklkuuBjBXu3q8cFmVNvRecr55LlPwgi8yEjg&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q8tMDegQIIxAI
+            - text: "4"
+          - link "Page 5" [ref=e529] [cursor=pointer]:
+            - /url: /search?q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&sca_esv=7c3c44d1206346ec&ei=9Uo5avXdHNfrmLQPjdXs8AI&start=40&sa=N&sstk=AU9db-B28yEvwFuuR5bbhMXzQaGYZMwfyzgEhwcyy8KXjxg62G_gIipp6adiKxCNwvklkuuBjBXu3q8cFmVNvRecr55LlPwgi8yEjg&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q8tMDegQIIxAK
+            - text: "5"
+          - heading "Next" [level=2] [ref=e531]:
+            - link "Next" [ref=e532] [cursor=pointer]:
+              - /url: /search?q=%22Estero+Development+Partners%22+phone+Rock+Hill+SC&sca_esv=7c3c44d1206346ec&ei=9Uo5avXdHNfrmLQPjdXs8AI&start=10&sa=N&sstk=AU9db-B28yEvwFuuR5bbhMXzQaGYZMwfyzgEhwcyy8KXjxg62G_gIipp6adiKxCNwvklkuuBjBXu3q8cFmVNvRecr55LlPwgi8yEjg&ved=2ahUKEwi1rKDAi5uVAxXXNYYAHY0qGy4Q8NMDegQIIxAM
+              - generic [ref=e534]: Next
+      - navigation
+    - contentinfo [ref=e535]:
+      - heading "Footer Links" [level=1] [ref=e536]
+      - generic [ref=e540]:
+        - generic [ref=e544]:
+          - button "Schenectady County, New York - From your IP address" [ref=e546] [cursor=pointer]:
+            - generic [ref=e547]: Schenectady County, New York
+            - generic [ref=e549]:
+              - text: "-"
+              - generic [ref=e550]: From your IP address
+          - text: "-"
+          - button "Update location" [ref=e552] [cursor=pointer]: Update location
+        - generic [ref=e555]:
+          - link "Help" [ref=e556] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en&fg=1
+          - link "Send feedback" [ref=e557] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e558] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en&fg=1
+          - link "Terms" [ref=e559] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en&fg=1

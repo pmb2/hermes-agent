@@ -1,0 +1,31 @@
+- main [ref=e3]:
+  - img "PeopleConnect" [ref=e8]
+  - generic [ref=e9]:
+    - heading "Suppression Center" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Actively manage the display of your Background Report on people search websites owned by PeopleConnect.
+    - generic [ref=e12]:
+      - generic [ref=e13]: Free - Start Here
+      - paragraph [ref=e51]: An email has been sent to the address you provided. Please click the link in the email to continue.
+    - generic [ref=e35]:
+      - heading "Judiciary and Other Legally Protected Person Requests" [level=4] [ref=e36]
+      - paragraph [ref=e37]:
+        - text: If you are an active or retired Federal, state or municipal judge, law enforcement officer, public official or other covered or protected person that lives in a state with an applicable law allowing you to request to suppress or remove certain of your Public Data by a third party, please email us
+        - link "here" [ref=e38] [cursor=pointer]:
+          - /url: mailto:privacy@peopleconnect.us?subject=Judiciary%20and%20Other%20Legally%20Protected%20Person%20Request
+        - text: ". So that we can locate any corresponding records and process your request pursuant to applicable law, please provide the following information: (1) your complete name, date of birth, city and state of residence, phone number and email address, or other identifying information you seek to suppress as allowed by applicable law; (2) the law under which you are submitting your request, (3) your protected status (e.g., federal judge, law enforcement officer, legislator, etc.), and (4) the same information for any other protected person for whom you are submitting the request if allowed by applicable law. The information you provide will be used solely to process and comply with your request pursuant to applicable law. If we are unable to verify that a specific law supports your request or your request is otherwise not submitted pursuant to an applicable law, we reserve the right to decline the request. You may appeal a denial of your request by contacting us at"
+        - link "privacy@peopleconnect.us" [ref=e39] [cursor=pointer]:
+          - /url: mailto:privacy@peopleconnect.us
+    - generic [ref=e40]:
+      - heading "What does the suppression tool do?" [level=4] [ref=e41]
+      - paragraph [ref=e42]: Our Suppression Tool provides a free way to manage the display of your Background Report when searched by name on all people search sites in the PeopleConnect family including TruthFinder.com, InstantCheckmate.com, Intelius.com and USSearch.com, without needing to engage with our team. If you choose to suppress your Background Report, a report with your information will not be provided if a user attempts to search you by name.
+    - generic [ref=e43]:
+      - heading "Does the suppression tool cost money?" [level=4] [ref=e44]
+      - paragraph [ref=e45]: No. PeopleConnect's Suppression Tool is free and provides the most thorough mechanism to prevent your Background Report from being shown to others who attempt to search you by name on our people search sites.
+    - paragraph [ref=e46]:
+      - text: The Suppression Tool is an optional feature made available at our discretion and subject to the
+      - link "Terms of Use" [ref=e47] [cursor=pointer]:
+        - /url: https://peopleconnect.us/terms-of-use
+      - text: and
+      - link "Privacy Policy" [ref=e48] [cursor=pointer]:
+        - /url: https://peopleconnect.us/privacy-policy
+      - text: . We reserve the right to modify the Suppression Tool and its terms, including by restricting its use or ceasing to make it available at our discretion if we detect abuse. The Suppression Tool only applies to the Public Data generated in response to a name search on the people search sites in the PeopleConnect family. It does not apply to the User Data collected by those sites, nor does it apply to other sites in the PeopleConnect family, including Classmates.com. To exercise your available rights with respect to your User Data on those sites, please visit those sites. Suppressing your Background Report also does not affect whether the information will be available from other sources, including the third-party sources of the information. In addition, even if you suppress your Background Report, your name and other information may continue to appear in connection with certain features, for example, in phone, address or email reports that are accessible when someone searched by those criteria, or on registered sex offender lists. Due to the nature of public records information and how it is collected, subtle discrepancies and inaccuracies in data may also make it difficult to remove everything associated with you. If you see Public Data about you on our websites after you have used the Suppression Tool, please contact us so we can assist you.

@@ -1,0 +1,284 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e2] [cursor=pointer]
+      - link "Accessibility help" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en
+  - generic [ref=e8]:
+    - search [ref=e9]:
+      - generic [ref=e12]:
+        - link "Go to Google home" [ref=e13] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&ictx=0&sa=X&ved=0ahUKEwibyOLRi5uVAxWomisGHX4KDbAQpYkNCAw
+          - img "Go to Google home" [ref=e14]
+        - generic [ref=e15]:
+          - combobox "Search" [ref=e18]: "\"Mangos Group Inc\" Boca Raton FL phone number buzzfile \"Mangos Group Inc\" Boca Raton FL phone number buzzfile"
+          - generic [ref=e19]:
+            - button "Clear" [ref=e21] [cursor=pointer]:
+              - img [ref=e23]
+            - generic [ref=e26]:
+              - button "Search by voice" [ref=e27] [cursor=pointer]:
+                - img [ref=e28]
+              - button "Search by image" [ref=e30] [cursor=pointer]:
+                - img [ref=e31]
+        - button "Search" [ref=e33] [cursor=pointer]:
+          - img [ref=e36]
+    - generic [ref=e38]:
+      - button "Settings" [ref=e40] [cursor=pointer]:
+        - img [ref=e43]
+      - button "Share" [ref=e46] [cursor=pointer]:
+        - img [ref=e50]
+      - generic [ref=e52]:
+        - button "Google apps" [ref=e54] [cursor=pointer]:
+          - img [ref=e55]
+        - link "Sign in" [ref=e59] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3D%2522Mangos%2BGroup%2BInc%2522%2BBoca%2BRaton%2BFL%2Bphone%2Bnumber%2Bbuzzfile&ec=futura_srp_og_si_72236_p
+  - generic [ref=e61]:
+    - navigation [ref=e67]:
+      - generic [ref=e73]:
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - link "AI Mode" [ref=e78] [cursor=pointer]:
+              - /url: /search?q=%22Mangos+Group+Inc%22+Boca+Raton+FL+phone+number+buzzfile&sca_esv=7c3c44d1206346ec&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtT0h7PdEdL8le1RT1QApqDnOuaWK0zgRg3NvNzqFWifZ5Vnje3VqRlnmFS0LyC9x05xeWWsLMvBAKReAZaFijQAXoipm_sbaYywq9DT10zAGor1sXEe-1PkvYi3xX-W1i7zttBbYDCOWJSoWiVAziYgRy-KSOpE56NBL26Cn8MPaLAQV1A&aep=1&ntc=1&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQ2J8OegQICxAD
+              - generic [ref=e81]: AI Mode
+          - listitem [ref=e82]:
+            - link "All" [disabled] [ref=e83]:
+              - generic [ref=e85]: All
+          - listitem [ref=e86]:
+            - link "Forums" [ref=e87] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=18&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtT0h7PdEdL8le1RT1QApqDnOuaWK0zgRg3NvNzqFWifZ5Vnje3VqRlnmFS0LyC9x05xeWWsLMvBAKReAZaFijQAXoipm_sbaYywq9DT10zAGor1sXEe-1PkvYi3xX-W1i7zttBbYDCOWJSoWiVAziYgRy-KSOpE56NBL26Cn8MPaLAQV1A&q=%22Mangos+Group+Inc%22+Boca+Raton+FL+phone+number+buzzfile&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQs6gLegQIDRAB
+              - generic [ref=e89]: Forums
+          - listitem [ref=e90]:
+            - link "Shopping" [ref=e91] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=28&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtT0h7PdEdL8le1RT1QApqDnOuaWK0zgRg3NvNzqFWifZ5Vnje3VqRlnmFS0LyC9x05xeWWsLMvBAKReAZaFijQAXoipm_sbaYywq9DT10zAGor1sXEe-1PkvYi3xX-W1i7zttBbYDCOWJSoWiVAziYgRy-KSOpE56NBL26Cn8MPaLAQV1A&q=%22Mangos+Group+Inc%22+Boca+Raton+FL+phone+number+buzzfile&ved=1t:220175&ictx=111
+              - generic [ref=e93]: Shopping
+          - listitem [ref=e94]:
+            - link "Images" [ref=e95] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtT0h7PdEdL8le1RT1QApqDnOuaWK0zgRg3NvNzqFWifZ5Vnje3VqRlnmFS0LyC9x05xeWWsLMvBAKReAZaFijQAXoipm_sbaYywq9DT10zAGor1sXEe-1PkvYi3xX-W1i7zttBbYDCOWJSoWiVAziYgRy-KSOpE56NBL26Cn8MPaLAQV1A&q=%22Mangos+Group+Inc%22+Boca+Raton+FL+phone+number+buzzfile&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQtKgLegQIEBAB
+              - generic [ref=e97]: Images
+          - listitem [ref=e98]:
+            - link "Videos" [ref=e99] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=7&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtT0h7PdEdL8le1RT1QApqDnOuaWK0zgRg3NvNzqFWifZ5Vnje3VqRlnmFS0LyC9x05xeWWsLMvBAKReAZaFijQAXoipm_sbaYywq9DT10zAGor1sXEe-1PkvYi3xX-W1i7zttBbYDCOWJSoWiVAziYgRy-KSOpE56NBL26Cn8MPaLAQV1A&q=%22Mangos+Group+Inc%22+Boca+Raton+FL+phone+number+buzzfile&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQtKgLegQIEhAB
+              - generic [ref=e101]: Videos
+          - listitem [ref=e102]:
+            - link "News" [ref=e103] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&q=%22Mangos+Group+Inc%22+Boca+Raton+FL+phone+number+buzzfile&tbm=nws&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtT0h7PdEdL8le1RT1QApqDnOuaWK0zgRg3NvNzqFWifZ5Vnje3VqRlnmFS0LyC9x05xeWWsLMvBAKReAZaFijQAXoipm_sbaYywq9DT10zAGor1sXEe-1PkvYi3xX-W1i7zttBbYDCOWJSoWiVAziYgRy-KSOpE56NBL26Cn8MPaLAQV1A&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQ0pQJegQIDxAB
+              - generic [ref=e105]: News
+          - listitem [ref=e106]:
+            - button "More filters" [ref=e107] [cursor=pointer]:
+              - generic "More filters" [ref=e108]:
+                - generic [ref=e109]:
+                  - generic [ref=e110]: More
+                  - img [ref=e112]
+        - button "Tools" [ref=e115] [cursor=pointer]:
+          - generic [ref=e117]:
+            - generic [ref=e118]: Tools
+            - img [ref=e120]
+    - heading "Search Results" [level=1] [ref=e122]
+    - generic [ref=e123]:
+      - main [ref=e124]:
+        - generic:
+          - generic:
+            - navigation
+        - navigation
+      - complementary "Complementary Results" [ref=e125]:
+        - heading "Complementary Results" [level=2] [ref=e126]
+        - generic [ref=e129]:
+          - generic [ref=e133]:
+            - generic [ref=e141]:
+              - button "See photos" [ref=e145] [cursor=pointer]:
+                - generic [ref=e148]: See photos
+              - generic [ref=e149]:
+                - generic [ref=e150]:
+                  - link "Map of MANGO" [ref=e152] [cursor=pointer]:
+                    - /url: /maps/place/MANGO/data=!4m2!3m1!1s0x0:0x44a4dc02f98413e3?sa=X&ved=1t:2428&ictx=111
+                    - img "Map of MANGO" [ref=e154]
+                  - link "Map of MANGO" [ref=e156] [cursor=pointer]:
+                    - /url: /maps/place/MANGO/data=!4m2!3m1!1s0x0:0x44a4dc02f98413e3?sa=X&ved=1t:2428&ictx=111
+                    - img "Map of MANGO" [ref=e158]
+                - link "See outside" [ref=e166] [cursor=pointer]:
+                  - /url: /local/place/fid/0x88d91fd59e544d93:0x44a4dc02f98413e3/photosphere?iu=https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid%3DfPrsvxszBLRfmiGEmz509w%26cb_client%3Dsearch.gws-prod.gps%26yaw%3D207.23055%26pitch%3D0%26thumbfov%3D100%26w%3D0%26h%3D0&ik=CAISFmZQcnN2eHN6QkxSZm1pR0VtejUwOXc%3D&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQpx96BAgrEBE
+                  - generic [ref=e168]: See outside
+            - generic [ref=e171]:
+              - heading "MANGO" [level=2] [ref=e174]
+              - generic [ref=e177]:
+                - text: "3.6"
+                - img "Rated 3.6 out of 5," [ref=e178]
+                - button "17 Google reviews" [ref=e183] [cursor=pointer]
+                - text: Clothing store in Boca Raton, Florida
+            - generic [ref=e190]:
+              - generic [ref=e204]:
+                - link "Website" [ref=e206] [cursor=pointer]:
+                  - /url: https://shop.mango.com/us/en/h/women?utm_source=google&utm_medium=organic&utm_campaign=googlemaps
+                  - generic [ref=e207]:
+                    - img [ref=e209]
+                    - generic [ref=e211]: Website
+                - link "Directions" [ref=e213]:
+                  - generic [ref=e214] [cursor=pointer]:
+                    - img [ref=e216]
+                    - generic [ref=e221]: Directions
+                - link "Reviews" [ref=e223] [cursor=pointer]:
+                  - /url: /search?sca_esv=7c3c44d1206346ec&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_22XtimY8QREqNYV5OZhLtuS_nrtNjApdS1Bb8__K4salRKoUTCALzoUwXXRGq9t27LpneuM6YOzbaBCkAuzLHGkfzrq&q=MANGO+Reviews&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQ0bkNegQIJRAH
+                  - generic [ref=e224]:
+                    - img [ref=e226]
+                    - generic [ref=e228]: Reviews
+                - button "Save MANGO to collection" [ref=e233] [cursor=pointer]:
+                  - img [ref=e234]
+                  - generic [ref=e236]: Save
+                - button "Share" [ref=e239] [cursor=pointer]:
+                  - generic [ref=e240]:
+                    - img [ref=e242]
+                    - generic [ref=e244]: Share
+                - button "Call" [ref=e246] [cursor=pointer]:
+                  - generic [ref=e247]:
+                    - img [ref=e249]
+                    - generic [ref=e251]: Call
+              - generic [ref=e257]:
+                - generic [ref=e260]:
+                  - text: "Located in:"
+                  - link "Town Center at Boca Raton" [ref=e261] [cursor=pointer]:
+                    - /url: /search?sca_esv=7c3c44d1206346ec&q=Town+Center+at+Boca+Raton&ludocid=6970538025162180177&lsig=AB86z5VEj-ZjiLOMOZxJsjvcQr0z&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQ8G0oAHoECCMQAQ
+                - generic [ref=e264]:
+                  - generic [ref=e265]:
+                    - link "Address" [ref=e266] [cursor=pointer]:
+                      - /url: /search?sca_esv=7c3c44d1206346ec&q=mango+boca+raton+address&ludocid=4946320196093875171&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQ6BN6BAgfEAI
+                    - text: ":"
+                  - text: 6000 Glades Rd, Boca Raton, FL 33431
+                - generic [ref=e270]:
+                  - generic [ref=e271]:
+                    - link "Phone" [ref=e272] [cursor=pointer]:
+                      - /url: /search?sca_esv=7c3c44d1206346ec&q=mango+boca+raton+phone&ludocid=4946320196093875171&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQ6BN6BAghEAI
+                    - text: ":"
+                  - link "Call Phone Number (728) 241-1292" [ref=e275] [cursor=pointer]:
+                    - /url: "#"
+                    - text: (728) 241-1292
+                - generic [ref=e277]:
+                  - generic [ref=e278]:
+                    - link "Hours" [ref=e279] [cursor=pointer]:
+                      - /url: /search?sca_esv=7c3c44d1206346ec&q=mango+boca+raton+hours&ludocid=4946320196093875171&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQ6BN6BAgiEAI
+                    - text: ":"
+                  - button "Open · Closes 8 PM" [ref=e281]:
+                    - generic [ref=e287]: Open · Closes 8 PM
+                - generic [ref=e293]:
+                  - button "Suggest an edit" [ref=e296] [cursor=pointer]
+                  - text: ·
+                  - link "Own this business?" [ref=e297] [cursor=pointer]:
+                    - /url: https://business.google.com/create?hl=en&getstarted&authuser=0&fp=4946320196093875171&gmbsrc=us-en-et-ip-z-gmb-s-z-l~skp%7Cclaimbz_aoc_a%7Cu&ppsrc=GMBSI
+              - generic [ref=e309]:
+                - heading "Products" [level=2] [ref=e311]
+                - generic [ref=e313]:
+                  - generic [ref=e315]:
+                    - textbox "What are you looking for?" [ref=e317]
+                    - button "Search" [ref=e319]:
+                      - img [ref=e321]
+                  - generic [ref=e324]:
+                    - generic [ref=e325]:
+                      - link "Women's Clothing" [ref=e326] [cursor=pointer]:
+                        - /url: /search?q=Women%27s+Clothing&udm=28&shoprs=CAESCDoGCgTakYIFEgZaBAirvCAYAioQV29tZW4ncyBDbG90aGluZzIyCAISDnNob3AubWFuZ28uY29tIgg6BgoE2pGCBSoSCg5zaG9wLm1hbmdvLmNvbRgBSAEyJAgJIgZaBAirvCAqFgoQV29tZW4ncyBDbG90aGluZxABGAFIAFirvCA&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQyPUBegQIMBAF
+                        - generic [ref=e329]: Women's Clothing
+                      - link "Shirts & Tops" [ref=e330] [cursor=pointer]:
+                        - /url: /search?q=Shirts+%26+Tops&udm=28&shoprs=CAESCDoGCgTakYIFEgZaBAj5uSAYAioNU2hpcnRzICYgVG9wczIyCAISDnNob3AubWFuZ28uY29tIgg6BgoE2pGCBSoSCg5zaG9wLm1hbmdvLmNvbRgBSAEyIQgJIgZaBAj5uSAqEwoNU2hpcnRzICYgVG9wcxABGAFIAFj5uSA&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQyPUBegQIMBAH
+                        - generic [ref=e333]: Shirts & Tops
+                      - link "Men's Clothing" [ref=e334] [cursor=pointer]:
+                        - /url: /search?q=Men%27s+Clothing&udm=28&shoprs=CAESCDoGCgTakYIFEgZaBAipvCAYAioOTWVuJ3MgQ2xvdGhpbmcyMggCEg5zaG9wLm1hbmdvLmNvbSIIOgYKBNqRggUqEgoOc2hvcC5tYW5nby5jb20YAUgBMiIICSIGWgQIqbwgKhQKDk1lbidzIENsb3RoaW5nEAEYAUgAWKm8IA&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQyPUBegQIMBAJ
+                        - generic [ref=e337]: Men's Clothing
+                      - link "Pants" [ref=e338] [cursor=pointer]:
+                        - /url: /search?q=Pants&udm=28&shoprs=CAESCDoGCgTakYIFEgZaBAjzpyAYAioFUGFudHMyMggCEg5zaG9wLm1hbmdvLmNvbSIIOgYKBNqRggUqEgoOc2hvcC5tYW5nby5jb20YAUgBMhkICSIGWgQI86cgKgsKBVBhbnRzEAEYAUgAWPOnIA&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQyPUBegQIMBAL
+                        - generic [ref=e341]: Pants
+                      - link "Dresses" [ref=e342] [cursor=pointer]:
+                        - /url: /search?q=Dresses&udm=28&shoprs=CAESCDoGCgTakYIFEgZaBAj1pyAYAioHRHJlc3NlczIyCAISDnNob3AubWFuZ28uY29tIgg6BgoE2pGCBSoSCg5zaG9wLm1hbmdvLmNvbRgBSAEyGwgJIgZaBAj1pyAqDQoHRHJlc3NlcxABGAFIAFj1pyA&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQyPUBegQIMBAN
+                        - generic [ref=e345]: Dresses
+                      - link "Kids' Clothing" [ref=e346] [cursor=pointer]:
+                        - /url: /search?q=Kids%27+Clothing&udm=28&shoprs=CAESCDoGCgTakYIFEgZaBAiwoyEYAioOS2lkcycgQ2xvdGhpbmcyMggCEg5zaG9wLm1hbmdvLmNvbSIIOgYKBNqRggUqEgoOc2hvcC5tYW5nby5jb20YAUgBMiIICSIGWgQIsKMhKhQKDktpZHMnIENsb3RoaW5nEAEYAUgAWLCjIQ&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQyPUBegQIMBAP
+                        - generic [ref=e349]: Kids' Clothing
+                      - link "Kids" [ref=e350] [cursor=pointer]:
+                        - /url: /search?q=Kids&udm=28&shoprs=CAESCDoGCgTakYIFEgZaBAjl9iAYAioES2lkczIyCAISDnNob3AubWFuZ28uY29tIgg6BgoE2pGCBSoSCg5zaG9wLm1hbmdvLmNvbRgBSAEyGAgJIgZaBAjl9iAqCgoES2lkcxABGAFIAFjl9iA&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQyPUBegQIMBAR
+                        - generic [ref=e353]: Kids
+                      - link "Coats & Jackets" [ref=e354] [cursor=pointer]:
+                        - /url: /search?q=Coats+%26+Jackets&udm=28&shoprs=CAESCDoGCgTakYIFEgZaBAj2pyAYAioPQ29hdHMgJiBKYWNrZXRzMjIIAhIOc2hvcC5tYW5nby5jb20iCDoGCgTakYIFKhIKDnNob3AubWFuZ28uY29tGAFIATIjCAkiBloECPanICoVCg9Db2F0cyAmIEphY2tldHMQARgBSABY9qcg&sa=X&ved=2ahUKEwibyOLRi5uVAxWomisGHX4KDbAQyPUBegQIMBAT
+                        - generic [ref=e357]: Coats & Jackets
+                    - button "More categories" [ref=e359] [cursor=pointer]:
+                      - generic [ref=e360]:
+                        - generic [ref=e361]: More categories
+                        - img [ref=e363]
+              - generic [ref=e374]:
+                - generic [ref=e375]:
+                  - heading "Reviews" [level=3] [ref=e376]
+                  - button "More info" [ref=e381] [cursor=pointer]:
+                    - img [ref=e383]
+                  - generic [ref=e385]:
+                    - button "Write a review" [ref=e389] [cursor=pointer]:
+                      - generic [ref=e390]: Write a review
+                    - link "Add photos" [ref=e392] [cursor=pointer]:
+                      - /url: "#"
+                - generic [ref=e393]:
+                  - generic [ref=e394]:
+                    - generic [ref=e395]:
+                      - link "Gloria Mora":
+                        - /url: https://www.google.com/maps/contrib/101537068659722124543?hl=en-US&ved=1t:31296&ictx=111
+                        - img "Gloria Mora" [ref=e397] [cursor=pointer]
+                    - generic [ref=e398]:
+                      - link "\"Manager and employees were very nice.\"" [ref=e399] [cursor=pointer]:
+                        - /url: https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s101537068659722124543!2s0x88d91fd59e544d93:0x44a4dc02f98413e3?ved=1t:31295&ictx=111
+                      - img "Rated 5.0 out of 5," [ref=e401]
+                  - generic [ref=e404]:
+                    - generic [ref=e405]:
+                      - link "Shari Kikam":
+                        - /url: https://www.google.com/maps/contrib/117623425203056709411?hl=en-US&ved=1t:31296&ictx=111
+                        - img "Shari Kikam" [ref=e407] [cursor=pointer]
+                    - generic [ref=e408]:
+                      - link "\"Just went to return an item and was denied service.\"" [ref=e409] [cursor=pointer]:
+                        - /url: https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s117623425203056709411!2s0x88d91fd59e544d93:0x44a4dc02f98413e3?ved=1t:31295&ictx=111
+                      - img "Rated 1.0 out of 5," [ref=e411]
+                  - generic [ref=e414]:
+                    - generic [ref=e415]:
+                      - link "Patricia Ribeiro":
+                        - /url: https://www.google.com/maps/contrib/101547299991743563069?hl=en-US&ved=1t:31296&ictx=111
+                        - img "Patricia Ribeiro" [ref=e417] [cursor=pointer]
+                    - generic [ref=e418]:
+                      - link "\"The pieces are of great quality and good taste.\"" [ref=e419] [cursor=pointer]:
+                        - /url: https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s101547299991743563069!2s0x88d91fd59e544d93:0x44a4dc02f98413e3?ved=1t:31295&ictx=111
+                      - img "Rated 5.0 out of 5," [ref=e421]
+                - button "View all Google reviews" [ref=e426] [cursor=pointer]
+              - generic [ref=e436]:
+                - generic [ref=e437]:
+                  - heading "From MANGO" [level=3] [ref=e438]
+                  - button "Report description" [ref=e440]:
+                    - img [ref=e441]
+                - generic [ref=e443]: "\"Chain of sophisticated women's clothing and accessories stores in Boca Raton.\""
+              - generic [ref=e450]:
+                - heading "Profiles" [level=3] [ref=e451]
+                - generic [ref=e452]:
+                  - link "Instagram" [ref=e456] [cursor=pointer]:
+                    - /url: https://www.instagram.com/mango/
+                    - generic [ref=e462]: Instagram
+                  - link "YouTube" [ref=e466] [cursor=pointer]:
+                    - /url: https://www.youtube.com/channel/UCXAYDnIfvOZKDAEOUTVQThg
+                    - generic [ref=e472]: YouTube
+                  - link "Facebook" [ref=e476] [cursor=pointer]:
+                    - /url: https://www.facebook.com/mango.com
+                    - generic [ref=e482]: Facebook
+                  - link "X (Twitter)" [ref=e486] [cursor=pointer]:
+                    - /url: https://twitter.com/Mango
+                    - generic [ref=e492]: X (Twitter)
+          - link "About this data" [ref=e494] [cursor=pointer]:
+            - /url: https://support.google.com/local-listings?p=how_google_sources
+    - contentinfo [ref=e495]:
+      - heading "Footer Links" [level=1] [ref=e496]
+      - generic [ref=e500]:
+        - generic [ref=e504]:
+          - button "Schenectady County, New York - From your IP address" [ref=e506] [cursor=pointer]:
+            - generic [ref=e507]: Schenectady County, New York
+            - generic [ref=e509]:
+              - text: "-"
+              - generic [ref=e510]: From your IP address
+          - text: "-"
+          - button "Update location" [ref=e512] [cursor=pointer]: Update location
+        - generic [ref=e515]:
+          - link "Help" [ref=e516] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en&fg=1
+          - link "Send feedback" [ref=e517] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e518] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en&fg=1
+          - link "Terms" [ref=e519] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en&fg=1

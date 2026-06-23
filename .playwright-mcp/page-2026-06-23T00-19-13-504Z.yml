@@ -1,0 +1,277 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - link "The Backus Agency The Backus Agency" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img "The Backus Agency" [ref=e7]
+          - generic [ref=e8]: The Backus Agency
+        - navigation [ref=e9]:
+          - link "Home" [ref=e10] [cursor=pointer]:
+            - /url: /
+          - link "Our Work" [ref=e11] [cursor=pointer]:
+            - /url: /our-work/
+          - link "Marketing" [ref=e12] [cursor=pointer]:
+            - /url: /marketing/
+          - link "Pricing" [ref=e13] [cursor=pointer]:
+            - /url: /pricing/
+          - link "About" [ref=e14] [cursor=pointer]:
+            - /url: /about/
+          - link "Blog" [ref=e15] [cursor=pointer]:
+            - /url: /blog/
+          - link "Contact" [ref=e16] [cursor=pointer]:
+            - /url: /contact/
+          - button "Get Started" [ref=e17] [cursor=pointer]
+    - generic [ref=e18]:
+      - img [ref=e21]
+      - generic [ref=e38]:
+        - heading "We build the future, faster" [level=1] [ref=e41]:
+          - text: We build the
+          - text: future, faster
+        - paragraph [ref=e42]: We're a team of passionate technologists dedicated to transforming ideas into impactful products in record time. From concept to MVP in just 2 weeks, we're redefining what's possible.
+        - generic [ref=e43]:
+          - button "Start Your Project" [ref=e44] [cursor=pointer]:
+            - text: Start Your Project
+            - img
+          - button "See Our Work" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: 84%
+            - generic [ref=e49]: Projects launched in 2 weeks
+          - generic [ref=e50]:
+            - generic [ref=e51]: 98%
+            - generic [ref=e52]: Client retention rate
+          - generic [ref=e53]:
+            - generic [ref=e54]: 65%
+            - generic [ref=e55]: Average cost savings
+          - generic [ref=e56]:
+            - generic [ref=e57]: 10X
+            - generic [ref=e58]: Development speed
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - img [ref=e65]
+        - heading "Our Vision" [level=2] [ref=e69]
+        - paragraph [ref=e70]: We envision a world where the gap between brilliant ideas and functioning software is measured in days, not months. A world where businesses of all sizes can rapidly test, iterate, and scale their digital products without compromise.
+        - paragraph [ref=e71]: Our vision is to democratize access to high-quality software development, enabling innovators to bring their ideas to life at unprecedented speed and quality.
+      - generic [ref=e72]:
+        - img [ref=e74]
+        - heading "Our Mission" [level=2] [ref=e76]
+        - paragraph [ref=e77]: Our mission is to transform how software is built by delivering exceptional digital products in record time. We combine technical excellence with strategic thinking to help our clients solve complex problems and achieve their business goals.
+        - paragraph [ref=e78]: We're committed to pushing the boundaries of what's possible in software development, challenging conventional timelines without sacrificing quality or reliability.
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - generic [ref=e83]: How We Work
+        - heading "Our Approach" [level=2] [ref=e84]
+        - paragraph [ref=e85]: How we deliver exceptional results in record time.
+      - generic [ref=e86]:
+        - generic [ref=e89]:
+          - img [ref=e91]
+          - heading "Rapid Prototyping" [level=3] [ref=e94]
+          - paragraph [ref=e95]: We build functional prototypes in days, not weeks, allowing for quick validation and iteration.
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - img [ref=e99]
+              - generic [ref=e102]: Functional MVP in 2 weeks
+            - listitem [ref=e103]:
+              - img [ref=e105]
+              - generic [ref=e108]: Continuous iteration
+            - listitem [ref=e109]:
+              - img [ref=e111]
+              - generic [ref=e114]: Early user feedback
+        - generic [ref=e117]:
+          - img [ref=e119]
+          - heading "Agile Development" [level=3] [ref=e121]
+          - paragraph [ref=e122]: Our streamlined Agile process eliminates unnecessary overhead while maintaining quality and accountability.
+          - list [ref=e123]:
+            - listitem [ref=e124]:
+              - img [ref=e126]
+              - generic [ref=e129]: 2-week sprint cycles
+            - listitem [ref=e130]:
+              - img [ref=e132]
+              - generic [ref=e135]: Daily progress updates
+            - listitem [ref=e136]:
+              - img [ref=e138]
+              - generic [ref=e141]: Transparent communication
+        - generic [ref=e144]:
+          - img [ref=e146]
+          - heading "Dedicated Teams" [level=3] [ref=e151]
+          - paragraph [ref=e152]: Each client works with a dedicated team that understands their business and technical needs.
+          - list [ref=e153]:
+            - listitem [ref=e154]:
+              - img [ref=e156]
+              - generic [ref=e159]: Full-stack expertise
+            - listitem [ref=e160]:
+              - img [ref=e162]
+              - generic [ref=e165]: Consistent team members
+            - listitem [ref=e166]:
+              - img [ref=e168]
+              - generic [ref=e171]: Direct communication
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - generic [ref=e176]: Our Philosophy
+        - heading "What We're About" [level=2] [ref=e177]
+        - paragraph [ref=e178]: Our core principles and what sets us apart.
+      - generic [ref=e179]:
+        - generic [ref=e183]:
+          - heading "Challenging the Status Quo" [level=3] [ref=e184]
+          - generic [ref=e185]:
+            - generic [ref=e186]:
+              - paragraph [ref=e187]: We believe that conventional software development is broken. Bloated processes, misaligned incentives, and outdated methodologies lead to wasted time, money, and opportunity.
+              - paragraph [ref=e188]: We've reimagined the entire development process from the ground up, focusing on outcomes rather than outputs. By eliminating unnecessary complexity and focusing on what truly drives value, we can deliver results that others can't.
+            - img "Challenging the Status Quo" [ref=e190]
+        - generic [ref=e194]:
+          - heading "Obsessive Focus on Results" [level=3] [ref=e195]
+          - paragraph [ref=e196]: "We're not interested in vanity metrics or superficial progress. Every decision we make, every line of code we write, and every design element we create serves a purpose: to drive measurable business results for our clients."
+          - paragraph [ref=e197]: This obsession with outcomes is embedded in our culture. We don't just build what clients ask for—we dig deeper to understand what they truly need, then deliver solutions that address those underlying needs.
+        - generic [ref=e201]:
+          - heading "Full-Stack Expertise" [level=3] [ref=e202]
+          - paragraph [ref=e203]: We're not just developers—we're full-stack product experts. Our team brings together deep technical knowledge with strategic business thinking, user experience design, and product management expertise.
+          - paragraph [ref=e204]: This breadth of expertise allows us to see the big picture while also executing on the details. We don't just build features; we build cohesive products that solve real problems.
+    - generic [ref=e207]:
+      - generic [ref=e208]:
+        - generic [ref=e209]: Industry Knowledge
+        - heading "Sharing Our Expertise" [level=2] [ref=e210]
+        - paragraph [ref=e211]: We believe in democratizing knowledge about software development and technology.
+      - generic [ref=e214]:
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - img [ref=e217]
+            - 'heading "Our Blog: Insights for Everyone" [level=3] [ref=e219]'
+          - paragraph [ref=e220]: We regularly share our expertise, insights, and lessons learned through our blog. Our goal is to make complex technical concepts accessible to everyone, regardless of their technical background.
+          - paragraph [ref=e221]: From detailed technical tutorials to strategic business advice, our content helps demystify the software development process and empowers our readers to make informed decisions about their digital products.
+          - button "Explore Our Blog" [ref=e222] [cursor=pointer]:
+            - text: Explore Our Blog
+            - img
+        - generic [ref=e223]:
+          - link "Development How to Build an MVP in 2 Weeks Learn our proven process for rapidly developing minimum viable products that get results." [ref=e224] [cursor=pointer]:
+            - /url: /blog/
+            - generic [ref=e225]:
+              - generic [ref=e226]:
+                - generic [ref=e227]: Development
+                - img [ref=e228]
+              - heading "How to Build an MVP in 2 Weeks" [level=4] [ref=e231]
+              - paragraph [ref=e232]: Learn our proven process for rapidly developing minimum viable products that get results.
+          - link "Technology The Future of AI in Software Development Explore how artificial intelligence is transforming the way we build and maintain software." [ref=e233] [cursor=pointer]:
+            - /url: /blog/
+            - generic [ref=e234]:
+              - generic [ref=e235]:
+                - generic [ref=e236]: Technology
+                - img [ref=e237]
+              - heading "The Future of AI in Software Development" [level=4] [ref=e240]
+              - paragraph [ref=e241]: Explore how artificial intelligence is transforming the way we build and maintain software.
+          - link "Design 5 UX Principles That Drive Conversion Discover the key user experience design principles that can significantly improve your conversion rates." [ref=e242] [cursor=pointer]:
+            - /url: /blog/
+            - generic [ref=e243]:
+              - generic [ref=e244]:
+                - generic [ref=e245]: Design
+                - img [ref=e246]
+              - heading "5 UX Principles That Drive Conversion" [level=4] [ref=e249]
+              - paragraph [ref=e250]: Discover the key user experience design principles that can significantly improve your conversion rates.
+    - generic [ref=e253]:
+      - generic [ref=e254]:
+        - generic [ref=e255]: Core Principles
+        - heading "Our Values" [level=2] [ref=e256]
+        - paragraph [ref=e257]: These core principles guide everything we do.
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - generic [ref=e261]:
+            - img [ref=e263]
+            - heading "Confidential" [level=3] [ref=e265]
+            - paragraph [ref=e266]: We prioritize your privacy and ensure that your information is kept safe and secure at all times. Your trust is our highest priority.
+          - img [ref=e268]
+        - generic [ref=e270]:
+          - generic [ref=e272]:
+            - img [ref=e274]
+            - heading "Super Fast" [level=3] [ref=e277]
+            - paragraph [ref=e278]: Time is of the essence, and we are committed to delivering our services with utmost speed and efficiency, without compromising on quality.
+          - img [ref=e280]
+        - generic [ref=e283]:
+          - generic [ref=e285]:
+            - img [ref=e287]
+            - heading "Win/Win" [level=3] [ref=e292]
+            - paragraph [ref=e293]: We believe in mutually beneficial outcomes. Our goal is to create solutions that provide real value for both our clients and our team, fostering long-term partnerships.
+          - img [ref=e295]
+        - generic [ref=e300]:
+          - generic [ref=e302]:
+            - img [ref=e304]
+            - heading "Transparency" [level=3] [ref=e307]
+            - paragraph [ref=e308]: We value openness and honesty in all our interactions. Clear communication and full disclosure are at the heart of our business practices.
+          - img [ref=e310]
+    - generic [ref=e322]:
+      - heading "Ready to build something extraordinary?" [level=2] [ref=e323]
+      - paragraph [ref=e324]: Let's transform your vision into reality faster than you thought possible.
+      - button "Start a Conversation" [ref=e325] [cursor=pointer]:
+        - text: Start a Conversation
+        - img
+    - heading "Let's Chat" [level=2] [ref=e329]
+    - contentinfo [ref=e330]:
+      - generic [ref=e332]:
+        - generic [ref=e333]:
+          - link "The Backus Agency Logo" [ref=e334] [cursor=pointer]:
+            - /url: /
+            - img "The Backus Agency Logo" [ref=e335]
+          - paragraph [ref=e336]: We build innovative software solutions for rapidly growing companies. From concept to MVP in just 2 weeks.
+          - generic [ref=e337]:
+            - link "Facebook" [ref=e338] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=100089589564589
+              - img "Facebook" [ref=e339]
+              - generic [ref=e340]: Facebook
+            - link "LinkedIn" [ref=e341] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/the-backus-agency
+              - img "LinkedIn" [ref=e342]
+              - generic [ref=e343]: LinkedIn
+            - link "GitHub" [ref=e344] [cursor=pointer]:
+              - /url: https://github.com/TheBackusAgency
+              - img "GitHub" [ref=e345]
+              - generic [ref=e346]: GitHub
+        - generic [ref=e347]:
+          - heading "Quick Links" [level=3] [ref=e348]
+          - list [ref=e349]:
+            - listitem [ref=e350]:
+              - link "Our Work" [ref=e351] [cursor=pointer]:
+                - /url: /our-work/
+            - listitem [ref=e352]:
+              - link "Marketing" [ref=e353] [cursor=pointer]:
+                - /url: /marketing/
+            - listitem [ref=e354]:
+              - link "Pricing" [ref=e355] [cursor=pointer]:
+                - /url: /pricing/
+            - listitem [ref=e356]:
+              - link "About Us" [ref=e357] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e358]:
+              - link "Blog" [ref=e359] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=e360]:
+              - link "Contact" [ref=e361] [cursor=pointer]:
+                - /url: /contact/
+        - generic [ref=e362]:
+          - heading "Contact Us" [level=3] [ref=e363]
+          - list [ref=e364]:
+            - listitem [ref=e365]:
+              - img [ref=e366]
+              - generic [ref=e369]: Delaware
+            - listitem [ref=e370]:
+              - img [ref=e371]
+              - link "support@backus.agency" [ref=e374] [cursor=pointer]:
+                - /url: mailto:support@backus.agency
+        - generic [ref=e375]:
+          - heading "Subscribe to Our Newsletter" [level=3] [ref=e376]
+          - paragraph [ref=e377]: Get the latest updates, news and product offers sent directly to your inbox.
+          - generic [ref=e379]:
+            - textbox "Your email address" [ref=e380]
+            - button "Subscribe" [ref=e381] [cursor=pointer]:
+              - text: Subscribe
+              - img
+      - generic [ref=e384]:
+        - paragraph [ref=e385]: © 2025 The Backus Agency. All rights reserved.
+        - generic [ref=e386]:
+          - link "Privacy Policy" [ref=e387] [cursor=pointer]:
+            - /url: /privacy-policy/
+          - link "Terms of Service" [ref=e388] [cursor=pointer]:
+            - /url: /terms-of-service/
+          - link "Cookie Policy" [ref=e389] [cursor=pointer]:
+            - /url: /cookie-policy/
+          - link "Sitemap" [ref=e390] [cursor=pointer]:
+            - /url: /sitemap/
+  - alert [ref=e391]

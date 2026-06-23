@@ -1,0 +1,5 @@
+[     387ms] mage/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgogICAgICAgICAgICAgICAgPHBhdGggc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xMiAxNXYybS02IDRoMTJhMiAyIDAgMDAyLTJ2LTZhMiAyIDAgMDAtMi0ySDZhMiAyIDAgMDAtMiAydjZhMiAyIDAgMDAyIDJ6bTEwLTEwVjdhNCA0IDAgMDAtOCAwdjRoOHoiPjwvcGF0aD4KICAgICAgICAgICAgPC9zdmc+
+[     579ms] [LOG] https://allrecentarrests.org/static/js/jquery.min.js loaded  @ https://allrecentarrests.org/contact-us/:1035
+[     627ms] [LOG] https://allrecentarrests.org/static/js/bootstrap.bundle.min.js loaded  @ https://allrecentarrests.org/contact-us/:1035
+[     648ms] TypeError: Cannot read properties of null (reading 'style')
+    at https://allrecentarrests.org/contact-us/:984:39

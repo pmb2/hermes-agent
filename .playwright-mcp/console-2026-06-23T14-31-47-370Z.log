@@ -1,0 +1,7 @@
+[    1185ms] mage/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgogICAgICAgICAgICAgICAgPHBhdGggc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xMiAxNXYybS02IDRoMTJhMiAyIDAgMDAyLTJ2LTZhMiAyIDAgMDAtMi0ySDZhMiAyIDAgMDAtMiAydjZhMiAyIDAgMDAyIDJ6bTEwLTEwVjdhNCA0IDAgMDAtOCAwdjRoOHoiPjwvcGF0aD4KICAgICAgICAgICAgPC9zdmc+
+[    1193ms] mage/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgogICAgICAgICAgICAgICAgPHBhdGggc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xMiAxNXYybS02IDRoMTJhMiAyIDAgMDAyLTJ2LTZhMiAyIDAgMDAtMi0ySDZhMiAyIDAgMDAtMiAydjZhMiAyIDAgMDAyIDJ6bTEwLTEwVjdhNCA0IDAgMDAtOCAwdjRoOHoiPjwvcGF0aD4KICAgICAgICAgICAgPC9zdmc+
+[    1385ms] [LOG] https://allrecentarrests.org/static/js/jquery.min.js loaded  @ https://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/:2062
+[    1429ms] [LOG] https://allrecentarrests.org/static/js/bootstrap.bundle.min.js loaded  @ https://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/:2062
+[    1448ms] TypeError: Cannot read properties of null (reading 'style')
+    at https://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/:2011:39
+[   30199ms] A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received

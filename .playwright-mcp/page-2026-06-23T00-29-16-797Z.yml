@@ -1,0 +1,174 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "AllRecentArrests.org Public Records Database" [ref=e4] [cursor=pointer]:
+        - /url: https://allrecentarrests.org
+        - img [ref=e6]
+        - generic [ref=e8]:
+          - generic [ref=e9]: AllRecentArrests.org
+          - generic [ref=e10]: Public Records Database
+      - button "Toggle navigation menu" [ref=e11] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e17]:
+      - heading "Contact Us" [level=1] [ref=e18]
+      - paragraph [ref=e19]: We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+    - generic [ref=e22]:
+      - navigation "breadcrumb" [ref=e23]:
+        - list [ref=e24]:
+          - listitem [ref=e25]:
+            - link "Home" [ref=e26] [cursor=pointer]:
+              - /url: //allrecentarrests.org
+          - listitem [ref=e27]: / Contact Us
+      - generic [ref=e28]:
+        - generic [ref=e31]:
+          - heading "Get In Touch" [level=2] [ref=e32]:
+            - img [ref=e33]
+            - text: Get In Touch
+          - paragraph [ref=e35]: Have a question, suggestion, or feedback? Fill out the form below and we'll get back to you as soon as possible.
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - heading "Send Us a Message" [level=2] [ref=e38]:
+              - img [ref=e39]
+              - text: Send Us a Message
+            - paragraph [ref=e41]: We're here to help and would love to hear from you
+          - generic [ref=e43]:
+            - generic [ref=e44]:
+              - generic [ref=e45]:
+                - img [ref=e46]
+                - text: Your Name
+                - generic [ref=e48]: "*"
+              - textbox "Your Name *" [ref=e49]:
+                - /placeholder: Enter your full name
+            - generic [ref=e50]:
+              - generic [ref=e51]:
+                - img [ref=e52]
+                - text: Your Email
+                - generic [ref=e54]: "*"
+              - textbox "Your Email *" [ref=e55]:
+                - /placeholder: your.email@example.com
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - img [ref=e58]
+                - text: Subject
+                - generic [ref=e60]: "*"
+              - textbox "Subject *" [ref=e61]:
+                - /placeholder: What is this regarding?
+            - generic [ref=e62]:
+              - generic [ref=e63]:
+                - img [ref=e64]
+                - text: Message
+                - generic [ref=e66]: "*"
+              - textbox "Message *" [ref=e67]:
+                - /placeholder: Please provide details about your inquiry...
+            - button "Send Message" [ref=e69] [cursor=pointer]:
+              - img [ref=e70]
+              - text: Send Message
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - heading "Other Ways to Reach Us" [level=2] [ref=e74]:
+              - img [ref=e75]
+              - text: Other Ways to Reach Us
+            - paragraph [ref=e77]: contact@allrecentarrests.org / removals@allrecentarrests.org
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - heading "Response Time" [level=3] [ref=e82]:
+                  - img [ref=e83]
+                  - text: Response Time
+                - paragraph [ref=e85]: We typically respond to all inquiries within 24-48 hours during business days. For urgent matters, please note that in your message subject line.
+              - generic [ref=e86]:
+                - heading "Removals" [level=3] [ref=e87]:
+                  - img [ref=e88]
+                  - text: Removals
+                - paragraph [ref=e90]: All removal requests are processed within 30 days, please don't send repeated requests.
+            - generic [ref=e92]:
+              - heading "What We Can Help With" [level=3] [ref=e93]:
+                - img [ref=e94]
+                - text: What We Can Help With
+              - list [ref=e96]:
+                - listitem [ref=e97]: ✓ Questions about our platform
+                - listitem [ref=e98]: ✓ Data accuracy concerns
+                - listitem [ref=e99]: ✓ Feature suggestions
+                - listitem [ref=e100]: ✓ Partnership inquiries
+                - listitem [ref=e101]: ✓ General feedback
+  - contentinfo [ref=e102]:
+    - generic [ref=e105]:
+      - generic [ref=e107]:
+        - heading "AllRecentArrests" [level=5] [ref=e109]:
+          - img [ref=e110]
+          - text: AllRecentArrests
+        - paragraph [ref=e112]: Your trusted source for inmate search, prison facility information, and arrest records across the United States.
+        - generic [ref=e113]:
+          - link "Follow us on Facebook" [ref=e114] [cursor=pointer]:
+            - /url: https://www.facebook.com/allrecentarrests/
+            - img [ref=e115]
+          - link "Follow us on Twitter" [ref=e117] [cursor=pointer]:
+            - /url: https://x.com/allrecentarrest
+            - img [ref=e118]
+          - link "Follow us on Instagram" [ref=e120] [cursor=pointer]:
+            - /url: https://www.instagram.com/allrecentarrests/
+            - img [ref=e121]
+      - generic [ref=e124]:
+        - heading "Stay Updated" [level=5] [ref=e125]:
+          - img [ref=e126]
+          - text: Stay Updated
+        - paragraph [ref=e128]: Subscribe to our newsletter for the latest updates and resources.
+        - generic [ref=e130]:
+          - textbox "Email address" [ref=e131]:
+            - /placeholder: Enter your email address
+          - button "Subscribe to newsletter" [ref=e132] [cursor=pointer]:
+            - img [ref=e133]
+      - generic [ref=e136]:
+        - heading "Quick Links" [level=5] [ref=e137]:
+          - img [ref=e138]
+          - text: Quick Links
+        - generic [ref=e140]:
+          - list [ref=e141]:
+            - listitem [ref=e142]:
+              - link "About Us" [ref=e143] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/about-us/
+                - img [ref=e144]
+                - generic [ref=e146]: About Us
+            - listitem [ref=e147]:
+              - link "Privacy Policy" [ref=e148] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/privacy-policy/
+                - img [ref=e149]
+                - generic [ref=e151]: Privacy Policy
+            - listitem [ref=e152]:
+              - link "Data Sources" [ref=e153] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/data-sources/
+                - img [ref=e154]
+                - generic [ref=e156]: Data Sources
+            - listitem [ref=e157]:
+              - link "Contact Us" [ref=e158] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/contact-us/
+                - img [ref=e159]
+                - generic [ref=e161]: Contact Us
+          - list [ref=e162]:
+            - listitem [ref=e163]:
+              - link "Prison Search" [ref=e164] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/all-prisons-in-usa/
+                - img [ref=e165]
+                - generic [ref=e167]: Prison Search
+            - listitem [ref=e168]:
+              - link "Inmate Locator" [ref=e169] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/all-inmates-in-usa/
+                - img [ref=e170]
+                - generic [ref=e172]: Inmate Locator
+            - listitem [ref=e173]:
+              - link "Terms & Conditions" [ref=e174] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/terms/
+                - img [ref=e175]
+                - generic [ref=e177]: Terms & Conditions
+            - listitem [ref=e178]:
+              - link "Blog" [ref=e179] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/guides-and-resources/
+                - img [ref=e180]
+                - generic [ref=e182]: Blog
+    - generic [ref=e185]:
+      - paragraph [ref=e186]:
+        - img [ref=e187]
+        - text: © 2025 AllRecentArrests.org. All rights reserved.
+      - paragraph [ref=e189]:
+        - img [ref=e190]
+        - text: Information on this website is updated regularly.

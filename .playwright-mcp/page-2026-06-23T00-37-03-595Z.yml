@@ -1,0 +1,708 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Cloudflare home" [ref=e6] [cursor=pointer]:
+        - /url: https://www.cloudflare.com
+        - img "Cloudflare logo" [ref=e7]
+      - navigation [ref=e20]:
+        - link "Home" [ref=e21] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/
+        - link "Support" [ref=e22] [cursor=pointer]:
+          - /url: https://support.cloudflare.com/
+        - link "Abuse Policy" [ref=e23] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/trust-hub/abuse-approach/
+        - link "Log In" [ref=e24] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/a/login
+        - link "Sign Up" [ref=e25] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/a/sign-up
+      - generic [ref=e27]:
+        - combobox "Theme" [ref=e28] [cursor=pointer]:
+          - generic [ref=e30]:
+            - img [ref=e31]
+            - text: System
+          - img [ref=e35]
+        - textbox [ref=e37]: system
+  - main [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e98]: Submit an abuse report
+        - generic [ref=e99]:
+          - heading "General" [level=1] [ref=e100]
+          - generic [ref=e102]:
+            - combobox "Abuse type" [ref=e103] [cursor=pointer]:
+              - generic [ref=e104]: General
+              - img [ref=e106]
+            - textbox [ref=e108]: general
+      - generic [ref=e109]:
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - paragraph [ref=e115]: Your full name
+            - textbox "Your full name" [ref=e117]: Paul Backus
+          - generic [ref=e118]:
+            - paragraph [ref=e121]: Your email address
+            - textbox "Your email address" [ref=e123]: justplainpaulie@gmail.com
+          - generic [ref=e124]:
+            - paragraph [ref=e127]: Confirm email address
+            - textbox "Confirm email address" [ref=e129]: justplainpaulie@gmail.com
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - paragraph [ref=e133]: Title
+              - paragraph [ref=e134]: Optional
+            - textbox "Title" [ref=e136]
+          - generic [ref=e137]:
+            - generic [ref=e138]:
+              - paragraph [ref=e140]: Company name
+              - paragraph [ref=e141]: Optional
+            - textbox "Company name" [ref=e143]
+          - generic [ref=e144]:
+            - generic [ref=e145]:
+              - paragraph [ref=e147]: Telephone
+              - paragraph [ref=e148]: Optional
+            - textbox "Telephone" [ref=e150]
+          - generic [ref=e151]:
+            - paragraph [ref=e154]: Evidence URLs
+            - textbox "Evidence URLs" [ref=e156]:
+              - /placeholder: Place each URL on a separate line
+              - text: https://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - paragraph [ref=e160]: Source IPs
+              - paragraph [ref=e161]: Optional
+            - textbox "Source IPs" [ref=e163]:
+              - /placeholder: Place each IP address on a separate line
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - paragraph [ref=e167]: Destination IPs
+              - paragraph [ref=e168]: Optional
+            - textbox "Destination IPs" [ref=e170]:
+              - /placeholder: Place each IP address on a separate line
+          - generic [ref=e171]:
+            - generic [ref=e172]:
+              - paragraph [ref=e174]: Destination ports and protocols
+              - paragraph [ref=e175]: Optional
+            - textbox "Destination ports and protocols" [ref=e177]:
+              - /placeholder: e.g. 22/TCP
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - paragraph [ref=e181]: Logs or other evidence of abuse
+              - paragraph [ref=e184]:
+                - generic [ref=e185]:
+                  - text: This field may be released by Cloudflare to third parties such as the
+                  - link "Lumen Database" [ref=e186] [cursor=pointer]:
+                    - /url: https://lumendatabase.org/
+                  - text: .
+            - textbox "Logs or other evidence of abuse" [ref=e188]:
+              - /placeholder: Provide a detailed description of the infringment, including any necessary access details and the exact steps needed to view the content.
+              - text: "This website (allrecentarrests.org) has published a false and defamatory page claiming Paul Backus is \"currently incarcerated\" in Schenectady, New York. The page contains zero verifiable details: no inmate ID, no charges, no booking photo, no booking date. This is an auto-generated data broker page created by scraping public records and fabricating an incarceration claim. This false information damages reputation and causes emotional distress. The page URL is https://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/"
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - paragraph [ref=e192]: Reporter current country
+              - paragraph [ref=e193]: Optional
+              - paragraph [ref=e195]: Location in which the abuse was observed
+            - generic [ref=e197]:
+              - combobox "Reporter current country" [expanded] [ref=e198] [cursor=pointer]:
+                - generic [ref=e199]: Select a country
+                - img [ref=e201]
+              - listbox [ref=e287]:
+                - option "Afghanistan" [active] [ref=e288] [cursor=pointer]:
+                  - generic [ref=e289]: Afghanistan
+                - option "Åland" [ref=e290] [cursor=pointer]:
+                  - generic [ref=e291]: Åland
+                - option "Albania" [ref=e292] [cursor=pointer]:
+                  - generic [ref=e293]: Albania
+                - option "Algeria" [ref=e294] [cursor=pointer]:
+                  - generic [ref=e295]: Algeria
+                - option "American Samoa" [ref=e296] [cursor=pointer]:
+                  - generic [ref=e297]: American Samoa
+                - option "Andorra" [ref=e298] [cursor=pointer]:
+                  - generic [ref=e299]: Andorra
+                - option "Angola" [ref=e300] [cursor=pointer]:
+                  - generic [ref=e301]: Angola
+                - option "Anguilla" [ref=e302] [cursor=pointer]:
+                  - generic [ref=e303]: Anguilla
+                - option "Antarctica" [ref=e304] [cursor=pointer]:
+                  - generic [ref=e305]: Antarctica
+                - option "Antigua and Barbuda" [ref=e306] [cursor=pointer]:
+                  - generic [ref=e307]: Antigua and Barbuda
+                - option "Argentina" [ref=e308] [cursor=pointer]:
+                  - generic [ref=e309]: Argentina
+                - option "Armenia" [ref=e310] [cursor=pointer]:
+                  - generic [ref=e311]: Armenia
+                - option "Aruba" [ref=e312] [cursor=pointer]:
+                  - generic [ref=e313]: Aruba
+                - option "Australia" [ref=e314] [cursor=pointer]:
+                  - generic [ref=e315]: Australia
+                - option "Austria" [ref=e316] [cursor=pointer]:
+                  - generic [ref=e317]: Austria
+                - option "Azerbaijan" [ref=e318] [cursor=pointer]:
+                  - generic [ref=e319]: Azerbaijan
+                - option "Bahamas" [ref=e320] [cursor=pointer]:
+                  - generic [ref=e321]: Bahamas
+                - option "Bahrain" [ref=e322] [cursor=pointer]:
+                  - generic [ref=e323]: Bahrain
+                - option "Bangladesh" [ref=e324] [cursor=pointer]:
+                  - generic [ref=e325]: Bangladesh
+                - option "Barbados" [ref=e326] [cursor=pointer]:
+                  - generic [ref=e327]: Barbados
+                - option "Belarus" [ref=e328] [cursor=pointer]:
+                  - generic [ref=e329]: Belarus
+                - option "Belgium" [ref=e330] [cursor=pointer]:
+                  - generic [ref=e331]: Belgium
+                - option "Belize" [ref=e332] [cursor=pointer]:
+                  - generic [ref=e333]: Belize
+                - option "Benin" [ref=e334] [cursor=pointer]:
+                  - generic [ref=e335]: Benin
+                - option "Bermuda" [ref=e336] [cursor=pointer]:
+                  - generic [ref=e337]: Bermuda
+                - option "Bhutan" [ref=e338] [cursor=pointer]:
+                  - generic [ref=e339]: Bhutan
+                - option "Bolivia" [ref=e340] [cursor=pointer]:
+                  - generic [ref=e341]: Bolivia
+                - option "Bonaire, Sint Eustatius and Saba" [ref=e342] [cursor=pointer]:
+                  - generic [ref=e343]: Bonaire, Sint Eustatius and Saba
+                - option "Bosnia and Herzegovina" [ref=e344] [cursor=pointer]:
+                  - generic [ref=e345]: Bosnia and Herzegovina
+                - option "Botswana" [ref=e346] [cursor=pointer]:
+                  - generic [ref=e347]: Botswana
+                - option "Bouvet Island" [ref=e348] [cursor=pointer]:
+                  - generic [ref=e349]: Bouvet Island
+                - option "Brazil" [ref=e350] [cursor=pointer]:
+                  - generic [ref=e351]: Brazil
+                - option "British Indian Ocean Territory" [ref=e352] [cursor=pointer]:
+                  - generic [ref=e353]: British Indian Ocean Territory
+                - option "Brunei Darussalam" [ref=e354] [cursor=pointer]:
+                  - generic [ref=e355]: Brunei Darussalam
+                - option "Bulgaria" [ref=e356] [cursor=pointer]:
+                  - generic [ref=e357]: Bulgaria
+                - option "Burkina Faso" [ref=e358] [cursor=pointer]:
+                  - generic [ref=e359]: Burkina Faso
+                - option "Burundi" [ref=e360] [cursor=pointer]:
+                  - generic [ref=e361]: Burundi
+                - option "Cambodia" [ref=e362] [cursor=pointer]:
+                  - generic [ref=e363]: Cambodia
+                - option "Cameroon" [ref=e364] [cursor=pointer]:
+                  - generic [ref=e365]: Cameroon
+                - option "Canada" [ref=e366] [cursor=pointer]:
+                  - generic [ref=e367]: Canada
+                - option "Cape Verde" [ref=e368] [cursor=pointer]:
+                  - generic [ref=e369]: Cape Verde
+                - option "Cayman Islands" [ref=e370] [cursor=pointer]:
+                  - generic [ref=e371]: Cayman Islands
+                - option "Central African Republic" [ref=e372] [cursor=pointer]:
+                  - generic [ref=e373]: Central African Republic
+                - option "Chad" [ref=e374] [cursor=pointer]:
+                  - generic [ref=e375]: Chad
+                - option "Chile" [ref=e376] [cursor=pointer]:
+                  - generic [ref=e377]: Chile
+                - option "China" [ref=e378] [cursor=pointer]:
+                  - generic [ref=e379]: China
+                - option "Christmas Island" [ref=e380] [cursor=pointer]:
+                  - generic [ref=e381]: Christmas Island
+                - option "Cocos (Keeling) Islands" [ref=e382] [cursor=pointer]:
+                  - generic [ref=e383]: Cocos (Keeling) Islands
+                - option "Colombia" [ref=e384] [cursor=pointer]:
+                  - generic [ref=e385]: Colombia
+                - option "Comoros" [ref=e386] [cursor=pointer]:
+                  - generic [ref=e387]: Comoros
+                - option "Congo (Brazzaville)" [ref=e388] [cursor=pointer]:
+                  - generic [ref=e389]: Congo (Brazzaville)
+                - option "Congo (Kinshasa)" [ref=e390] [cursor=pointer]:
+                  - generic [ref=e391]: Congo (Kinshasa)
+                - option "Cook Islands" [ref=e392] [cursor=pointer]:
+                  - generic [ref=e393]: Cook Islands
+                - option "Costa Rica" [ref=e394] [cursor=pointer]:
+                  - generic [ref=e395]: Costa Rica
+                - option "Côte d'Ivoire" [ref=e396] [cursor=pointer]:
+                  - generic [ref=e397]: Côte d'Ivoire
+                - option "Croatia" [ref=e398] [cursor=pointer]:
+                  - generic [ref=e399]: Croatia
+                - option "Cuba" [ref=e400] [cursor=pointer]:
+                  - generic [ref=e401]: Cuba
+                - option "Curaçao" [ref=e402] [cursor=pointer]:
+                  - generic [ref=e403]: Curaçao
+                - option "Cyprus" [ref=e404] [cursor=pointer]:
+                  - generic [ref=e405]: Cyprus
+                - option "Czech Republic" [ref=e406] [cursor=pointer]:
+                  - generic [ref=e407]: Czech Republic
+                - option "Denmark" [ref=e408] [cursor=pointer]:
+                  - generic [ref=e409]: Denmark
+                - option "Djibouti" [ref=e410] [cursor=pointer]:
+                  - generic [ref=e411]: Djibouti
+                - option "Dominica" [ref=e412] [cursor=pointer]:
+                  - generic [ref=e413]: Dominica
+                - option "Dominican Republic" [ref=e414] [cursor=pointer]:
+                  - generic [ref=e415]: Dominican Republic
+                - option "Ecuador" [ref=e416] [cursor=pointer]:
+                  - generic [ref=e417]: Ecuador
+                - option "Egypt" [ref=e418] [cursor=pointer]:
+                  - generic [ref=e419]: Egypt
+                - option "El Salvador" [ref=e420] [cursor=pointer]:
+                  - generic [ref=e421]: El Salvador
+                - option "Equatorial Guinea" [ref=e422] [cursor=pointer]:
+                  - generic [ref=e423]: Equatorial Guinea
+                - option "Eritrea" [ref=e424] [cursor=pointer]:
+                  - generic [ref=e425]: Eritrea
+                - option "Estonia" [ref=e426] [cursor=pointer]:
+                  - generic [ref=e427]: Estonia
+                - option "Ethiopia" [ref=e428] [cursor=pointer]:
+                  - generic [ref=e429]: Ethiopia
+                - option "Falkland Islands" [ref=e430] [cursor=pointer]:
+                  - generic [ref=e431]: Falkland Islands
+                - option "Faroe Islands" [ref=e432] [cursor=pointer]:
+                  - generic [ref=e433]: Faroe Islands
+                - option "Fiji" [ref=e434] [cursor=pointer]:
+                  - generic [ref=e435]: Fiji
+                - option "Finland" [ref=e436] [cursor=pointer]:
+                  - generic [ref=e437]: Finland
+                - option "France" [ref=e438] [cursor=pointer]:
+                  - generic [ref=e439]: France
+                - option "French Guiana" [ref=e440] [cursor=pointer]:
+                  - generic [ref=e441]: French Guiana
+                - option "French Polynesia" [ref=e442] [cursor=pointer]:
+                  - generic [ref=e443]: French Polynesia
+                - option "French Southern Lands" [ref=e444] [cursor=pointer]:
+                  - generic [ref=e445]: French Southern Lands
+                - option "Gabon" [ref=e446] [cursor=pointer]:
+                  - generic [ref=e447]: Gabon
+                - option "Gambia" [ref=e448] [cursor=pointer]:
+                  - generic [ref=e449]: Gambia
+                - option "Georgia" [ref=e450] [cursor=pointer]:
+                  - generic [ref=e451]: Georgia
+                - option "Germany" [ref=e452] [cursor=pointer]:
+                  - generic [ref=e453]: Germany
+                - option "Ghana" [ref=e454] [cursor=pointer]:
+                  - generic [ref=e455]: Ghana
+                - option "Gibraltar" [ref=e456] [cursor=pointer]:
+                  - generic [ref=e457]: Gibraltar
+                - option "Greece" [ref=e458] [cursor=pointer]:
+                  - generic [ref=e459]: Greece
+                - option "Greenland" [ref=e460] [cursor=pointer]:
+                  - generic [ref=e461]: Greenland
+                - option "Grenada" [ref=e462] [cursor=pointer]:
+                  - generic [ref=e463]: Grenada
+                - option "Guadeloupe" [ref=e464] [cursor=pointer]:
+                  - generic [ref=e465]: Guadeloupe
+                - option "Guam" [ref=e466] [cursor=pointer]:
+                  - generic [ref=e467]: Guam
+                - option "Guatemala" [ref=e468] [cursor=pointer]:
+                  - generic [ref=e469]: Guatemala
+                - option "Guernsey" [ref=e470] [cursor=pointer]:
+                  - generic [ref=e471]: Guernsey
+                - option "Guinea" [ref=e472] [cursor=pointer]:
+                  - generic [ref=e473]: Guinea
+                - option "Guinea-Bissau" [ref=e474] [cursor=pointer]:
+                  - generic [ref=e475]: Guinea-Bissau
+                - option "Guyana" [ref=e476] [cursor=pointer]:
+                  - generic [ref=e477]: Guyana
+                - option "Haiti" [ref=e478] [cursor=pointer]:
+                  - generic [ref=e479]: Haiti
+                - option "Heard and McDonald Islands" [ref=e480] [cursor=pointer]:
+                  - generic [ref=e481]: Heard and McDonald Islands
+                - option "Honduras" [ref=e482] [cursor=pointer]:
+                  - generic [ref=e483]: Honduras
+                - option "Hong Kong" [ref=e484] [cursor=pointer]:
+                  - generic [ref=e485]: Hong Kong
+                - option "Hungary" [ref=e486] [cursor=pointer]:
+                  - generic [ref=e487]: Hungary
+                - option "Iceland" [ref=e488] [cursor=pointer]:
+                  - generic [ref=e489]: Iceland
+                - option "India" [ref=e490] [cursor=pointer]:
+                  - generic [ref=e491]: India
+                - option "Indonesia" [ref=e492] [cursor=pointer]:
+                  - generic [ref=e493]: Indonesia
+                - option "Iran" [ref=e494] [cursor=pointer]:
+                  - generic [ref=e495]: Iran
+                - option "Iraq" [ref=e496] [cursor=pointer]:
+                  - generic [ref=e497]: Iraq
+                - option "Ireland" [ref=e498] [cursor=pointer]:
+                  - generic [ref=e499]: Ireland
+                - option "Isle of Man" [ref=e500] [cursor=pointer]:
+                  - generic [ref=e501]: Isle of Man
+                - option "Israel" [ref=e502] [cursor=pointer]:
+                  - generic [ref=e503]: Israel
+                - option "Italy" [ref=e504] [cursor=pointer]:
+                  - generic [ref=e505]: Italy
+                - option "Jamaica" [ref=e506] [cursor=pointer]:
+                  - generic [ref=e507]: Jamaica
+                - option "Japan" [ref=e508] [cursor=pointer]:
+                  - generic [ref=e509]: Japan
+                - option "Jersey" [ref=e510] [cursor=pointer]:
+                  - generic [ref=e511]: Jersey
+                - option "Jordan" [ref=e512] [cursor=pointer]:
+                  - generic [ref=e513]: Jordan
+                - option "Kazakhstan" [ref=e514] [cursor=pointer]:
+                  - generic [ref=e515]: Kazakhstan
+                - option "Kenya" [ref=e516] [cursor=pointer]:
+                  - generic [ref=e517]: Kenya
+                - option "Kiribati" [ref=e518] [cursor=pointer]:
+                  - generic [ref=e519]: Kiribati
+                - option "Korea, North" [ref=e520] [cursor=pointer]:
+                  - generic [ref=e521]: Korea, North
+                - option "Korea, South" [ref=e522] [cursor=pointer]:
+                  - generic [ref=e523]: Korea, South
+                - option "Kosovo" [ref=e524] [cursor=pointer]:
+                  - generic [ref=e525]: Kosovo
+                - option "Kuwait" [ref=e526] [cursor=pointer]:
+                  - generic [ref=e527]: Kuwait
+                - option "Kyrgyzstan" [ref=e528] [cursor=pointer]:
+                  - generic [ref=e529]: Kyrgyzstan
+                - option "Laos" [ref=e530] [cursor=pointer]:
+                  - generic [ref=e531]: Laos
+                - option "Latvia" [ref=e532] [cursor=pointer]:
+                  - generic [ref=e533]: Latvia
+                - option "Lebanon" [ref=e534] [cursor=pointer]:
+                  - generic [ref=e535]: Lebanon
+                - option "Lesotho" [ref=e536] [cursor=pointer]:
+                  - generic [ref=e537]: Lesotho
+                - option "Liberia" [ref=e538] [cursor=pointer]:
+                  - generic [ref=e539]: Liberia
+                - option "Libya" [ref=e540] [cursor=pointer]:
+                  - generic [ref=e541]: Libya
+                - option "Liechtenstein" [ref=e542] [cursor=pointer]:
+                  - generic [ref=e543]: Liechtenstein
+                - option "Lithuania" [ref=e544] [cursor=pointer]:
+                  - generic [ref=e545]: Lithuania
+                - option "Luxembourg" [ref=e546] [cursor=pointer]:
+                  - generic [ref=e547]: Luxembourg
+                - option "Macau" [ref=e548] [cursor=pointer]:
+                  - generic [ref=e549]: Macau
+                - option "Madagascar" [ref=e550] [cursor=pointer]:
+                  - generic [ref=e551]: Madagascar
+                - option "Malawi" [ref=e552] [cursor=pointer]:
+                  - generic [ref=e553]: Malawi
+                - option "Malaysia" [ref=e554] [cursor=pointer]:
+                  - generic [ref=e555]: Malaysia
+                - option "Maldives" [ref=e556] [cursor=pointer]:
+                  - generic [ref=e557]: Maldives
+                - option "Mali" [ref=e558] [cursor=pointer]:
+                  - generic [ref=e559]: Mali
+                - option "Malta" [ref=e560] [cursor=pointer]:
+                  - generic [ref=e561]: Malta
+                - option "Marshall Islands" [ref=e562] [cursor=pointer]:
+                  - generic [ref=e563]: Marshall Islands
+                - option "Martinique" [ref=e564] [cursor=pointer]:
+                  - generic [ref=e565]: Martinique
+                - option "Mauritania" [ref=e566] [cursor=pointer]:
+                  - generic [ref=e567]: Mauritania
+                - option "Mauritius" [ref=e568] [cursor=pointer]:
+                  - generic [ref=e569]: Mauritius
+                - option "Mayotte" [ref=e570] [cursor=pointer]:
+                  - generic [ref=e571]: Mayotte
+                - option "Mexico" [ref=e572] [cursor=pointer]:
+                  - generic [ref=e573]: Mexico
+                - option "Micronesia" [ref=e574] [cursor=pointer]:
+                  - generic [ref=e575]: Micronesia
+                - option "Moldova" [ref=e576] [cursor=pointer]:
+                  - generic [ref=e577]: Moldova
+                - option "Monaco" [ref=e578] [cursor=pointer]:
+                  - generic [ref=e579]: Monaco
+                - option "Mongolia" [ref=e580] [cursor=pointer]:
+                  - generic [ref=e581]: Mongolia
+                - option "Montenegro" [ref=e582] [cursor=pointer]:
+                  - generic [ref=e583]: Montenegro
+                - option "Montserrat" [ref=e584] [cursor=pointer]:
+                  - generic [ref=e585]: Montserrat
+                - option "Morocco" [ref=e586] [cursor=pointer]:
+                  - generic [ref=e587]: Morocco
+                - option "Mozambique" [ref=e588] [cursor=pointer]:
+                  - generic [ref=e589]: Mozambique
+                - option "Myanmar" [ref=e590] [cursor=pointer]:
+                  - generic [ref=e591]: Myanmar
+                - option "Namibia" [ref=e592] [cursor=pointer]:
+                  - generic [ref=e593]: Namibia
+                - option "Nauru" [ref=e594] [cursor=pointer]:
+                  - generic [ref=e595]: Nauru
+                - option "Nepal" [ref=e596] [cursor=pointer]:
+                  - generic [ref=e597]: Nepal
+                - option "Netherlands" [ref=e598] [cursor=pointer]:
+                  - generic [ref=e599]: Netherlands
+                - option "Netherlands Antilles" [ref=e600] [cursor=pointer]:
+                  - generic [ref=e601]: Netherlands Antilles
+                - option "New Caledonia" [ref=e602] [cursor=pointer]:
+                  - generic [ref=e603]: New Caledonia
+                - option "New Zealand" [ref=e604] [cursor=pointer]:
+                  - generic [ref=e605]: New Zealand
+                - option "Nicaragua" [ref=e606] [cursor=pointer]:
+                  - generic [ref=e607]: Nicaragua
+                - option "Niger" [ref=e608] [cursor=pointer]:
+                  - generic [ref=e609]: Niger
+                - option "Nigeria" [ref=e610] [cursor=pointer]:
+                  - generic [ref=e611]: Nigeria
+                - option "Niue" [ref=e612] [cursor=pointer]:
+                  - generic [ref=e613]: Niue
+                - option "Norfolk Island" [ref=e614] [cursor=pointer]:
+                  - generic [ref=e615]: Norfolk Island
+                - option "North Macedonia" [ref=e616] [cursor=pointer]:
+                  - generic [ref=e617]: North Macedonia
+                - option "Northern Mariana Islands" [ref=e618] [cursor=pointer]:
+                  - generic [ref=e619]: Northern Mariana Islands
+                - option "Norway" [ref=e620] [cursor=pointer]:
+                  - generic [ref=e621]: Norway
+                - option "Oman" [ref=e622] [cursor=pointer]:
+                  - generic [ref=e623]: Oman
+                - option "Pakistan" [ref=e624] [cursor=pointer]:
+                  - generic [ref=e625]: Pakistan
+                - option "Palau" [ref=e626] [cursor=pointer]:
+                  - generic [ref=e627]: Palau
+                - option "Palestine" [ref=e628] [cursor=pointer]:
+                  - generic [ref=e629]: Palestine
+                - option "Panama" [ref=e630] [cursor=pointer]:
+                  - generic [ref=e631]: Panama
+                - option "Papua New Guinea" [ref=e632] [cursor=pointer]:
+                  - generic [ref=e633]: Papua New Guinea
+                - option "Paraguay" [ref=e634] [cursor=pointer]:
+                  - generic [ref=e635]: Paraguay
+                - option "Peru" [ref=e636] [cursor=pointer]:
+                  - generic [ref=e637]: Peru
+                - option "Philippines" [ref=e638] [cursor=pointer]:
+                  - generic [ref=e639]: Philippines
+                - option "Pitcairn" [ref=e640] [cursor=pointer]:
+                  - generic [ref=e641]: Pitcairn
+                - option "Poland" [ref=e642] [cursor=pointer]:
+                  - generic [ref=e643]: Poland
+                - option "Portugal" [ref=e644] [cursor=pointer]:
+                  - generic [ref=e645]: Portugal
+                - option "Puerto Rico" [ref=e646] [cursor=pointer]:
+                  - generic [ref=e647]: Puerto Rico
+                - option "Qatar" [ref=e648] [cursor=pointer]:
+                  - generic [ref=e649]: Qatar
+                - option "Reunion" [ref=e650] [cursor=pointer]:
+                  - generic [ref=e651]: Reunion
+                - option "Romania" [ref=e652] [cursor=pointer]:
+                  - generic [ref=e653]: Romania
+                - option "Russian Federation" [ref=e654] [cursor=pointer]:
+                  - generic [ref=e655]: Russian Federation
+                - option "Rwanda" [ref=e656] [cursor=pointer]:
+                  - generic [ref=e657]: Rwanda
+                - option "Saint Barthélemy" [ref=e658] [cursor=pointer]:
+                  - generic [ref=e659]: Saint Barthélemy
+                - option "Saint Helena" [ref=e660] [cursor=pointer]:
+                  - generic [ref=e661]: Saint Helena
+                - option "Saint Kitts and Nevis" [ref=e662] [cursor=pointer]:
+                  - generic [ref=e663]: Saint Kitts and Nevis
+                - option "Saint Lucia" [ref=e664] [cursor=pointer]:
+                  - generic [ref=e665]: Saint Lucia
+                - option "Saint Martin (French part)" [ref=e666] [cursor=pointer]:
+                  - generic [ref=e667]: Saint Martin (French part)
+                - option "Saint Pierre and Miquelon" [ref=e668] [cursor=pointer]:
+                  - generic [ref=e669]: Saint Pierre and Miquelon
+                - option "Saint Vincent and the Grenadines" [ref=e670] [cursor=pointer]:
+                  - generic [ref=e671]: Saint Vincent and the Grenadines
+                - option "Samoa" [ref=e672] [cursor=pointer]:
+                  - generic [ref=e673]: Samoa
+                - option "San Marino" [ref=e674] [cursor=pointer]:
+                  - generic [ref=e675]: San Marino
+                - option "Sao Tome and Principe" [ref=e676] [cursor=pointer]:
+                  - generic [ref=e677]: Sao Tome and Principe
+                - option "Saudi Arabia" [ref=e678] [cursor=pointer]:
+                  - generic [ref=e679]: Saudi Arabia
+                - option "Senegal" [ref=e680] [cursor=pointer]:
+                  - generic [ref=e681]: Senegal
+                - option "Serbia" [ref=e682] [cursor=pointer]:
+                  - generic [ref=e683]: Serbia
+                - option "Seychelles" [ref=e684] [cursor=pointer]:
+                  - generic [ref=e685]: Seychelles
+                - option "Sierra Leone" [ref=e686] [cursor=pointer]:
+                  - generic [ref=e687]: Sierra Leone
+                - option "Singapore" [ref=e688] [cursor=pointer]:
+                  - generic [ref=e689]: Singapore
+                - option "Sint Maarten (Dutch part)" [ref=e690] [cursor=pointer]:
+                  - generic [ref=e691]: Sint Maarten (Dutch part)
+                - option "Slovakia" [ref=e692] [cursor=pointer]:
+                  - generic [ref=e693]: Slovakia
+                - option "Slovenia" [ref=e694] [cursor=pointer]:
+                  - generic [ref=e695]: Slovenia
+                - option "Solomon Islands" [ref=e696] [cursor=pointer]:
+                  - generic [ref=e697]: Solomon Islands
+                - option "Somalia" [ref=e698] [cursor=pointer]:
+                  - generic [ref=e699]: Somalia
+                - option "South Africa" [ref=e700] [cursor=pointer]:
+                  - generic [ref=e701]: South Africa
+                - option "South Georgia and South Sandwich Islands" [ref=e702] [cursor=pointer]:
+                  - generic [ref=e703]: South Georgia and South Sandwich Islands
+                - option "South Sudan" [ref=e704] [cursor=pointer]:
+                  - generic [ref=e705]: South Sudan
+                - option "Spain" [ref=e706] [cursor=pointer]:
+                  - generic [ref=e707]: Spain
+                - option "Sri Lanka" [ref=e708] [cursor=pointer]:
+                  - generic [ref=e709]: Sri Lanka
+                - option "Sudan" [ref=e710] [cursor=pointer]:
+                  - generic [ref=e711]: Sudan
+                - option "Suriname" [ref=e712] [cursor=pointer]:
+                  - generic [ref=e713]: Suriname
+                - option "Svalbard and Jan Mayen Islands" [ref=e714] [cursor=pointer]:
+                  - generic [ref=e715]: Svalbard and Jan Mayen Islands
+                - option "Swaziland" [ref=e716] [cursor=pointer]:
+                  - generic [ref=e717]: Swaziland
+                - option "Sweden" [ref=e718] [cursor=pointer]:
+                  - generic [ref=e719]: Sweden
+                - option "Switzerland" [ref=e720] [cursor=pointer]:
+                  - generic [ref=e721]: Switzerland
+                - option "Syria" [ref=e722] [cursor=pointer]:
+                  - generic [ref=e723]: Syria
+                - option "Taiwan" [ref=e724] [cursor=pointer]:
+                  - generic [ref=e725]: Taiwan
+                - option "Tajikistan" [ref=e726] [cursor=pointer]:
+                  - generic [ref=e727]: Tajikistan
+                - option "Tanzania" [ref=e728] [cursor=pointer]:
+                  - generic [ref=e729]: Tanzania
+                - option "Thailand" [ref=e730] [cursor=pointer]:
+                  - generic [ref=e731]: Thailand
+                - option "Timor-Leste" [ref=e732] [cursor=pointer]:
+                  - generic [ref=e733]: Timor-Leste
+                - option "Togo" [ref=e734] [cursor=pointer]:
+                  - generic [ref=e735]: Togo
+                - option "Tokelau" [ref=e736] [cursor=pointer]:
+                  - generic [ref=e737]: Tokelau
+                - option "Tonga" [ref=e738] [cursor=pointer]:
+                  - generic [ref=e739]: Tonga
+                - option "Trinidad and Tobago" [ref=e740] [cursor=pointer]:
+                  - generic [ref=e741]: Trinidad and Tobago
+                - option "Tunisia" [ref=e742] [cursor=pointer]:
+                  - generic [ref=e743]: Tunisia
+                - option "Turkey" [ref=e744] [cursor=pointer]:
+                  - generic [ref=e745]: Turkey
+                - option "Turkmenistan" [ref=e746] [cursor=pointer]:
+                  - generic [ref=e747]: Turkmenistan
+                - option "Turks and Caicos Islands" [ref=e748] [cursor=pointer]:
+                  - generic [ref=e749]: Turks and Caicos Islands
+                - option "Tuvalu" [ref=e750] [cursor=pointer]:
+                  - generic [ref=e751]: Tuvalu
+                - option "Uganda" [ref=e752] [cursor=pointer]:
+                  - generic [ref=e753]: Uganda
+                - option "Ukraine" [ref=e754] [cursor=pointer]:
+                  - generic [ref=e755]: Ukraine
+                - option "United Arab Emirates" [ref=e756] [cursor=pointer]:
+                  - generic [ref=e757]: United Arab Emirates
+                - option "United Kingdom" [ref=e758] [cursor=pointer]:
+                  - generic [ref=e759]: United Kingdom
+                - option "United States" [ref=e760] [cursor=pointer]:
+                  - generic [ref=e761]: United States
+                - option "United States Minor Outlying Islands" [ref=e762] [cursor=pointer]:
+                  - generic [ref=e763]: United States Minor Outlying Islands
+                - option "Uruguay" [ref=e764] [cursor=pointer]:
+                  - generic [ref=e765]: Uruguay
+                - option "Uzbekistan" [ref=e766] [cursor=pointer]:
+                  - generic [ref=e767]: Uzbekistan
+                - option "Vanuatu" [ref=e768] [cursor=pointer]:
+                  - generic [ref=e769]: Vanuatu
+                - option "Vatican City" [ref=e770] [cursor=pointer]:
+                  - generic [ref=e771]: Vatican City
+                - option "Venezuela" [ref=e772] [cursor=pointer]:
+                  - generic [ref=e773]: Venezuela
+                - option "Vietnam" [ref=e774] [cursor=pointer]:
+                  - generic [ref=e775]: Vietnam
+                - option "Virgin Islands, British" [ref=e776] [cursor=pointer]:
+                  - generic [ref=e777]: Virgin Islands, British
+                - option "Virgin Islands, U.S." [ref=e778] [cursor=pointer]:
+                  - generic [ref=e779]: Virgin Islands, U.S.
+                - option "Wallis and Futuna Islands" [ref=e780] [cursor=pointer]:
+                  - generic [ref=e781]: Wallis and Futuna Islands
+                - option "Western Sahara" [ref=e782] [cursor=pointer]:
+                  - generic [ref=e783]: Western Sahara
+                - option "Yemen" [ref=e784] [cursor=pointer]:
+                  - generic [ref=e785]: Yemen
+                - option "Zambia" [ref=e786] [cursor=pointer]:
+                  - generic [ref=e787]: Zambia
+                - option "Zimbabwe" [ref=e788] [cursor=pointer]:
+                  - generic [ref=e789]: Zimbabwe
+              - textbox [ref=e203]
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - paragraph [ref=e207]: User agent
+              - paragraph [ref=e208]: Optional
+              - paragraph [ref=e210]: "Please provide the browser name and version (ie: \"Chrome/124.0\") and/or the Operating System (ie: \"macOS\")"
+            - textbox "User agent" [ref=e212]:
+              - /placeholder: e.g., Chrome/124.0 macOS
+          - generic [ref=e213]:
+            - generic [ref=e214]:
+              - paragraph [ref=e216]: Comments
+              - paragraph [ref=e217]: Optional
+              - paragraph [ref=e220]: Comments are kept internal to Cloudflare and not shared with the host or customer as part of regular processing.
+            - textbox "Comments" [ref=e222]:
+              - /placeholder: Any additional comments
+          - generic [ref=e224]:
+            - paragraph [ref=e226]: Who should be notified?
+            - paragraph [ref=e227]: "Because Cloudflare does not have the ability to remove content from a website, it is our practice to forward abuse complaints to entities like the hosting provider and/or website owner to follow up. Please specify:"
+            - generic [ref=e228]:
+              - generic [ref=e230]:
+                - checkbox "Please forward my report to the website hosting provider." [checked] [disabled] [ref=e231]:
+                  - img [ref=e233]
+                - checkbox [checked] [disabled] [ref=e235]
+                - generic [ref=e236]: Please forward my report to the website hosting provider.
+              - generic [ref=e239] [cursor=pointer]:
+                - checkbox "Include my name and contact information with the report to the website hosting provider." [ref=e240]
+                - checkbox [ref=e241]
+                - generic [ref=e242]: Include my name and contact information with the report to the website hosting provider.
+            - generic [ref=e243]:
+              - generic [ref=e245]:
+                - checkbox "Please forward my report to the website owner." [checked] [disabled] [ref=e246]:
+                  - img [ref=e248]
+                - checkbox [checked] [disabled] [ref=e250]
+                - generic [ref=e251]: Please forward my report to the website owner.
+              - generic [ref=e254] [cursor=pointer]:
+                - checkbox "Include my name and contact information with the report to the website owner." [ref=e255]
+                - checkbox [ref=e256]
+                - generic [ref=e257]: Include my name and contact information with the report to the website owner.
+          - generic [ref=e259]:
+            - paragraph [ref=e261]: DSA certification of bona fide belief
+            - paragraph [ref=e262]: By checking this box, you confirm that you have a bona fide belief that the information and allegations contained in this report are accurate and complete. Please note that, to the extent this report concerns a website using one of Cloudflare's hosting services, Cloudflare may require this box to be checked before engaging in the notice and action process.
+            - generic [ref=e264] [cursor=pointer]:
+              - checkbox "DSA certification of bona fide belief" [checked] [ref=e265]:
+                - img [ref=e282]
+              - checkbox [checked] [ref=e266]
+              - generic [ref=e267]: DSA certification of bona fide belief
+          - button "Submit" [disabled] [ref=e272]
+        - complementary [ref=e273]:
+          - generic [ref=e275]:
+            - emphasis [ref=e276]: How to submit a report
+            - generic [ref=e277]:
+              - text: To file a report with Cloudflare, please select the appropriate category on the reporting form. Please be sure to fill out each field requested in the form and be as specific as possible regarding the content and its location on the website. You may submit up to 250 URLs at a time. An explanation of our approach to abuse and what you can expect us to do in response to your report is available
+              - link "here" [ref=e278] [cursor=pointer]:
+                - /url: https://www.cloudflare.com/trust-hub/abuse-approach/
+              - text: . Please note that reports submitted through this form are subject to Cloudflare's
+              - link "privacy policy" [ref=e279] [cursor=pointer]:
+                - /url: https://www.cloudflare.com/privacypolicy/
+              - text: ", and that reports may be released by Cloudflare to third parties such as the"
+              - link "Lumen Database" [ref=e280] [cursor=pointer]:
+                - /url: https://lumendatabase.org/
+              - text: .
+  - contentinfo [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - link "Facebook" [ref=e54] [cursor=pointer]:
+          - /url: https://www.facebook.com/Cloudflare/
+          - img "Facebook" [ref=e55]
+        - link "Twitter" [ref=e56] [cursor=pointer]:
+          - /url: https://twitter.com/Cloudflare
+          - img "Twitter" [ref=e57]
+        - link "LinkedIn" [ref=e58] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/cloudflare-inc-
+          - img "LinkedIn" [ref=e59]
+        - link "Youtube" [ref=e60] [cursor=pointer]:
+          - /url: https://www.youtube.com/cloudflare
+          - img "Youtube" [ref=e61]
+        - link "Instagram" [ref=e62] [cursor=pointer]:
+          - /url: https://www.instagram.com/cloudflare
+          - img "Instagram" [ref=e63]
+      - generic [ref=e64]:
+        - generic [ref=e65]: © 2026 Cloudflare, Inc.
+        - generic [ref=e66]:
+          - text: "|"
+          - link "Privacy Policy" [ref=e67] [cursor=pointer]:
+            - /url: https://www.cloudflare.com/privacypolicy/
+        - generic [ref=e68]:
+          - text: "|"
+          - link "Terms of Use" [ref=e69] [cursor=pointer]:
+            - /url: https://www.cloudflare.com/website-terms/
+        - generic [ref=e70]:
+          - text: "|"
+          - link "Disclosure" [ref=e71] [cursor=pointer]:
+            - /url: https://www.cloudflare.com/disclosure/
+        - generic [ref=e72]:
+          - text: "|"
+          - link "Trademark" [ref=e73] [cursor=pointer]:
+            - /url: https://www.cloudflare.com/trademark/
+        - generic [ref=e74]:
+          - text: "|"
+          - button "Cookie preferences" [ref=e75] [cursor=pointer]

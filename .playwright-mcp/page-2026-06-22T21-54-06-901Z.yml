@@ -1,0 +1,308 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "P Atlanta Plumbing Pros" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: P
+        - generic [ref=e6]: Atlanta Plumbing Pros
+      - generic [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /services
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: /about
+        - link "Reviews" [ref=e11] [cursor=pointer]:
+          - /url: /reviews
+      - link "+15555550100" [ref=e13] [cursor=pointer]:
+        - /url: tel:15555550100
+        - img [ref=e14]
+        - text: "+15555550100"
+  - main [ref=e16]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - img [ref=e25]
+        - generic [ref=e27]: Licensed & Insured — Serving Atlanta GA
+      - heading "Professional Plumbing Services in Atlanta GA" [level=1] [ref=e28]:
+        - text: Professional Plumbing Services
+        - text: in Atlanta GA
+      - paragraph [ref=e29]: Need plumbing services in Atlanta GA? Contact Atlanta Plumbing Pros for fast, professional service. Licensed & insured, satisfaction guaranteed.
+      - generic [ref=e30]:
+        - link "Call +15555550100" [ref=e31] [cursor=pointer]:
+          - /url: tel:15555550100
+          - img [ref=e32]
+          - text: Call +15555550100
+        - link "Get a Free Quote" [ref=e34] [cursor=pointer]:
+          - /url: "#quote"
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - img [ref=e37]
+          - text: 1200+ Jobs Completed
+        - generic [ref=e39]:
+          - img [ref=e40]
+          - text: 6+ Years Experience
+        - generic [ref=e42]:
+          - img [ref=e43]
+          - text: Licensed & Insured
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]: "4.8"
+        - generic [ref=e49]:
+          - img [ref=e50]
+          - img [ref=e52]
+          - img [ref=e54]
+          - img [ref=e56]
+          - img [ref=e58]
+        - paragraph [ref=e60]: 47 reviews
+      - generic [ref=e61]:
+        - generic [ref=e62]: 6+
+        - paragraph [ref=e63]: Years Experience
+      - generic [ref=e64]:
+        - generic [ref=e65]: 1200+
+        - paragraph [ref=e66]: Jobs Completed
+      - generic [ref=e67]:
+        - generic [ref=e68]: Same Day
+        - paragraph [ref=e69]: Service Available
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]: Our Services
+        - heading "Professional Plumbing Services in Your Area" [level=2] [ref=e74]
+        - paragraph [ref=e75]: From emergency repairs to planned maintenance, we handle it all with expertise you can trust.
+      - generic [ref=e76]:
+        - link "Emergency Plumbing Service 24/7 emergency plumbing services in Atlanta GA. Fast response for urgent issues. 24/7 availability 60-minute response Same-day service" [ref=e77] [cursor=pointer]:
+          - /url: /services/emergency-service
+          - img [ref=e79]
+          - heading "Emergency Plumbing Service" [level=3] [ref=e81]
+          - paragraph [ref=e82]: 24/7 emergency plumbing services in Atlanta GA. Fast response for urgent issues.
+          - list [ref=e83]:
+            - listitem [ref=e84]:
+              - img [ref=e85]
+              - text: 24/7 availability
+            - listitem [ref=e87]:
+              - img [ref=e88]
+              - text: 60-minute response
+            - listitem [ref=e90]:
+              - img [ref=e91]
+              - text: Same-day service
+        - link "Residential Plumbing Complete plumbing solutions for your home in Atlanta GA. Quality guaranteed. Free estimates Licensed technicians Satisfaction guaranteed" [ref=e93] [cursor=pointer]:
+          - /url: /services/residential
+          - img [ref=e95]
+          - heading "Residential Plumbing" [level=3] [ref=e97]
+          - paragraph [ref=e98]: Complete plumbing solutions for your home in Atlanta GA. Quality guaranteed.
+          - list [ref=e99]:
+            - listitem [ref=e100]:
+              - img [ref=e101]
+              - text: Free estimates
+            - listitem [ref=e103]:
+              - img [ref=e104]
+              - text: Licensed technicians
+            - listitem [ref=e106]:
+              - img [ref=e107]
+              - text: Satisfaction guaranteed
+        - link "Commercial Plumbing Professional plumbing services for businesses in Atlanta GA. Minimize downtime. Flexible scheduling Volume discounts Preventive maintenance" [ref=e109] [cursor=pointer]:
+          - /url: /services/commercial
+          - img [ref=e111]
+          - heading "Commercial Plumbing" [level=3] [ref=e113]
+          - paragraph [ref=e114]: Professional plumbing services for businesses in Atlanta GA. Minimize downtime.
+          - list [ref=e115]:
+            - listitem [ref=e116]:
+              - img [ref=e117]
+              - text: Flexible scheduling
+            - listitem [ref=e119]:
+              - img [ref=e120]
+              - text: Volume discounts
+            - listitem [ref=e122]:
+              - img [ref=e123]
+              - text: Preventive maintenance
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - generic [ref=e128]: How It Works
+        - heading "Getting Help Is Easy" [level=2] [ref=e129]
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - generic [ref=e132]: "1"
+          - heading "Describe Your Issue" [level=3] [ref=e133]
+          - paragraph [ref=e134]: Tell us about your Plumbing problem through our quick form or a phone call. We'll ask the right questions to understand what you need.
+        - generic [ref=e135]:
+          - generic [ref=e136]: "2"
+          - heading "Get Matched Fast" [level=3] [ref=e137]
+          - paragraph [ref=e138]: We connect you with the right local pro for your specific job. Expect a call or message within hours — even for emergencies.
+        - generic [ref=e139]:
+          - generic [ref=e140]: "3"
+          - heading "Done Right" [level=3] [ref=e141]
+          - paragraph [ref=e142]: Licensed, insured professionals handle the job from start to finish. Backed by our satisfaction guarantee.
+    - generic [ref=e145]:
+      - generic [ref=e146]:
+        - generic [ref=e147]: Get Help Now
+        - heading "Request a Free Quote" [level=2] [ref=e148]
+        - paragraph [ref=e149]: Tell us about your Plumbing needs and we'll get back to you within hours with a clear, upfront quote. No hidden fees, no obligations.
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - img [ref=e153]
+            - generic [ref=e155]:
+              - heading "Call us directly" [level=3] [ref=e156]
+              - link "+15555550100" [ref=e157] [cursor=pointer]:
+                - /url: tel:15555550100
+          - generic [ref=e158]:
+            - img [ref=e160]
+            - generic [ref=e162]:
+              - heading "Fast response" [level=3] [ref=e163]
+              - paragraph [ref=e164]: Most quotes are delivered within 2 hours during business hours
+          - generic [ref=e165]:
+            - img [ref=e167]
+            - generic [ref=e169]:
+              - heading "Licensed & Insured" [level=3] [ref=e170]
+              - paragraph [ref=e171]: Every job is backed by $2M general liability insurance
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - generic [ref=e175]: Full Name
+          - textbox "Full Name" [ref=e176]:
+            - /placeholder: John Smith
+        - generic [ref=e177]:
+          - generic [ref=e178]: Phone Number
+          - textbox "Phone Number" [ref=e179]:
+            - /placeholder: (518) 555-0123
+        - generic [ref=e180]:
+          - generic [ref=e181]: Email
+          - textbox "Email" [ref=e182]:
+            - /placeholder: john@example.com
+        - generic [ref=e183]:
+          - generic [ref=e184]: What do you need help with?
+          - textbox "What do you need help with?" [ref=e185]:
+            - /placeholder: Describe your issue...
+        - button "Send Request" [ref=e186]
+    - generic [ref=e188]:
+      - generic [ref=e189]:
+        - generic [ref=e190]: Why Choose Us
+        - heading "Trusted by Atlanta GA Homeowners" [level=2] [ref=e191]
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - heading "What Our Customers Say" [level=3] [ref=e194]:
+            - text: What Our Customers Say
+            - generic [ref=e195]:
+              - img [ref=e196]
+              - img [ref=e198]
+              - img [ref=e200]
+              - img [ref=e202]
+              - img [ref=e204]
+          - generic [ref=e206]:
+            - generic [ref=e207]:
+              - generic [ref=e208]:
+                - generic [ref=e209]: Michael R.
+                - generic [ref=e210]:
+                  - img [ref=e211]
+                  - img [ref=e213]
+                  - img [ref=e215]
+                  - img [ref=e217]
+                  - img [ref=e219]
+              - paragraph [ref=e221]: “Best plumbers in town. Fixed my burst pipe at 11PM on a Saturday. Saved our basement!”
+              - paragraph [ref=e222]: June 2026
+            - generic [ref=e223]:
+              - generic [ref=e224]:
+                - generic [ref=e225]: Jennifer L.
+                - generic [ref=e226]:
+                  - img [ref=e227]
+                  - img [ref=e229]
+                  - img [ref=e231]
+                  - img [ref=e233]
+                  - img [ref=e235]
+              - paragraph [ref=e237]: “Professional from start to finish. They installed a new water heater same day when ours failed. Fair price too.”
+              - paragraph [ref=e238]: May 2026
+            - generic [ref=e239]:
+              - generic [ref=e240]:
+                - generic [ref=e241]: David W.
+                - generic [ref=e242]:
+                  - img [ref=e243]
+                  - img [ref=e245]
+                  - img [ref=e247]
+                  - img [ref=e249]
+                  - img [ref=e251]
+              - paragraph [ref=e253]: “Been using them for years. Always show up on time, do great work, and clean up after themselves. Can't ask for more.”
+              - paragraph [ref=e254]: April 2026
+          - link "Read all 47 reviews" [ref=e255] [cursor=pointer]:
+            - /url: /reviews
+            - text: Read all 47 reviews
+            - img [ref=e256]
+        - generic [ref=e258]:
+          - heading "Why Local Pros?" [level=3] [ref=e259]
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - img [ref=e263]
+              - generic [ref=e265]:
+                - heading "Licensed & Insured" [level=4] [ref=e266]
+                - paragraph [ref=e267]: Every professional is fully licensed and carries $2M general liability insurance for your protection.
+            - generic [ref=e268]:
+              - img [ref=e270]
+              - generic [ref=e272]:
+                - heading "Fast Response Times" [level=4] [ref=e273]
+                - paragraph [ref=e274]: We understand emergencies don't wait. Most calls are returned within 2 hours.
+            - generic [ref=e275]:
+              - img [ref=e277]
+              - generic [ref=e279]:
+                - heading "Upfront Pricing" [level=4] [ref=e280]
+                - paragraph [ref=e281]: No hidden fees, no surprises. You'll know the cost before any work begins.
+            - generic [ref=e282]:
+              - img [ref=e284]
+              - generic [ref=e286]:
+                - heading "Satisfaction Guarantee" [level=4] [ref=e287]
+                - paragraph [ref=e288]: If you're not happy with the work, we'll make it right. Period.
+    - generic [ref=e290]:
+      - generic [ref=e291]:
+        - generic [ref=e292]: FAQ
+        - heading "Frequently Asked Questions" [level=2] [ref=e293]
+        - paragraph [ref=e294]: Common questions about our Plumbing services in your area.
+      - generic [ref=e295]:
+        - group [ref=e296]:
+          - generic "How quickly can you respond to emergencies?" [ref=e297] [cursor=pointer]:
+            - generic [ref=e298]: How quickly can you respond to emergencies?
+            - img [ref=e299]
+        - group [ref=e301]:
+          - generic "Are your plumbers licensed and insured?" [ref=e302] [cursor=pointer]:
+            - generic [ref=e303]: Are your plumbers licensed and insured?
+            - img [ref=e304]
+        - group [ref=e306]:
+          - generic "Do you provide free estimates?" [ref=e307] [cursor=pointer]:
+            - generic [ref=e308]: Do you provide free estimates?
+            - img [ref=e309]
+        - group [ref=e311]:
+          - generic "What areas do you serve?" [ref=e312] [cursor=pointer]:
+            - generic [ref=e313]: What areas do you serve?
+            - img [ref=e314]
+  - contentinfo [ref=e316]:
+    - generic [ref=e317]:
+      - generic [ref=e318]:
+        - generic [ref=e319]:
+          - generic [ref=e320]:
+            - generic [ref=e321]: P
+            - text: Atlanta Plumbing Pros
+          - paragraph [ref=e322]: Need plumbing services in Atlanta GA? Contact Atlanta Plumbing Pros for fast, professional service. Licensed & insured, satisfaction guaranteed.
+          - link "+15555550100" [ref=e323] [cursor=pointer]:
+            - /url: tel:15555550100
+            - img [ref=e324]
+            - text: "+15555550100"
+        - generic [ref=e326]:
+          - heading "Service Area" [level=3] [ref=e327]
+          - list [ref=e328]:
+            - listitem [ref=e329]:
+              - img [ref=e330]
+              - text: Atlanta GA
+            - listitem [ref=e333]:
+              - img [ref=e334]
+              - text: Atlanta
+            - listitem [ref=e337]:
+              - img [ref=e338]
+              - text: Greater Atlanta GA Area
+        - generic [ref=e341]:
+          - heading "Business Hours" [level=3] [ref=e342]
+          - paragraph [ref=e343]: "Mon-Fri: 7AM-7PM | Sat: 8AM-5PM | Sun: Closed"
+          - heading "Quick Links" [level=3] [ref=e344]
+          - navigation [ref=e345]:
+            - link "Home" [ref=e346] [cursor=pointer]:
+              - /url: /
+            - link "Services" [ref=e347] [cursor=pointer]:
+              - /url: /services
+            - link "About" [ref=e348] [cursor=pointer]:
+              - /url: /about
+            - link "Reviews" [ref=e349] [cursor=pointer]:
+              - /url: /reviews
+      - paragraph [ref=e351]: © 2026 Atlanta Plumbing Pros. Licensed & Insured. All rights reserved.

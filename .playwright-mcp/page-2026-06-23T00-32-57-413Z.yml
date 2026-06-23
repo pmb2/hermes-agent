@@ -1,0 +1,112 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - link "CA.gov" [ref=e9] [cursor=pointer]:
+          - /url: https://www.ca.gov?utm_campaign=state_template_link&utm_medium=header&utm_source=external
+          - generic [ref=e10]: CA.gov
+        - paragraph [ref=e12]: Official website of the State of California
+      - generic [ref=e13]:
+        - img "Translate" [ref=e14]
+        - link "Translate" [ref=e15] [cursor=pointer]:
+          - /url: /translate
+  - generic [ref=e16]:
+    - complementary "Main navigation sidebar" [ref=e17]:
+      - link "DROP Home" [ref=e18] [cursor=pointer]:
+        - /url: /
+        - img "Drop Home Lock Logo" [ref=e19]
+      - button "Open Navigation menu" [ref=e20] [cursor=pointer]
+    - main [ref=e22]:
+      - heading "Delete your data" [level=1] [ref=e25]
+      - article [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e30]:
+            - paragraph [ref=e31]: You have the right to request the deletion of your personal information from data brokers. Delete Request and Opt-out Platform (DROP) lets you do this in a simple, streamlined process.
+            - paragraph [ref=e32]: Get started by reading and agreeing to the Terms of Use.
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - heading "Terms of use" [level=2] [ref=e35]
+              - paragraph [ref=e36]: "Effective date: 12.05.2025"
+            - generic [ref=e37]: Please scroll through all terms and conditions to the end before accepting.
+            - region "Terms of use content, use arrow keys to read" [ref=e38]:
+              - document "Terms of use document" [ref=e39]:
+                - paragraph [ref=e40]: By using the Delete Request and Opt-out Platform (DROP), you agree to the following Terms of Use (Terms) provided by the California Privacy Protection Agency (CalPrivacy, we, us, our).
+                - heading "Use of DROP" [level=3] [ref=e41]
+                - paragraph [ref=e42]: By submitting a deletion request through DROP, you consent to disclosure of your personal information to data brokers for purposes of processing your deletion request pursuant to Civil Code section 1798.99.80 et seq. unless or until you cancel your deletion request. Additionally, you acknowledge that data brokers receiving your deletion request will delete any non-exempt "personal information," as defined in Civil Code section 1798.140(v), which pertains to you and was collected from third parties or from you in a non-"first party" capacity (i.e., through an interaction where you did not intend or expect to interact with the data broker).
+                - paragraph [ref=e43]: Before submitting a deletion request, you will be required to verify you are a California “resident,” as defined in section 17014 of Title 18 of the California Code of Regulations as that section read on September 1, 2017. Verification is made with assistance from state contracted third-party vendors, including Socure and Login.gov, through the California Identity Gateway.
+                - paragraph [ref=e44]:
+                  - text: "If you are unable to confirm your California residency through these verification service providers, you may request review of your residency classification pursuant to section 7622 of Title 11 of the California Code of Regulations. You may contact CalPrivacy by visiting this webpage:"
+                  - link "Contact CalPrivacy" [ref=e45] [cursor=pointer]:
+                    - /url: https://consumer.drop.privacy.ca.gov/contactus
+                  - text: .
+                - paragraph [ref=e46]: In addition, you will be prompted to provide personal information, such as name, date of birth, and email address. Certain information is required to verify your residency. Otherwise, the type of information and how much you provide is up to you. However, you must only provide true and accurate information about yourself through DROP. Adding personal information about multiple people in the same request is prohibited. Information received will be used and disclosed to facilitate your request to delete and opt-out of the sale/sharing of your personal information maintained by data brokers registered with CalPrivacy. The more personal information you provide, the greater the likelihood of registered data brokers finding the personal information they maintain about you and deleting that information.
+                - paragraph [ref=e47]:
+                  - text: Data brokers are required to process deletion requests at least once every 45 days beginning August 1, 2026. Your submission of personal information through DROP is governed by CalPrivacy’s
+                  - link "Privacy Policy" [ref=e48] [cursor=pointer]:
+                    - /url: https://privacy.ca.gov/privacy-policy/
+                  - text: which is incorporated into these Terms by reference.
+                - heading "Prohibited uses" [level=3] [ref=e49]
+                - paragraph [ref=e50]: "While using DROP, you agree you will not:"
+                - list [ref=e51]:
+                  - listitem [ref=e52]: (a) use DROP for any fraudulent, unlawful, or prohibited purpose
+                  - listitem [ref=e53]: (b) impersonate any person or entity or misrepresent your affiliation with any person or entity
+                  - listitem [ref=e54]: (c) interfere with or disrupt the operation of DROP, or the servers or networks used to make DROP available, including threatening the integrity or security of DROP
+                  - listitem [ref=e55]: (d) restrict, disrupt, interfere, or inhibit any other person from using DROP
+                  - listitem [ref=e56]: (e) reproduce, duplicate, copy, sell, resell or otherwise exploit for any commercial purposes, any portion of, use of, or access to DROP
+                - paragraph [ref=e57]: Violating these terms may, on a case-by-case basis, result in restriction of your ability to access and use DROP.
+                - heading "Aiding another person with their request" [level=3] [ref=e58]
+                - paragraph [ref=e59]: You are only permitted to aid another consumer with their deletion request if that person has authorized you to do so and you meet the requirements described in section 7001(d) of Title 11 of the California Code of Regulations. In addition, the consumer must first have their residency verified as described in the Use of DROP section above. When aiding a consumer with their request, you or the consumer must disclose your full name, email address, and business name if applicable through DROP when prompted. In submitting information on behalf of another person, you certify that you have authorization to do so and that the information you provide is true and correct. Adding personal information about a person who has not authorized you to submit a deletion request on their behalf is prohibited.
+                - heading "Third-Party Links" [level=3] [ref=e60]
+                - paragraph [ref=e61]: DROP may contain links to other websites and access to content and services of third parties, including verification services provided by our contracted vendors (Third-Party Content). We exercise no control over such Third-Party Content, and the Third-Party Content is governed by the respective third party’s website terms and conditions. We are not responsible for Third-Party Content’s accuracy, completeness, or legality. By using DROP, you acknowledge and agree that your use of any Third-Party Content is at your own risk. We shall not be liable for any damages arising from your reliance on or use of such Third-Party Content.
+                - heading "Disclaimer" [level=3] [ref=e62]
+                - paragraph [ref=e63]: EXCEPT WHERE EXPRESSLY PROVIDED OTHERWISE AND TO THE EXTENT ALLOWED BY LAW, DROP, AND ALL CONTENT PROVIDED ON OR THROUGH DROP, ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. WE EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. We do not warrant that use of DROP will be uninterrupted, error free, or secure, or that all defects will be corrected.
+                - heading "Limitation of Liability" [level=3] [ref=e64]
+                - paragraph [ref=e65]: IN NO EVENT SHALL CALPRIVACY BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUTATIVE, EXEMPLARY OR CONSEQUENTIAL DAMAGES, OR DAMAGES FOR LOSS OF PROFITS, REVENUE, DATA OR DATA USE, INCURRED BY YOU OR ANY THIRD PARTY, WHETHER IN AN ACTION IN CONTRACT OR TORT, ARISING FROM YOUR ACCESS TO, OR USE OF, DROP OR ANY CONTENT PROVIDED ON OR THROUGH DROP.
+                - heading "Entire Agreement; Waiver and Severability; GOVERNING LAW" [level=3] [ref=e66]
+                - paragraph [ref=e67]: These Terms represent the entire agreement between you and CalPrivacy regarding your use of DROP. CalPrivacy’s processing of information is governed by the Privacy Policy and Notice on Collection (below). The failure of the state or CalPrivacy to exercise or enforce any rights or provisions in these Terms shall not constitute a waiver of such right or provision. If any part or provision of these Terms is found to be unenforceable, such part or provision may be modified to make the Terms as modified legal and enforceable. The balance of the Terms shall not be affected. The laws of the state of California and the United States shall apply to any disputes arising out of these Terms or DROP.
+                - heading "Revision of Terms" [level=3] [ref=e68]
+                - paragraph [ref=e69]: CalPrivacy may revise the Terms, Notice at Collection (below), and the Privacy Policy at any time without prior notice. The revised Terms and Privacy Policy will be effective upon posting, and we will update the “Effective Date” date at the top of the page of each of these documents. We encourage you to review the Terms, Notice at Collection, and our Privacy Policy at regular intervals to keep up to date. Your continued use of DROP after the most recent Effective Date means that you accept the Terms, Notice at Collection, and any updates.
+                - generic [ref=e70]:
+                  - heading "NOTICE AT COLLECTION" [level=3] [ref=e71]
+                  - heading "Notice at Collection of Personal Information" [level=4] [ref=e72]
+                  - paragraph [ref=e73]: "Effective Date: 12.5.25"
+                - paragraph [ref=e74]: "YOUR DATA: When you use DROP, the California Privacy Protection Agency (CalPrivacy, we) collects personal information you enter—such as name(s), email(s), phone number(s), date of birth, zip code(s), Mobile Advertising ID(s) (MAID), Connected TV ID(s), and Vehicle Information Number(s) (VIN). We also collect usage time, device ID, and IP address."
+                - paragraph [ref=e75]: We use the data to provide your deletion request to registered data brokers, enhance the product, respond to questions, and ensure safety. Providing information and using this service is voluntary. Do not provide unrequested personal information.
+                - paragraph [ref=e76]: "YOUR RIGHTS: You may access records with your personal information. Collection is subject to the Information Practices Act and state policy. If you have any questions or concerns about this policy, contact our Chief Privacy Officer at databrokers@cppa.ca.gov."
+                - paragraph [ref=e77]:
+                  - text: "More information at:"
+                  - link "Privacy Policy" [ref=e78] [cursor=pointer]:
+                    - /url: https://privacy.ca.gov/privacy-policy/
+                - paragraph
+                - generic [ref=e79]: "AUTHORITY: Civ. Code § 1798.99.80 et seq."
+                - generic [ref=e80]: California Privacy Protection Agency, Legal Division, 400 R St., Ste. 350, Sacramento, CA 95811, (916) 572-2900
+                - paragraph
+          - generic [ref=e81]:
+            - button "I accept" [ref=e82] [cursor=pointer]
+            - form "Exit DROP form (logoutForm)" [ref=e83]:
+              - button "Exit DROP" [ref=e84] [cursor=pointer]
+  - contentinfo [ref=e85]:
+    - generic [ref=e87]:
+      - link "CA.gov California State Logo" [ref=e88] [cursor=pointer]:
+        - /url: https://www.ca.gov?utm_campaign=state_template_link&utm_medium=footer&utm_source=external
+        - generic [ref=e89]: CA.gov
+        - img "California State Logo" [ref=e90]
+      - list [ref=e91]:
+        - listitem [ref=e92]:
+          - link "Contact us" [ref=e93] [cursor=pointer]:
+            - /url: /contactus
+        - listitem [ref=e94]:
+          - link "About DROP" [ref=e95] [cursor=pointer]:
+            - /url: https://privacy.ca.gov/DROP
+        - listitem [ref=e96]:
+          - link "Conditions of use" [ref=e97] [cursor=pointer]:
+            - /url: https://www.ca.gov/legal/conditions-of-use
+        - listitem [ref=e98]:
+          - link "Privacy policy" [ref=e99] [cursor=pointer]:
+            - /url: https://privacy.ca.gov/privacy-policy
+        - listitem [ref=e100]:
+          - link "Accessibility" [ref=e101] [cursor=pointer]:
+            - /url: https://privacy.ca.gov/accessibility
+    - generic [ref=e102]:
+      - generic [ref=e103]: Copyright © 2026 State of California
+      - button "Back to top" [ref=e104] [cursor=pointer]: Back to top ↑

@@ -1,0 +1,13 @@
+[     333ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://backus.agency/js/security-theme.js:0
+[     381ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://backus.agency/js/universal-form-redirect.js:0
+[     583ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at ud (https://backus.agency/_next/static/chunks/4bd1b696-38379dec2dacdfc4.js:1:103725)
+    at https://backus.agency/_next/static/chunks/4bd1b696-38379dec2dacdfc4.js:1:117265
+    at im (https://backus.agency/_next/static/chunks/4bd1b696-38379dec2dacdfc4.js:1:120049)
+    at ic (https://backus.agency/_next/static/chunks/4bd1b696-38379dec2dacdfc4.js:1:112415)
+    at https://backus.agency/_next/static/chunks/4bd1b696-38379dec2dacdfc4.js:1:108527
+    at https://backus.agency/_next/static/chunks/4bd1b696-38379dec2dacdfc4.js:1:108534
+    at u9 (https://backus.agency/_next/static/chunks/4bd1b696-38379dec2dacdfc4.js:1:108631)
+    at iH (https://backus.agency/_next/static/chunks/4bd1b696-38379dec2dacdfc4.js:1:130644)
+    at MessagePort.w (https://backus.agency/_next/static/chunks/684-d3468cdeea80e659.js:1:26132)
+[     595ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://backus.agency/favicon.ico:0

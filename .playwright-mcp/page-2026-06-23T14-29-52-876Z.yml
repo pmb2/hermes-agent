@@ -1,0 +1,365 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - link [ref=e4] [cursor=pointer]:
+      - /url: "#"
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - heading "Fast People Search Made Easy" [level=1] [ref=e7]
+      - paragraph [ref=e8]: Find friends, relatives and colleagues across the Web.
+    - generic [ref=e11]:
+      - tablist [ref=e12]:
+        - link "People Search" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "Username Search" [ref=e14] [cursor=pointer]:
+          - /url: /username
+      - group [ref=e17]:
+        - textbox "First Name" [ref=e19]
+        - textbox "Last Name" [ref=e21]
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - link "All States" [ref=e24] [cursor=pointer]:
+              - /url: javascript:void(0)
+              - generic [ref=e25]: All States
+            - button "All States" [ref=e27]
+          - combobox [ref=e28]:
+            - option "All States" [selected]
+            - option "Alaska"
+            - option "Alabama"
+            - option "Arkansas"
+            - option "Arizona"
+            - option "Colorado"
+            - option "Connecticut"
+            - option "Washington, DC"
+            - option "Delaware"
+            - option "Florida"
+            - option "Georgia"
+            - option "Hawaii"
+            - option "Idaho"
+            - option "Illinois"
+            - option "Indiana"
+            - option "Iowa"
+            - option "Kansas"
+            - option "Kentucky"
+            - option "Louisiana"
+            - option "Maine"
+            - option "Maryland"
+            - option "Massachusetts"
+            - option "Michigan"
+            - option "Minnesota"
+            - option "Mississippi"
+            - option "Missouri"
+            - option "Montana"
+            - option "Nebraska"
+            - option "Nevada"
+            - option "New Hampshire"
+            - option "New Jersey"
+            - option "New Mexico"
+            - option "New York"
+            - option "North Carolina"
+            - option "North Dakota"
+            - option "Ohio"
+            - option "Oklahoma"
+            - option "Oregon"
+            - option "Pennsylvania"
+            - option "Puerto Rico"
+            - option "Rhode Island"
+            - option "South Carolina"
+            - option "South Dakota"
+            - option "Tennessee"
+            - option "Texas"
+            - option "Utah"
+            - option "Vermont"
+            - option "Virginia"
+            - option "Washington"
+            - option "West Virginia"
+            - option "Wisconsin"
+            - option "Wyoming"
+        - button "Submit" [ref=e29] [cursor=pointer]
+  - generic [ref=e30]:
+    - generic [ref=e31]:
+      - heading "What is PeekYou?" [level=2] [ref=e32]
+      - paragraph [ref=e33]: PeekYou is a free people search engine site that places people at the center of the Internet.
+      - paragraph [ref=e34]: It lets you discover the people most important and relevant to your life.
+      - list [ref=e35]:
+        - listitem [ref=e36]:
+          - strong [ref=e38]: Find family
+        - listitem [ref=e39]:
+          - strong [ref=e41]: Reconnect with friends
+        - listitem [ref=e42]:
+          - strong [ref=e44]: Find old classmates
+        - listitem [ref=e45]:
+          - strong [ref=e47]: Find contact information
+    - paragraph [ref=e50]:
+      - text: PeekYou only displays public web content and always respects requests for privacy.
+      - link "See Privacy Pledge" [ref=e51] [cursor=pointer]:
+        - /url: "#"
+  - generic [ref=e53]:
+    - heading "How it Works" [level=2] [ref=e54]
+    - paragraph [ref=e55]: PeekYou collects and combines scattered content from social sites, news sources, homepages, and blog platforms to present comprehensive online identities. PeekYou brings a new perspective to people search.
+    - img "frontpage" [ref=e57]
+    - link "Learn More" [ref=e58] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e59]:
+      - generic [ref=e61]:
+        - generic [ref=e63]: Serving Millions
+        - link "patricia dewall Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "patricia dewall Facebook, Twitter & MySpace on PeekYou" [ref=e64] [cursor=pointer]
+        - link "andrew westover Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "andrew westover Facebook, Twitter & MySpace on PeekYou" [ref=e65] [cursor=pointer]
+        - link "jill gokey Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "jill gokey Facebook, Twitter & MySpace on PeekYou" [ref=e66] [cursor=pointer]
+        - link "diane pilcher Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "diane pilcher Facebook, Twitter & MySpace on PeekYou" [ref=e67] [cursor=pointer]
+        - link "emma romo Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "emma romo Facebook, Twitter & MySpace on PeekYou" [ref=e68] [cursor=pointer]
+        - link "linda amyotte Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "linda amyotte Facebook, Twitter & MySpace on PeekYou" [ref=e69] [cursor=pointer]
+        - link "ruth albro Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "ruth albro Facebook, Twitter & MySpace on PeekYou" [ref=e70] [cursor=pointer]
+        - link "timothy olberding Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "timothy olberding Facebook, Twitter & MySpace on PeekYou" [ref=e71] [cursor=pointer]
+        - link "marjorie macleod Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "marjorie macleod Facebook, Twitter & MySpace on PeekYou" [ref=e72] [cursor=pointer]
+        - link "craig gurley Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "craig gurley Facebook, Twitter & MySpace on PeekYou" [ref=e73] [cursor=pointer]
+        - link "nanette farmer Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "nanette farmer Facebook, Twitter & MySpace on PeekYou" [ref=e74] [cursor=pointer]
+        - link "mauricio castillon Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "mauricio castillon Facebook, Twitter & MySpace on PeekYou" [ref=e75] [cursor=pointer]
+        - link "hobbs brandon Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "hobbs brandon Facebook, Twitter & MySpace on PeekYou" [ref=e76] [cursor=pointer]
+        - link "stacy colberg Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "stacy colberg Facebook, Twitter & MySpace on PeekYou" [ref=e77] [cursor=pointer]
+        - link "janet riffe Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "janet riffe Facebook, Twitter & MySpace on PeekYou" [ref=e78] [cursor=pointer]
+        - link "james burklund Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "james burklund Facebook, Twitter & MySpace on PeekYou" [ref=e79] [cursor=pointer]
+        - link "tim endecott Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "tim endecott Facebook, Twitter & MySpace on PeekYou" [ref=e80] [cursor=pointer]
+        - link "raquel fagan Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "raquel fagan Facebook, Twitter & MySpace on PeekYou" [ref=e81] [cursor=pointer]
+      - generic [ref=e83]:
+        - link "april halliwell Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "april halliwell Facebook, Twitter & MySpace on PeekYou" [ref=e84] [cursor=pointer]
+        - link "sissy coleman Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "sissy coleman Facebook, Twitter & MySpace on PeekYou" [ref=e85] [cursor=pointer]
+        - link "belinda esposito Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "belinda esposito Facebook, Twitter & MySpace on PeekYou" [ref=e86] [cursor=pointer]
+        - link "orlando mccoy Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "orlando mccoy Facebook, Twitter & MySpace on PeekYou" [ref=e87] [cursor=pointer]
+        - link "james riseborough Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "james riseborough Facebook, Twitter & MySpace on PeekYou" [ref=e88] [cursor=pointer]
+        - link "ayana gardner Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "ayana gardner Facebook, Twitter & MySpace on PeekYou" [ref=e89] [cursor=pointer]
+        - link "mathieu rochon Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "mathieu rochon Facebook, Twitter & MySpace on PeekYou" [ref=e90] [cursor=pointer]
+        - link "martina chatman Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "martina chatman Facebook, Twitter & MySpace on PeekYou" [ref=e91] [cursor=pointer]
+        - link "cheryl mccutchan Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "cheryl mccutchan Facebook, Twitter & MySpace on PeekYou" [ref=e92] [cursor=pointer]
+        - link "anton jirka Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "anton jirka Facebook, Twitter & MySpace on PeekYou" [ref=e93] [cursor=pointer]
+        - link "beaux smith Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "beaux smith Facebook, Twitter & MySpace on PeekYou" [ref=e94] [cursor=pointer]
+        - link "brendan hannah Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "brendan hannah Facebook, Twitter & MySpace on PeekYou" [ref=e95] [cursor=pointer]
+        - link "chris crysler Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "chris crysler Facebook, Twitter & MySpace on PeekYou" [ref=e96] [cursor=pointer]
+        - link "patricia gaug Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "patricia gaug Facebook, Twitter & MySpace on PeekYou" [ref=e97] [cursor=pointer]
+        - link "alice mol Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "alice mol Facebook, Twitter & MySpace on PeekYou" [ref=e98] [cursor=pointer]
+        - link "jennifer sarkozy Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "jennifer sarkozy Facebook, Twitter & MySpace on PeekYou" [ref=e99] [cursor=pointer]
+        - link "crystal luers Facebook, Twitter & MySpace on PeekYou":
+          - /url: "#"
+          - img "crystal luers Facebook, Twitter & MySpace on PeekYou" [ref=e100] [cursor=pointer]
+        - generic [ref=e102]:
+          - text: Over
+          - strong [ref=e103]: 10 million
+          - text: monthly searches
+  - generic [ref=e105]:
+    - heading "Trending" [level=3] [ref=e106]
+    - list [ref=e107]:
+      - listitem [ref=e108]:
+        - link "Maisie Williams" [ref=e109] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e110]:
+        - link "Kylie Jenner" [ref=e111] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e112]:
+        - link "Derrius Guice" [ref=e113] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e114]:
+        - link "Idris Elba" [ref=e115] [cursor=pointer]:
+          - /url: "#"
+    - list [ref=e116]:
+      - listitem [ref=e117]:
+        - link "Sean Young" [ref=e118] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e119]:
+        - link "Carrie Underwood" [ref=e120] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e121]:
+        - link "Margot Kidder" [ref=e122] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e123]:
+        - link "Jarrod Lyle" [ref=e124] [cursor=pointer]:
+          - /url: "#"
+    - list [ref=e125]:
+      - listitem [ref=e126]:
+        - link "Iggy Azalea" [ref=e127] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e128]:
+        - link "Shawn Mendes" [ref=e129] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e130]:
+        - link "Macaulay Culkin" [ref=e131] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e132]:
+        - link "Sam Dekker" [ref=e133] [cursor=pointer]:
+          - /url: "#"
+    - list [ref=e134]:
+      - listitem [ref=e135]:
+        - link "Ruby Rose" [ref=e136] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e137]:
+        - link "Kourtney Kardashian" [ref=e138] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e139]:
+        - link "Kathleen Turner" [ref=e140] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e141]:
+        - link "Keith Urban" [ref=e142] [cursor=pointer]:
+          - /url: "#"
+  - generic [ref=e145]:
+    - heading "Recent Searches" [level=3] [ref=e146]
+    - list [ref=e147]:
+      - listitem [ref=e148]:
+        - link "Colette Moncion" [ref=e149] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e150]:
+        - link "Marlene Crimi" [ref=e151] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e152]:
+        - link "Richard Deland" [ref=e153] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e154]:
+        - link "Eric Calero" [ref=e155] [cursor=pointer]:
+          - /url: "#"
+    - list [ref=e156]:
+      - listitem [ref=e157]:
+        - link "Kimberly Bjur" [ref=e158] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e159]:
+        - link "Lucy Hefner" [ref=e160] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e161]:
+        - link "Molly Eccles" [ref=e162] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e163]:
+        - link "Georgia Conerly" [ref=e164] [cursor=pointer]:
+          - /url: "#"
+    - list [ref=e165]:
+      - listitem [ref=e166]:
+        - link "Peter Dirlam" [ref=e167] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e168]:
+        - link "Tony Cilla" [ref=e169] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e170]:
+        - link "Micah Daly" [ref=e171] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e172]:
+        - link "Marsha Coder" [ref=e173] [cursor=pointer]:
+          - /url: "#"
+    - list [ref=e174]:
+      - listitem [ref=e175]:
+        - link "Kelly Brasseau" [ref=e176] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e177]:
+        - link "Marla Frye" [ref=e178] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e179]:
+        - link "Joyce Ohlert" [ref=e180] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e181]:
+        - link "L Rockwell" [ref=e182] [cursor=pointer]:
+          - /url: "#"
+  - contentinfo [ref=e184]:
+    - generic [ref=e185]:
+      - navigation [ref=e186]:
+        - list [ref=e187]:
+          - listitem [ref=e188]:
+            - link "About PeekYou" [ref=e189] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e190]:
+            - text: "|"
+            - link "Privacy Policy" [ref=e191] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e192]:
+            - text: "|"
+            - link "Do Not Sell My Personal Information" [active] [ref=e193] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e194]:
+            - text: "|"
+            - link "Terms of Service" [ref=e195] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e196]:
+            - text: "|"
+            - link "Directory" [ref=e197] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e198]:
+            - text: "|"
+            - link "Recently Updated Profiles" [ref=e199] [cursor=pointer]:
+              - /url: "#"
+      - paragraph [ref=e200]:
+        - text: "Disclaimer: PeekYou is not a consumer reporting agency per the Fair Credit Reporting Act. You may not use our site or service, or the information provided, to make decisions about employment, admission, consumer credit, insurance, tenant screening or any other purpose that would require FCRA compliance. For more information governing use of our site, please review our"
+        - link "Terms of Service" [ref=e201] [cursor=pointer]:
+          - /url: "#"
+        - text: .
+      - paragraph [ref=e202]: Copyright 2025 PeekYou.com. A Patent Pending People Search Process. All Rights Reserved.
+  - generic [ref=e204]:
+    - generic [ref=e205]:
+      - text: We place and use cookies to improve your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. For more information, please visit our
+      - link "Privacy Policy" [ref=e206] [cursor=pointer]:
+        - /url: /privacy
+      - text: .
+    - generic [ref=e207]:
+      - button "Accept All" [ref=e208] [cursor=pointer]
+      - button "Decline All" [ref=e209] [cursor=pointer]
+  - status [ref=e210]

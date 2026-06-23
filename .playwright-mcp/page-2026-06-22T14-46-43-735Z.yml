@@ -1,0 +1,427 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e2] [cursor=pointer]
+      - link "Accessibility help" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en
+  - generic [ref=e8]:
+    - search [ref=e9]:
+      - generic [ref=e12]:
+        - link "Go to Google home" [ref=e13] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&ictx=0&sa=X&ved=0ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4QpYkNCAw
+          - img "Go to Google home" [ref=e14]
+        - generic [ref=e15]:
+          - combobox "Search" [ref=e18]: "\"Holiday Builders\" Melbourne FL phone number land acquisition \"Holiday Builders\" Melbourne FL phone number land acquisition"
+          - generic [ref=e19]:
+            - button "Clear" [ref=e21] [cursor=pointer]:
+              - img [ref=e23]
+            - generic [ref=e26]:
+              - button "Search by voice" [ref=e27] [cursor=pointer]:
+                - img [ref=e28]
+              - button "Search by image" [ref=e30] [cursor=pointer]:
+                - img [ref=e31]
+        - button "Search" [ref=e33] [cursor=pointer]:
+          - img [ref=e36]
+    - generic [ref=e38]:
+      - button "Settings" [ref=e40] [cursor=pointer]:
+        - img [ref=e43]
+      - button "Share" [ref=e46] [cursor=pointer]:
+        - img [ref=e50]
+      - generic [ref=e52]:
+        - button "Google apps" [ref=e54] [cursor=pointer]:
+          - img [ref=e55]
+        - link "Sign in" [ref=e59] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3D%2522Holiday%2BBuilders%2522%2BMelbourne%2BFL%2Bphone%2Bnumber%2Bland%2Bacquisition%26sei%3D00o5atjVG9vrmLQP94P_oAo&ec=futura_srp_og_si_72236_p
+  - generic [ref=e61]:
+    - navigation [ref=e67]:
+      - generic [ref=e73]:
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - link "AI Mode" [ref=e78] [cursor=pointer]:
+              - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3iNW7x4D00ceR_WPJ-usEAcCQSMnsmTyspHDa8WaiANWebz-yQWon9yoyjdF8fv1XuOD8z39sG_B8Kem32kiy1ZCWL0i8UXMGuIydadIevGxdd8cLlXdmxal4uxLFfKEFV89KgQ&aep=1&ntc=1&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q2J8OegQIEBAD
+              - generic [ref=e81]: AI Mode
+          - listitem [ref=e82]:
+            - link "All" [disabled] [ref=e83]:
+              - generic [ref=e85]: All
+          - listitem [ref=e86]:
+            - link "Forums" [ref=e87] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=18&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3iNW7x4D00ceR_WPJ-usEAcCQSMnsmTyspHDa8WaiANWebz-yQWon9yoyjdF8fv1XuOD8z39sG_B8Kem32kiy1ZCWL0i8UXMGuIydadIevGxdd8cLlXdmxal4uxLFfKEFV89KgQ&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Qs6gLegQIFhAB
+              - generic [ref=e89]: Forums
+          - listitem [ref=e90]:
+            - link "Images" [ref=e91] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3iNW7x4D00ceR_WPJ-usEAcCQSMnsmTyspHDa8WaiANWebz-yQWon9yoyjdF8fv1XuOD8z39sG_B8Kem32kiy1ZCWL0i8UXMGuIydadIevGxdd8cLlXdmxal4uxLFfKEFV89KgQ&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4QtKgLegQIFRAB
+              - generic [ref=e93]: Images
+          - listitem [ref=e94]:
+            - link "Shopping" [ref=e95] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=28&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3iNW7x4D00ceR_WPJ-usEAcCQSMnsmTyspHDa8WaiANWebz-yQWon9yoyjdF8fv1XuOD8z39sG_B8Kem32kiy1ZCWL0i8UXMGuIydadIevGxdd8cLlXdmxal4uxLFfKEFV89KgQ&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&ved=1t:220175&ictx=111
+              - generic [ref=e97]: Shopping
+          - listitem [ref=e98]:
+            - link "Videos" [ref=e99] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=7&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3iNW7x4D00ceR_WPJ-usEAcCQSMnsmTyspHDa8WaiANWebz-yQWon9yoyjdF8fv1XuOD8z39sG_B8Kem32kiy1ZCWL0i8UXMGuIydadIevGxdd8cLlXdmxal4uxLFfKEFV89KgQ&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4QtKgLegQIEhAB
+              - generic [ref=e101]: Videos
+          - listitem [ref=e102]:
+            - link "Short videos" [ref=e103] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=39&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbh9RiMyQNxAO2alE80HFcj3iNW7x4D00ceR_WPJ-usEAcCQSMnsmTyspHDa8WaiANWebz-yQWon9yoyjdF8fv1XuOD8z39sG_B8Kem32kiy1ZCWL0i8UXMGuIydadIevGxdd8cLlXdmxal4uxLFfKEFV89KgQ&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Qs6gLegQIFBAB
+              - generic [ref=e105]: Short videos
+          - listitem [ref=e106]:
+            - button "More filters" [ref=e107] [cursor=pointer]:
+              - generic "More filters" [ref=e108]:
+                - generic [ref=e109]:
+                  - generic [ref=e110]: More
+                  - img [ref=e112]
+        - button "Tools" [ref=e115] [cursor=pointer]:
+          - generic [ref=e117]:
+            - generic [ref=e118]: Tools
+            - img [ref=e120]
+    - heading "Search Results" [level=1] [ref=e122]
+    - main [ref=e124]:
+      - generic [ref=e128]:
+        - generic [ref=e139]:
+          - heading "Thinking" [level=2] [ref=e143]:
+            - generic [ref=e144]: Thinking
+          - progressbar "Generating" [ref=e145]
+        - generic [ref=e149]:
+          - heading "Web results" [level=2] [ref=e150]
+          - generic [ref=e151]:
+            - generic [ref=e154]:
+              - link "Sell your Land Holiday Builders https://holidaybuilders.com › Contact Us" [ref=e156] [cursor=pointer]:
+                - /url: https://holidaybuilders.com/contact-us/sell-your-land/
+                - heading "Sell your Land" [level=3] [ref=e157]
+                - generic [ref=e163]:
+                  - generic [ref=e165]: Holiday Builders
+                  - generic [ref=e167]: https://holidaybuilders.com › Contact Us
+              - button "About this result" [ref=e168] [cursor=pointer]:
+                - img [ref=e171]
+            - generic [ref=e174]:
+              - generic [ref=e175]:
+                - text: 321.610.5180 ... 2293 W. Eau Gallie Blvd.
+                - emphasis [ref=e176]: Melbourne
+                - text: ","
+                - emphasis [ref=e177]: FL
+                - text: ", 32935. Terms of Use · Careers · Privacy Policy · Employee Email. © 2026"
+                - emphasis [ref=e178]: Holiday Builders
+                - text: · Home ...
+              - link "Read more" [ref=e179] [cursor=pointer]:
+                - /url: https://holidaybuilders.com/contact-us/sell-your-land/#:~:text=321.610.5180&text=2293%20W.%20Eau%20Gallie%20Blvd.,Builder%20Website%20by%20Meredith%20Communications
+        - generic [ref=e183]:
+          - generic [ref=e186]:
+            - link "Contact Us Holiday Builders https://holidaybuilders.com › contact-us" [ref=e188] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/contact-us/
+              - heading "Contact Us" [level=3] [ref=e189]
+              - generic [ref=e195]:
+                - generic [ref=e197]: Holiday Builders
+                - generic [ref=e199]: https://holidaybuilders.com › contact-us
+            - button "About this result" [ref=e200] [cursor=pointer]:
+              - img [ref=e203]
+          - generic [ref=e206]:
+            - generic [ref=e207]:
+              - text: 321.610.5180 ... 2293 W. Eau Gallie Blvd.
+              - emphasis [ref=e208]: Melbourne
+              - text: ","
+              - emphasis [ref=e209]: FL
+              - text: ", 32935. Terms of Use · Careers · Privacy Policy · Employee Email. © 2026"
+              - emphasis [ref=e210]: Holiday Builders
+              - text: · Home ...
+            - link "Read more" [ref=e211] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/contact-us/#:~:text=321.610.5180&text=2293%20W.%20Eau%20Gallie%20Blvd.,Builder%20Website%20by%20Meredith%20Communications
+        - generic [ref=e216]:
+          - heading "People also ask" [level=2] [ref=e218]
+          - generic [ref=e219]:
+            - button "Is Holiday Builders still in business?" [ref=e225] [cursor=pointer]:
+              - generic [ref=e227]: Is Holiday Builders still in business?
+              - img [ref=e230]
+            - button "Who owns Holiday Builders?" [ref=e239] [cursor=pointer]:
+              - generic [ref=e241]: Who owns Holiday Builders?
+              - img [ref=e244]
+            - button "Who is the biggest builder in Florida?" [ref=e253] [cursor=pointer]:
+              - generic [ref=e255]: Who is the biggest builder in Florida?
+              - img [ref=e258]
+            - button "Is Holiday Builders a publicly traded company?" [ref=e267] [cursor=pointer]:
+              - generic [ref=e269]: Is Holiday Builders a publicly traded company?
+              - img [ref=e272]
+        - generic [ref=e277]:
+          - heading "Web results" [level=2] [ref=e278]
+          - generic [ref=e279]:
+            - generic [ref=e282]:
+              - link "HOLIDAY BUILDERS - Updated June 2026 Yelp https://www.yelp.com › ... › General Contractors" [ref=e284] [cursor=pointer]:
+                - /url: https://www.yelp.com/biz/holiday-builders-melbourne-8
+                - heading "HOLIDAY BUILDERS - Updated June 2026" [level=3] [ref=e285]
+                - generic [ref=e291]:
+                  - generic [ref=e293]: Yelp
+                  - generic [ref=e295]: https://www.yelp.com › ... › General Contractors
+              - button "About this result" [ref=e296] [cursor=pointer]:
+                - img [ref=e299]
+            - generic [ref=e303]:
+              - emphasis [ref=e304]: HOLIDAY BUILDERS
+              - text: ", 2293 W Eau Gallie Blvd,"
+              - emphasis [ref=e305]: Melbourne
+              - text: ","
+              - emphasis [ref=e306]: FL
+              - text: 32935, 31 Photos, (321) 610-5180, Mon - 10:00 am - 6:00 pm, Tue - 10:00 am - 6:00 pm, Wed - 10:00 am ...
+            - img "Rated 2.0 out of 5, (27) user reviews" [ref=e311]:
+              - text: "2.0"
+              - img [ref=e312]
+              - text: (27)
+            - generic [ref=e316]:
+              - text: "Missing: acquisition ‎| Show results with:"
+              - link "acquisition" [ref=e317] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+%22acquisition%22&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q5t4CegQISBAB
+        - generic [ref=e321]:
+          - generic [ref=e324]:
+            - link "Florida's Homebuilder - Holiday Builders - New Homes in ... Holiday Builders https://holidaybuilders.com" [ref=e326] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/
+              - heading "Florida's Homebuilder - Holiday Builders - New Homes in ..." [level=3] [ref=e327]
+              - generic [ref=e333]:
+                - generic [ref=e335]: Holiday Builders
+                - generic [ref=e337]: https://holidaybuilders.com
+            - button "About this result" [ref=e338] [cursor=pointer]:
+              - img [ref=e341]
+          - generic [ref=e344]:
+            - generic [ref=e345]:
+              - text: 321.610.5180 ... 2293 W. Eau Gallie Blvd.
+              - emphasis [ref=e346]: Melbourne
+              - text: ","
+              - emphasis [ref=e347]: FL
+              - text: ", 32935. Terms of Use · Careers · Privacy Policy · Employee Email. © 2026"
+              - emphasis [ref=e348]: Holiday Builders
+              - text: · Home ...
+            - link "Read more" [ref=e349] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/#:~:text=321.610.5180&text=2293%20W.%20Eau%20Gallie%20Blvd.,Builder%20Website%20by%20Meredith%20Communications
+          - generic [ref=e351]:
+            - text: "Missing: acquisition ‎| Show results with:"
+            - link "acquisition" [ref=e352] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+%22acquisition%22&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q5t4CegQIShAB
+        - generic [ref=e356]:
+          - generic [ref=e359]:
+            - 'link "Holiday Builders: Employee Directory ZoomInfo https://www.zoominfo.com › pic › holiday-builders-inc" [ref=e361] [cursor=pointer]':
+              - /url: https://www.zoominfo.com/pic/holiday-builders-inc/49662161
+              - 'heading "Holiday Builders: Employee Directory" [level=3] [ref=e362]'
+              - generic [ref=e368]:
+                - generic [ref=e370]: ZoomInfo
+                - generic [ref=e372]: https://www.zoominfo.com › pic › holiday-builders-inc
+            - button "About this result" [ref=e373] [cursor=pointer]:
+              - img [ref=e376]
+          - generic [ref=e379]:
+            - generic [ref=e380]:
+              - text: ...
+              - emphasis [ref=e381]: Melbourne
+              - text: ","
+              - emphasis [ref=e382]: Florida
+              - text: ", 32935, United States How do I"
+              - emphasis [ref=e383]: contact Holiday Builders
+              - text: "?"
+              - emphasis [ref=e384]: Holiday Builders Contact
+              - text: "Info:"
+              - emphasis [ref=e385]: Phone number
+              - text: ": (321) 610-5180 Website: www ..."
+            - link "Read more" [ref=e386] [cursor=pointer]:
+              - /url: https://www.zoominfo.com/pic/holiday-builders-inc/49662161#:~:text=How%20do%20I%20contact%20Holiday,Builders%3F
+        - generic [ref=e390]:
+          - generic [ref=e393]:
+            - link "LOVE YOUR NEW HOME WARRANTY - Holiday Builders https://holidaybuilders.com › Blog" [ref=e395] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/love-your-new-home-warranty/
+              - heading "LOVE YOUR NEW HOME WARRANTY -" [level=3] [ref=e396]
+              - generic [ref=e402]:
+                - generic [ref=e404]: Holiday Builders
+                - generic [ref=e406]: https://holidaybuilders.com › Blog
+            - button "About this result" [ref=e407] [cursor=pointer]:
+              - img [ref=e410]
+          - generic [ref=e413]:
+            - generic [ref=e414]: Feb 28, 2024 —
+            - generic [ref=e415]:
+              - text: 321.610.5180 ... 2293 W. Eau Gallie Blvd.
+              - emphasis [ref=e416]: Melbourne
+              - text: ","
+              - emphasis [ref=e417]: FL
+              - text: ", 32935. Terms of Use · Careers · Privacy Policy · Employee Email. © 2026"
+              - emphasis [ref=e418]: Holiday Builders
+              - text: ...
+            - link "Read more" [ref=e419] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/love-your-new-home-warranty/#:~:text=321.610.5180&text=2293%20W.%20Eau%20Gallie%20Blvd.,Builder%20Website%20by%20Meredith%20Communications
+          - generic [ref=e421]:
+            - text: "Missing: acquisition ‎| Show results with:"
+            - link "acquisition" [ref=e422] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+%22acquisition%22&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q5t4CegQIQRAB
+        - generic [ref=e426]:
+          - generic [ref=e429]:
+            - link "Holiday Builders Loves Working with Realtors - Visit Us! Holiday Builders https://holidaybuilders.com › Contact Us" [ref=e431] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/contact-us/realtors/
+              - heading "Holiday Builders Loves Working with Realtors - Visit Us!" [level=3] [ref=e432]
+              - generic [ref=e438]:
+                - generic [ref=e440]: Holiday Builders
+                - generic [ref=e442]: https://holidaybuilders.com › Contact Us
+            - button "About this result" [ref=e443] [cursor=pointer]:
+              - img [ref=e446]
+          - generic [ref=e449]:
+            - generic [ref=e450]:
+              - text: 321.610.5180 ... 2293 W. Eau Gallie Blvd.
+              - emphasis [ref=e451]: Melbourne
+              - text: ","
+              - emphasis [ref=e452]: FL
+              - text: ", 32935. Terms of Use · Careers · Privacy Policy · Employee Email. © 2026"
+              - emphasis [ref=e453]: Holiday Builders
+              - text: · Home ...
+            - link "Read more" [ref=e454] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/contact-us/realtors/#:~:text=321.610.5180&text=2293%20W.%20Eau%20Gallie%20Blvd.,Builder%20Website%20by%20Meredith%20Communications
+          - generic [ref=e456]:
+            - text: "Missing: acquisition ‎| Show results with:"
+            - link "acquisition" [ref=e457] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+%22acquisition%22&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q5t4CegQITRAB
+        - generic [ref=e461]:
+          - generic [ref=e464]:
+            - link "Rich Brown Email & Phone Number | Holiday Builders ... RocketReach https://rocketreach.co › rich-brown-email_13871965" [ref=e466] [cursor=pointer]:
+              - /url: https://rocketreach.co/rich-brown-email_13871965
+              - heading "Rich Brown Email & Phone Number | Holiday Builders ..." [level=3] [ref=e467]
+              - generic [ref=e473]:
+                - generic [ref=e475]: RocketReach
+                - generic [ref=e477]: https://rocketreach.co › rich-brown-email_13871965
+            - button "About this result" [ref=e478] [cursor=pointer]:
+              - img [ref=e481]
+          - generic [ref=e484]:
+            - generic [ref=e485]:
+              - text: Top
+              - emphasis [ref=e486]: Holiday Builders
+              - text: Employees ; Michael Lilly. Area Director. St. Augustine,
+              - emphasis [ref=e487]: FL
+              - text: ", US · gmail.com; holidaybuilders.com. 1. +1 904-553-XXXX ; Angel Cordero. Regional ..."
+            - link "Read more" [ref=e488] [cursor=pointer]:
+              - /url: https://rocketreach.co/rich-brown-email_13871965#:~:text=Top%20Holiday%20Builders%20Employees&text=Michael%20Lilly,St.%20Augustine%2C%20FL%2C%20US&text=gmail.com,%2B1%20904%2D553%2DXXXX&text=Angel%20Cordero,Regional%20Sales%20Manager
+        - generic [ref=e492]:
+          - generic [ref=e495]:
+            - link "Holiday Builders Inc. | BBB Reviews | Better Business ... Better Business Bureau https://www.bbb.org › ... › Melbourne › Home Builders" [ref=e497] [cursor=pointer]:
+              - /url: https://www.bbb.org/us/fl/melbourne/profile/home-builders/holiday-builders-inc-0733-201024/customer-reviews?page=1
+              - heading "Holiday Builders Inc. | BBB Reviews | Better Business ..." [level=3] [ref=e498]
+              - generic [ref=e504]:
+                - generic [ref=e506]: Better Business Bureau
+                - generic [ref=e508]: https://www.bbb.org › ... › Melbourne › Home Builders
+            - button "About this result" [ref=e509] [cursor=pointer]:
+              - img [ref=e512]
+          - generic [ref=e516]:
+            - text: View BBB customer reviews of
+            - emphasis [ref=e517]: Holiday Builders
+            - text: Inc.. Leave a review and share your experience with the BBB and
+            - emphasis [ref=e518]: Holiday Builders
+            - text: Inc..
+        - generic [ref=e522]:
+          - generic [ref=e525]:
+            - link "The Grateful Homebuilder - Holiday Builders https://holidaybuilders.com › Blog" [ref=e527] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/the-grateful-homebuilder/
+              - heading "The Grateful Homebuilder -" [level=3] [ref=e528]
+              - generic [ref=e534]:
+                - generic [ref=e536]: Holiday Builders
+                - generic [ref=e538]: https://holidaybuilders.com › Blog
+            - button "About this result" [ref=e539] [cursor=pointer]:
+              - img [ref=e542]
+          - generic [ref=e545]:
+            - generic [ref=e546]: Nov 27, 2024 —
+            - generic [ref=e547]:
+              - text: 321.610.5180 ... 2293 W. Eau Gallie Blvd.
+              - emphasis [ref=e548]: Melbourne
+              - text: ","
+              - emphasis [ref=e549]: FL
+              - text: ", 32935. Terms of Use · Careers · Privacy Policy · Employee Email. © 2026"
+              - emphasis [ref=e550]: Holiday Builders
+              - text: ...
+            - link "Read more" [ref=e551] [cursor=pointer]:
+              - /url: https://holidaybuilders.com/the-grateful-homebuilder/#:~:text=321.610.5180&text=2293%20W.%20Eau%20Gallie%20Blvd.,Builder%20Website%20by%20Meredith%20Communications
+      - generic [ref=e553]:
+        - generic [ref=e558]:
+          - heading "People also search for" [level=2] [ref=e560]
+          - generic [ref=e562]:
+            - generic [ref=e563]:
+              - link "Holiday builders melbourne fl phone number land acquisition orlando" [ref=e567] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Holiday+builders+melbourne+fl+phone+number+land+acquisition+orlando&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q1QJ6BAgoEAE
+                - generic [ref=e568]:
+                  - generic [ref=e573]: Holiday builders melbourne fl phone number land acquisition orlando
+                  - img [ref=e577]
+              - link "Holiday builders melbourne fl phone number land acquisition near" [ref=e582] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Holiday+builders+melbourne+fl+phone+number+land+acquisition+near&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q1QJ6BAhJEAE
+                - generic [ref=e583]:
+                  - generic [ref=e588]: Holiday builders melbourne fl phone number land acquisition near
+                  - img [ref=e592]
+              - link "Holiday Builders land acquisition" [ref=e597] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Holiday+Builders+land+acquisition&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q1QJ6BAhGEAE
+                - generic [ref=e598]:
+                  - generic [ref=e603]: Holiday Builders land acquisition
+                  - img [ref=e607]
+              - link "Holiday builders phone number" [ref=e612] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Holiday+builders+phone+number&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q1QJ6BAg_EAE
+                - generic [ref=e613]:
+                  - generic [ref=e618]: Holiday builders phone number
+                  - img [ref=e622]
+            - generic [ref=e624]:
+              - link "Holiday Builders corporate office" [ref=e628] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Holiday+Builders+corporate+office&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q1QJ6BAg3EAE
+                - generic [ref=e629]:
+                  - generic [ref=e634]: Holiday Builders corporate office
+                  - img [ref=e638]
+              - link "Holiday builders communities" [ref=e643] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Holiday+builders+communities&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q1QJ6BAgzEAE
+                - generic [ref=e644]:
+                  - generic [ref=e649]: Holiday builders communities
+                  - img [ref=e653]
+              - link "Holiday builders melbourne florida" [ref=e658] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Holiday+builders+melbourne+florida&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q1QJ6BAgxEAE
+                - generic [ref=e659]:
+                  - generic [ref=e664]: Holiday builders melbourne florida
+                  - img [ref=e668]
+              - link "Holiday builders cornerstone collection" [ref=e673] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Holiday+builders+cornerstone+collection&sa=X&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q1QJ6BAgsEAE
+                - generic [ref=e674]:
+                  - generic [ref=e679]: Holiday builders cornerstone collection
+                  - img [ref=e683]
+        - navigation [ref=e685]:
+          - heading "Page Navigation" [level=1] [ref=e686]
+          - text: "1"
+          - link "Page 2" [ref=e689] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=10&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAE
+            - text: "2"
+          - link "Page 3" [ref=e691] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=20&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAG
+            - text: "3"
+          - link "Page 4" [ref=e693] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=30&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAI
+            - text: "4"
+          - link "Page 5" [ref=e695] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=40&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAK
+            - text: "5"
+          - link "Page 6" [ref=e697] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=50&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAM
+            - text: "6"
+          - link "Page 7" [ref=e699] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=60&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAO
+            - text: "7"
+          - link "Page 8" [ref=e701] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=70&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAQ
+            - text: "8"
+          - link "Page 9" [ref=e703] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=80&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAS
+            - text: "9"
+          - link "Page 10" [ref=e705] [cursor=pointer]:
+            - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=90&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8tMDegQITBAU
+            - text: "10"
+          - heading "Next" [level=2] [ref=e707]:
+            - link "Next" [ref=e708] [cursor=pointer]:
+              - /url: /search?q=%22Holiday+Builders%22+Melbourne+FL+phone+number+land+acquisition&sca_esv=7c3c44d1206346ec&ei=00o5aqa9JsWmruEPiNaS8Ak&start=10&sa=N&sstk=AU9db-DGRs0YlztbEJ7fuy6zNK-uF_rcL31sr0QIPpjdFJ36UblsxKGKzhXRuFHY0gLpCd78QKBz63iOzwDkfJuPelV9oXCLXnRa0Q&ved=2ahUKEwjm8o6wi5uVAxVFkysGHQirBJ4Q8NMDegQITBAW
+              - generic [ref=e710]: Next
+      - navigation
+    - contentinfo [ref=e711]:
+      - heading "Footer Links" [level=1] [ref=e712]
+      - generic [ref=e716]:
+        - generic [ref=e720]:
+          - button "Schenectady County, New York - From your IP address" [ref=e722] [cursor=pointer]:
+            - generic [ref=e723]: Schenectady County, New York
+            - generic [ref=e725]:
+              - text: "-"
+              - generic [ref=e726]: From your IP address
+          - text: "-"
+          - button "Update location" [ref=e728] [cursor=pointer]: Update location
+        - generic [ref=e731]:
+          - link "Help" [ref=e732] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en&fg=1
+          - link "Send feedback" [ref=e733] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e734] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en&fg=1
+          - link "Terms" [ref=e735] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en&fg=1

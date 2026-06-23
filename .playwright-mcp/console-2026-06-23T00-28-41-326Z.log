@@ -1,0 +1,4 @@
+[     453ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://consumer.drop.privacy.ca.gov/:0
+[    1764ms] [ERROR] Blocked script execution in 'about:blank' because the document's frame is sandboxed and the 'allow-scripts' permission is not set. @ https://consumer.drop.privacy.ca.gov/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a0ff5fdcaf61d923:0
+[    1811ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://consumer.drop.privacy.ca.gov/favicon.ico:0
+[    1853ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://consumer.drop.privacy.ca.gov/favicon.ico:0

@@ -1,0 +1,3 @@
+[    1997ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://pipl.com/opt-out:0
+[    2128ms] [LOG] Device collector New @ https://pipl.com/opt-out:182
+[    3009ms] [WARNING] It is recommended that a robustness level be specified. Not specifying the robustness level could result in unexpected behavior. @ https://static.pipl.com/sdk/device-intelligence/current/device-intelligence.umd.js:4633

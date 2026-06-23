@@ -1,0 +1,3 @@
+[    1188ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ https://www.peekyou.com/:0
+[    1234ms] [ERROR] Access to XMLHttpRequest at 'https://peekyou.com/' (redirected from 'https://www.peekyou.com/cdn-cgi/rum?') from origin 'https://www.peekyou.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www.peekyou.com/:0
+[    1234ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://peekyou.com/:0

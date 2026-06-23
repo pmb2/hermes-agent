@@ -1,0 +1,291 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e2] [cursor=pointer]
+      - link "Accessibility help" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en
+  - generic [ref=e8]:
+    - search [ref=e9]:
+      - generic [ref=e12]:
+        - link "Go to Google home" [ref=e13] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&ictx=0&sa=X&ved=0ahUKEwilsqXJi5uVAxVuN4YAHaMfDP0QpYkNCAw
+          - img "Go to Google home" [ref=e14]
+        - generic [ref=e15]:
+          - combobox "Search" [ref=e18]: "\"Ferariel Dermatology\" Miami FL phone number \"Ferariel Dermatology\" Miami FL phone number"
+          - generic [ref=e19]:
+            - button "Clear" [ref=e21] [cursor=pointer]:
+              - img [ref=e23]
+            - generic [ref=e26]:
+              - button "Search by voice" [ref=e27] [cursor=pointer]:
+                - img [ref=e28]
+              - button "Search by image" [ref=e30] [cursor=pointer]:
+                - img [ref=e31]
+        - button "Search" [ref=e33] [cursor=pointer]:
+          - img [ref=e36]
+    - generic [ref=e38]:
+      - button "Settings" [ref=e40] [cursor=pointer]:
+        - img [ref=e43]
+      - button "Share" [ref=e46] [cursor=pointer]:
+        - img [ref=e50]
+      - generic [ref=e52]:
+        - button "Google apps" [ref=e54] [cursor=pointer]:
+          - img [ref=e55]
+        - link "Sign in" [ref=e59] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3D%2522Ferariel%2BDermatology%2522%2BMiami%2BFL%2Bphone%2Bnumber&ec=futura_srp_og_si_72236_p
+  - generic [ref=e61]:
+    - navigation [ref=e67]:
+      - generic [ref=e73]:
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - link "AI Mode" [ref=e78] [cursor=pointer]:
+              - /url: /search?q=%22Ferrari+Dermatology%22+Miami+FL+phone+number&sca_esv=7c3c44d1206346ec&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832QufJlY6zJud3Z__pVf55T9h1SQFki2XCYpJtchR_BvDHowIsKKgg04gpeiwnMMpIHlo6DvsT7avsjstukAB9nejgE1MKBHFoN7lZMoe6Lt5Vfrd22-CVAysRlg1PSpF2b8y5hzZs3P6iUFwzf4sBNkm8EkKsUlGOxU251Gvs9OY8o0JEg&aep=1&ntc=1&sa=X&ved=2ahUKEwilsqXJi5uVAxVuN4YAHaMfDP0Q2J8OegQIEhAD
+              - generic [ref=e81]: AI Mode
+          - listitem [ref=e82]:
+            - link "All" [disabled] [ref=e83]:
+              - generic [ref=e85]: All
+          - listitem [ref=e86]:
+            - link "Images" [ref=e87] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832QufJlY6zJud3Z__pVf55T9h1SQFki2XCYpJtchR_BvDHowIsKKgg04gpeiwnMMpIHlo6DvsT7avsjstukAB9nejgE1MKBHFoN7lZMoe6Lt5Vfrd22-CVAysRlg1PSpF2b8y5hzZs3P6iUFwzf4sBNkm8EkKsUlGOxU251Gvs9OY8o0JEg&q=%22Ferrari+Dermatology%22+Miami+FL+phone+number&sa=X&ved=2ahUKEwilsqXJi5uVAxVuN4YAHaMfDP0QtKgLegQIFxAB
+              - generic [ref=e89]: Images
+          - listitem [ref=e90]:
+            - link "Forums" [ref=e91] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=18&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832QufJlY6zJud3Z__pVf55T9h1SQFki2XCYpJtchR_BvDHowIsKKgg04gpeiwnMMpIHlo6DvsT7avsjstukAB9nejgE1MKBHFoN7lZMoe6Lt5Vfrd22-CVAysRlg1PSpF2b8y5hzZs3P6iUFwzf4sBNkm8EkKsUlGOxU251Gvs9OY8o0JEg&q=%22Ferrari+Dermatology%22+Miami+FL+phone+number&sa=X&ved=2ahUKEwilsqXJi5uVAxVuN4YAHaMfDP0Qs6gLegQIFBAB
+              - generic [ref=e93]: Forums
+          - listitem [ref=e94]:
+            - link "Shopping" [ref=e95] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=28&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832QufJlY6zJud3Z__pVf55T9h1SQFki2XCYpJtchR_BvDHowIsKKgg04gpeiwnMMpIHlo6DvsT7avsjstukAB9nejgE1MKBHFoN7lZMoe6Lt5Vfrd22-CVAysRlg1PSpF2b8y5hzZs3P6iUFwzf4sBNkm8EkKsUlGOxU251Gvs9OY8o0JEg&q=%22Ferrari+Dermatology%22+Miami+FL+phone+number&ved=1t:220175&ictx=111
+              - generic [ref=e97]: Shopping
+          - listitem [ref=e98]:
+            - link "Videos" [ref=e99] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=7&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832QufJlY6zJud3Z__pVf55T9h1SQFki2XCYpJtchR_BvDHowIsKKgg04gpeiwnMMpIHlo6DvsT7avsjstukAB9nejgE1MKBHFoN7lZMoe6Lt5Vfrd22-CVAysRlg1PSpF2b8y5hzZs3P6iUFwzf4sBNkm8EkKsUlGOxU251Gvs9OY8o0JEg&q=%22Ferrari+Dermatology%22+Miami+FL+phone+number&sa=X&ved=2ahUKEwilsqXJi5uVAxVuN4YAHaMfDP0QtKgLegQIGBAB
+              - generic [ref=e101]: Videos
+          - listitem [ref=e102]:
+            - link "Maps" [ref=e103] [cursor=pointer]:
+              - /url: https://maps.google.com/maps?sca_esv=7c3c44d1206346ec&output=search&q=%22Ferrari+Dermatology%22+Miami+FL+phone+number&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832QufJlY6zJud3Z__pVf55T9h1SQFki2XCYpJtchR_BvDHowIsKKgg04gpeiwnMMpIHlo6DvsT7avsjstukAB9nejgE1MKBHFoN7lZMoe6Lt5Vfrd22-CVAysRlg1PSpF2b8y5hzZs3P6iUFwzf4sBNkm8EkKsUlGOxU251Gvs9OY8o0JEg&entry=mc&ved=1t:200715&ictx=111
+              - generic [ref=e105]: Maps
+          - listitem [ref=e106]:
+            - button "More filters" [ref=e107] [cursor=pointer]:
+              - generic "More filters" [ref=e108]:
+                - generic [ref=e109]:
+                  - generic [ref=e110]: More
+                  - img [ref=e112]
+        - button "Tools" [ref=e115] [cursor=pointer]:
+          - generic [ref=e117]:
+            - generic [ref=e118]: Tools
+            - img [ref=e120]
+    - heading "Search Results" [level=1] [ref=e122]
+    - generic [ref=e123]:
+      - generic [ref=e124]:
+        - generic [ref=e127]:
+          - heading "These are results for \"Ferrari Dermatology\" Miami FL phone number Search instead for \"Ferariel Dermatology\" Miami FL phone number" [level=2] [ref=e130]:
+            - text: These are results for
+            - button "\"Ferrari Dermatology\" Miami FL phone number" [ref=e131] [cursor=pointer]:
+              - text: "\""
+              - generic [ref=e132]: Ferrari
+              - text: Dermatology" Miami FL phone number
+            - generic [ref=e133]:
+              - text: Search instead for
+              - button "\"Ferariel Dermatology\" Miami FL phone number" [ref=e134] [cursor=pointer]
+          - generic [ref=e139]:
+            - heading "Miami, FL" [level=2] [ref=e140]:
+              - img [ref=e143]:
+                - img [ref=e144]
+              - generic [ref=e147]: Miami, FL
+            - generic [ref=e149]:
+              - text: ∙
+              - button "Choose area" [ref=e150] [cursor=pointer]
+            - button "How location is used" [ref=e153] [cursor=pointer]:
+              - img [ref=e155]
+        - generic [ref=e165]:
+          - 'heading "Places: Location results for \"Ferrari Dermatology\" Miami FL phone number" [level=2] [ref=e170]':
+            - generic [ref=e171]: Places
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - generic [ref=e177]:
+                - generic [ref=e180]:
+                  - 'button "Miami Skin Dr.: Lawrence Adam Schiffman, DO, FAOCD Rated 4.8 out of 5, 579 user reviews · Dermatologist Doral, FL · (305) 735-9474 Open · Closes 4 PM \"I was seen very quickly after an accurate diagnosis of my skin problems.\"" [ref=e182]':
+                    - generic [ref=e186] [cursor=pointer]:
+                      - 'heading "Miami Skin Dr.: Lawrence Adam Schiffman, DO, FAOCD" [level=3] [ref=e187]':
+                        - generic [ref=e188]: "Miami Skin Dr.: Lawrence Adam Schiffman, DO, FAOCD"
+                      - generic [ref=e189]:
+                        - img "Rated 4.8 out of 5, 579 user reviews" [ref=e191]:
+                          - text: "4.8"
+                          - img [ref=e192]
+                          - text: (579)
+                        - text: · Dermatologist
+                      - generic [ref=e195]: Doral, FL · (305) 735-9474
+                      - generic [ref=e197]: Open · Closes 4 PM
+                      - generic [ref=e199]:
+                        - img [ref=e202]
+                        - generic [ref=e206]: "\"I was seen very quickly after an accurate diagnosis of my skin problems.\""
+                  - link "Schedule" [ref=e207] [cursor=pointer]:
+                    - /url: https://nextpatient.co/p/1637/providers?rwg_token=AE37R_g8fT_gTg1VNiC4PVxQ3_2TdZoW3f35Bk0HxViPPjuRqmUv8_qG_rOE7lAXBsfQ4TsI0G1gPNrJTXYS_q8MifGlHRoQhg%3D%3D&source=cat
+                    - generic [ref=e208]:
+                      - img [ref=e211]
+                      - generic [ref=e214]: Schedule
+                  - link "Website" [ref=e215] [cursor=pointer]:
+                    - /url: http://miamiskindr.com/
+                    - generic [ref=e217]:
+                      - img [ref=e220]
+                      - generic [ref=e222]: Website
+                  - link "Directions" [ref=e223] [cursor=pointer]:
+                    - /url: /maps/dir//Miami+Skin+Dr.:+Lawrence+Adam+Schiffman,+DO,+FAOCD,+3650+NW+82nd+Ave+Ste+306,+Doral,+FL+33166/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x88d9b97c8bc76129:0x217ccfcc9371b33f?sa=X&ved=1t:57443&ictx=111
+                    - generic [ref=e225]:
+                      - img [ref=e228]
+                      - generic [ref=e233]: Directions
+                - generic [ref=e236]:
+                  - button "Florida Academic Dermatology Center Rated 4.9 out of 5, 1.6K user reviews · Dermatologist Coral Gables, FL · (305) 324-2110 Open · Closes 5 PM \"They gave me a thorough skin exam.\"" [ref=e238]:
+                    - generic [ref=e242] [cursor=pointer]:
+                      - heading "Florida Academic Dermatology Center" [level=3] [ref=e243]:
+                        - generic [ref=e244]: Florida Academic Dermatology Center
+                      - generic [ref=e245]:
+                        - img "Rated 4.9 out of 5, 1.6K user reviews" [ref=e247]:
+                          - text: "4.9"
+                          - img [ref=e248]
+                          - text: (1.6K)
+                        - text: · Dermatologist
+                      - generic [ref=e251]: Coral Gables, FL · (305) 324-2110
+                      - generic [ref=e253]: Open · Closes 5 PM
+                      - generic [ref=e255]:
+                        - img [ref=e258]
+                        - generic [ref=e262]: "\"They gave me a thorough skin exam.\""
+                  - link "Schedule" [ref=e263] [cursor=pointer]:
+                    - /url: https://nextpatient.co/p/4065/providers?rwg_token=AE37R_hhnKfceQG5E60Uu4rPkX2EuI_9j4HcKvsr6IIttid8waN5M5yH3NMuvVuSGVNYnskUVmH4STb5wdeXDEttkkogMFVBmg%3D%3D&source=cat
+                    - generic [ref=e264]:
+                      - img [ref=e267]
+                      - generic [ref=e270]: Schedule
+                  - link "Website" [ref=e271] [cursor=pointer]:
+                    - /url: https://fadcenter.com/
+                    - generic [ref=e273]:
+                      - img [ref=e276]
+                      - generic [ref=e278]: Website
+                  - link "Directions" [ref=e279] [cursor=pointer]:
+                    - /url: /maps/dir//Florida+Academic+Dermatology+Center,+475+Biltmore+Way+Ste+207,+Coral+Gables,+FL+33134/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x88d9b775db0c5ffb:0x6f3711e95685ddb9?sa=X&ved=1t:57443&ictx=111
+                    - generic [ref=e281]:
+                      - img [ref=e284]
+                      - generic [ref=e289]: Directions
+                - generic [ref=e292]:
+                  - button "Westchester Dermatology, Carlos Ricotti MD / Erika Infiesta PA-C / Dermatólogo - Dermatología Rated 4.7 out of 5, 155 user reviews · Dermatologist 8700 W Flagler St Ste 105 · (305) 380-9916 Open · Closes 5 PM \"Dr. Carlos and his team were very efficient and knowledgeable.\"" [ref=e294]:
+                    - generic [ref=e298] [cursor=pointer]:
+                      - heading "Westchester Dermatology, Carlos Ricotti MD / Erika Infiesta PA-C / Dermatólogo - Dermatología" [level=3] [ref=e299]:
+                        - generic [ref=e300]: Westchester Dermatology, Carlos Ricotti MD / Erika Infiesta PA-C / Dermatólogo - Dermatología
+                      - generic [ref=e301]:
+                        - img "Rated 4.7 out of 5, 155 user reviews" [ref=e303]:
+                          - text: "4.7"
+                          - img [ref=e304]
+                          - text: (155)
+                        - text: · Dermatologist
+                      - generic [ref=e307]: 8700 W Flagler St Ste 105 · (305) 380-9916
+                      - generic [ref=e309]: Open · Closes 5 PM
+                      - generic [ref=e311]:
+                        - img [ref=e314]
+                        - generic [ref=e318]: "\"Dr. Carlos and his team were very efficient and knowledgeable.\""
+                  - link "Schedule" [ref=e319] [cursor=pointer]:
+                    - /url: https://www.tebra.com/care/provider/carlos-ricotti-md-1497956569?lid=3282034089&rwg_token=AE37R_grzurZBjQjKecK2h0SPeRTN9Iub8nvsxEuy9jgKr9U2xKf0SXgs8xQu2x5qGIhoJvBbmxN-9euKpXu7o_cmHVYTOf42A%3D%3D&source=cat
+                    - generic [ref=e320]:
+                      - img [ref=e323]
+                      - generic [ref=e326]: Schedule
+                  - link "Website" [ref=e327] [cursor=pointer]:
+                    - /url: http://www.miamidermskin.com/
+                    - generic [ref=e329]:
+                      - img [ref=e332]
+                      - generic [ref=e334]: Website
+                  - link "Directions" [ref=e335] [cursor=pointer]:
+                    - /url: /maps/dir//Westchester+Dermatology,+Carlos+Ricotti+MD+%2F+Erika+Infiesta+PA-C+%2F+Dermat%C3%B3logo+-+Dermatolog%C3%ADa,+8700+W+Flagler+St+Ste+105,+Miami,+FL+33174/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x88d9b7e5645183af:0xe91933b007be7cbd?sa=X&ved=1t:57443&ictx=111
+                    - generic [ref=e337]:
+                      - img [ref=e340]
+                      - generic [ref=e345]: Directions
+              - heading "More places" [level=3] [ref=e348]:
+                - link "More places" [ref=e350] [cursor=pointer]:
+                  - /url: /search?q=%22Ferrari+Dermatology%22+Miami+FL+phone+number&sca_esv=7c3c44d1206346ec&udm=1&lsack=CEs5aqWOGu7umLQPo7-w6A8&sa=X&ved=2ahUKEwilsqXJi5uVAxVuN4YAHaMfDP0QjGp6BAgpEAA
+                  - separator [ref=e351]
+                  - generic [ref=e352]:
+                    - generic [ref=e353]: More places
+                    - img [ref=e355]
+            - heading "Map" [level=3] [ref=e358]
+      - main [ref=e360]:
+        - generic [ref=e364]:
+          - generic [ref=e367]:
+            - heading "Web results" [level=2] [ref=e368]
+            - generic [ref=e369]:
+              - generic [ref=e372]:
+                - link "Pili Torti as a Sign of Eyebrow Involvement in Frontal ... University of Miami https://scholarship.miami.edu › outputs › journalArticle" [ref=e374] [cursor=pointer]:
+                  - /url: https://scholarship.miami.edu/esploro/outputs/journalArticle/Pili-Torti-as-a-Sign-of/991031575419802976
+                  - heading "Pili Torti as a Sign of Eyebrow Involvement in Frontal ..." [level=3] [ref=e375]
+                  - generic [ref=e381]:
+                    - generic [ref=e383]: University of Miami
+                    - generic [ref=e385]: https://scholarship.miami.edu › outputs › journalArticle
+                - button "About this result" [ref=e386] [cursor=pointer]:
+                  - img [ref=e389]
+              - generic [ref=e392]:
+                - generic [ref=e393]: by B Ferrari · 2019 · Cited by 15 —
+                - generic [ref=e394]:
+                  - text: Bruno
+                  - emphasis [ref=e395]: Ferrari - Dermatology
+                  - text: Service, Hospital Ramos Mejía, Universidad de ...
+                  - emphasis [ref=e396]: FL
+                  - text: 33124-0320 | repository.library@
+                  - emphasis [ref=e397]: miami
+                  - text: .edu. New search · Research units.
+                - link "Read more" [ref=e398] [cursor=pointer]:
+                  - /url: https://scholarship.miami.edu/esploro/outputs/journalArticle/Pili-Torti-as-a-Sign-of/991031575419802976#:~:text=Bruno%20Ferrari%20%2D%20Dermatology%20Service%2C,Buenos%20Aires%2C%20Buenos%20Aires%2C%20Argentina&text=University%20of%20Miami%20Libraries%20%7C,Research%20units
+          - generic [ref=e402]:
+            - generic [ref=e405]:
+              - link "Pili Torti as a Sign of Eyebrow Involvement in Frontal ... - PMC National Institutes of Health (.gov) https://pmc.ncbi.nlm.nih.gov › articles › PMC6883447" [ref=e407] [cursor=pointer]:
+                - /url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6883447/
+                - heading "Pili Torti as a Sign of Eyebrow Involvement in Frontal ... - PMC" [level=3] [ref=e408]
+                - generic [ref=e414]:
+                  - generic [ref=e416]: National Institutes of Health (.gov)
+                  - generic [ref=e418]: https://pmc.ncbi.nlm.nih.gov › articles › PMC6883447
+              - button "About this result" [ref=e419] [cursor=pointer]:
+                - img [ref=e422]
+            - generic [ref=e425]:
+              - generic [ref=e426]: by B Ferrari · 2019 · Cited by 15 —
+              - generic [ref=e427]:
+                - text: ... Miami Miller School of Medicine,
+                - emphasis [ref=e428]: Miami
+                - text: ","
+                - emphasis [ref=e429]: Florida
+                - text: ", USA."
+                - superscript [ref=e430]: ✉
+                - text: . *Bruno
+                - emphasis [ref=e431]: Ferrari, Dermatology
+                - text: Service, Hospital Ramos Mejía, Urquiza 609, Buenos Aires, CABA C1221ADC ...
+              - link "Read more" [ref=e432] [cursor=pointer]:
+                - /url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6883447/#:~:text=PMCID%3A%20PMC6883447%20PMID%3A%2031799271
+        - generic [ref=e434]:
+          - generic [ref=e439]:
+            - heading "People also search for" [level=2] [ref=e441]
+            - generic [ref=e443]:
+              - link "Ferrari dermatology miami fl phone number usa" [ref=e448] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Ferrari+dermatology+miami+fl+phone+number+usa&sa=X&ved=2ahUKEwilsqXJi5uVAxVuN4YAHaMfDP0Q1QJ6BAgtEAE
+                - generic [ref=e449]:
+                  - generic [ref=e454]: Ferrari dermatology miami fl phone number usa
+                  - img [ref=e458]
+              - link "Ferrari dermatology miami fl phone number reddit" [ref=e464] [cursor=pointer]:
+                - /url: /search?sca_esv=7c3c44d1206346ec&q=Ferrari+dermatology+miami+fl+phone+number+reddit&sa=X&ved=2ahUKEwilsqXJi5uVAxVuN4YAHaMfDP0Q1QJ6BAgsEAE
+                - generic [ref=e465]:
+                  - generic [ref=e470]: Ferrari dermatology miami fl phone number reddit
+                  - img [ref=e474]
+          - navigation
+        - navigation
+    - contentinfo [ref=e476]:
+      - heading "Footer Links" [level=1] [ref=e477]
+      - generic [ref=e481]:
+        - generic [ref=e485]:
+          - button "Schenectady County, New York - Based on your past activity" [ref=e487] [cursor=pointer]:
+            - generic [ref=e488]: Schenectady County, New York
+            - generic [ref=e490]:
+              - text: "-"
+              - generic [ref=e491]: Based on your past activity
+          - text: "-"
+          - button "Update location" [ref=e493] [cursor=pointer]: Update location
+        - generic [ref=e496]:
+          - link "Help" [ref=e497] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en&fg=1
+          - link "Send feedback" [ref=e498] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e499] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en&fg=1
+          - link "Terms" [ref=e500] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en&fg=1

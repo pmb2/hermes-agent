@@ -1,0 +1,117 @@
+- iframe [ref=e2]:
+  - generic [active] [ref=f24e1]:
+    - main [ref=f24e3]:
+      - generic [ref=f24e5]:
+        - heading "DELETION AND OPT OUT OF SALE OF PERSONAL INFORMATION" [level=1] [ref=f24e6]
+        - generic [ref=f24e7]: Submit this form with your information to request opt-out and deletion from MyLife.com. Requests are processed within the legally required time frames. Any profile listing published on our website that matches your information, will be permanently removed. The information you provide is to make sure MyLife removes the correct record(s), particularly if there are multiple profiles or records under the same name or a similar name. For additional support, contact MyLife Customer Care at membersupport@mylife.com
+      - generic [ref=f24e9]:
+        - heading "Consumer Rights" [level=2] [ref=f24e10]
+        - generic [ref=f24e11]: Residents of some U.S. states, including California, Colorado, Connecticut, Delaware, Iowa, Montana, Nebraska, New Hampshire, New Jersey, Oregon, Texas, Utah, and Virginia (and other states as new laws become effective) provide their consumers with rights to "opt out" of sale of their personal information and/or to "delete" that information from company databases. We provide these options to residents of these states and (at our discretion) residents of other states as well.
+      - generic [ref=f24e13]:
+        - heading "Email Address" [level=2] [ref=f24e14]
+        - generic [ref=f24e15]: Include your email address to receive a confirmation when the deletion is complete. We will also 'unsubscribe' the email and delete any accounts you may have registered using that email.
+      - generic [ref=f24e16]: All fields marked with * are required and must be filled.
+      - generic [ref=f24e17]: State:*
+      - combobox "State:" [ref=f24e19]:
+        - option "Please Select" [selected]
+        - option "Alabama"
+        - option "Alaska"
+        - option "Arizona"
+        - option "Arkansas"
+        - option "California"
+        - option "Colorado"
+        - option "Connecticut"
+        - option "Delaware"
+        - option "Florida"
+        - option "Georgia"
+        - option "Hawaii"
+        - option "Idaho"
+        - option "Illinois"
+        - option "Indiana"
+        - option "Iowa"
+        - option "Kansas"
+        - option "Kentucky"
+        - option "Louisiana"
+        - option "Maine"
+        - option "Maryland"
+        - option "Massachusetts"
+        - option "Michigan"
+        - option "Minnesota"
+        - option "Mississippi"
+        - option "Missouri"
+        - option "Montana"
+        - option "Nebraska"
+        - option "Nevada"
+        - option "New Hampshire"
+        - option "New Jersey"
+        - option "New Mexico"
+        - option "New York"
+        - option "North Carolina"
+        - option "North Dakota"
+        - option "Ohio"
+        - option "Oklahoma"
+        - option "Oregon"
+        - option "Pennsylvania"
+        - option "Rhode Island"
+        - option "South Carolina"
+        - option "South Dakota"
+        - option "Tennessee"
+        - option "Texas"
+        - option "Utah"
+        - option "Vermont"
+        - option "Virginia"
+        - option "Washington"
+        - option "West Virginia"
+        - option "Wisconsin"
+        - option "Wyoming"
+      - generic [ref=f24e20]: Name*
+      - group "Name" [ref=f24e22]:
+        - generic [ref=f24e23]:
+          - textbox "First Name" [ref=f24e24]
+          - generic [ref=f24e25]: First Name
+        - generic [ref=f24e26]:
+          - textbox "Last Name" [ref=f24e27]
+          - generic [ref=f24e28]: Last Name
+      - generic [ref=f24e29]: Location:*
+      - group "Location:" [ref=f24e31]:
+        - generic [ref=f24e34]:
+          - textbox "City" [ref=f24e35]
+          - generic [ref=f24e36]: City
+        - generic [ref=f24e39]:
+          - textbox "Postal / Zip Code" [ref=f24e40]
+          - generic [ref=f24e41]: Postal / Zip Code
+      - generic [ref=f24e42]: Email Validator*
+      - iframe [ref=f24e45]:
+        - generic [ref=f27e3]:
+          - textbox "Email address" [ref=f27e4]
+          - button "Verify Email" [ref=f27e5] [cursor=pointer]
+      - generic [ref=f24e46]: "Birth Year (YYYY): *"
+      - generic [ref=f24e48]:
+        - 'textbox "Birth Year (YYYY): Your birth year helps us locate your correct profile." [ref=f24e49]'
+        - generic [ref=f24e50]: Your birth year helps us locate your correct profile.
+      - generic [ref=f24e51]: "Middle Initial:"
+      - textbox "Middle Initial:" [ref=f24e53]
+      - generic [ref=f24e54]: "Maiden Name or Alias Name:"
+      - textbox "Maiden Name or Alias Name:" [ref=f24e56]
+      - generic [ref=f24e57]: "Enter the profile URL for your profile listing:"
+      - textbox "Enter the profile URL for your profile listing:" [ref=f24e59]
+      - generic [ref=f24e61]:
+        - paragraph [ref=f24e62]:
+          - link "Find your profile listing on MyLife.com" [ref=f24e63] [cursor=pointer]:
+            - /url: https://www.mylife.com/pub-multisearch.pubview?pb=1%20
+            - strong [ref=f24e64]: Find your profile listing on MyLife.com
+        - paragraph [ref=f24e65]
+      - generic [ref=f24e66]: Please verify that you are human*
+      - iframe [ref=f24e72]:
+        - generic [ref=f29e2]:
+          - generic [ref=f29e3]:
+            - checkbox "I'm not a robot" [ref=f29e7]
+            - generic [ref=f29e11]: I'm not a robot
+          - generic [ref=f29e15]: reCAPTCHA
+      - button "Submit" [ref=f24e75] [cursor=pointer]
+      - generic [ref=f24e77]:
+        - img "accessibility badge" [ref=f24e78]
+        - generic [ref=f24e79]:
+          - generic [ref=f24e80]: ACCESSIBILITY
+          - generic [ref=f24e81]: ENABLED FORM
+    - status [ref=f24e82]

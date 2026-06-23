@@ -1,0 +1,295 @@
+- generic [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "That ' sThem" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]:
+          - generic [ref=e8]:
+            - text: That
+            - generic [ref=e9]: "'"
+            - text: s
+          - text: Them
+      - button "Toggle menu" [ref=e10] [cursor=pointer]
+  - main [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - heading "Opt Out" [level=1] [ref=e20]
+        - navigation "Breadcrumb" [ref=e21]:
+          - list [ref=e22]:
+            - listitem [ref=e23]:
+              - link "That ' sThem" [ref=e24] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e25]:
+                  - generic [ref=e26]:
+                    - text: That
+                    - generic [ref=e27]: "'"
+                    - text: s
+                  - text: Them
+              - generic [ref=e28]: /
+            - listitem [ref=e29]:
+              - generic [ref=e30]: Opt Out
+      - paragraph [ref=e31]: We respect your privacy. Request removal of your personal information from our database.
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e36]:
+          - img [ref=e38]
+          - generic [ref=e40]:
+            - heading "Your Privacy Matters" [level=3] [ref=e41]
+            - paragraph [ref=e42]: We're committed to protecting your personal information and honoring your opt-out requests.
+        - generic [ref=e44]:
+          - img [ref=e46]
+          - generic [ref=e48]:
+            - heading "Processing Time" [level=3] [ref=e49]
+            - paragraph [ref=e50]: Requests are typically processed within 72 hours. You'll receive a confirmation email once complete.
+        - generic [ref=e52]:
+          - img [ref=e54]
+          - generic [ref=e56]:
+            - heading "Important Note" [level=3] [ref=e57]
+            - paragraph [ref=e58]:
+              - text: Opting out removes your data from
+              - generic [ref=e59]:
+                - generic [ref=e60]:
+                  - text: That
+                  - generic [ref=e61]: "'"
+                  - text: s
+                - text: Them
+              - text: "'s public search results. This does not affect data held by other services or public records."
+            - paragraph [ref=e62]:
+              - text: For more details, see our
+              - link "Privacy Policy" [ref=e63] [cursor=pointer]
+              - text: .
+      - generic [ref=e65]:
+        - heading "Submit opt-out request" [level=2] [ref=e66]
+        - generic [ref=e69]:
+          - paragraph [ref=e192]: Please complete the captcha.
+          - generic [ref=e70]:
+            - generic [ref=e71]: Full Name *
+            - textbox "Full Name *" [invalid] [ref=e72]:
+              - /placeholder: John Smith
+              - text: Paul Backus
+          - generic [ref=e73]:
+            - generic [ref=e74]: Street Address *
+            - textbox "Street Address *" [invalid] [ref=e75]:
+              - /placeholder: 123 Main St
+              - text: 89 Saratoga Rd
+          - generic [ref=e76]:
+            - generic [ref=e77]: City *
+            - textbox "City *" [invalid] [ref=e78]:
+              - /placeholder: Seattle
+              - text: Scotia
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: State *
+              - combobox "State *" [invalid] [ref=e82] [cursor=pointer]:
+                - option [disabled]
+                - option "Alabama"
+                - option "Alaska"
+                - option "Arizona"
+                - option "Arkansas"
+                - option "California"
+                - option "Colorado"
+                - option "Connecticut"
+                - option "Delaware"
+                - option "District of Columbia"
+                - option "Florida"
+                - option "Georgia"
+                - option "Hawaii"
+                - option "Idaho"
+                - option "Illinois"
+                - option "Indiana"
+                - option "Iowa"
+                - option "Kansas"
+                - option "Kentucky"
+                - option "Louisiana"
+                - option "Maine"
+                - option "Maryland"
+                - option "Massachusetts"
+                - option "Michigan"
+                - option "Minnesota"
+                - option "Mississippi"
+                - option "Missouri"
+                - option "Montana"
+                - option "Nebraska"
+                - option "Nevada"
+                - option "New Hampshire"
+                - option "New Jersey"
+                - option "New Mexico"
+                - option "New York" [selected]
+                - option "North Carolina"
+                - option "North Dakota"
+                - option "Ohio"
+                - option "Oklahoma"
+                - option "Oregon"
+                - option "Pennsylvania"
+                - option "Rhode Island"
+                - option "South Carolina"
+                - option "South Dakota"
+                - option "Tennessee"
+                - option "Texas"
+                - option "Utah"
+                - option "Vermont"
+                - option "Virginia"
+                - option "Washington"
+                - option "West Virginia"
+                - option "Wisconsin"
+                - option "Wyoming"
+            - generic [ref=e83]:
+              - generic [ref=e84]: ZIP Code *
+              - textbox "ZIP Code *" [invalid] [ref=e85]:
+                - /placeholder: "98101"
+                - text: "12302"
+          - generic [ref=e86]:
+            - generic [ref=e87]: Email *
+            - textbox "Email *" [invalid] [ref=e88]:
+              - /placeholder: john@example.com
+              - text: justplainpaulie@gmail.com
+          - generic [ref=e89]:
+            - generic [ref=e90]: Phone *
+            - textbox "Phone *" [invalid] [ref=e91]:
+              - /placeholder: (206) 555-1234
+              - text: 518-399-7357
+          - button "Submit Opt-Out Request" [active] [ref=e95] [cursor=pointer]:
+            - generic [ref=e96]: Submit Opt-Out Request
+  - contentinfo [ref=e97]:
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - heading "Account" [level=3] [ref=e102]
+          - list [ref=e103]:
+            - listitem [ref=e104]:
+              - link "Register" [ref=e105] [cursor=pointer]
+        - generic [ref=e106]:
+          - heading "Search" [level=3] [ref=e107]
+          - list [ref=e108]:
+            - listitem [ref=e109]:
+              - link "Full Name" [ref=e110] [cursor=pointer]:
+                - /url: /people-search
+            - listitem [ref=e111]:
+              - link "Home Address" [ref=e112] [cursor=pointer]:
+                - /url: /reverse-address-lookup
+            - listitem [ref=e113]:
+              - link "Phone Number" [ref=e114] [cursor=pointer]:
+                - /url: /reverse-phone-lookup
+            - listitem [ref=e115]:
+              - link "Email Address" [ref=e116] [cursor=pointer]:
+                - /url: /reverse-email-lookup
+        - generic [ref=e117]:
+          - heading "Directory" [level=3] [ref=e118]
+          - list [ref=e119]:
+            - listitem [ref=e120]:
+              - link "Address Directory" [ref=e121] [cursor=pointer]:
+                - /url: /region
+            - listitem [ref=e122]:
+              - link "People Directory" [ref=e123] [cursor=pointer]:
+                - /url: /people
+            - listitem [ref=e124]:
+              - link "Phone Directory" [ref=e125] [cursor=pointer]:
+                - /url: /phone
+        - generic [ref=e126]:
+          - heading "Knowledge" [level=3] [ref=e127]
+          - list [ref=e128]:
+            - listitem [ref=e129]:
+              - link "About Us" [ref=e130] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e131]:
+              - link "Our Data" [ref=e132] [cursor=pointer]:
+                - /url: /about/data
+            - listitem [ref=e133]:
+              - link "Glossary" [ref=e134] [cursor=pointer]:
+                - /url: /about/glossary
+            - listitem [ref=e135]:
+              - link "Blog" [ref=e136] [cursor=pointer]:
+                - /url: /blog
+      - generic [ref=e137]:
+        - generic [ref=e138]:
+          - generic [ref=e139]: "People:"
+          - link "A" [ref=e140] [cursor=pointer]:
+            - /url: /people/A
+          - link "B" [ref=e141] [cursor=pointer]:
+            - /url: /people/B
+          - link "C" [ref=e142] [cursor=pointer]:
+            - /url: /people/C
+          - link "D" [ref=e143] [cursor=pointer]:
+            - /url: /people/D
+          - link "E" [ref=e144] [cursor=pointer]:
+            - /url: /people/E
+          - link "F" [ref=e145] [cursor=pointer]:
+            - /url: /people/F
+          - link "G" [ref=e146] [cursor=pointer]:
+            - /url: /people/G
+          - link "H" [ref=e147] [cursor=pointer]:
+            - /url: /people/H
+          - link "I" [ref=e148] [cursor=pointer]:
+            - /url: /people/I
+          - link "J" [ref=e149] [cursor=pointer]:
+            - /url: /people/J
+          - link "K" [ref=e150] [cursor=pointer]:
+            - /url: /people/K
+          - link "L" [ref=e151] [cursor=pointer]:
+            - /url: /people/L
+          - link "M" [ref=e152] [cursor=pointer]:
+            - /url: /people/M
+          - link "N" [ref=e153] [cursor=pointer]:
+            - /url: /people/N
+          - link "O" [ref=e154] [cursor=pointer]:
+            - /url: /people/O
+          - link "P" [ref=e155] [cursor=pointer]:
+            - /url: /people/P
+          - link "Q" [ref=e156] [cursor=pointer]:
+            - /url: /people/Q
+          - link "R" [ref=e157] [cursor=pointer]:
+            - /url: /people/R
+          - link "S" [ref=e158] [cursor=pointer]:
+            - /url: /people/S
+          - link "T" [ref=e159] [cursor=pointer]:
+            - /url: /people/T
+          - link "U" [ref=e160] [cursor=pointer]:
+            - /url: /people/U
+          - link "V" [ref=e161] [cursor=pointer]:
+            - /url: /people/V
+          - link "W" [ref=e162] [cursor=pointer]:
+            - /url: /people/W
+          - link "X" [ref=e163] [cursor=pointer]:
+            - /url: /people/X
+          - link "Y" [ref=e164] [cursor=pointer]:
+            - /url: /people/Y
+          - link "Z" [ref=e165] [cursor=pointer]:
+            - /url: /people/Z
+        - generic [ref=e166]:
+          - generic [ref=e167]: "Phone:"
+          - link "2" [ref=e168] [cursor=pointer]:
+            - /url: /phone/2
+          - link "3" [ref=e169] [cursor=pointer]:
+            - /url: /phone/3
+          - link "4" [ref=e170] [cursor=pointer]:
+            - /url: /phone/4
+          - link "5" [ref=e171] [cursor=pointer]:
+            - /url: /phone/5
+          - link "6" [ref=e172] [cursor=pointer]:
+            - /url: /phone/6
+          - link "7" [ref=e173] [cursor=pointer]:
+            - /url: /phone/7
+          - link "8" [ref=e174] [cursor=pointer]:
+            - /url: /phone/8
+          - link "9" [ref=e175] [cursor=pointer]:
+            - /url: /phone/9
+    - generic [ref=e177]:
+      - link "That ' sThem" [ref=e179] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - text: That
+            - generic [ref=e182]: "'"
+            - text: s
+          - text: Them
+      - generic [ref=e183]:
+        - link "Contact Us" [ref=e184] [cursor=pointer]:
+          - /url: /contact
+        - link "Terms of Service" [ref=e185] [cursor=pointer]
+        - link "Privacy Policy" [ref=e186] [cursor=pointer]
+        - link "Do Not Sell My Personal Information" [ref=e187] [cursor=pointer]:
+          - /url: /optout
+      - paragraph [ref=e188]: Information returned by ThatsThem.com is not authoritative. Before relying on this information, you will need to do your own research to verify and validate it. By using ThatsThem.com, you agree to not use any of the information returned for any purpose that falls under the FCRA.
+      - paragraph [ref=e189]: Copyright © 2026, ThatsThem.com.

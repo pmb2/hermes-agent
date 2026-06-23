@@ -1,0 +1,515 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "AllRecentArrests.org Public Records Database" [ref=e4] [cursor=pointer]:
+        - /url: https://allrecentarrests.org
+        - img [ref=e6]
+        - generic [ref=e8]:
+          - generic [ref=e9]: AllRecentArrests.org
+          - generic [ref=e10]: Public Records Database
+      - button "Toggle navigation menu" [ref=e11] [cursor=pointer]
+  - article [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - img "Paul Backus Mugshot" [ref=e19]
+        - img [ref=e21]
+      - generic [ref=e23]:
+        - heading "Arrest Records, Case History & Info Of Paul Backus" [level=1] [ref=e25]
+        - paragraph [ref=e26]: View Arrest Records, Personal Information, Public Records & Case History Of Paul Backus
+        - generic [ref=e27]:
+          - generic [ref=e28]: "Inmate ID: #Unknown"
+          - generic [ref=e29]:
+            - img [ref=e30]
+            - text: Male
+          - generic [ref=e32]:
+            - img [ref=e33]
+            - text: Schenectady, New York
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - img [ref=e38]
+            - text: Quick Access
+          - generic [ref=e40]:
+            - link "Case Details" [ref=e41] [cursor=pointer]:
+              - /url: "#caseDetails"
+              - img [ref=e42]
+              - text: Case Details
+            - link "Arrest Info" [ref=e44] [cursor=pointer]:
+              - /url: "#arrestInfo"
+              - img [ref=e45]
+              - text: Arrest Info
+            - link "Facility Info" [ref=e47] [cursor=pointer]:
+              - /url: "#facilityInfo"
+              - img [ref=e48]
+              - text: Facility Info
+            - link "Connect" [ref=e50] [cursor=pointer]:
+              - /url: "#connectWithInmate"
+              - img [ref=e51]
+              - text: Connect
+            - link "Help Inmate" [ref=e53] [cursor=pointer]:
+              - /url: "#helpTheInmate"
+              - img [ref=e54]
+              - text: Help Inmate
+            - link "Penpals" [ref=e56] [cursor=pointer]:
+              - /url: "#relatedInmates"
+              - img [ref=e57]
+              - text: Penpals
+            - link "FAQs" [ref=e59] [cursor=pointer]:
+              - /url: "#faqs"
+              - img [ref=e60]
+              - text: FAQs
+    - generic [ref=e63]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - heading "Personal Information Of Paul Backus" [level=2] [ref=e67]:
+            - img [ref=e68]
+            - text: Personal Information Of Paul Backus
+          - paragraph [ref=e70]: Complete details about Paul Backus
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - generic [ref=e74]:
+                - img [ref=e75]
+                - text: Gender
+              - generic [ref=e77]: Male
+            - generic [ref=e78]:
+              - generic [ref=e79]:
+                - img [ref=e80]
+                - text: Current Facility
+              - generic [ref=e82]: Unknown
+            - generic [ref=e83]:
+              - generic [ref=e84]:
+                - img [ref=e85]
+                - text: Location
+              - generic [ref=e88]: Schenectady, New York
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - img [ref=e91]
+                - text: Phone Number
+              - link "Search For Phone Number" [ref=e94] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=e95]:
+              - generic [ref=e96]:
+                - img [ref=e97]
+                - text: Release Date
+              - link "Request Release Date" [ref=e100] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/arrest-check/?fname=Paul&lname=Backus&city=&state=New York
+            - generic [ref=e101]:
+              - generic [ref=e102]:
+                - img [ref=e103]
+                - text: Time Until Release
+              - link "Show Now!" [ref=e106] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/arrest-check/?fname=Paul&lname=Backus&city=&state=New York
+          - generic [ref=e107]:
+            - img [ref=e108]
+            - heading "View Complete Arrest Records" [level=3] [ref=e110]
+            - paragraph [ref=e111]: Access detailed arrest history, traffic tickets, and case information of Paul Backus
+            - link "View Arrest / Traffic Records Of Paul Backus" [ref=e112] [cursor=pointer]:
+              - /url: https://allrecentarrests.org/skip-to-info/?s1=ShowCrimeButton&fname=Paul&lname=Backus&city=&state=New York
+              - img [ref=e113]
+              - text: View Arrest / Traffic Records Of Paul Backus
+      - complementary [ref=e115]:
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - text: Public Records
+              - paragraph [ref=e119]: Comprehensive background information
+            - generic [ref=e120]:
+              - link "Full Background Report Of Paul Backus" [ref=e121] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/background-check/?fname=Paul&lname=Backus&city=&state=New York
+                - img [ref=e122]
+                - text: Full Background Report Of Paul Backus
+              - link "Arrest / Traffic Records Of Paul Backus" [ref=e124] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/arrest-check/?fname=Paul&lname=Backus&city=&state=New York
+                - img [ref=e125]
+                - text: Arrest / Traffic Records Of Paul Backus
+              - link "Sex Offense Records Of Paul Backus" [ref=e127] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/offense-reports/?fname=Paul&lname=Backus&city=&state=New York
+                - img [ref=e128]
+                - text: Sex Offense Records Of Paul Backus
+              - generic [ref=e130]:
+                - text: Powered by
+                - img "truthfinder" [ref=e131]
+          - generic [ref=e133]:
+            - paragraph [ref=e134]:
+              - img [ref=e135]
+              - text: Share This Profile
+            - generic [ref=e137]:
+              - link "share on facebook" [ref=e138] [cursor=pointer]:
+                - /url: https://www.facebook.com/sharer/sharer.php?u=http://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/&t=View Crime Records Of Paul Backus
+                - img [ref=e139]
+              - link "share on x" [ref=e141] [cursor=pointer]:
+                - /url: https://x.com/intent/tweet?source=http://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/&text=View Crime Records and Information Of Inmate Paul Backus:http://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/&via=allrecentarrest
+                - img [ref=e142]
+              - link "share on whatsapp" [ref=e144] [cursor=pointer]:
+                - /url: whatsapp://send?text=View Crime Information Of Inmate Paul Backus, http://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/
+                - img [ref=e145]
+              - link "pin this" [ref=e147] [cursor=pointer]:
+                - /url: "https://pinterest.com/pin/create/button/?url=http://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/&media=https://images.allrecentarrests.org/inmates/inmate-no-photo-f8289db02d9e5de08689fa6ada044617ba4f85d701f42e177c4fc2c1d979cb1b.png\n&description=View Crime Records and Information Of Inmate Paul Backus"
+                - img [ref=e148]
+              - link "share on email" [ref=e150] [cursor=pointer]:
+                - /url: mailto:?subject=View Crime Records and Information Of Inmate Paul Backus&body=View Crime Records and Information Of Inmate Paul Backus:http://ny.allrecentarrests.org/arrest-report/Paul-Backus/1649468/
+                - img [ref=e151]
+    - generic [ref=e155]:
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - heading "Case Details" [level=2] [ref=e158]:
+            - img [ref=e159]
+            - text: Case Details
+          - paragraph [ref=e161]: Complete case information and legal details for Paul Backus, Schenectady
+        - generic [ref=e162]:
+          - paragraph [ref=e163]:
+            - strong [ref=e164]: Paul Backus was convicted of a felony / misdemeanor and sentenced to prison time in a prison facility.
+            - text: The release date of the inmate is
+            - link "Unknown" [ref=e165] [cursor=pointer]:
+              - /url: https://allrecentarrests.org/arrest-check/?fname=Paul&lname=Backus&city=&state=New York
+            - text: . This article covers case details, arrest records, crimes committed, court hearings, and charges of Paul Backus, New York.
+          - link "ad image" [ref=e168] [cursor=pointer]:
+            - /url: //allrecentarrests.org/background-check/?fname=Paul&lname=Backus&city=&state=New York
+          - paragraph [ref=e169]:
+            - text: If you are visiting the inmate for the first time, read our
+            - link "visitation guide" [ref=e170] [cursor=pointer]:
+              - /url: https://allrecentarrests.org/post/us-inmate-visiting-guide/
+            - text: ; it will help you to make the process smoother. The visitation process is ever-changing, and changes are more frequent due to new COVID-19 protocols. You can visit the facility website or call
+            - link "facility phone":
+              - /url: "tel:+1 "
+            - text: to get updated information on visitation. If you are looking for ways to connect with the inmate,
+            - link "read below" [ref=e171] [cursor=pointer]:
+              - /url: "#connectWithInmate"
+            - text: . For gifting ideas or sending money to the inmate, read our
+            - link "help the inmate" [ref=e172] [cursor=pointer]:
+              - /url: "#helpTheInmate"
+            - text: section. Read our
+            - link "FAQs section" [ref=e173] [cursor=pointer]:
+              - /url: "#faqs"
+            - text: to learn more about inmate Paul Backus.
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - heading "Arrest Records & Criminal Records" [level=2] [ref=e176]:
+            - img [ref=e177]
+            - text: Arrest Records & Criminal Records
+          - paragraph [ref=e179]: View arrest history and charges for Paul Backus
+        - generic [ref=e180]:
+          - paragraph [ref=e181]:
+            - text: We found
+            - link "1 arrest records & 3 charges" [ref=e182] [cursor=pointer]:
+              - /url: https://allrecentarrests.org/skip-to-info/?s1=ShowCrimeButton&fname=Paul&lname=Backus&city=&state=New York
+              - strong [ref=e183]: 1 arrest records & 3 charges
+            - text: against Paul Backus from public sources.
+          - link "View All Arrest Records & Criminal Charges Powered by truthfinder" [ref=e185] [cursor=pointer]:
+            - /url: https://allrecentarrests.org/skip-to-info/?s1=ShowCrimeButton&fname=Paul&lname=Backus&city=&state=New York
+            - img [ref=e186]
+            - text: View All Arrest Records & Criminal Charges
+            - text: Powered by
+            - img "truthfinder" [ref=e188]
+    - generic [ref=e190]:
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - heading "Connect With The Inmate" [level=2] [ref=e194]:
+            - img [ref=e195]
+            - text: Connect With The Inmate
+          - paragraph [ref=e197]: Ways to communicate with Paul Backus
+        - generic [ref=e198]:
+          - paragraph [ref=e199]: "Depending on the facility and security level, there are various ways of connecting with your inmate. allows you to communicate with the inmate in the following ways:"
+          - list [ref=e200]:
+            - listitem [ref=e201]:
+              - heading "Phone Call" [level=3] [ref=e202]:
+                - img [ref=e203]
+                - text: Phone Call
+              - paragraph [ref=e205]:
+                - text: The facility allows collect calls from friends and family. The telephone provider for the facility is
+                - strong [ref=e206]: Global Tel
+                - text: . For first-time setup of their services, read our
+                - link "inmate calling guide" [ref=e207] [cursor=pointer]:
+                  - /url: https://allrecentarrests.org/post/inmate-calling-guide/
+                - text: .
+              - paragraph [ref=e208]: Collect calls are prepaid calls that would collect money from your prison telephone provider account, so make sure you recharge the account regularly. The facility restricts phone calls only to a pre-approved contact list provided by the inmate; make sure you are on that list, or you can always submit a request to the facility.
+              - paragraph [ref=e209]: Prison calls can be very costly compared to standard phone calls; they range between $1.70 to $6.00 per minute.
+              - link "ad image" [ref=e212] [cursor=pointer]:
+                - /url: //allrecentarrests.org/background-check/?fname=Paul&lname=Backus&city=&state=New York
+            - listitem [ref=e213]:
+              - heading "Mailing" [level=3] [ref=e214]:
+                - img [ref=e215]
+                - text: Mailing
+              - paragraph [ref=e217]: Mailing your inmate can be a prolonged process, but it is the most trusted and oldest way of connecting to prisoners. Letters can be emotionally uplifting for a person; a physical copy of your messages can be a way of their escape in times of stress. You can connect better with photos, children's drawings, memories, or moments they can't be a part of.
+              - paragraph [ref=e218]:
+                - text: Even though you can connect with inmates electronically nowadays, we encourage you to write letters or send them postcards, photos, books, etc. On various occasions, you can send greeting cards too. Physical deliveries uplift anyone's mood and help them cope with the emotional drain in prison. Please read our guide to
+                - link "mail an inmate in New York" [ref=e219] [cursor=pointer]:
+                  - /url: https://allrecentarrests.org/post/guide-to-sending-letters-photos-to-an-inmate/
+                - text: for more details.
+              - paragraph [ref=e220]:
+                - strong [ref=e221]: "Note:"
+                - text: Use only USPS to mail any letter or document. You can also use Amazon to send gifts, books, and care packages.
+            - listitem [ref=e222]:
+              - heading "Internet" [level=3] [ref=e223]:
+                - img [ref=e224]
+                - text: Internet
+              - paragraph [ref=e226]: Through various providers, facilities provide video chats, email, dating, pen pal connect, and other online services. You can also send them money online or buy them some screen time.
+              - link "ad image" [ref=e229] [cursor=pointer]:
+                - /url: //allrecentarrests.org/background-check/?fname=Paul&lname=Backus&city=&state=New York
+            - listitem [ref=e230]:
+              - heading "Visitation" [level=3] [ref=e231]:
+                - img [ref=e232]
+                - text: Visitation
+              - paragraph [ref=e234]: In-person visitation is only allowed for a pre-approved list of friends, family, and attorneys. The facility has strict visitation rules, especially after the COVID-19 outbreak. Make sure you are aware of those ever-changing rules and regulations.
+              - paragraph [ref=e235]:
+                - text: It would be best to be mindful of rules, timings and dates to avoid rejection of your entry.
+                - link "Read New York visitation guide" [ref=e236] [cursor=pointer]:
+                  - /url: https://allrecentarrests.org/post/us-inmate-visiting-guide/
+                - text: for updated rules and regulations.
+              - paragraph [ref=e237]: To book a visitation with the inmate, you need to raise a visitation request with the facility. Once you do that, you will receive an SMS on your phone with the date of your visit. On the day of visitation navigate to the prison facility to be present 30 minutes before the visitation time.
+      - link "Background Check" [ref=e241] [cursor=pointer]:
+        - /url: //allrecentarrests.org/background-check/
+        - img "Background Check" [ref=e242]
+    - generic [ref=e246]:
+      - generic [ref=e247]:
+        - heading "Penpals Of Paul Backus" [level=2] [ref=e248]:
+          - img [ref=e249]
+          - text: Penpals Of Paul Backus
+        - paragraph [ref=e251]: Other inmates in New York
+      - generic [ref=e252]:
+        - paragraph [ref=e253]:
+          - text: Below are other inmates in
+          - strong [ref=e254]: New York
+          - text: . You can view their profiles to learn more about their case details and how to connect with them.
+        - generic [ref=e255]:
+          - link "Aaron Blackmon Aaron Blackmon Male Request ID Look-Up" [ref=e256] [cursor=pointer]:
+            - /url: //NY.allrecentarrests.org/arrest-report/Aaron-Blackmon/679/
+            - img "Aaron Blackmon" [ref=e258]
+            - generic [ref=e259]:
+              - heading "Aaron Blackmon" [level=4] [ref=e260]
+              - generic [ref=e261]: Male
+              - generic [ref=e262]: Request ID Look-Up
+          - link "Aleksandr Babilenko Aleksandr Babilenko Male Request ID Look-Up" [ref=e263] [cursor=pointer]:
+            - /url: //NY.allrecentarrests.org/arrest-report/Aleksandr-Babilenko/35807/
+            - img "Aleksandr Babilenko" [ref=e265]
+            - generic [ref=e266]:
+              - heading "Aleksandr Babilenko" [level=4] [ref=e267]
+              - generic [ref=e268]: Male
+              - generic [ref=e269]: Request ID Look-Up
+          - link "Anasia Adams Anasia Adams Male Request ID Look-Up" [ref=e270] [cursor=pointer]:
+            - /url: //NY.allrecentarrests.org/arrest-report/Anasia-Adams/75126/
+            - img "Anasia Adams" [ref=e272]
+            - generic [ref=e273]:
+              - heading "Anasia Adams" [level=4] [ref=e274]
+              - generic [ref=e275]: Male
+              - generic [ref=e276]: Request ID Look-Up
+          - link "Anna Guadalupe Anna Guadalupe Female Request ID Look-Up" [ref=e277] [cursor=pointer]:
+            - /url: //NY.allrecentarrests.org/arrest-report/Anna-Guadalupe/103705/
+            - img "Anna Guadalupe" [ref=e279]
+            - generic [ref=e280]:
+              - heading "Anna Guadalupe" [level=4] [ref=e281]
+              - generic [ref=e282]: Female
+              - generic [ref=e283]: Request ID Look-Up
+          - link "Ashley Zwicker Ashley Zwicker Male Request ID Look-Up" [ref=e284] [cursor=pointer]:
+            - /url: //NY.allrecentarrests.org/arrest-report/Ashley-Zwicker/160416/
+            - img "Ashley Zwicker" [ref=e286]
+            - generic [ref=e287]:
+              - heading "Ashley Zwicker" [level=4] [ref=e288]
+              - generic [ref=e289]: Male
+              - generic [ref=e290]: Request ID Look-Up
+          - link "Carlos Diaz Carlos Diaz Male Request ID Look-Up" [ref=e291] [cursor=pointer]:
+            - /url: //NY.allrecentarrests.org/arrest-report/Carlos-Diaz/287415/
+            - img "Carlos Diaz" [ref=e293]
+            - generic [ref=e294]:
+              - heading "Carlos Diaz" [level=4] [ref=e295]
+              - generic [ref=e296]: Male
+              - generic [ref=e297]: Request ID Look-Up
+          - link "Charles Riley Charles Riley Male Request ID Look-Up" [ref=e298] [cursor=pointer]:
+            - /url: //NY.allrecentarrests.org/arrest-report/Charles-Riley/319663/
+            - img "Charles Riley" [ref=e300]
+            - generic [ref=e301]:
+              - heading "Charles Riley" [level=4] [ref=e302]
+              - generic [ref=e303]: Male
+              - generic [ref=e304]: Request ID Look-Up
+          - link "Cordell Gentry Cordell Gentry Male Request ID Look-Up" [ref=e305] [cursor=pointer]:
+            - /url: //NY.allrecentarrests.org/arrest-report/Cordell-Gentry/413689/
+            - img "Cordell Gentry" [ref=e307]
+            - generic [ref=e308]:
+              - heading "Cordell Gentry" [level=4] [ref=e309]
+              - generic [ref=e310]: Male
+              - generic [ref=e311]: Request ID Look-Up
+        - link "View All Inmates in New York" [ref=e313] [cursor=pointer]:
+          - /url: /all-inmates-in-new-york/
+          - img [ref=e314]
+          - text: View All Inmates in New York
+    - generic [ref=e319]:
+      - generic [ref=e320]:
+        - heading "Send Money To Paul Backus" [level=2] [ref=e321]:
+          - img [ref=e322]
+          - text: Send Money To Paul Backus
+        - paragraph [ref=e324]: Fund the inmate's commissary account for essential needs
+      - generic [ref=e325]:
+        - paragraph [ref=e326]: "Inmates need money to access privileges such as the gym, phone calls, commissary shopping, and E-services like email, internet, and screen time. Inmates can also avail themselves of medical treatments, counseling, and training programs. Inmates can receive funds in their trust account or Commissary account. You can deposit money into Paul Backus's commissary account via the following:"
+        - link "ad image" [ref=e329] [cursor=pointer]:
+          - /url: //allrecentarrests.org/background-check/?fname=Paul&lname=Backus&city=&state=New York
+        - list [ref=e330]:
+          - listitem [ref=e331]:
+            - text: Using the
+            - link "Jpay.com" [ref=e332] [cursor=pointer]:
+              - /url: https://jpay.com
+            - text: website or Mobile Apps
+            - link "Jpay Android" [ref=e333] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.brisk.jpay&hl=en
+              - text: Jpay Android
+            - text: /
+            - link "Jpay iOS" [ref=e334] [cursor=pointer]:
+              - /url: https://apps.apple.com/us/app/jpay/id584959322
+              - text: Jpay iOS
+          - listitem [ref=e335]: "Using Phone: Call the 24x7 helpline at 800-574-5729 and speak with a live agent to send money."
+          - listitem [ref=e336]: You can also walk into Jpay's kiosks.
+    - generic [ref=e338]:
+      - generic [ref=e340]:
+        - generic [ref=e341]:
+          - heading "Help The Inmate" [level=2] [ref=e342]:
+            - img [ref=e343]
+            - text: Help The Inmate
+          - paragraph [ref=e345]: Ways to support Paul Backus during incarceration and beyond
+        - generic [ref=e346]:
+          - paragraph [ref=e347]: The inmate needs the support of family and friends during arrest, while in prison, and after being released. While it might not look like a big deal, many might be afraid of the ongoing case. So, being a close friend or family member, you need to be very supportive of the situation. Below are a few ways you can help the inmate.
+          - generic [ref=e348]:
+            - generic [ref=e349]:
+              - img [ref=e350]
+              - text: During Arrest & Trial
+            - paragraph [ref=e352]:
+              - text: You can help the inmate during a recent arrest by hiring a lawyer. If you're unsure where to begin, read our guide on
+              - link "what to do when a loved one is arrested" [ref=e353] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/post/what-to-do-when-loved-one-is-arrested/
+              - text: for a clear step-by-step breakdown. Get more details about the case and the required pieces of evidence that might help their case.
+            - paragraph [ref=e354]:
+              - text: Try to get them bailed out by either paying their bail bond or serving as a bail guarantor. Read our guide on the
+              - link "bail and bond process explained" [ref=e355] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/post/bail-and-bond-process-explained/
+              - text: to understand your options. You can also provide immediate financial and emotional help for them and their family.
+          - link "ad image" [ref=e358] [cursor=pointer]:
+            - /url: //allrecentarrests.org/background-check/?fname=Paul&lname=Backus&city=&state=New York
+          - generic [ref=e359]:
+            - generic [ref=e360]:
+              - img [ref=e361]
+              - text: Help In Prison
+            - paragraph [ref=e363]: "While Paul Backus is incarcerated you can help them in various ways:"
+            - list [ref=e364]:
+              - listitem [ref=e365]: Call them regularly, and keep them updated on the situation outside.
+              - listitem [ref=e366]: Send them letters, gifts, postcards, photos, books, etc.
+              - listitem [ref=e367]: Visit them in person regularly.
+              - listitem [ref=e368]: Give them positive vibes so that they find some purpose in prison.
+              - listitem [ref=e369]: Keep in touch with your attorney and check if the prisoner is eligible for parole.
+          - generic [ref=e370]:
+            - generic [ref=e371]:
+              - img [ref=e372]
+              - text: Help During Re-entry To Society
+            - paragraph [ref=e374]: High recidivism rates are the most common issue among prisoners. Almost 70% of people go back to prison after getting released. You can help your family member by being as supportive as possible during their re-entry transition.
+            - paragraph [ref=e375]: First and foremost, get them a place to live; high recidivism rates and homelessness are deeply intertwined. Get them treated for any physical injury and start their mental counseling immediately. Once they are ready to face the world, you must help them get a job. Let them start low but strong; things will get better with time.
+      - link "Background Check" [ref=e378] [cursor=pointer]:
+        - /url: //allrecentarrests.org/background-check/
+        - img "Background Check" [ref=e379]
+    - generic [ref=e383]:
+      - generic [ref=e384]:
+        - heading "Frequently Asked Questions" [level=2] [ref=e385]:
+          - img [ref=e386]
+          - text: Frequently Asked Questions
+        - paragraph [ref=e388]: Common questions about Paul Backus
+      - generic [ref=e390]:
+        - generic [ref=e391]:
+          - heading "Is Paul Backus released from prison?" [level=4] [ref=e392]:
+            - button "Is Paul Backus released from prison?" [expanded] [ref=e393] [cursor=pointer]
+          - generic [ref=e395]:
+            - paragraph [ref=e396]:
+              - text: Time left for Paul Backus's release
+              - link "is unknown" [ref=e397] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/arrest-check/?fname=Paul&lname=Backus&city=&state=New York
+              - text: . The release date of Paul Backus is Unknown.
+            - link "View Case Details" [ref=e398] [cursor=pointer]:
+              - /url: https://allrecentarrests.org/skip-to-info/?s1=FAQCrimeButton3&fname=Paul&lname=Backus&city=&state=New York
+              - img [ref=e399]
+              - text: View Case Details
+        - heading "Why was Paul Backus arrested?" [level=4] [ref=e402]:
+          - button "Why was Paul Backus arrested?" [ref=e403] [cursor=pointer]
+        - heading "How to contact Paul Backus?" [level=4] [ref=e405]:
+          - button "How to contact Paul Backus?" [ref=e406] [cursor=pointer]
+        - heading "Where is Paul Backus incarcerated?" [level=4] [ref=e408]:
+          - button "Where is Paul Backus incarcerated?" [ref=e409] [cursor=pointer]
+        - heading "What is the case status of Paul Backus?" [level=4] [ref=e411]:
+          - button "What is the case status of Paul Backus?" [ref=e412] [cursor=pointer]
+      - link "ad image" [ref=e415] [cursor=pointer]:
+        - /url: //allrecentarrests.org/background-check/?fname=Paul&lname=Backus&city=&state=New York
+  - contentinfo [ref=e416]:
+    - generic [ref=e419]:
+      - generic [ref=e421]:
+        - heading "AllRecentArrests" [level=5] [ref=e423]:
+          - img [ref=e424]
+          - text: AllRecentArrests
+        - paragraph [ref=e426]: Your trusted source for inmate search, prison facility information, and arrest records across the United States.
+        - generic [ref=e427]:
+          - link "Follow us on Facebook" [ref=e428] [cursor=pointer]:
+            - /url: https://www.facebook.com/allrecentarrests/
+            - img [ref=e429]
+          - link "Follow us on Twitter" [ref=e431] [cursor=pointer]:
+            - /url: https://x.com/allrecentarrest
+            - img [ref=e432]
+          - link "Follow us on Instagram" [ref=e434] [cursor=pointer]:
+            - /url: https://www.instagram.com/allrecentarrests/
+            - img [ref=e435]
+      - generic [ref=e438]:
+        - heading "Stay Updated" [level=5] [ref=e439]:
+          - img [ref=e440]
+          - text: Stay Updated
+        - paragraph [ref=e442]: Subscribe to our newsletter for the latest updates and resources.
+        - generic [ref=e444]:
+          - textbox "Email address" [ref=e445]:
+            - /placeholder: Enter your email address
+          - button "Subscribe to newsletter" [ref=e446] [cursor=pointer]:
+            - img [ref=e447]
+      - generic [ref=e450]:
+        - heading "Quick Links" [level=5] [ref=e451]:
+          - img [ref=e452]
+          - text: Quick Links
+        - generic [ref=e454]:
+          - list [ref=e455]:
+            - listitem [ref=e456]:
+              - link "About Us" [ref=e457] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/about-us/
+                - img [ref=e458]
+                - generic [ref=e460]: About Us
+            - listitem [ref=e461]:
+              - link "Privacy Policy" [ref=e462] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/privacy-policy/
+                - img [ref=e463]
+                - generic [ref=e465]: Privacy Policy
+            - listitem [ref=e466]:
+              - link "Data Sources" [ref=e467] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/data-sources/
+                - img [ref=e468]
+                - generic [ref=e470]: Data Sources
+            - listitem [ref=e471]:
+              - link "Contact Us" [ref=e472] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/contact-us/
+                - img [ref=e473]
+                - generic [ref=e475]: Contact Us
+          - list [ref=e476]:
+            - listitem [ref=e477]:
+              - link "Prison Search" [ref=e478] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/all-prisons-in-usa/
+                - img [ref=e479]
+                - generic [ref=e481]: Prison Search
+            - listitem [ref=e482]:
+              - link "Inmate Locator" [ref=e483] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/all-inmates-in-usa/
+                - img [ref=e484]
+                - generic [ref=e486]: Inmate Locator
+            - listitem [ref=e487]:
+              - link "Terms & Conditions" [ref=e488] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/terms/
+                - img [ref=e489]
+                - generic [ref=e491]: Terms & Conditions
+            - listitem [ref=e492]:
+              - link "Blog" [ref=e493] [cursor=pointer]:
+                - /url: https://allrecentarrests.org/guides-and-resources/
+                - img [ref=e494]
+                - generic [ref=e496]: Blog
+    - generic [ref=e499]:
+      - paragraph [ref=e500]:
+        - img [ref=e501]
+        - text: © 2025 AllRecentArrests.org. All rights reserved.
+      - paragraph [ref=e503]:
+        - img [ref=e504]
+        - text: Information on this website is updated regularly.

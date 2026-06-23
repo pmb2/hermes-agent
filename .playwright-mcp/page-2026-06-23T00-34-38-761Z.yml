@@ -1,0 +1,209 @@
+- generic [ref=e1]:
+  - dialog "Cookie Consent Banner" [ref=e2]:
+    - button "Close this dialog" [active] [ref=e3] [cursor=pointer]:
+      - img "Close this dialog" [ref=e4]
+    - generic [ref=e5]:
+      - generic [ref=e6]: This site uses cookies for essential functions, analytics, personalization, and targeted advertising. For more details, see our
+      - link "Privacy Policy" [ref=e7] [cursor=pointer]:
+        - /url: https://www.spokeo.com/privacy-policy
+      - generic [ref=e8]:
+        - text: or
+        - link "Manage Cookies" [ref=e9] [cursor=pointer]:
+          - /url: "#"
+        - text: .
+  - generic [ref=e10]:
+    - banner [ref=e12]:
+      - generic [ref=e16]:
+        - link "Spokeo Logo" [ref=e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e23]:
+          - generic [ref=e26]:
+            - text: 
+            - searchbox "Search" [ref=e27]
+          - button "Search" [ref=e28]:
+            - generic [ref=e29]: 
+        - generic [ref=e30]:
+          - generic [ref=e32]:
+            - link "Spokeo Business" [ref=e33] [cursor=pointer]:
+              - /url: /business
+            - generic [ref=e35] [cursor=pointer]: Login
+            - generic [ref=e37] [cursor=pointer]: Sign Up
+          - text:   
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - generic [ref=e45]:
+          - heading "You Control Your Data" [level=1] [ref=e46]
+          - paragraph [ref=e47]: We want you to have access to the knowledge and the tools you need to understand, protect, and control your personal data.
+        - generic [ref=e48]:
+          - generic [ref=e52]:
+            - heading "We Do Not Share Sensitive Data" [level=2] [ref=e53]
+            - generic [ref=e54]: We do not share or sell certain types of data. Social security numbers, ethnicity, and sexual orientation are a few of the data points that we believe should be private. Learn more about the different types of data we collect and how we categorize them.
+            - button "View Categories" [ref=e55] [cursor=pointer]
+          - generic [ref=e60]:
+            - heading "Data with a Purpose" [level=2] [ref=e61]
+            - generic [ref=e62]: We generate a digital footprint with nearly every move we make on and offline. Our lives leave behind a trail of public records. By law, many of these records and the information they contain are made publicly accessible via the public domain.
+            - generic [ref=e63]: "Spokeo uses this pre-existing public data for one purpose: to give you the power to make informed decisions in your life. Find out why millions of people trust us every day: learn about the power of data and how it can help elevate all your personal connections."
+            - button "Learn More" [ref=e64] [cursor=pointer]
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - heading "Opt Out Your Listing from Spokeo" [level=1] [ref=e70]
+          - paragraph [ref=e71]: Spokeo aggregates only publicly available information from third party sources. Although publicly available data is exempt from state privacy laws, for over a decade we’ve been an industry leader in respecting consumers’ privacy preferences and enabling them to opt out
+          - paragraph [ref=e72]: Opting out your listing from Spokeo will not remove the data from its original source. Your information may still appear on other websites. Furthermore, you may have multiple listings on Spokeo. Each one is identified by a unique URL and must be opted out individually.
+          - paragraph [ref=e73]: Since we continually receive new and updated records from public sources, your information may reappear on Spokeo in the future without notice. Please regularly check Spokeo for additional listings that may appear.
+          - paragraph [ref=e74]: To opt out a listing from Spokeo, please enter the URL of the profile. Depending on the nature of your request and the amount of data, your opt-out request should be processed in 24-48 hours.
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - generic [ref=e77]: URL
+            - textbox "Enter URL here" [ref=e78]
+            - emphasis [ref=e79]:
+              - text: "Profile URL Example: \"https://www.spokeo.com/Smith-Sample/Houston/TX/p12345678\""
+              - text: "Payment URL Example: \"https://www.spokeo.com/purchase?q=Smith%20Sample#Sample:12345678\""
+          - generic [ref=e80]:
+            - generic [ref=e81]: Email Address
+            - textbox "Enter email address here" [ref=e82]
+            - emphasis [ref=e83]: To complete this process, we will send you a confirmation email. Please click the link in the email.
+          - button "OPT OUT" [ref=e85]
+        - generic [ref=e89]:
+          - text: Our customer care representatives are available to assist you
+          - link "here" [ref=e90] [cursor=pointer]:
+            - /url: /contact
+          - text: ", or you can email us directly at"
+          - link "privacy@spokeo.com." [ref=e91] [cursor=pointer]:
+            - /url: mailto:privacy@spokeo.com
+      - generic [ref=e92]:
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - heading "Our Data Best Practices" [level=2] [ref=e96]
+            - heading "As a leader in people search since 2006, we adhere to industry-leading practices including complying with PCI security standards, adopting ISO 27001 principles, and continuously validating our infrastructure. To learn more, read our Privacy Policy." [level=3] [ref=e97]:
+              - text: As a leader in people search since 2006, we adhere to industry-leading practices including complying with PCI security standards, adopting ISO 27001 principles, and continuously validating our infrastructure. To learn more, read our
+              - link "Privacy Policy" [ref=e98] [cursor=pointer]:
+                - /url: /privacy-policy
+              - text: .
+          - generic [ref=e99]:
+            - generic [ref=e104]:
+              - heading "Securing Your Data" [level=2] [ref=e105]
+              - heading "To enhance your experience, we collect certain types of user-generated data. This data is not part of the public information we make available through Spokeo search. You have the right to know the types of information that we collect." [level=3] [ref=e106]
+              - link "Learn More" [ref=e107] [cursor=pointer]:
+                - /url: /compass/spokeo-achieves-iso-270012013-certification-state-art-information-security-practices
+                - generic [ref=e108]: Learn More
+                - text: 
+            - generic [ref=e113]:
+              - heading "Using Data for Good" [level=2] [ref=e114]
+              - heading "23+ million customers trust Spokeo to learn more about people, find contact information, and make the internet and real-world interactions more trustworthy. We’ve even helped reunite families through the power of people search." [level=3] [ref=e115]
+              - link "Learn More" [ref=e116] [cursor=pointer]:
+                - /url: /compass/reunite-with-her-biological-family
+                - generic [ref=e117]: Learn More
+                - text: 
+            - generic [ref=e122]:
+              - heading "Increasing Trust Online" [level=2] [ref=e123]
+              - heading "Spokeo aggregates 13+ billion public records from thousands of databases to create an industry-leading people intelligence platform. In addition to helping people reconnect, deepen their relationships, and safely meet in-person, we also offer resources to help you protect your digital identity and prevent fraud." [level=3] [ref=e124]
+              - link "Learn More" [ref=e125] [cursor=pointer]:
+                - /url: /compass/category/advice-how-to/identity
+                - generic [ref=e126]: Learn More
+                - text: 
+        - generic [ref=e130]:
+          - heading "Discover" [level=2] [ref=e131]
+          - generic [ref=e132]: Here are some useful resources to help you learn more.
+          - generic [ref=e133]:
+            - link "Learn About Our Company read more  Tips" [ref=e135] [cursor=pointer]:
+              - /url: /about
+              - generic [ref=e138]:
+                - generic [ref=e139]: Learn About Our Company
+                - generic [ref=e140]:
+                  - generic [ref=e141]: read more
+                  - generic [ref=e142]: 
+              - generic [ref=e143]: Tips
+            - link "The Benefits of Maintaining Your Profile read more  Safety" [ref=e145] [cursor=pointer]:
+              - /url: /product
+              - generic [ref=e148]:
+                - generic [ref=e149]: The Benefits of Maintaining Your Profile
+                - generic [ref=e150]:
+                  - generic [ref=e151]: read more
+                  - generic [ref=e152]: 
+              - generic [ref=e153]: Safety
+            - text: 
+    - contentinfo [ref=e155]:
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e159]:
+            - link "Email Lookup" [ref=e160] [cursor=pointer]:
+              - /url: /email-search
+            - link "|Phone Lookup Directory|" [ref=e161] [cursor=pointer]:
+              - /url: /directory#reverse_phone
+          - generic [ref=e162]: "Name:"
+          - link "A" [ref=e163] [cursor=pointer]:
+            - /url: /people/A0001
+          - link "B" [ref=e164] [cursor=pointer]:
+            - /url: /people/B0001
+          - link "C" [ref=e165] [cursor=pointer]:
+            - /url: /people/C0001
+          - link "D" [ref=e166] [cursor=pointer]:
+            - /url: /people/D0001
+          - link "EF" [ref=e167] [cursor=pointer]:
+            - /url: /people/EF0001
+          - link "G" [ref=e168] [cursor=pointer]:
+            - /url: /people/G0001
+          - link "H" [ref=e169] [cursor=pointer]:
+            - /url: /people/H0001
+          - link "IJ" [ref=e170] [cursor=pointer]:
+            - /url: /people/IJ0001
+          - link "K" [ref=e171] [cursor=pointer]:
+            - /url: /people/K0001
+          - link "L" [ref=e172] [cursor=pointer]:
+            - /url: /people/L0001
+          - link "M" [ref=e173] [cursor=pointer]:
+            - /url: /people/M0001
+          - link "NO" [ref=e174] [cursor=pointer]:
+            - /url: /people/NO0001
+          - link "P" [ref=e175] [cursor=pointer]:
+            - /url: /people/P0001
+          - link "QR" [ref=e176] [cursor=pointer]:
+            - /url: /people/QR0001
+          - link "S" [ref=e177] [cursor=pointer]:
+            - /url: /people/S0001
+          - link "TUV" [ref=e178] [cursor=pointer]:
+            - /url: /people/TUV0001
+          - link "WXYZ" [ref=e179] [cursor=pointer]:
+            - /url: /people/WXYZ0001
+          - separator [ref=e180]
+        - generic [ref=e181]:
+          - link "About" [ref=e182] [cursor=pointer]:
+            - /url: /about
+          - link "Terms" [ref=e183] [cursor=pointer]:
+            - /url: /terms-of-use
+          - link "Privacy" [ref=e184] [cursor=pointer]:
+            - /url: /privacy
+          - generic [ref=e185] [cursor=pointer]: Cookies
+          - link "Contact" [ref=e186] [cursor=pointer]:
+            - /url: /contact
+          - link "Careers" [ref=e187] [cursor=pointer]:
+            - /url: /careers
+          - link "Help" [ref=e188] [cursor=pointer]:
+            - /url: https://help.spokeo.com
+          - link "Blog" [ref=e189] [cursor=pointer]:
+            - /url: /compass/
+          - link "Affiliates" [ref=e190] [cursor=pointer]:
+            - /url: http://www.spokeoaffiliates.com
+          - link "API" [ref=e191] [cursor=pointer]:
+            - /url: https://www.spokeo.com/business/api
+        - generic [ref=e192]: Spokeo is not a consumer reporting agency as defined by the Fair Credit Reporting Act (FCRA). Do not use this site to make decisions about credit, employment, tenant screening, or any purpose covered by the FCRA.
+        - generic [ref=e193]:
+          - link "Spokeo Instagram Channel" [ref=e194] [cursor=pointer]:
+            - /url: https://www.instagram.com/spokeo
+            - generic [ref=e195]: 
+          - link "Spokeo Youtube Channel" [ref=e196] [cursor=pointer]:
+            - /url: https://www.youtube.com/user/spokeo
+            - generic [ref=e197]: 
+          - link "Spokeo TikTok Channel" [ref=e198] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@spokeo
+            - generic [ref=e199]: 
+          - link "Spokeo Twitter Channel" [ref=e200] [cursor=pointer]:
+            - /url: https://x.com/spokeo
+            - generic [ref=e201]: 
+          - link "Spokeo Facebook Channel" [ref=e202] [cursor=pointer]:
+            - /url: https://www.facebook.com/Spokeo
+            - generic [ref=e203]: 
+          - link "Spokeo Linkedin Channel" [ref=e204] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/spokeo
+            - generic [ref=e205]: 
+        - generic [ref=e206]: Copyright © 2006-2026 Spokeo, Inc.

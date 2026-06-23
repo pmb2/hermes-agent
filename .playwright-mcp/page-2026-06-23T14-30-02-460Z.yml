@@ -1,0 +1,260 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - link "Check People .com ®" [ref=e9] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e10]: Check
+          - generic [ref=e11]: People
+          - generic [ref=e12]: .com
+          - generic [ref=e13]: ®
+        - button "Toggle navigation" [ref=e14]
+        - navigation [ref=e16]:
+          - list [ref=e17]:
+            - listitem [ref=e18]:
+              - button "Login" [ref=e19] [cursor=pointer]
+            - listitem
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Suppression Center" [level=1] [ref=e22]
+        - paragraph [ref=e24]: Actively manage the display of your public information on people search websites owned by CheckPeople.com.
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - heading "Enter your email address" [level=2] [ref=e28]
+            - paragraph [ref=e30]: Upon submission of your email address you will receive a verification email with a link to proceed.
+          - generic [ref=e31]:
+            - generic [ref=e32]: Email
+            - textbox "Email" [ref=e33]:
+              - /placeholder: Enter your email
+          - paragraph [ref=e37]:
+            - text: I agree to the
+            - link "Terms of Service" [ref=e38] [cursor=pointer]:
+              - /url: /company/terms-of-service
+            - text: and
+            - link "Privacy Policy" [ref=e39] [cursor=pointer]:
+              - /url: /company/privacy-policy
+            - text: ", and consent to receive transactional emails regarding my use of the Suppression Tool."
+          - button "Continue" [disabled] [ref=e41]
+      - contentinfo [ref=e42]:
+        - generic [ref=e44]:
+          - heading "People Search" [level=2] [ref=e45]
+          - list [ref=e46]:
+            - listitem [ref=e47]:
+              - link "A" [ref=e48] [cursor=pointer]:
+                - /url: /search/i/A
+            - listitem [ref=e49]:
+              - link "B" [ref=e50] [cursor=pointer]:
+                - /url: /search/i/B
+            - listitem [ref=e51]:
+              - link "C" [ref=e52] [cursor=pointer]:
+                - /url: /search/i/C
+            - listitem [ref=e53]:
+              - link "D" [ref=e54] [cursor=pointer]:
+                - /url: /search/i/D
+            - listitem [ref=e55]:
+              - link "E" [ref=e56] [cursor=pointer]:
+                - /url: /search/i/E
+            - listitem [ref=e57]:
+              - link "F" [ref=e58] [cursor=pointer]:
+                - /url: /search/i/F
+            - listitem [ref=e59]:
+              - link "G" [ref=e60] [cursor=pointer]:
+                - /url: /search/i/G
+            - listitem [ref=e61]:
+              - link "H" [ref=e62] [cursor=pointer]:
+                - /url: /search/i/H
+            - listitem [ref=e63]:
+              - link "I" [ref=e64] [cursor=pointer]:
+                - /url: /search/i/I
+            - listitem [ref=e65]:
+              - link "J" [ref=e66] [cursor=pointer]:
+                - /url: /search/i/J
+            - listitem [ref=e67]:
+              - link "K" [ref=e68] [cursor=pointer]:
+                - /url: /search/i/K
+            - listitem [ref=e69]:
+              - link "L" [ref=e70] [cursor=pointer]:
+                - /url: /search/i/L
+            - listitem [ref=e71]:
+              - link "M" [ref=e72] [cursor=pointer]:
+                - /url: /search/i/M
+            - listitem [ref=e73]:
+              - link "N" [ref=e74] [cursor=pointer]:
+                - /url: /search/i/N
+            - listitem [ref=e75]:
+              - link "O" [ref=e76] [cursor=pointer]:
+                - /url: /search/i/O
+            - listitem [ref=e77]:
+              - link "P" [ref=e78] [cursor=pointer]:
+                - /url: /search/i/P
+            - listitem [ref=e79]:
+              - link "Q" [ref=e80] [cursor=pointer]:
+                - /url: /search/i/Q
+            - listitem [ref=e81]:
+              - link "R" [ref=e82] [cursor=pointer]:
+                - /url: /search/i/R
+            - listitem [ref=e83]:
+              - link "S" [ref=e84] [cursor=pointer]:
+                - /url: /search/i/S
+            - listitem [ref=e85]:
+              - link "T" [ref=e86] [cursor=pointer]:
+                - /url: /search/i/T
+            - listitem [ref=e87]:
+              - link "U" [ref=e88] [cursor=pointer]:
+                - /url: /search/i/U
+            - listitem [ref=e89]:
+              - link "V" [ref=e90] [cursor=pointer]:
+                - /url: /search/i/V
+            - listitem [ref=e91]:
+              - link "W" [ref=e92] [cursor=pointer]:
+                - /url: /search/i/W
+            - listitem [ref=e93]:
+              - link "X" [ref=e94] [cursor=pointer]:
+                - /url: /search/i/X
+            - listitem [ref=e95]:
+              - link "Y" [ref=e96] [cursor=pointer]:
+                - /url: /search/i/Y
+            - listitem [ref=e97]:
+              - link "Z" [ref=e98] [cursor=pointer]:
+                - /url: /search/i/Z
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e102]:
+                - heading "Contact Information" [level=3] [ref=e103]
+                - list [ref=e104]:
+                  - listitem [ref=e105]:
+                    - link "support@checkpeople.com" [ref=e106] [cursor=pointer]:
+                      - /url: mailto:support@checkpeople.com
+                      - img [ref=e107]
+                      - text: support@checkpeople.com
+                  - listitem [ref=e108]:
+                    - 'link "Toll Free: 1-800-267-2122" [ref=e109] [cursor=pointer]':
+                      - /url: tel:18002672122
+                      - img [ref=e110]
+                      - text: "Toll Free: 1-800-267-2122"
+                  - listitem [ref=e111]:
+                    - link "Goto Facebook" [ref=e112] [cursor=pointer]:
+                      - /url: https://www.facebook.com/checkpeople
+                      - img [ref=e113]
+                    - link "Goto Twitter" [ref=e114] [cursor=pointer]:
+                      - /url: https://twitter.com/checkpeople
+                      - img [ref=e115]
+                  - listitem [ref=e116]:
+                    - generic [ref=e117]: Excellent Product & Support!
+                    - img "Five Star Rating" [ref=e118]
+                  - listitem [ref=e119]:
+                    - generic "TrustedSite Certified" [ref=e120] [cursor=pointer]
+                    - generic [ref=e121]:
+                      - heading "Recent Searches" [level=3] [ref=e122]:
+                        - link "Recent Searches" [ref=e123] [cursor=pointer]:
+                          - /url: /recent-name-searches
+                      - list [ref=e124]:
+                        - listitem [ref=e125]:
+                          - link "06/21" [ref=e126] [cursor=pointer]:
+                            - /url: ""
+                        - listitem [ref=e127]:
+                          - link "06/20" [ref=e128] [cursor=pointer]:
+                            - /url: ""
+                        - listitem [ref=e129]:
+                          - link "06/19" [ref=e130] [cursor=pointer]:
+                            - /url: ""
+                        - listitem [ref=e131]:
+                          - link "06/18" [ref=e132] [cursor=pointer]:
+                            - /url: ""
+                        - listitem [ref=e133]:
+                          - link "06/17" [ref=e134] [cursor=pointer]:
+                            - /url: ""
+                        - listitem [ref=e135]:
+                          - link "06/16" [ref=e136] [cursor=pointer]:
+                            - /url: ""
+              - generic [ref=e137]:
+                - heading "Services" [level=3] [ref=e138]
+                - list [ref=e139]:
+                  - listitem [ref=e140]:
+                    - link "People Search Directory" [ref=e141] [cursor=pointer]:
+                      - /url: /search
+                  - listitem [ref=e142]:
+                    - link "Background Checks" [ref=e143] [cursor=pointer]:
+                      - /url: /background-check
+                  - listitem [ref=e144]:
+                    - link "People Search" [ref=e145] [cursor=pointer]:
+                      - /url: /
+                  - listitem [ref=e146]:
+                    - link "Reverse Phone Lookup" [ref=e147] [cursor=pointer]:
+                      - /url: /reverse-phone-lookup
+                  - listitem [ref=e148]:
+                    - link "Public Records" [ref=e149] [cursor=pointer]:
+                      - /url: /public-records
+              - generic [ref=e150]:
+                - heading "Get Help" [level=3] [ref=e151]
+                - list [ref=e152]:
+                  - listitem [ref=e153]:
+                    - link "Blog" [ref=e154] [cursor=pointer]:
+                      - /url: /blog/
+                  - listitem [ref=e155]:
+                    - link "FAQs" [ref=e156] [cursor=pointer]:
+                      - /url: /help
+                  - listitem [ref=e157]:
+                    - link "Glossary" [ref=e158] [cursor=pointer]:
+                      - /url: /glossary
+                  - listitem [ref=e159]:
+                    - link "Do's & Dont's" [ref=e160] [cursor=pointer]:
+                      - /url: /company/dos-donts
+                  - listitem [ref=e161]:
+                    - link "Customer Support" [ref=e162] [cursor=pointer]:
+                      - /url: /company/contact
+                  - listitem [ref=e163]:
+                    - link "Why CheckPeople" [ref=e164] [cursor=pointer]:
+                      - /url: /company/why-choose
+                  - listitem [ref=e165]:
+                    - link "Testimonials" [ref=e166] [cursor=pointer]:
+                      - /url: /testimonials
+                  - listitem [ref=e167]:
+                    - link "Do Not Sell or Share my Personal Information" [ref=e168] [cursor=pointer]:
+                      - /url: /privacy-rights
+              - generic [ref=e169]:
+                - heading "Quick Links" [level=3] [ref=e170]
+                - list [ref=e171]:
+                  - listitem [ref=e172]:
+                    - link "Phone Number Search" [ref=e173] [cursor=pointer]:
+                      - /url: /reverse-phone-lookup
+                  - listitem [ref=e174]:
+                    - link "Free People Search" [ref=e175] [cursor=pointer]:
+                      - /url: /
+                  - listitem [ref=e176]:
+                    - link "Arrest Records" [ref=e177] [cursor=pointer]:
+                      - /url: /arrest-records
+                  - listitem [ref=e178]:
+                    - link "Criminal Background Checks" [ref=e179] [cursor=pointer]:
+                      - /url: /background-check
+                  - listitem [ref=e180]:
+                    - link "Sitemap" [ref=e181] [cursor=pointer]:
+                      - /url: /sitemap
+                  - listitem [ref=e182]:
+                    - link "Blog Sitemap" [ref=e183] [cursor=pointer]:
+                      - /url: https://checkpeople.com/blog/sitemap/
+            - button "Scroll to Top of Page" [ref=e184] [cursor=pointer]
+          - paragraph [ref=e187]:
+            - text: CheckPeople.com exists to help you have instant access to criminal records & background checks. We believe everyone has the right to search for public records easily. CheckPeople.com is not a consumer reporting agency under the
+            - link "Fair Credit Reporting Act" [ref=e188] [cursor=pointer]:
+              - /url: https://en.wikipedia.org/wiki/Fair_Credit_Reporting_Act
+            - text: guidelines. To learn more, please read our
+            - link "Terms of Service" [ref=e189] [cursor=pointer]:
+              - /url: https://checkpeople.com/company/terms-of-service
+            - text: and
+            - link "Privacy Policy" [ref=e190] [cursor=pointer]:
+              - /url: https://checkpeople.com/company/privacy-policy
+            - text: .
+        - generic [ref=e192]:
+          - generic [ref=e193]: © Copyright 2012-2026 CheckPeople.com
+          - list [ref=e194]:
+            - listitem [ref=e195]:
+              - link "Goto Terms of Service" [ref=e196] [cursor=pointer]:
+                - /url: /company/terms-of-service
+                - text: Terms of Service
+            - listitem [ref=e197]:
+              - link "Goto Privacy Policy" [ref=e198] [cursor=pointer]:
+                - /url: /company/privacy-policy
+                - text: Privacy Policy
+  - status

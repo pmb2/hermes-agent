@@ -1,0 +1,329 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e2] [cursor=pointer]
+      - link "Accessibility help" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en
+  - generic [ref=e8]:
+    - search [ref=e9]:
+      - generic [ref=e12]:
+        - link "Go to Google home" [ref=e13] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&ictx=0&sa=X&ved=0ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQpYkNCAw
+          - img "Go to Google home" [ref=e14]
+        - generic [ref=e15]:
+          - combobox "Search" [ref=e18]: "\"Corner Realty Inc\" Pembroke Pines FL phone number \"Corner Realty Inc\" Pembroke Pines FL phone number"
+          - generic [ref=e19]:
+            - button "Clear" [ref=e21] [cursor=pointer]:
+              - img [ref=e23]
+            - generic [ref=e26]:
+              - button "Search by voice" [ref=e27] [cursor=pointer]:
+                - img [ref=e28]
+              - button "Search by image" [ref=e30] [cursor=pointer]:
+                - img [ref=e31]
+        - button "Search" [ref=e33] [cursor=pointer]:
+          - img [ref=e36]
+    - generic [ref=e38]:
+      - button "Settings" [ref=e40] [cursor=pointer]:
+        - img [ref=e43]
+      - button "Share" [ref=e46] [cursor=pointer]:
+        - img [ref=e50]
+      - generic [ref=e52]:
+        - button "Google apps" [ref=e54] [cursor=pointer]:
+          - img [ref=e55]
+        - link "Sign in" [ref=e59] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3D%2522Corner%2BRealty%2BInc%2522%2BPembroke%2BPines%2BFL%2Bphone%2Bnumber&ec=futura_srp_og_si_72236_p
+  - generic [ref=e61]:
+    - navigation [ref=e67]:
+      - generic [ref=e73]:
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - link "AI Mode" [ref=e78] [cursor=pointer]:
+              - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbiyFsdh3awf0ePiRBY-bWCt7vy0N34fnPdmGaA2z11E_XcBhMeGqaM7nmdct-CkoRH3B9cfYtuLxIKbj0092eRoopv1_cDQNHzOSN3Z0LtdahwaH9Yv_Q6J_fR3nnv078BTpJ-NxDBzo2xhtPiaASTE0GOhlQ&aep=1&ntc=1&sa=X&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ2J8OegQIEBAD
+              - generic [ref=e81]: AI Mode
+          - listitem [ref=e82]:
+            - link "All" [disabled] [ref=e83]:
+              - generic [ref=e85]: All
+          - listitem [ref=e86]:
+            - link "Forums" [ref=e87] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=18&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbiyFsdh3awf0ePiRBY-bWCt7vy0N34fnPdmGaA2z11E_XcBhMeGqaM7nmdct-CkoRH3B9cfYtuLxIKbj0092eRoopv1_cDQNHzOSN3Z0LtdahwaH9Yv_Q6J_fR3nnv078BTpJ-NxDBzo2xhtPiaASTE0GOhlQ&q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sa=X&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQs6gLegQIFhAB
+              - generic [ref=e89]: Forums
+          - listitem [ref=e90]:
+            - link "Images" [ref=e91] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbiyFsdh3awf0ePiRBY-bWCt7vy0N34fnPdmGaA2z11E_XcBhMeGqaM7nmdct-CkoRH3B9cfYtuLxIKbj0092eRoopv1_cDQNHzOSN3Z0LtdahwaH9Yv_Q6J_fR3nnv078BTpJ-NxDBzo2xhtPiaASTE0GOhlQ&q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sa=X&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQtKgLegQIFRAB
+              - generic [ref=e93]: Images
+          - listitem [ref=e94]:
+            - link "Shopping" [ref=e95] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=28&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbiyFsdh3awf0ePiRBY-bWCt7vy0N34fnPdmGaA2z11E_XcBhMeGqaM7nmdct-CkoRH3B9cfYtuLxIKbj0092eRoopv1_cDQNHzOSN3Z0LtdahwaH9Yv_Q6J_fR3nnv078BTpJ-NxDBzo2xhtPiaASTE0GOhlQ&q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&ved=1t:220175&ictx=111
+              - generic [ref=e97]: Shopping
+          - listitem [ref=e98]:
+            - link "Maps" [ref=e99] [cursor=pointer]:
+              - /url: https://maps.google.com/maps?sca_esv=7c3c44d1206346ec&output=search&q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbiyFsdh3awf0ePiRBY-bWCt7vy0N34fnPdmGaA2z11E_XcBhMeGqaM7nmdct-CkoRH3B9cfYtuLxIKbj0092eRoopv1_cDQNHzOSN3Z0LtdahwaH9Yv_Q6J_fR3nnv078BTpJ-NxDBzo2xhtPiaASTE0GOhlQ&entry=mc&ved=1t:200715&ictx=111
+              - generic [ref=e101]: Maps
+          - listitem [ref=e102]:
+            - link "Videos" [ref=e103] [cursor=pointer]:
+              - /url: /search?sca_esv=7c3c44d1206346ec&udm=7&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cn05EoNqnRUpRtqDK_L3JtcaVe4agnDpGKPxtn7rLKbiyFsdh3awf0ePiRBY-bWCt7vy0N34fnPdmGaA2z11E_XcBhMeGqaM7nmdct-CkoRH3B9cfYtuLxIKbj0092eRoopv1_cDQNHzOSN3Z0LtdahwaH9Yv_Q6J_fR3nnv078BTpJ-NxDBzo2xhtPiaASTE0GOhlQ&q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sa=X&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQtKgLegQIEhAB
+              - generic [ref=e105]: Videos
+          - listitem [ref=e106]:
+            - button "More filters" [ref=e107] [cursor=pointer]:
+              - generic "More filters" [ref=e108]:
+                - generic [ref=e109]:
+                  - generic [ref=e110]: More
+                  - img [ref=e112]
+        - button "Tools" [ref=e115] [cursor=pointer]:
+          - generic [ref=e117]:
+            - generic [ref=e118]: Tools
+            - img [ref=e120]
+    - heading "Search Results" [level=1] [ref=e122]
+    - main [ref=e124]:
+      - generic [ref=e128]:
+        - generic [ref=e139]:
+          - heading "Thinking" [level=2] [ref=e143]:
+            - generic [ref=e144]: Thinking
+          - progressbar "Generating" [ref=e145]
+        - generic [ref=e149]:
+          - heading "Web results" [level=2] [ref=e150]
+          - generic [ref=e151]:
+            - generic [ref=e154]:
+              - link "corner realty, inc. - Detail by Entity Name MyFlorida.com (.gov) https://search.sunbiz.org › Inquiry › SearchResultDetail" [ref=e156] [cursor=pointer]:
+                - /url: https://search.sunbiz.org/Inquiry/corporationsearch/SearchResultDetail?inquirytype=EntityName&directionType=PreviousList&searchNameOrder=CORNERREALTY%20P160000857390&aggregateId=domp-p16000085739-3a411b17-e962-4c13-90bf-fcf985286ef7&listNameOrder=CORNERREALTY%201923930
+                - heading "corner realty, inc. - Detail by Entity Name" [level=3] [ref=e157]
+                - generic [ref=e163]:
+                  - generic [ref=e165]: MyFlorida.com (.gov)
+                  - generic [ref=e167]: https://search.sunbiz.org › Inquiry › SearchResultDetail
+              - button "About this result" [ref=e168] [cursor=pointer]:
+                - img [ref=e171]
+            - generic [ref=e174]:
+              - generic [ref=e175]:
+                - emphasis [ref=e176]: CORNER REALTY, INC
+                - text: . Filing Information. Document
+                - emphasis [ref=e177]: Number
+                - text: P16000085739 FEI/EIN ...
+                - emphasis [ref=e178]: Pembroke Pines
+                - text: ","
+                - emphasis [ref=e179]: FL
+                - text: "33029. Changed: 03/26/2018. Mailing Address. 20861 ..."
+              - link "Read more" [ref=e180] [cursor=pointer]:
+                - /url: https://search.sunbiz.org/Inquiry/corporationsearch/SearchResultDetail?inquirytype=EntityName&directionType=PreviousList&searchNameOrder=CORNERREALTY+P160000857390&aggregateId=domp-p16000085739-3a411b17-e962-4c13-90bf-fcf985286ef7&listNameOrder=CORNERREALTY+1923930#:~:text=CORNER%20REALTY%2C%20INC.,FEI%2FEIN%20Number&text=Pembroke%20Pines%2C%20FL%2033029,20861%20Johnson%20Street
+        - generic [ref=e184]:
+          - generic [ref=e187]:
+            - link "Corner Realty Inc - Pembroke Pines, FL MapQuest https://www.mapquest.com › ... › Pembroke Pines, FL" [ref=e189] [cursor=pointer]:
+              - /url: https://www.mapquest.com/us/florida/corner-realty-inc-373918216
+              - heading "Corner Realty Inc - Pembroke Pines, FL" [level=3] [ref=e190]
+              - generic [ref=e196]:
+                - generic [ref=e198]: MapQuest
+                - generic [ref=e200]: https://www.mapquest.com › ... › Pembroke Pines, FL
+            - button "About this result" [ref=e201] [cursor=pointer]:
+              - img [ref=e204]
+          - generic [ref=e207]:
+            - generic [ref=e208]:
+              - emphasis [ref=e209]: Corner Realty Inc
+              - text: is a well-established real estate agency based in
+              - emphasis [ref=e210]: Pembroke Pines
+              - text: ","
+              - emphasis [ref=e211]: FL
+              - text: . Specializing in residential and commercial properties, ...
+            - link "Read more" [ref=e212] [cursor=pointer]:
+              - /url: https://www.mapquest.com/us/florida/corner-realty-inc-373918216#:~:text=Corner%20Realty%20Inc%20is%20a,selling%2C%20and%20renting%20real%20estate.
+        - generic [ref=e216]:
+          - generic [ref=e219]:
+            - link "Royal Corner Realty Inc Office Profile Realty.com https://www.realty.com › office › royal_corner_realty_i..." [ref=e221] [cursor=pointer]:
+              - /url: https://www.realty.com/office/494999/royal_corner_realty_inc
+              - heading "Royal Corner Realty Inc Office Profile" [level=3] [ref=e222]
+              - generic [ref=e228]:
+                - generic [ref=e230]: Realty.com
+                - generic [ref=e232]: https://www.realty.com › office › royal_corner_realty_i...
+            - button "About this result" [ref=e233] [cursor=pointer]:
+              - img [ref=e236]
+          - generic [ref=e240]:
+            - text: Royal
+            - emphasis [ref=e241]: Corner Realty Inc
+            - text: . 300 S.
+            - emphasis [ref=e242]: Pine
+            - text: Island Road Ste. 215. Plantation,
+            - emphasis [ref=e243]: FL
+            - text: ". Team Members. Avens Bazile · Ketline Bazile. Disclaimer: This page displays real ..."
+        - generic [ref=e247]:
+          - generic [ref=e250]:
+            - link "Royal Corner Realty Inc (@royalcornerrealty) Instagram · royalcornerrealty 1.6K+ followers" [ref=e252] [cursor=pointer]:
+              - /url: https://www.instagram.com/royalcornerrealty/
+              - heading "Royal Corner Realty Inc (@royalcornerrealty)" [level=3] [ref=e253]
+              - generic [ref=e259]:
+                - generic [ref=e261]: Instagram · royalcornerrealty
+                - generic [ref=e263]: 1.6K+ followers
+            - button "About this result" [ref=e264] [cursor=pointer]:
+              - img [ref=e267]
+          - generic [ref=e271]:
+            - text: Royal
+            - emphasis [ref=e272]: Corner Realty Inc
+            - text: ", Presents a life changing ..."
+        - generic [ref=e276]:
+          - generic [ref=e279]:
+            - link "33084 Single Family Homes For Sale - 229 Homes Zillow https://www.zillow.com › ... › Florida › Broward County" [ref=e281] [cursor=pointer]:
+              - /url: https://www.zillow.com/pembroke-pines-fl-33084/houses/6_p/
+              - heading "33084 Single Family Homes For Sale - 229 Homes" [level=3] [ref=e282]
+              - generic [ref=e288]:
+                - generic [ref=e290]: Zillow
+                - generic [ref=e292]: https://www.zillow.com › ... › Florida › Broward County
+            - button "About this result" [ref=e293] [cursor=pointer]:
+              - img [ref=e296]
+          - generic [ref=e300]:
+            - text: 6971 SW 1st Court,
+            - emphasis [ref=e301]: Pembroke Pines
+            - text: ","
+            - emphasis [ref=e302]: FL
+            - text: 33023 ... ROYAL
+            - emphasis [ref=e303]: CORNER REALTY INC
+            - text: ". More. Price cut: $11,000 ..."
+            - emphasis [ref=e304]: Number
+            - text: of stories. Single-story only. 55+ Communities.
+        - generic [ref=e308]:
+          - generic [ref=e311]:
+            - link "Cheap Homes for Sale in Pembroke Pines, FL - 248 Homes Trulia https://www.trulia.com › ... › Pembroke Pines" [ref=e313] [cursor=pointer]:
+              - /url: https://www.trulia.com/FL/Pembroke_Pines/33024/cheap-homes/6_p/
+              - heading "Cheap Homes for Sale in Pembroke Pines, FL - 248 Homes" [level=3] [ref=e314]
+              - generic [ref=e320]:
+                - generic [ref=e322]: Trulia
+                - generic [ref=e324]: https://www.trulia.com › ... › Pembroke Pines
+            - button "About this result" [ref=e325] [cursor=pointer]:
+              - img [ref=e328]
+          - generic [ref=e332]:
+            - text: Royal
+            - emphasis [ref=e333]: Corner Realty Inc
+            - text: . 1735 NW 77th Ave,
+            - emphasis [ref=e334]: Pembroke Pines
+            - text: ","
+            - emphasis [ref=e335]: FL
+            - text: 33024. Use arrow ...
+            - emphasis [ref=e336]: Pembroke Pines
+            - text: ","
+            - emphasis [ref=e337]: FL
+            - text: 33024. JF Star Realty Inc. 411 N 61st Ave, Hollywood ...
+        - generic [ref=e341]:
+          - generic [ref=e344]:
+            - link "Royal Corner Realty, Inc. | Plantation Drive FL Facebook https://www.facebook.com › ... › Real Estate Company" [ref=e346] [cursor=pointer]:
+              - /url: https://www.facebook.com/RoyalCornerRealty/
+              - heading "Royal Corner Realty, Inc. | Plantation Drive FL" [level=3] [ref=e347]
+              - generic [ref=e353]:
+                - generic [ref=e355]: Facebook
+                - generic [ref=e357]: https://www.facebook.com › ... › Real Estate Company
+            - button "About this result" [ref=e358] [cursor=pointer]:
+              - img [ref=e361]
+          - generic [ref=e365]:
+            - text: Royal
+            - emphasis [ref=e366]: Corner Realty, Inc
+            - text: . is in Hollywood,
+            - emphasis [ref=e367]: FL
+            - text: . ... Just Sold in
+            - emphasis [ref=e368]: Pembroke Pines
+            - text: "at 1228 SW 147th Ave # 1228!"
+        - generic [ref=e372]:
+          - generic [ref=e375]:
+            - link "Homes for Sale near Renaissance Charter School Homes.com https://www.homes.com › pembroke-pines-fl › renaissa..." [ref=e377] [cursor=pointer]:
+              - /url: https://www.homes.com/pembroke-pines-fl/renaissance-charter-school/s-x3pxhzxlr6x1n/p17/
+              - heading "Homes for Sale near Renaissance Charter School" [level=3] [ref=e378]
+              - generic [ref=e384]:
+                - generic [ref=e386]: Homes.com
+                - generic [ref=e388]: https://www.homes.com › pembroke-pines-fl › renaissa...
+            - button "About this result" [ref=e389] [cursor=pointer]:
+              - img [ref=e392]
+          - generic [ref=e396]:
+            - text: See the 1620 available homes for sale near Renaissance Charter School. Get home values, and learn about
+            - emphasis [ref=e397]: Pembroke Pines
+            - text: schools on homes.com.
+        - generic [ref=e401]:
+          - generic [ref=e404]:
+            - link "301 N 66th Avenue, Hollywood, FL 33024 The Falero Team https://thefaleroteam.com › listing › mmmls › Hollywood" [ref=e406] [cursor=pointer]:
+              - /url: https://thefaleroteam.com/listing/mmmls/F10549063/Hollywood/301-N-66th-Avenue/
+              - heading "301 N 66th Avenue, Hollywood, FL 33024" [level=3] [ref=e407]
+              - generic [ref=e413]:
+                - generic [ref=e415]: The Falero Team
+                - generic [ref=e417]: https://thefaleroteam.com › listing › mmmls › Hollywood
+            - button "About this result" [ref=e418] [cursor=pointer]:
+              - img [ref=e421]
+          - generic [ref=e424]:
+            - generic [ref=e425]: Jun 13, 2026 —
+            - generic [ref=e426]:
+              - text: 301 N 66th Avenue. Hollywood,
+              - emphasis [ref=e427]: FL
+              - text: 33024. Beds. 4. Baths. 2. Square Ft. 1,694. $589,000. Courtesy of Royal
+              - emphasis [ref=e428]: Corner Realty Inc
+              - text: . Listing Snapshot.
+            - link "Read more" [ref=e429] [cursor=pointer]:
+              - /url: https://thefaleroteam.com/listing/mmmls/F10549063/Hollywood/301-N-66th-Avenue/#:~:text=301%20N%2066th%20Avenue,Listing%20Snapshot
+        - generic [ref=e433]:
+          - generic [ref=e436]:
+            - link "301 N 66Th Avenue, Hollywood, FL, 33024 | F10549063 Fulton Grace https://www.fultongrace.com › Florida › Sell › Hollywood" [ref=e438] [cursor=pointer]:
+              - /url: https://www.fultongrace.com/home-details/9758245/301-n-66th-avenue-hollywood-33024-fl/
+              - heading "301 N 66Th Avenue, Hollywood, FL, 33024 | F10549063" [level=3] [ref=e439]
+              - generic [ref=e445]:
+                - generic [ref=e447]: Fulton Grace
+                - generic [ref=e449]: https://www.fultongrace.com › Florida › Sell › Hollywood
+            - button "About this result" [ref=e450] [cursor=pointer]:
+              - img [ref=e453]
+          - generic [ref=e456]:
+            - generic [ref=e457]: Jan 28, 2026 —
+            - generic [ref=e458]:
+              - text: Overview for 301 N 66Th Avenue, Hollywood, FL. mls Listing Office. Royal
+              - emphasis [ref=e459]: Corner Realty Inc
+              - text: ... Ft. 6626 Sw 1St Ct,
+              - emphasis [ref=e460]: Pembroke Pines
+              - text: ","
+              - emphasis [ref=e461]: FL
+              - text: 33023 ...
+            - link "Read more" [ref=e462] [cursor=pointer]:
+              - /url: https://www.fultongrace.com/home-details/9758245/301-n-66th-avenue-hollywood-33024-fl/#:~:text=Overview%20for%20301%20N%2066Th,Royal%20Corner%20Realty%20Inc&text=Ft.,Ct%2C%20Pembroke%20Pines%2C%20FL%2033023
+      - navigation [ref=e465]:
+        - heading "Page Navigation" [level=1] [ref=e466]
+        - text: "1"
+        - link "Page 2" [ref=e469] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=10&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAE
+          - text: "2"
+        - link "Page 3" [ref=e471] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=20&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAG
+          - text: "3"
+        - link "Page 4" [ref=e473] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=30&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAI
+          - text: "4"
+        - link "Page 5" [ref=e475] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=40&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAK
+          - text: "5"
+        - link "Page 6" [ref=e477] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=50&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAM
+          - text: "6"
+        - link "Page 7" [ref=e479] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=60&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAO
+          - text: "7"
+        - link "Page 8" [ref=e481] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=70&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAQ
+          - text: "8"
+        - link "Page 9" [ref=e483] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=80&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAS
+          - text: "9"
+        - link "Page 10" [ref=e485] [cursor=pointer]:
+          - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=90&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8tMDegQIIxAU
+          - text: "10"
+        - heading "Next" [level=2] [ref=e487]:
+          - link "Next" [ref=e488] [cursor=pointer]:
+            - /url: /search?q=%22Corner+Realty+Inc%22+Pembroke+Pines+FL+phone+number&sca_esv=7c3c44d1206346ec&ei=5Uo5arXlAu3DruEP8MaNkAw&start=10&sa=N&sstk=AU9db-BtjkgtrfPy2t3oArS4qp2J3iAgeAh51bIX-bpSBrKck2lxAx_NeL_LGbpFfqDO46qe_LnpINTUsGeOH1TrOgQFyFNxI8Uwog&ved=2ahUKEwj167W4i5uVAxXtoSsGHXBjA8IQ8NMDegQIIxAW
+            - generic [ref=e490]: Next
+      - navigation
+    - contentinfo [ref=e491]:
+      - heading "Footer Links" [level=1] [ref=e492]
+      - generic [ref=e496]:
+        - generic [ref=e500]:
+          - button "Orlando-Daytona Beach-Melbourne FL, Florida - Based on your past activity" [ref=e502] [cursor=pointer]:
+            - generic [ref=e503]: Orlando-Daytona Beach-Melbourne FL, Florida
+            - generic [ref=e505]:
+              - text: "-"
+              - generic [ref=e506]: Based on your past activity
+          - text: "-"
+          - button "Update location" [ref=e508] [cursor=pointer]: Update location
+        - generic [ref=e511]:
+          - link "Help" [ref=e512] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en&fg=1
+          - link "Send feedback" [ref=e513] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e514] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en&fg=1
+          - link "Terms" [ref=e515] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en&fg=1
