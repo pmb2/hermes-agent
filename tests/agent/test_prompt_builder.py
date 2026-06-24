@@ -1565,106 +1565,103 @@ class TestParallelToolCallGuidance:
 class TestSkillsSnapshotVersioning:
     """Verify the snapshot version gate in _load_skills_snapshot."""
 
-    def test_rejects_snapshot_with_unknown_version(self, tmp_path, monkeypatch):
+    def test_rejects_snapshot_with_unknown_version(self, tmp_path):
         """A snapshot with a version higher than the current constant is rejected."""
+        from unittest.mock import patch
+        fn_globals = _skills_prompt_snapshot_path.__globals__
         skills_dir = tmp_path / "skills"
         skills_dir.mkdir()
-        snapshot_path = tmp_path / ".skills_prompt_snapshot.json"
-        monkeypatch.setattr("agent.prompt_builder._skills_prompt_snapshot_path", lambda: snapshot_path)
-
-        snapshot_data = {"version": 999, "manifest": {}, "skills": [], "category_descriptions": {}}
-        snapshot_path.write_text(json.dumps(snapshot_data))
-
-        result = _load_skills_snapshot(skills_dir)
+        with patch.dict(fn_globals, {"get_hermes_home": lambda: tmp_path}):
+            snapshot_path = _skills_prompt_snapshot_path()
+            snapshot_path.write_text(json.dumps({"version": 999, "manifest": {}, "skills": [], "category_descriptions": {}}))
+            result = _load_skills_snapshot(skills_dir)
         assert result is None
 
-    def test_rejects_snapshot_with_older_version(self, tmp_path, monkeypatch):
+    def test_rejects_snapshot_with_older_version(self, tmp_path):
         """A snapshot with version 0 (pre-v1) is rejected."""
+        from unittest.mock import patch
+        fn_globals = _skills_prompt_snapshot_path.__globals__
         skills_dir = tmp_path / "skills"
         skills_dir.mkdir()
-        snapshot_path = tmp_path / ".skills_prompt_snapshot.json"
-        monkeypatch.setattr("agent.prompt_builder._skills_prompt_snapshot_path", lambda: snapshot_path)
-
-        snapshot_data = {"version": 0, "manifest": {}, "skills": [], "category_descriptions": {}}
-        snapshot_path.write_text(json.dumps(snapshot_data))
-
-        result = _load_skills_snapshot(skills_dir)
+        with patch.dict(fn_globals, {"get_hermes_home": lambda: tmp_path}):
+            snapshot_path = _skills_prompt_snapshot_path()
+            snapshot_path.write_text(json.dumps({"version": 0, "manifest": {}, "skills": [], "category_descriptions": {}}))
+            result = _load_skills_snapshot(skills_dir)
         assert result is None
 
-    def test_rejects_non_dict_snapshot(self, tmp_path, monkeypatch):
+    def test_rejects_non_dict_snapshot(self, tmp_path):
         """A snapshot that isn't a JSON dict is rejected (e.g. list or string)."""
+        from unittest.mock import patch
+        fn_globals = _skills_prompt_snapshot_path.__globals__
         skills_dir = tmp_path / "skills"
         skills_dir.mkdir()
-        snapshot_path = tmp_path / ".skills_prompt_snapshot.json"
-        monkeypatch.setattr("agent.prompt_builder._skills_prompt_snapshot_path", lambda: snapshot_path)
-
-        snapshot_path.write_text(json.dumps(["not", "a", "dict"]))
-
-        result = _load_skills_snapshot(skills_dir)
+        with patch.dict(fn_globals, {"get_hermes_home": lambda: tmp_path}):
+            snapshot_path = _skills_prompt_snapshot_path()
+            snapshot_path.write_text(json.dumps(["not", "a", "dict"]))
+            result = _load_skills_snapshot(skills_dir)
         assert result is None
 
-    def test_rejects_snapshot_with_wrong_manifest(self, tmp_path, monkeypatch):
+    def test_rejects_snapshot_with_wrong_manifest(self, tmp_path):
         """A snapshot whose manifest doesn't match current disk state is rejected."""
+        from unittest.mock import patch
+        fn_globals = _skills_prompt_snapshot_path.__globals__
         skills_dir = tmp_path / "skills"
         skills_dir.mkdir()
-        snapshot_path = tmp_path / ".skills_prompt_snapshot.json"
-        monkeypatch.setattr("agent.prompt_builder._skills_prompt_snapshot_path", lambda: snapshot_path)
-        monkeypatch.setattr("agent.prompt_builder._build_skills_manifest", lambda _: {"old/file.md": [1, 2]})
-
-        snapshot_data = {
-            "version": _SKILLS_SNAPSHOT_VERSION,
-            "manifest": {"stale/file.md": [100, 200]},
-            "skills": [],
-            "category_descriptions": {},
-        }
-        snapshot_path.write_text(json.dumps(snapshot_data))
-
-        result = _load_skills_snapshot(skills_dir)
+        with patch.dict(fn_globals, {"get_hermes_home": lambda: tmp_path, "_build_skills_manifest": lambda _: {"old/file.md": [1, 2]}}):
+            snapshot_path = _skills_prompt_snapshot_path()
+            snapshot_data = {
+                "version": _SKILLS_SNAPSHOT_VERSION,
+                "manifest": {"stale/file.md": [100, 200]},
+                "skills": [],
+                "category_descriptions": {},
+            }
+            snapshot_path.write_text(json.dumps(snapshot_data))
+            result = _load_skills_snapshot(skills_dir)
         assert result is None
 
-    def test_accepts_snapshot_with_current_version_and_matching_manifest(self, tmp_path, monkeypatch):
+    def test_accepts_snapshot_with_current_version_and_matching_manifest(self, tmp_path):
         """A fully valid snapshot (correct version + matching manifest) is returned."""
+        from unittest.mock import patch
+        fn_globals = _skills_prompt_snapshot_path.__globals__
         skills_dir = tmp_path / "skills"
         skills_dir.mkdir()
-        snapshot_path = tmp_path / ".skills_prompt_snapshot.json"
-        monkeypatch.setattr("agent.prompt_builder._skills_prompt_snapshot_path", lambda: snapshot_path)
         expected_manifest = {"valid/file.md": [42, 100]}
-        monkeypatch.setattr("agent.prompt_builder._build_skills_manifest", lambda _: expected_manifest)
-
-        snapshot_data = {
-            "version": _SKILLS_SNAPSHOT_VERSION,
-            "manifest": expected_manifest,
-            "skills": [{"name": "test-skill", "description": "a test"}],
-            "category_descriptions": {},
-        }
-        snapshot_path.write_text(json.dumps(snapshot_data))
-
-        result = _load_skills_snapshot(skills_dir)
+        with patch.dict(fn_globals, {"get_hermes_home": lambda: tmp_path, "_build_skills_manifest": lambda _: expected_manifest}):
+            snapshot_path = _skills_prompt_snapshot_path()
+            snapshot_data = {
+                "version": _SKILLS_SNAPSHOT_VERSION,
+                "manifest": expected_manifest,
+                "skills": [{"name": "test-skill", "description": "a test"}],
+                "category_descriptions": {},
+            }
+            snapshot_path.write_text(json.dumps(snapshot_data))
+            result = _load_skills_snapshot(skills_dir)
         assert result is not None
         assert result["version"] == _SKILLS_SNAPSHOT_VERSION
         assert result["manifest"] == expected_manifest
         assert len(result["skills"]) == 1
         assert result["skills"][0]["name"] == "test-skill"
 
-    def test_returns_none_when_no_snapshot_file(self, tmp_path, monkeypatch):
+    def test_returns_none_when_no_snapshot_file(self, tmp_path):
         """When no snapshot file exists, _load_skills_snapshot returns None."""
+        from unittest.mock import patch
+        fn_globals = _skills_prompt_snapshot_path.__globals__
         skills_dir = tmp_path / "skills"
         skills_dir.mkdir()
-        snapshot_path = tmp_path / ".skills_prompt_snapshot.json"
-        monkeypatch.setattr("agent.prompt_builder._skills_prompt_snapshot_path", lambda: snapshot_path)
-
-        result = _load_skills_snapshot(skills_dir)
+        with patch.dict(fn_globals, {"get_hermes_home": lambda: tmp_path}):
+            result = _load_skills_snapshot(skills_dir)
         assert result is None
 
-    def test_returns_none_on_corrupt_json(self, tmp_path, monkeypatch):
+    def test_returns_none_on_corrupt_json(self, tmp_path):
         """A corrupt snapshot file (invalid JSON) returns None gracefully."""
+        from unittest.mock import patch
+        fn_globals = _skills_prompt_snapshot_path.__globals__
         skills_dir = tmp_path / "skills"
         skills_dir.mkdir()
-        snapshot_path = tmp_path / ".skills_prompt_snapshot.json"
-        monkeypatch.setattr("agent.prompt_builder._skills_prompt_snapshot_path", lambda: snapshot_path)
-        snapshot_path.write_text("{{{not valid json}}")
-
-        result = _load_skills_snapshot(skills_dir)
+        with patch.dict(fn_globals, {"get_hermes_home": lambda: tmp_path}):
+            snapshot_path = _skills_prompt_snapshot_path()
+            snapshot_path.write_text("{{{not valid json}}")
+            result = _load_skills_snapshot(skills_dir)
         assert result is None
 
 
