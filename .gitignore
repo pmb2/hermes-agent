@@ -137,3 +137,10 @@ RELEASE_v*.md
 # Desktop demo-run scratch output (hermes writes demo/*.txt during recorded
 # walkthroughs). Throwaway artifacts, never part of the app.
 apps/desktop/demo/
+
+# Browser recording artifacts from external MCP workflows
+.playwright-mcp/
+openai-recording-page.yml
+
+# Empty cron database file (generated at first pulse)
+cron.db
