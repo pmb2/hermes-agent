@@ -5494,6 +5494,15 @@ def main(
         print("   - Failed conversations → failed_trajectories.jsonl")
     
     # Initialize agent with provided parameters
+    if not model:
+        try:
+            import yaml
+            import os
+            with open(os.path.join(os.environ.get('HERMES_HOME', os.path.expanduser('~/.hermes')), 'config.yaml')) as cfg_file:
+                cfg = yaml.safe_load(cfg_file)
+                model = (cfg.get('model') or {}).get('default', '') or ''
+        except Exception:
+            pass
     try:
         agent = AIAgent(
             base_url=base_url,
