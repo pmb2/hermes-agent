@@ -1823,6 +1823,12 @@ def _run_llm_review(prompt: str) -> Dict[str, Any]:
 
     review_agent = None
     try:
+        if not (isinstance(_model_name, str) and _model_name.strip()):
+            raise RuntimeError(
+                "Curator review agent has no model configured. "
+                "Set 'model.default' in config.yaml, configure "
+                "'auxiliary.curator.model', or run `hermes model <name>`."
+            )
         review_agent = AIAgent(
             model=_model_name,
             provider=_resolved_provider,

@@ -3447,6 +3447,22 @@ class GatewayRunner(GatewayAuthorizationMixin, GatewayKanbanWatchersMixin, Gatew
                     _last_good[resolved_session_key] = model
                 _last_good["*"] = model
 
+        # Hard fail-fast when model is still empty after all recovery
+        # attempts. An empty model produces opaque HTTP 400 "No models
+        # provided" from upstream APIs, which the agent posts verbatim
+        # to Discord threads with no actionable guidance. Better to raise
+        # here with a clear diagnostic so the gateway logs the real
+        # problem (broken config.yaml) rather than letting it surface
+        # as a cryptic 400 in a thread. See #23979, #35314.
+        if not (isinstance(model, str) and model.strip()):
+            raise RuntimeError(
+                f"Cannot build agent for session={resolved_session_key!r}: "
+                "no model resolved. Check config.yaml has a "
+                "'model.default' key (or set via `hermes model <name>`). "
+                "If config.yaml fails to parse, model settings are silently "
+                "dropped — fix any YAML errors first."
+            )
+
         return model, runtime_kwargs
 
     def _resolve_turn_agent_config(self, user_message: str, model: str, runtime_kwargs: dict) -> dict:
@@ -15593,8 +15609,19 @@ class GatewayRunner(GatewayAuthorizationMixin, GatewayKanbanWatchersMixin, Gatew
                     model, runtime_kwargs.get("provider"), session_key or "",
                 )
             except Exception as exc:
+                exc_str = str(exc)
+                logger.error(
+                    "Agent build failed for session=%s: %s",
+                    session_key or source.chat_id if source else "unknown",
+                    exc_str,
+                    exc_info=True,
+                )
                 return {
-                    "final_response": f"⚠️ Provider authentication failed: {exc}",
+                    "final_response": (
+                        f"⚠️ Provider authentication failed"
+                        if "no model resolved" not in exc_str.lower()
+                        else "⚠️ Unable to process this request (model configuration issue)."
+                    ),
                     "messages": [],
                     "api_calls": 0,
                     "tools": [],

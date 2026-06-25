@@ -287,6 +287,13 @@ def init_agent(
     """
     _install_safe_stdio()
 
+    if not (isinstance(model, str) and model.strip()):
+        logger.error(
+            "AIAgent built with empty model string! This will cause "
+            "HTTP 400 'No models provided' from every API call. "
+            "Check config.yaml 'model.default' is set, or pass model=<name> "
+            "explicitly. See issues #23979, #35314."
+        )
     agent.model = model
     agent.max_iterations = max_iterations
     # Shared iteration budget — parent creates, children inherit.
