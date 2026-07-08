@@ -15,8 +15,14 @@ from tools.tirith_security import check_command_security, ensure_installed
 
 
 @pytest.fixture(autouse=True)
-def _reset_resolved_path():
+def _reset_resolved_path(request):
     """Pre-set cached path to skip auto-install in scan tests.
+
+    Also patches is_platform_supported to True for all tests so Windows
+    test runs exercise the real code path behind the platform guard.
+    Tests in TestUnsupportedPlatform skip this patch — they verify the
+    guard itself.
+
     Tests that specifically test ensure_installed / resolve behavior
     reset this to None themselves.
     """
@@ -25,12 +31,28 @@ def _reset_resolved_path():
     _tirith_mod._install_failure_reason = ""
     _tirith_mod._crash_count = 0
     _tirith_mod._circuit_open = False
+
+    # Patch is_platform_supported for all tests except TestUnsupportedPlatform
+    unsupported = request.node.get_closest_marker("unsupported_platform")
+    platform_patcher = None
+    detect_patcher = None
+    if not unsupported:
+        platform_patcher = patch("tools.tirith_security.is_platform_supported", return_value=True)
+        platform_patcher.start()
+        detect_patcher = patch("tools.tirith_security._detect_target", return_value="x86_64-unknown-linux-gnu")
+        detect_patcher.start()
+
     yield
     _tirith_mod._resolved_path = None
     _tirith_mod._install_thread = None
     _tirith_mod._install_failure_reason = ""
     _tirith_mod._crash_count = 0
     _tirith_mod._circuit_open = False
+
+    if platform_patcher:
+        platform_patcher.stop()
+    if detect_patcher:
+        detect_patcher.stop()
 
 
 # ---------------------------------------------------------------------------
@@ -342,6 +364,7 @@ class TestEnsureInstalled:
 # Unsupported platform (Windows etc.) — silent fast-path everywhere
 # ---------------------------------------------------------------------------
 
+@pytest.mark.unsupported_platform
 class TestUnsupportedPlatform:
     """When _detect_target() returns None (no tirith binary for this OS+arch),
     the entire subsystem must stay silent: no PATH probes, no download thread,
@@ -1174,7 +1197,7 @@ class TestHermesHomeIsolation:
         from tools.tirith_security import _failure_marker_path
         with patch.dict(os.environ, {"HERMES_HOME": "/custom/hermes"}):
             result = _failure_marker_path()
-        assert result == "/custom/hermes/.tirith-install-failed"
+        assert result == os.path.normpath("/custom/hermes/.tirith-install-failed")
 
     def test_conftest_isolation_prevents_real_home_writes(self):
         """The conftest autouse fixture sets HERMES_HOME; verify it's active."""
@@ -1183,15 +1206,17 @@ class TestHermesHomeIsolation:
         assert "hermes_test" in hermes_home, "Should point to test temp dir"
 
     def test_get_hermes_home_fallback(self):
-        """Without HERMES_HOME set, falls back to the active OS home."""
+        """Without HERMES_HOME set, falls back to the platform-native default home."""
         from tools.tirith_security import _get_hermes_home
-        with patch.dict(os.environ, {}, clear=True):
-            # Remove HERMES_HOME entirely. With HOME also absent, expanduser
-            # falls back to the account database; compute expected under the
-            # same environment instead of after patch.dict restores HOME.
-            os.environ.pop("HERMES_HOME", None)
-            expected = os.path.join(os.path.expanduser("~"), ".hermes")
+        from hermes_constants import _get_platform_default_hermes_home
+
+        saved = os.environ.pop("HERMES_HOME", None)
+        try:
             result = _get_hermes_home()
+        finally:
+            if saved is not None:
+                os.environ["HERMES_HOME"] = saved
+        expected = str(_get_platform_default_hermes_home())
         assert result == expected
 
 

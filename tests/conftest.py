@@ -546,6 +546,14 @@ def pytest_configure(config):  # noqa: D401 — pytest hook
         "behaviour — e.g. PTY tests that signal their own child).",
     )
 
+    config.addinivalue_line(
+        "markers",
+        "unsupported_platform: test class that validates tirith platform-guard "
+        "behaviour on unsupported platforms (Windows etc.). The autouse "
+        "_reset_resolved_path fixture skips it's is_platform_supported patch "
+        "for tests bearing this marker.",
+    )
+
     # The pyproject addopts pin ``--timeout-method=signal`` relies on
     # ``signal.SIGALRM``, which does not exist on Windows — pytest-timeout
     # raises AttributeError at timer setup and the whole run aborts before any
