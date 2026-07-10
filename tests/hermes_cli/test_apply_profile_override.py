@@ -1,4 +1,5 @@
-"""Regression tests for _apply_profile_override HERMES_HOME guard (issue #22502).
+"""
+Regression tests for _apply_profile_override HERMES_HOME guard (issue #22502).
 
 When HERMES_HOME is set to the hermes root (e.g. systemd hardcodes
 HERMES_HOME=/root/.hermes), _apply_profile_override must still read
@@ -16,6 +17,19 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 
+import pytest
+
+
+def _patch_hermes_root(monkeypatch, tmp_path):
+    """On Windows _get_platform_default_hermes_home reads LOCALAPPDATA
+    instead of Path.home(). Patch it so all tests in this file resolve
+    to the tmp_path-controlled root regardless of platform."""
+    import hermes_constants
+    monkeypatch.setattr(
+        hermes_constants,
+        "_get_platform_default_hermes_home",
+        lambda: tmp_path / ".hermes",
+    )
 
 
 def _run_apply_profile_override(
@@ -37,6 +51,7 @@ def _run_apply_profile_override(
         (hermes_root / "profiles" / active_profile).mkdir(parents=True, exist_ok=True)
 
     monkeypatch.setattr(Path, "home", lambda: tmp_path)
+    _patch_hermes_root(monkeypatch, tmp_path)
     if hermes_home is not None:
         monkeypatch.setenv("HERMES_HOME", hermes_home)
     else:
@@ -126,7 +141,12 @@ class TestApplyProfileOverrideHermesHomeGuard:
         assert "coder" in result
 
     def test_sudo_explicit_profile_resolves_invoking_users_profile(self, tmp_path, monkeypatch):
-        """sudo elias ... should resolve `-p elias` under SUDO_USER, not root."""
+        """sudo elias ... should resolve `-p elias` under SUDO_USER, not root.
+
+        The pwd module is POSIX-only; skip on Windows.
+        """
+        if sys.platform == "win32":
+            pytest.skip("pwd module not available on Windows")
         root_home = tmp_path / "root"
         user_home = tmp_path / "home" / "hermes"
         profile_dir = user_home / ".hermes" / "profiles" / "elias"
@@ -155,6 +175,7 @@ class TestApplyProfileOverrideHermesHomeGuard:
         hermes_root.mkdir(parents=True, exist_ok=True)
 
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
+        _patch_hermes_root(monkeypatch, tmp_path)
         monkeypatch.delenv("HERMES_HOME", raising=False)
         monkeypatch.setattr(sys, "argv", ["hermes", "gateway", "start"])
         (hermes_root / "active_profile").write_text("default")
@@ -190,6 +211,7 @@ class TestApplyProfileOverrideHermesHomeGuard:
         ]
 
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
+        _patch_hermes_root(monkeypatch, tmp_path)
         monkeypatch.delenv("HERMES_HOME", raising=False)
         monkeypatch.setattr(sys, "argv", list(argv))
 
@@ -312,6 +334,7 @@ class TestSupervisedChildIgnoresStickyProfile:
         (hermes_root / "profiles" / "coder").mkdir(parents=True, exist_ok=True)
 
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
+        _patch_hermes_root(monkeypatch, tmp_path)
         monkeypatch.delenv("HERMES_HOME", raising=False)
         monkeypatch.setenv("HERMES_S6_SUPERVISED_CHILD", "1")
         monkeypatch.setattr(sys, "argv", ["hermes", "-p", "coder", "gateway", "run"])
@@ -322,4 +345,3 @@ class TestSupervisedChildIgnoresStickyProfile:
         result = os.environ.get("HERMES_HOME")
         assert result is not None
         assert result.endswith("coder")
-
