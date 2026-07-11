@@ -1206,6 +1206,46 @@ class DiscordAdapter(BasePlatformAdapter):
                         guild_id,
                     )
 
+            @self._client.event
+            async def on_raw_reaction_add(payload: discord.RawReactionActionEvent):
+                """Handle 🔄 reaction — re-process the original message through Hermes."""
+                # Only trigger on 🔄 emoji
+                if str(payload.emoji) != "\U0001f504":
+                    return
+                # Ignore bot's own reactions
+                if payload.user_id == adapter_self._client.user.id:
+                    return
+                # Fetch the message that was reacted to
+                channel = adapter_self._client.get_channel(payload.channel_id)
+                if not channel:
+                    try:
+                        channel = await adapter_self._client.fetch_channel(payload.channel_id)
+                    except Exception:
+                        return
+                try:
+                    message = await channel.fetch_message(payload.message_id)
+                except Exception:
+                    return
+                # Only process if message has content
+                if not message.content and not message.attachments:
+                    return
+                # Check authorization: user must be allowed
+                user_id = payload.user_id
+                allowed_users_str = os.getenv("DISCORD_ALLOWED_USERS", "")
+                if allowed_users_str:
+                    allowed_ids = [int(x.strip()) for x in allowed_users_str.split(",") if x.strip().isdigit()]
+                    if user_id not in allowed_ids:
+                        logger.info("[%s] 🔄 reaction from unauthorized user %d — ignoring", adapter_self.name, user_id)
+                        return
+                # Remove the 🔄 reaction to acknowledge
+                try:
+                    await message.remove_reaction(payload.emoji, adapter_self._client.user)
+                except Exception:
+                    pass
+                logger.info("[%s] 🔄 re-processing message %d from %s", adapter_self.name, message.id, message.author)
+                # Send the message through the normal processing pipeline
+                await adapter_self._handle_message(message, role_authorized=True)
+
             # Register slash commands
             if self._slash_commands:
                 self._register_slash_commands()
