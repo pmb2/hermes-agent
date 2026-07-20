@@ -1976,7 +1976,21 @@ def _is_verification_artifact_cleanup(command: str) -> bool:
     operand = argv[2]
     temp_dir = os.path.realpath(tempfile.gettempdir())
     basename = os.path.basename(operand)
-    if operand != os.path.join(temp_dir, basename):
+    expected = os.path.join(temp_dir, basename)
+    # Cross-platform path comparison: normalise separators and handle missing
+    # drive letter (e.g. /tmp vs C:\tmp on Windows). Do NOT use normpath or
+    # abspath here — those resolve .. and symlinks, which would defeat the
+    # security check for symlinked temp dirs and path-traversal variants.
+    operand_normalised = operand.replace("\\", "/").rstrip("/")
+    expected_normalised = expected.replace("\\", "/").rstrip("/")
+    # On Windows, os.path.realpath resolves /tmp to C:/tmp; if operand is
+    # drive-less, prepend the expected's drive for comparison
+    if (operand_normalised != expected_normalised
+            and not os.path.splitdrive(operand)[0]):
+        drive = os.path.splitdrive(expected_normalised)[0]
+        if drive and operand_normalised.startswith("/"):
+            operand_normalised = drive + "/" + operand_normalised.lstrip("/")
+    if operand_normalised != expected_normalised:
         return False
 
     target = os.path.realpath(operand)
