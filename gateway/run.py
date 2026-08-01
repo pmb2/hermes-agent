@@ -15146,6 +15146,9 @@ class GatewayRunner(GatewayAuthorizationMixin, GatewayKanbanWatchersMixin, Gatew
         if canonical == "sethome":
             return await self._handle_set_home_command(event)
 
+        if canonical == "godmode":
+            return await self._handle_godmode_command(event)
+
         if canonical == "compress":
             return await self._handle_compress_command(event)
 

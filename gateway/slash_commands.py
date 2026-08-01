@@ -5027,6 +5027,47 @@ class GatewaySlashCommandsMixin:
             logger.error("Insights command error: %s", e, exc_info=True)
             return t("gateway.insights.error", error=e)
 
+    async def _handle_godmode_command(self, event: MessageEvent) -> str:
+        """Handle /godmode [on|off|status] — toggle G0DM0D3 uncensored operation.
+
+        Flips the ephemeral system prompt (GODMODE frame) and prefill
+        messages in the Hermes config via the godmode_toggle script.
+        Changes take effect on the next message (system prompt + prefill
+        are rebuilt at turn start); the running agent caches its prompt
+        per conversation, so a session restart picks it up immediately.
+        """
+        args = (event.get_command_args() or "").strip().lower()
+        if not args:
+            args = "status"
+        if args not in ("on", "off", "status", "state"):
+            return "Usage: /godmode [on|off|status]"
+
+        import subprocess
+        from pathlib import Path
+
+        home = os.environ.get("HERMES_HOME", "")
+        script = Path(home) / "scripts" / "godmode_toggle.py" if home else Path(__file__).resolve().parents[1] / "scripts" / "godmode_toggle.py"
+        if not script.exists():
+            script = Path(os.environ.get("APPDATA", str(Path.home()))) / "Local" / "hermes" / "scripts" / "godmode_toggle.py"
+        if not script.exists():
+            return "godmode_toggle.py not found in scripts/ — re-run setup."
+
+        try:
+            proc = subprocess.run(
+                [sys.executable, str(script), args],
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+        except Exception as exc:  # pragma: no cover
+            return f"godmode toggle failed: {exc}"
+
+        if proc.returncode != 0:
+            return f"godmode toggle error (rc={proc.returncode}): {proc.stderr.strip() or proc.stdout.strip()}"
+
+        state_word = "ON" if args == "on" else "OFF" if args == "off" else "status"
+        return f"```\n{proc.stdout.strip()}\n```\n\nGODMODE {state_word} — new sessions pick this up immediately. Active sessions: `/new` to apply."
+
     async def _handle_reload_mcp_command(self, event: MessageEvent) -> Optional[str]:
         """Handle /reload-mcp — reconnect MCP servers and rebuild the cached agent.
 
