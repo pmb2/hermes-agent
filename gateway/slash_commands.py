@@ -5048,7 +5048,21 @@ class GatewaySlashCommandsMixin:
         home = os.environ.get("HERMES_HOME", "")
         script = Path(home) / "scripts" / "godmode_toggle.py" if home else Path(__file__).resolve().parents[1] / "scripts" / "godmode_toggle.py"
         if not script.exists():
-            script = Path(os.environ.get("APPDATA", str(Path.home()))) / "Local" / "hermes" / "scripts" / "godmode_toggle.py"
+            # Windows: HERMES_HOME/scripts lives under AppData\Local, but
+            # APPDATA points at AppData\Roaming — "Local" is a sibling of
+            # "Roaming", not a child. LOCALAPPDATA is canonical; derive from
+            # APPDATA's parent only when LOCALAPPDATA is absent.
+            local_appdata = os.environ.get("LOCALAPPDATA", "")
+            appdata = os.environ.get("APPDATA", "")
+            if local_appdata:
+                # LOCALAPPDATA already ends in ...\AppData\Local
+                local_root = Path(local_appdata)
+            elif appdata:
+                # APPDATA = ...\AppData\Roaming — Local is a sibling, not a child
+                local_root = Path(appdata).parent / "Local"
+            else:
+                local_root = Path.home() / "Local"
+            script = local_root / "hermes" / "scripts" / "godmode_toggle.py"
         if not script.exists():
             return "godmode_toggle.py not found in scripts/ — re-run setup."
 
