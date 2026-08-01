@@ -95,6 +95,16 @@ def _make_adapter(platform_val="telegram"):
 # Tests
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Module-wide env isolation: parent processes (cron/gateway) may run with
+# busy acks disabled — tests assert default-enabled behavior, so strip it.
+# ---------------------------------------------------------------------------
+
+@pytest.fixture(autouse=True)
+def _isolate_parent_env_ack_flag(monkeypatch):
+    monkeypatch.delenv("HERMES_GATEWAY_BUSY_ACK_ENABLED", raising=False)
+
+
 class TestBusySessionAck:
     """User sends a message while agent is running — should get acknowledgment."""
 
