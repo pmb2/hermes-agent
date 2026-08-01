@@ -77,6 +77,11 @@ class TestGodmodeScriptResolution:
     @pytest.mark.asyncio
     async def test_script_missing_returns_setup_hint(self, tmp_path, monkeypatch):
         monkeypatch.setenv("HERMES_HOME", str(tmp_path))  # no scripts/ inside
+        # Isolate from the host machine's Windows env: without clearing these,
+        # the fallback can resolve the real HERMES_HOME script and the test
+        # becomes environment-dependent.
+        monkeypatch.delenv("APPDATA", raising=False)
+        monkeypatch.delenv("LOCALAPPDATA", raising=False)
         runner = _make_runner()
         result = await runner._handle_godmode_command(_make_event("/godmode status"))
         assert "godmode_toggle.py not found" in result
@@ -92,6 +97,45 @@ class TestGodmodeScriptResolution:
         run.assert_called_once()
         # args passed through to the toggle script
         assert run.call_args.args[0][-1] == "status"
+
+
+class TestGodmodeAppDataFallback:
+    """The fallback must resolve AppData\\Local (where HERMES_HOME/scripts
+    lives on Windows) as a sibling of AppData\\Roaming (what APPDATA points
+    at), not a child of it. Regression tests for the dead Windows path."""
+
+    @pytest.mark.asyncio
+    async def test_script_found_via_localappdata_env(self, tmp_path, monkeypatch):
+        monkeypatch.delenv("HERMES_HOME", raising=False)
+        monkeypatch.delenv("APPDATA", raising=False)
+        local_hermes = tmp_path / "Local" / "hermes"
+        script_dir = local_hermes / "scripts"
+        script_dir.mkdir(parents=True)
+        (script_dir / "godmode_toggle.py").write_text("print('ok')\n")
+        # LOCALAPPDATA == <AppData>\Local
+        monkeypatch.setenv("LOCALAPPDATA", str(local_hermes.parent))
+        runner = _make_runner()
+        with patch("subprocess.run", return_value=_completed("GODMODE: OFF")) as run:
+            result = await runner._handle_godmode_command(_make_event("/godmode status"))
+        assert "GODMODE: OFF" in result
+        assert run.call_args.args[0][1] == str(script_dir / "godmode_toggle.py")
+
+    @pytest.mark.asyncio
+    async def test_script_found_via_appdata_sibling_local(self, tmp_path, monkeypatch):
+        # Windows APPDATA == <AppData>\Roaming; the script lives under
+        # <AppData>\Local — a sibling directory, not a child of Roaming.
+        monkeypatch.delenv("HERMES_HOME", raising=False)
+        monkeypatch.delenv("LOCALAPPDATA", raising=False)
+        local_hermes = tmp_path / "Local" / "hermes"
+        script_dir = local_hermes / "scripts"
+        script_dir.mkdir(parents=True)
+        (script_dir / "godmode_toggle.py").write_text("print('ok')\n")
+        monkeypatch.setenv("APPDATA", str(tmp_path / "Roaming"))
+        runner = _make_runner()
+        with patch("subprocess.run", return_value=_completed("GODMODE: OFF")) as run:
+            result = await runner._handle_godmode_command(_make_event("/godmode status"))
+        assert "GODMODE: OFF" in result
+        assert run.call_args.args[0][1] == str(script_dir / "godmode_toggle.py")
 
 
 class TestGodmodeExecution:
