@@ -691,6 +691,10 @@ def _sudo_stdin_block_result(description: str) -> dict:
 
 DANGEROUS_PATTERNS = [
     (r'\brm\s+(-[^\s]*\s+)*/', "delete in root path"),
+    # Home-relative deletions: Windows paths are normalized to ~/... before
+    # detection, so a non-recursive `rm -f ~/...` would otherwise slip through
+    # the /-rooted pattern above (it only matches /-prefixed paths).
+    (r'\brm\s+(-[^\s]*\s+)*~/', "delete in home directory"),
     (r'\brm\s+-[^\s]*r', "recursive delete"),
     (r'\brm\s+--recursive\b', "recursive delete (long flag)"),
     # GNU rm permutes options, so a recursive flag group may legally FOLLOW
@@ -2157,7 +2161,10 @@ def _command_detection_variants(command: str):
 def _is_verification_artifact_cleanup(command: str) -> bool:
     """Return whether *command* only removes one Hermes ad-hoc temp script."""
     try:
-        argv = shlex.split(command, posix=True)
+        # posix=True strips backslashes from Windows-native paths, making
+        # realpath resolution impossible (C:\Users\... → C:Users...). Keep
+        # them on Windows so the canonical-tempdir check below works.
+        argv = shlex.split(command, posix=(os.name != "nt"))
     except ValueError:
         return False
     if len(argv) != 3 or argv[0] != "rm" or argv[1] != "-f":
@@ -2166,9 +2173,25 @@ def _is_verification_artifact_cleanup(command: str) -> bool:
     operand = argv[2]
     temp_dir = os.path.realpath(tempfile.gettempdir())
     basename = os.path.basename(operand)
-    if operand != os.path.join(temp_dir, basename):
+
+    # Reject path traversal outright: realpath/normpath collapse `..`
+    # segments, so /tmp/nested/../hermes-verify-example.py would otherwise
+    # pass the canonical checks below. A cleanup exemption is only for a
+    # DIRECT child of the temp dir. Separator-agnostic (Windows \ and /).
+    if re.search(r"(?:^|[/\\])\.\.(?:[/\\]|$)", operand):
         return False
 
+    # Check 1: is the operand directly in the temp dir (no subdirectories)?
+    # Use abspath (not normpath) so Windows /tmp → C:\tmp mapping works.
+    # realpath handles symlink resolution in check 2 below.
+    operand_dir = os.path.dirname(os.path.abspath(operand))
+    if operand_dir != temp_dir:
+        return False
+
+    # Check 2: resolve symlinks — the canonical (realpath) must match.
+    # A path THROUGH a symlinked tempdir (linked-temp/...) resolves its dirname
+    # to the link, not the target, so check 1 rejects it: only the canonical
+    # target is exempt.
     target = os.path.realpath(operand)
     if os.path.dirname(target) != temp_dir:
         return False
