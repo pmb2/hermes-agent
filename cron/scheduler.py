@@ -2195,7 +2195,24 @@ def _windows_cron_python_invocation(python_exe: str) -> tuple[str, dict[str, str
             ]
             existing_pythonpath = os.environ.get("PYTHONPATH", "")
             if existing_pythonpath:
-                pythonpath_entries.append(existing_pythonpath)
+                # Drop inherited site-packages entries that belong to a DIFFERENT
+                # venv than the one resolved above. uv's known `.venv` vs `venv/`
+                # sibling footgun injects a stray venv's foreign-ABI packages
+                # (e.g. cp313 pydantic_core) ahead of this venv's site-packages,
+                # breaking imports fleet-wide (dashboard, MCP servers). Keep
+                # non-site-packages entries (repo roots, tool dirs) intact.
+                filtered = []
+                for entry in existing_pythonpath.split(os.pathsep):
+                    if not entry:
+                        continue
+                    p = Path(entry)
+                    if "site-packages" in p.parts:
+                        entry_venv = p.parents[1]  # <venv>/Lib/site-packages -> <venv>
+                        if os.path.normcase(str(entry_venv)) != os.path.normcase(str(venv_dir)):
+                            continue
+                    filtered.append(entry)
+                if filtered:
+                    pythonpath_entries.append(os.pathsep.join(filtered))
             env_overlay["PYTHONPATH"] = os.pathsep.join(pythonpath_entries)
 
     return str(interpreter), env_overlay

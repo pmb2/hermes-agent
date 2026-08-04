@@ -5,6 +5,7 @@ import itertools
 import json
 import logging
 import os
+import sys
 from unittest.mock import AsyncMock, patch, MagicMock
 
 import pytest
@@ -1899,5 +1900,53 @@ class TestSetCronSessionTitle:
         out = _set_cron_session_title(db, "sess-1", "Nightly Synthesis")
         assert out == "Nightly Synthesis #2"
         db.get_next_title_in_lineage.assert_called_once_with("Nightly Synthesis")
+
+
+class TestWindowsCronPythonInvocationVenvFilter:
+    """Regression: foreign-venv site-packages entries must not leak into the
+    cron job env overlay (uv `.venv` vs `venv/` sibling footgun)."""
+
+    def _make_fake_venv(self, tmp_path, name):
+        venv = tmp_path / name
+        (venv / "Lib" / "site-packages").mkdir(parents=True)
+        base = tmp_path / "base"
+        base.mkdir(exist_ok=True)
+        (base / "python.exe").write_text("")
+        (venv / "pyvenv.cfg").write_text(
+            "home = %s\nuv = 0.7.8\nversion_info = 3.13.3\n" % base
+        )
+        return venv
+
+    @pytest.mark.skipif(sys.platform != "win32", reason="Windows uv-venv launcher bypass path")
+    def test_stray_sibling_venv_site_packages_filtered(self, tmp_path, monkeypatch):
+        import cron.scheduler as scheduler_mod
+        venv = self._make_fake_venv(tmp_path, "venv")
+        stray = self._make_fake_venv(tmp_path, ".venv")
+        monkeypatch.setenv(
+            "PYTHONPATH",
+            str(tmp_path / "proj") + os.pathsep + str(stray / "Lib" / "site-packages"),
+        )
+        exe, overlay = scheduler_mod._windows_cron_python_invocation(
+            str(venv / "Scripts" / "python.exe")
+        )
+        pp = overlay["PYTHONPATH"]
+        assert ".venv" not in pp
+        assert str(venv / "Lib" / "site-packages") in pp
+        assert str(tmp_path / "proj") in pp  # non-site-packages entries preserved
+
+    @pytest.mark.skipif(sys.platform != "win32", reason="Windows uv-venv launcher bypass path")
+    def test_same_venv_and_tool_entries_preserved(self, tmp_path, monkeypatch):
+        import cron.scheduler as scheduler_mod
+        venv = self._make_fake_venv(tmp_path, "venv")
+        monkeypatch.setenv(
+            "PYTHONPATH",
+            str(venv / "Lib" / "site-packages") + os.pathsep + str(tmp_path / "tools"),
+        )
+        _, overlay = scheduler_mod._windows_cron_python_invocation(
+            str(venv / "Scripts" / "python.exe")
+        )
+        pp = overlay["PYTHONPATH"]
+        assert str(venv / "Lib" / "site-packages") in pp
+        assert str(tmp_path / "tools") in pp
 
 
