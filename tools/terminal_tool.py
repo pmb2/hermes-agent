@@ -2233,6 +2233,34 @@ def _resolve_command_cwd(
     return get_session_cwd(session_key) or default_cwd
 
 
+def _read_local_script_text(script_path: str, guard_cwd: str) -> Optional[str]:
+    """Read a referenced script from the local host, or None if not readable.
+
+    Mirrors the guard's own binary policy (``cron.lifecycle_guard._read_referenced_script``):
+    a file containing NUL bytes is a binary (PE/ELF/Mach-O), NOT a shell
+    script. NUL bytes are valid UTF-8, so decoding with ``errors="replace"``
+    preserves them, and the guard's recursive scan would tokenize machine code
+    into paths with embedded NUL characters — crashing ``os.open`` with
+    ``ValueError: embedded null character in path`` (#78372). Never return
+    decoded binary as script text.
+    """
+    try:
+        local_path = Path(script_path).expanduser()
+        if not local_path.is_absolute():
+            local_path = Path(guard_cwd) / local_path
+        if not local_path.is_file():
+            return None
+        metadata = local_path.stat()
+        if not stat.S_ISREG(metadata.st_mode) or metadata.st_size > 1024 * 1024:
+            return None
+        data = local_path.read_bytes()
+        if len(data) > 1024 * 1024 or b"\x00" in data:
+            return None
+        return data.decode("utf-8", errors="replace")
+    except Exception:
+        return None
+
+
 def terminal_tool(
     command: str,
     background: bool = False,
@@ -2536,23 +2564,19 @@ def terminal_tool(
                 """
                 if env is None:
                     return None
-                try:
-                    local_path = Path(script_path).expanduser()
-                    if not local_path.is_absolute():
-                        local_path = Path(guard_cwd) / local_path
-                    if local_path.is_file():
-                        metadata = local_path.stat()
-                        if stat.S_ISREG(metadata.st_mode) and metadata.st_size <= 1024 * 1024:
-                            data = local_path.read_bytes()
-                            if len(data) <= 1024 * 1024:
-                                return data.decode("utf-8", errors="replace")
-                except Exception:
-                    pass
+                local_text = _read_local_script_text(script_path, guard_cwd)
+                if local_text is not None:
+                    return local_text
                 # Remote / sandboxed backend: read via the environment's shell.
                 try:
                     result = env.execute(f"cat {shlex.quote(script_path)}")
                     if result.get("returncode", -1) == 0:
-                        return result.get("output", "")
+                        output = result.get("output", "")
+                        # Binary content over the wire carries NULs too; never
+                        # feed it to the guard's recursive scan (#78372).
+                        if isinstance(output, str) and "\x00" in output:
+                            return None
+                        return output
                 except Exception:
                     pass
                 return None

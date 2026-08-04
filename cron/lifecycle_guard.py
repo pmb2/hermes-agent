@@ -258,7 +258,10 @@ def _read_referenced_script(path: Path) -> tuple[Optional[str], bool]:
     flags = os.O_RDONLY | getattr(os, "O_NONBLOCK", 0)
     try:
         descriptor = os.open(path, flags)
-    except OSError:
+    except (OSError, ValueError):
+        # ValueError: embedded NUL in the path. Can arrive from a decoded
+        # binary token (see the NUL guard in _contains_unsafe_gateway_action);
+        # a guarded path must never crash the guard (#76762, #78372).
         return None, False
     try:
         metadata = os.fstat(descriptor)
@@ -328,6 +331,13 @@ def _contains_unsafe_gateway_action(
             # Local path missing; try the remote backend if one is available.
             script_text = read_remote_script(str(script_path))
         if not script_text:
+            continue
+        if "\x00" in script_text:
+            # Decoded binary (e.g. a small PE executable read through a
+            # remote-read fallback with errors="replace"). NUL bytes are valid
+            # UTF-8 and survive the decode; tokenizing machine code would
+            # produce paths with embedded NULs that crash os.open. Treat as
+            # noise, matching _read_referenced_script's own binary policy.
             continue
         # Relative references inside a script resolve against that script's
         # directory, not the original command's cwd.
