@@ -2306,6 +2306,14 @@ def _run_job_script(
                 "or rewrite the script as Python (.py)."
         )
         argv = [_bash, str(path)]
+        if sys.platform == "win32":
+            # git-bash (MSYS) mangles Windows backslash paths passed from a
+            # native Python subprocess (backslashes are eaten as escapes →
+            # exit 127 "No such file or directory" for every .sh job).
+            # Forward slashes are accepted by both MSYS bash and native
+            # Windows tools, so convert the script path before handing it
+            # to bash.
+            argv[1] = argv[1].replace("\\", "/")
         env_overlay: dict[str, str] = {}
     else:
         python_exe, env_overlay = _windows_cron_python_invocation(sys.executable)

@@ -372,6 +372,75 @@ class TestScriptPathContainment:
         assert "blocked" in output.lower() or "outside" in output.lower()
 
 
+class TestWindowsBashScriptPathConversion:
+    """Regression: git-bash mangles backslash .sh script paths (exit 127).
+
+    On Windows, _run_job_script() must convert the .sh script path to
+    forward slashes before passing it to git-bash — MSYS eats backslashes
+    as escapes, producing exit 127 "No such file or directory" for every
+    .sh job launched from a native Python subprocess.
+    """
+
+    def test_win32_sh_script_argv_uses_forward_slashes(self, cron_env, monkeypatch):
+        from cron import scheduler as sched_mod
+        from cron.scheduler import _run_job_script
+
+        script = cron_env / "scripts" / "job.sh"
+        script.write_text("echo ok\n")
+
+        captured = {}
+
+        def fake_run(argv, **kwargs):
+            captured["argv"] = argv
+            return SimpleNamespace(returncode=0, stdout="ok\n", stderr="")
+
+        monkeypatch.setattr(sched_mod.sys, "platform", "win32")
+        monkeypatch.setattr(
+            sched_mod.shutil,
+            "which",
+            lambda name: "C:\\Program Files\\Git\\bin\\bash.exe" if name == "bash" else None,
+        )
+        monkeypatch.setattr(sched_mod, "windows_hide_flags", lambda: 0x08000000)
+        monkeypatch.setattr(sched_mod.subprocess, "run", fake_run)
+
+        success, output = _run_job_script("job.sh")
+
+        assert success is True
+        assert output == "ok"
+        script_arg = captured["argv"][1]
+        # The fix: no backslashes may reach git-bash in the script path.
+        assert "\\" not in script_arg, f"backslash leaked into bash argv: {script_arg!r}"
+        assert script_arg == str(script.resolve()).replace("\\", "/")
+
+    def test_non_win32_sh_script_path_untouched(self, cron_env, monkeypatch):
+        """Non-Windows platforms keep the native path untouched."""
+        from cron import scheduler as sched_mod
+        from cron.scheduler import _run_job_script
+
+        script = cron_env / "scripts" / "job.sh"
+        script.write_text("echo ok\n")
+
+        captured = {}
+
+        def fake_run(argv, **kwargs):
+            captured["argv"] = argv
+            return SimpleNamespace(returncode=0, stdout="ok\n", stderr="")
+
+        monkeypatch.setattr(sched_mod.sys, "platform", "linux")
+        monkeypatch.setattr(
+            sched_mod.shutil,
+            "which",
+            lambda name: "/usr/bin/bash" if name == "bash" else None,
+        )
+        monkeypatch.setattr(sched_mod.subprocess, "run", fake_run)
+
+        success, output = _run_job_script("job.sh")
+
+        assert success is True
+        assert output == "ok"
+        assert captured["argv"][1] == str(script.resolve())
+
+
 class TestCronjobToolScriptValidation:
     """Test API-boundary validation of cron script paths in cronjob_tools."""
 
