@@ -2230,6 +2230,10 @@ _pending: dict[str, dict] = {}
 _session_approved: dict[str, set] = {}
 _session_yolo: set[str] = set()
 _permanent_approved: set = set()
+# Lazy-init flag: defer load_permanent_allowlist() until first access so that
+# tests can isolate HERMES_HOME before config is read (the module-level call
+# reads the real config at import time, before conftest can monkeypatch the env).
+_permanent_allowlist_loaded: bool = False
 
 # =========================================================================
 # Consecutive-denial circuit breaker for smart approvals
@@ -2486,6 +2490,7 @@ def is_approved(session_key: str, pattern_key: str) -> bool:
     Accept both the current canonical key and the legacy regex-derived key so
     existing command_allowlist entries continue to work after key migrations.
     """
+    load_permanent_allowlist()
     aliases = _approval_key_aliases(pattern_key)
     with _lock:
         if any(alias in _permanent_approved for alias in aliases):
@@ -2521,6 +2526,7 @@ def _command_matches_permanent_allowlist(command: str) -> bool:
     ``recursive delete``. Manual entries in ``command_allowlist`` are command
     text, and may include shell-style wildcards like ``podman *``.
     """
+    load_permanent_allowlist()
     command = (command or "").strip()
     if not command:
         return False
@@ -2553,7 +2559,14 @@ def load_permanent_allowlist() -> set:
 
     Also syncs them into the approval module so is_approved() works for
     patterns added via 'always' in a previous session.
+
+    Idempotent — only loads on first call so tests can isolate HERMES_HOME
+    before the config is read.
     """
+    global _permanent_allowlist_loaded
+    if _permanent_allowlist_loaded:
+        return set(_permanent_approved)
+    _permanent_allowlist_loaded = True
     try:
         from hermes_cli.config import load_config_readonly
         config = load_config_readonly()
@@ -4370,5 +4383,5 @@ def request_elicitation_consent(
     return "decline"
 
 
-# Load permanent allowlist from config on module import
-load_permanent_allowlist()
+# Permanent allowlist loaded lazily — first access triggers
+# load_permanent_allowlist() so config is read after HERMES_HOME isolation.

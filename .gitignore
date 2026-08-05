@@ -194,3 +194,10 @@ native/fts5_cjk/*.so
 # interrupted; consumed by launch-time recovery. Never commit it (was tracked
 # by accident via 3a69e34702, removed in the #72002 salvage).
 .lazy-refresh-incomplete
+
+# Forge hardening (restored Aug 5 2026)
+.coverage*
+.playwright-mcp/
+fr_*.json
+cron.db
+openai-recording-page.yml
