@@ -1265,6 +1265,50 @@ def switch_model(
     target_provider = current_provider
     resolved_moa_preset = False
 
+    # --- OmniRoute router bypass guard ---
+    # When the active provider is "omniroute", force ALL model switches to stay
+    # on the OmniRoute provider. Only the model name changes; the provider,
+    # base_url, and api_key remain pointing at OmniRoute.  This prevents
+    # switch_model() from resolving a different direct provider and bypassing
+    # the OmniRoute proxy/router.
+    _current_prov_norm = str(current_provider or "").strip().lower()
+    _current_base_url_norm = str(current_base_url or "").strip().rstrip("/").lower()
+    _is_omniroute_locked = (
+        _current_prov_norm == "omniroute"
+        or (
+            _current_prov_norm == "custom"
+            and _current_base_url_norm
+            and (
+                "omniroute" in _current_base_url_norm
+                or "localhost:20128" in _current_base_url_norm
+            )
+        )
+    )
+    if _is_omniroute_locked:
+        _explicit_prov_norm = str(explicit_provider or "").strip().lower()
+        if _explicit_prov_norm and _explicit_prov_norm != "omniroute":
+            return ModelSwitchResult(
+                success=False,
+                is_global=is_global,
+                error_message=(
+                    f"Cannot switch provider to '{explicit_provider}' — "
+                    f"model switching is locked to the OmniRoute router. "
+                    f"Use '/model <model-name>' to switch models through OmniRoute, "
+                    f"or change 'model.provider' in config.yaml directly."
+                ),
+            )
+        return ModelSwitchResult(
+            success=True,
+            new_model=new_model,
+            target_provider="omniroute",
+            provider_label="OmniRoute Router",
+            api_key=current_api_key,
+            base_url=current_base_url,
+            api_mode="",
+            is_global=is_global,
+            resolved_via_alias=resolved_alias,
+        )
+
     # =================================================================
     # PATH A: Explicit --provider given
     # =================================================================
@@ -1996,6 +2040,74 @@ def list_authenticated_providers(
     seen_slugs: set = set()  # lowercase-normalized to catch case variants (#9545)
     _current_provider_norm = str(current_provider or "").strip().lower()
     _current_base_url_norm = str(current_base_url or "").strip().rstrip("/").lower()
+
+    # --- 0. OmniRoute bypass guard ---
+    # When the active provider is "omniroute" (or any custom endpoint that acts
+    # as a router), skip ALL built-in provider scanning and only surface the
+    # OmniRoute / omniroute provider with models from its /v1/models endpoint.
+    # This prevents the /model picker from showing dozens of direct providers
+    # whose credentials may be stale/misconfigured — all model switching must
+    # flow through the OmniRoute router so the user only sees models OmniRoute
+    # actually serves.
+    _is_omniroute_router = (
+        _current_provider_norm == "omniroute"
+        or (
+            _current_provider_norm == "custom"
+            and _current_base_url_norm
+            and (
+                "omniroute" in _current_base_url_norm
+                or "localhost:20128" in _current_base_url_norm
+            )
+        )
+    )
+    if _is_omniroute_router:
+        _omniroute_models: list[str] = []
+        _omniroute_base = (
+            str(current_base_url or "").strip().rstrip("/")
+            or "http://localhost:20128/v1"
+        )
+        if current_model:
+            _omniroute_models.append(current_model)
+        try:
+            import urllib.request
+            import json as _json
+            _models_url = f"{_omniroute_base}/models"
+            _req = urllib.request.Request(
+                _models_url,
+                headers={"Accept": "application/json"},
+            )
+            with urllib.request.urlopen(_req, timeout=5) as _resp:
+                _body = _json.loads(_resp.read().decode("utf-8"))
+                if isinstance(_body, dict):
+                    _raw = _body.get("data") or _body.get("models") or []
+                elif isinstance(_body, list):
+                    _raw = _body
+                else:
+                    _raw = []
+                for _m in _raw:
+                    if isinstance(_m, dict):
+                        _mid = _m.get("id") or ""
+                    elif isinstance(_m, str):
+                        _mid = _m
+                    else:
+                        continue
+                    if _mid and _mid not in _omniroute_models:
+                        _omniroute_models.append(_mid)
+        except Exception:
+            pass
+        _top = _omniroute_models[:max_models] if max_models is not None else _omniroute_models
+        results.append({
+            "slug": "omniroute",
+            "name": "OmniRoute Router",
+            "is_current": True,
+            "is_user_defined": True,
+            "models": _top,
+            "total_models": len(_omniroute_models),
+            "source": "router",
+            "api_url": _omniroute_base,
+        })
+        seen_slugs.add("omniroute")
+        return results
 
     def _can_probe_custom_provider(*, row_is_current: bool) -> bool:
         return bool(probe_custom_providers or (probe_current_custom_provider and row_is_current))

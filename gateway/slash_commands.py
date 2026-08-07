@@ -1770,6 +1770,21 @@ class GatewaySlashCommandsMixin:
             current_base_url = override.get("base_url", current_base_url)
             current_api_key = override.get("api_key", current_api_key)
 
+        # --- OmniRoute router guard ---
+        # When the active provider is "omniroute", block any attempt to switch
+        # to a different provider. All model changes must flow through OmniRoute.
+        _current_prov_norm = str(current_provider or "").strip().lower()
+        _is_omniroute_locked = _current_prov_norm == "omniroute"
+        if _is_omniroute_locked and explicit_provider and explicit_provider.strip().lower() != "omniroute":
+            return t(
+                "gateway.model.error_prefix",
+                error=(
+                    f"Cannot switch provider to '{explicit_provider}' — "
+                    f"model switching is locked to the OmniRoute router. "
+                    f"Use '/model <model-name>' to switch models through OmniRoute."
+                ),
+            )
+
         # No args: show interactive picker (Telegram/Discord) or text list
         if not model_input and not explicit_provider:
             # Try interactive picker if the platform supports it
