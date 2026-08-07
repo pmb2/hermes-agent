@@ -17290,6 +17290,92 @@ _mount_plugin_api_routes()
 from hermes_cli.dashboard_auth.routes import router as _dashboard_auth_router  # noqa: E402
 app.include_router(_dashboard_auth_router)
 
+
+# --- HERMES_ONE_MODEL_LIBRARY_COMPAT_V1 -------------------------------------
+# Compatibility endpoint installed by Hermes One. Upstream Hermes Agent exposes
+# /api/model/options and /api/model/set, but Hermes One also needs a small
+# configured-model shortcut library for remote/SSH model pickers. The library is
+# deliberately stored in this agent's HERMES_HOME so remote shortcuts stay on
+# the remote host and survive desktop restarts without changing upstream model
+# assignment semantics. Pure helpers live in
+# hermes_cli/hermes_one_model_library.py (extracted 2026-07-31).
+from hermes_cli.hermes_one_model_library import (
+    _hermes_one_current_model_row,
+    _hermes_one_model_key,
+    _hermes_one_normalize_model_row,
+    _hermes_one_read_model_library,
+    _hermes_one_short_model_label,
+    _hermes_one_write_model_library,
+)
+
+
+@app.get("/api/model/library")
+def hermes_one_get_model_library():
+    rows = _hermes_one_read_model_library()
+    current = _hermes_one_current_model_row()
+    if current:
+        current_key = _hermes_one_model_key(current)
+        rows = [current] + [row for row in rows if _hermes_one_model_key(row) != current_key]
+    return {"models": rows}
+
+
+@app.post("/api/model/library")
+def hermes_one_add_model_library_row(body: Dict[str, Any]):
+    provider = str(body.get("provider", "") or "").strip()
+    model = str(body.get("model", "") or "").strip()
+    if not provider or not model:
+        raise HTTPException(status_code=400, detail="provider and model required")
+    base_url = str(body.get("baseUrl", body.get("base_url", "")) or "").strip()
+    name = str(body.get("name", "") or "").strip() or _hermes_one_short_model_label(model) or provider
+    rows = _hermes_one_read_model_library()
+    key = (provider.lower(), model.lower(), base_url.rstrip("/").lower())
+    for row in rows:
+        if _hermes_one_model_key(row) == key:
+            return row
+    row = {
+        "id": f"remote:library:{secrets.token_hex(8)}",
+        "name": name,
+        "provider": provider,
+        "model": model,
+        "baseUrl": base_url,
+        "createdAt": int(time.time() * 1000),
+    }
+    rows.append(row)
+    _hermes_one_write_model_library(rows)
+    return row
+
+
+@app.patch("/api/model/library/{model_id:path}")
+def hermes_one_update_model_library_row(model_id: str, body: Dict[str, Any]):
+    rows = _hermes_one_read_model_library()
+    for index, row in enumerate(rows):
+        if row.get("id") != model_id:
+            continue
+        next_row = dict(row)
+        for key in ("name", "provider", "model"):
+            if key in body:
+                next_row[key] = str(body.get(key, "") or "").strip()
+        if "baseUrl" in body or "base_url" in body:
+            next_row["baseUrl"] = str(body.get("baseUrl", body.get("base_url", "")) or "").strip()
+        normalized = _hermes_one_normalize_model_row(next_row, index)
+        if not normalized:
+            raise HTTPException(status_code=400, detail="provider and model required")
+        rows[index] = normalized
+        _hermes_one_write_model_library(rows)
+        return {"ok": True, "model": normalized}
+    raise HTTPException(status_code=404, detail="model not found")
+
+
+@app.delete("/api/model/library/{model_id:path}")
+def hermes_one_delete_model_library_row(model_id: str):
+    rows = _hermes_one_read_model_library()
+    filtered = [row for row in rows if row.get("id") != model_id]
+    if len(filtered) == len(rows):
+        raise HTTPException(status_code=404, detail="model not found")
+    _hermes_one_write_model_library(filtered)
+    return {"ok": True}
+# --- /HERMES_ONE_MODEL_LIBRARY_COMPAT_V1 ------------------------------------
+
 mount_spa(app)
 
 
