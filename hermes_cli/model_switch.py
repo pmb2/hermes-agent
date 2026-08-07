@@ -2069,28 +2069,15 @@ def list_authenticated_providers(
         if current_model:
             _omniroute_models.append(current_model)
         try:
-            import urllib.request
-            import json as _json
-            _models_url = f"{_omniroute_base}/models"
-            _req = urllib.request.Request(
-                _models_url,
-                headers={"Accept": "application/json"},
+            from hermes_cli.models import cached_fetch_api_models
+
+            _live_models = cached_fetch_api_models(
+                "",
+                _omniroute_base,
+                timeout=1.5 if for_picker else 5.0,  # picker: fail fast on a slow router endpoint
             )
-            with urllib.request.urlopen(_req, timeout=5) as _resp:
-                _body = _json.loads(_resp.read().decode("utf-8"))
-                if isinstance(_body, dict):
-                    _raw = _body.get("data") or _body.get("models") or []
-                elif isinstance(_body, list):
-                    _raw = _body
-                else:
-                    _raw = []
-                for _m in _raw:
-                    if isinstance(_m, dict):
-                        _mid = _m.get("id") or ""
-                    elif isinstance(_m, str):
-                        _mid = _m
-                    else:
-                        continue
+            if _live_models:
+                for _mid in _live_models:
                     if _mid and _mid not in _omniroute_models:
                         _omniroute_models.append(_mid)
         except Exception:
@@ -2810,8 +2797,8 @@ def list_authenticated_providers(
             )
             if should_probe:
                 try:
-                    from hermes_cli.models import fetch_api_models
-                    live_models = fetch_api_models(
+                    from hermes_cli.models import cached_fetch_api_models
+                    live_models = cached_fetch_api_models(
                         api_key,
                         api_url,
                         timeout=1.5 if for_picker else 5.0,  # picker: fail fast so a slow custom endpoint doesn't block /model
@@ -2880,9 +2867,9 @@ def list_authenticated_providers(
         _models = [current_model] if current_model else []
         if refresh or probe_current_custom_provider:
             try:
-                from hermes_cli.models import fetch_api_models
+                from hermes_cli.models import cached_fetch_api_models
 
-                _live_models = fetch_api_models(
+                _live_models = cached_fetch_api_models(
                     "",
                     str(current_base_url).strip().rstrip("/"),
                     timeout=1.5 if for_picker else 5.0,  # picker: fail fast on a slow current endpoint
@@ -3124,9 +3111,9 @@ def list_authenticated_providers(
             )
             if should_probe:
                 try:
-                    from hermes_cli.models import fetch_api_models
+                    from hermes_cli.models import cached_fetch_api_models
 
-                    live_models = fetch_api_models(
+                    live_models = cached_fetch_api_models(
                         api_key,
                         api_url,
                         timeout=1.5 if for_picker else 5.0,  # picker: fail fast so a slow custom endpoint doesn't block /model
