@@ -3008,6 +3008,7 @@ class AIAgent:
                 task_id=task_id,
                 turn_id=turn_id,
                 api_request_id=api_request_id,
+                agent=self,
                 session_id=self.session_id or "",
                 platform=self.platform or "",
                 model=self.model,
