@@ -260,6 +260,14 @@ _GATEWAY_RATE_LIMIT_RE = re.compile(
     re.IGNORECASE,
 )
 
+_GATEWAY_CONNECTION_ERROR_RE = re.compile(
+    r"(connection\s+(?:refused|failed|error|reset)|unreachable|"
+    r"can't\s+connect|cannot\s+connect|couldn't\s+connect|"
+    r"timed?\s*out|timeout|network\s+(?:error|unreachable)|"
+    r"server\s+(?:error|unavailable)|\b502\b|\b503\b|\b504\b)",
+    re.IGNORECASE,
+)
+
 _GATEWAY_SECRET_PATTERNS = (
     re.compile(r"\bsk-[A-Za-z0-9][A-Za-z0-9_\-]{12,}\b"),
     re.compile(r"\bgh[pousr]_[A-Za-z0-9_]{20,}\b"),
@@ -520,22 +528,38 @@ def _format_exec_approval_fallback(
 
 
 def _gateway_provider_error_reply(text: str) -> str:
-    """Map raw provider/API errors to a short user-safe Telegram reply."""
+    """Map raw provider/API errors to a short, specific, user-safe reply.
+
+    The messages describe WHAT failed and WHAT is being done about it, so the
+    user understands the recovery path instead of a vague "provider failed"
+    envelope. Recovery (restarting OmniRoute / switching tiers) happens
+    silently in the background; these lines are only the terminal fallback.
+    """
+    # Connection / router-down: most common cause is OmniRoute being down.
+    if _GATEWAY_CONNECTION_ERROR_RE.search(text) or "localhost:20128" in str(text):
+        return (
+            "⚠️ The model router is unreachable — auto-restarting it, then "
+            "retrying. If that fails I'll switch to the emergency model, "
+            "please hold.."
+        )
     if _GATEWAY_AUTH_ERROR_RE.search(text):
         return (
-            "⚠️ Provider authentication failed. Check the configured credentials; "
-            "raw provider details are in the gateway logs."
+            "⚠️ A provider's credentials failed. I'm rotating to the next "
+            "available account, please hold.."
         )
     if _GATEWAY_PROVIDER_POLICY_RE.search(text):
         return (
-            "⚠️ The model provider rejected the request. I kept the raw provider "
-            "error out of chat; check gateway logs for details or try rephrasing."
+            "⚠️ The model provider rejected that request. I'm switching to a "
+            "different model to try again."
         )
     if _GATEWAY_RATE_LIMIT_RE.search(text):
-        return "⏱️ The model provider is rate-limiting requests. Please wait a moment and try again."
+        return (
+            "⏱️ That model is rate-limited. I'm switching to the next "
+            "provider/account, please hold.."
+        )
     return (
-        "⚠️ The model provider failed after retries. I kept raw provider details "
-        "out of chat; check gateway logs for diagnostics."
+        "⚠️ A model provider failed after retries. I'm switching to the next "
+        "available model to keep going — please hold.."
     )
 
 
