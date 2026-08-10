@@ -467,6 +467,108 @@ class TestSearchFilesFallbackHiddenPaths:
         assert set(result.files) == {str(visible_file), str(visible_nested_file)}
 
 
+class TestNativeToolArg:
+    """_native_tool_arg: MSYS drive paths must be converted to native form for
+    native child tools (rg/grep) because Hermes disables MSYS path conversion
+    (MSYS_NO_PATHCONV=1 / MSYS2_ARG_CONV_EXCL=*), so a '/c/...' search root
+    reaches native rg.exe verbatim and fails with 'os error 2'."""
+
+    @staticmethod
+    def _translate_only_msys(p):
+        return r"E:\BackusData\foo" if p == "/e/BackusData/foo" else p
+
+    def test_msys_drive_path_converted_to_native(self, monkeypatch):
+        import tools.environments.local as local_mod
+        monkeypatch.setattr(local_mod, "_msys_to_windows_path", self._translate_only_msys)
+        from tools.file_operations import _native_tool_arg
+        assert _native_tool_arg("/e/BackusData/foo") == r"'E:\BackusData\foo'"
+
+    def test_native_and_relative_paths_unchanged(self, monkeypatch):
+        import tools.environments.local as local_mod
+        monkeypatch.setattr(local_mod, "_msys_to_windows_path", lambda p: p)
+        from tools.file_operations import _native_tool_arg
+        assert _native_tool_arg(r"E:\BackusData\foo") == r"'E:\BackusData\foo'"
+        assert _native_tool_arg("src/foo.py") == "'src/foo.py'"
+        assert _native_tool_arg(".") == "'.'"
+
+    def test_embedded_single_quote_escaped(self, monkeypatch):
+        import tools.environments.local as local_mod
+        monkeypatch.setattr(local_mod, "_msys_to_windows_path", lambda p: p)
+        from tools.file_operations import _native_tool_arg
+        assert _native_tool_arg("it's") == "'it'\"'\"'s'"
+
+
+@pytest.mark.skipif(os.name != "nt", reason="MSYS path conversion is Windows-specific")
+class TestSearchFilesRgNativePathWindows:
+    """Real-subprocess regression (Windows only): an MSYS-form search root
+    ('/c/Users/...') must be converted back to native form before it reaches
+    native rg.exe. Runs the generated command through git-bash with
+    MSYS_NO_PATHCONV=1 exactly like the production terminal backend.
+
+    NOTE: shutil.which("bash") in a native Python process resolves to
+    C:\\Windows\\System32\\bash.exe — the WSL launcher, where MSYS_NO_PATHCONV
+    is meaningless and Windows paths are not valid Linux paths. The real
+    git-bash (MSYS) must be located explicitly."""
+
+    @staticmethod
+    def _git_bash() -> str:
+        import shutil
+        candidates = []
+        git = shutil.which("git")
+        if git:
+            candidates.append(str(Path(git).resolve().parent.parent / "bin" / "bash.exe"))
+        candidates += [
+            r"C:\Program Files\Git\bin\bash.exe",
+            r"C:\Program Files\Git\usr\bin\bash.exe",
+            r"C:\Program Files (x86)\Git\bin\bash.exe",
+        ]
+        for cand in candidates:
+            if Path(cand).exists():
+                return cand
+        return ""
+
+    def _make_env(self, cwd):
+        env = MagicMock()
+        env.cwd = cwd
+        bash = self._git_bash()
+
+        def execute(command, **kwargs):
+            if not bash:
+                raise RuntimeError("git-bash not found; cannot run MSYS-path regression")
+            completed = subprocess.run(
+                [bash, "-c", command],
+                text=True,
+                capture_output=True,
+                env={**os.environ, "MSYS_NO_PATHCONV": "1", "MSYS2_ARG_CONV_EXCL": "*"},
+            )
+            return {"output": completed.stdout, "returncode": completed.returncode}
+
+        env.execute = execute
+        return env
+
+    def test_msys_form_root_reaches_native_rg(self, tmp_path):
+        import shutil
+        if shutil.which("rg") is None:
+            pytest.skip("rg not installed")
+        if not self._git_bash():
+            pytest.skip("git-bash not installed")
+        root = tmp_path / "rgroot"
+        root.mkdir()
+        (root / "alpha.py").write_text("x = 1\n")
+        (root / "beta.py").write_text("y = 2\n")
+        # MSYS form of the root — exactly what _bash_safe_path/_escape_shell_arg produce
+        msys_root = re.sub(r"^([A-Za-z]):", r"/\1", str(root).replace("\\", "/"))
+        assert msys_root.startswith("/"), f"expected MSYS-form root, got {msys_root!r}"
+        ops = ShellFileOperations(self._make_env(str(root)))
+        result = ops._search_files_rg("*.py", msys_root, limit=50, offset=0)
+        normalized = {f.replace("\\", "/") for f in result.files}
+        expected = {
+            str(root / "alpha.py").replace("\\", "/"),
+            str(root / "beta.py").replace("\\", "/"),
+        }
+        assert normalized == expected
+
+
 class TestShellFileOpsWriteDenied:
     def test_write_file_denied_path(self, file_ops):
         result = file_ops.write_file("~/.ssh/authorized_keys", "evil key")

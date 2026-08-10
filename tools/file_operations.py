@@ -43,6 +43,35 @@ from agent.file_safety import (
 )
 
 
+def _native_tool_arg(path: str) -> str:
+    """Return *path* single-quoted for a native child tool (rg/grep) on Windows.
+
+    Hermes runs searches through Git Bash on Windows but sets
+    ``MSYS_NO_PATHCONV=1``/``MSYS2_ARG_CONV_EXCL=*`` so MSYS will NOT rewrite
+    POSIX-style arguments for native child executables. A search root written
+    in MSYS form (``/e/BackusData/...``) therefore reaches the native
+    ``rg.exe`` verbatim and fails with ``os error 2`` ("The system cannot find
+    the file specified"), even though ``test -e /e/...`` resolves fine inside
+    bash.
+
+    This helper converts a drive-qualified MSYS path back to its native
+    ``E:\\BackusData\\...`` form and single-quotes it WITHOUT the usual
+    ``_bash_safe_path`` MSYS rewrite (that rewrite is what re-corrupts the path
+    for native tools). Single quotes preserve the backslashes verbatim for
+    ``rg``/``grep``, which accept native Windows paths. Off-Windows and for any
+    non-drive path it falls back to the standard shell escaping so behavior is
+    unchanged.
+    """
+    try:
+        from tools.environments.local import _msys_to_windows_path
+        native = _msys_to_windows_path(path)
+        if native != path:
+            return "'" + native.replace("'", "'\"'\"'") + "'"
+    except Exception:  # pragma: no cover - defensive
+        pass
+    return "'" + path.replace("'", "'\"'\"'") + "'"
+
+
 # ---------------------------------------------------------------------------
 # Write-path deny list — blocks writes to sensitive system/credential files
 # ---------------------------------------------------------------------------
@@ -2472,10 +2501,11 @@ class ShellFileOperations(FileOperations):
             glob_pattern = pattern
 
         fetch_limit = limit + offset
+        rg_path = _native_tool_arg(path)
         # Try mtime-sorted first (rg 13+); fall back to unsorted if not supported.
         cmd_sorted = (
             f"rg --files --sortr=modified -g {self._escape_shell_arg(glob_pattern)} "
-            f"{self._escape_shell_arg(path)} 2>/dev/null "
+            f"{rg_path} 2>/dev/null "
             f"| head -n {fetch_limit}"
         )
         result = self._exec(cmd_sorted, timeout=60)
@@ -2486,7 +2516,7 @@ class ShellFileOperations(FileOperations):
             # --sortr may have failed on older rg; retry without it.
             cmd_plain = (
                 f"rg --files -g {self._escape_shell_arg(glob_pattern)} "
-                f"{self._escape_shell_arg(path)} 2>/dev/null "
+                f"{rg_path} 2>/dev/null "
                 f"| head -n {fetch_limit}"
             )
             result = self._exec(cmd_plain, timeout=60)
@@ -2570,7 +2600,7 @@ class ShellFileOperations(FileOperations):
         
         # Add pattern and path
         cmd_parts.append(self._escape_shell_arg(pattern))
-        cmd_parts.append(self._escape_shell_arg(path))
+        cmd_parts.append(_native_tool_arg(path))
         
         # Fetch extra rows so we can report the true total before slicing.
         # For context mode, rg emits separator lines ("--") between groups,
@@ -2706,7 +2736,7 @@ class ShellFileOperations(FileOperations):
         
         # Add pattern and path
         cmd_parts.append(self._escape_shell_arg(pattern))
-        cmd_parts.append(self._escape_shell_arg(path))
+        cmd_parts.append(_native_tool_arg(path))
         
         # Fetch generously so we can compute total before slicing
         fetch_limit = limit + offset + (200 if context > 0 else 0)
