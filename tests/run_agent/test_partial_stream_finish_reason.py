@@ -379,6 +379,120 @@ class TestContentFilterStallActivatesFallback:
 
 
 
+class TestPersistentTruncationActivatesFallback:
+    """Regression for the 'Response remained truncated after 4 continuation
+    attempts' failures: when a response is repeatedly cut by the OUTPUT
+    LENGTH limit (finish_reason=length, NOT a content-filter tag), the loop
+    used to burn all 4 continuation attempts against the SAME provider and
+    then hard-fail with a dead turn.  Now it escalates to the next configured
+    fallback provider before giving up — mirroring the content-filter
+    escalation — so the fallback (e.g. a larger-output model) can finish
+    the turn instead of dropping it."""
+
+    def test_length_truncation_activates_fallback_after_4_attempts(self, loop_agent):
+        from tests.run_agent.test_run_agent import _mock_response, _mock_assistant_msg
+
+        def _truncated(content, i):
+            return SimpleNamespace(
+                id=f"resp_{i}",
+                model="test/model",
+                choices=[SimpleNamespace(
+                    index=0,
+                    message=_mock_assistant_msg(content=content),
+                    finish_reason=FINISH_REASON_LENGTH,
+                )],
+                usage=None,
+            )
+
+        recovery = _mock_response(
+            content="Completed on the fallback provider.", finish_reason="stop",
+        )
+
+        # 4 output-length truncations, then the fallback provider completes.
+        loop_agent.client.chat.completions.create.side_effect = [
+            _truncated("part one ", 1),
+            _truncated("part two ", 2),
+            _truncated("part three ", 3),
+            _truncated("part four ", 4),
+            recovery,
+        ]
+        loop_agent._fallback_chain = [
+            {"provider": "deepseek", "model": "deepseek-v4-flash"},
+        ]
+        loop_agent._fallback_index = 0
+        fb_calls = {"n": 0}
+
+        def _fake_activate(reason=None):
+            fb_calls["n"] += 1
+            loop_agent._fallback_index = len(loop_agent._fallback_chain)
+            return True
+
+        with (
+            patch.object(loop_agent, "_persist_session"),
+            patch.object(loop_agent, "_save_trajectory"),
+            patch.object(loop_agent, "_cleanup_task_resources"),
+            patch.object(loop_agent, "_try_activate_fallback",
+                         side_effect=_fake_activate),
+        ):
+            result = loop_agent.run_conversation("write a very long report")
+
+        assert fb_calls["n"] == 1, (
+            "Persistent length-truncation must activate the fallback provider "
+            "once instead of returning the 'remained truncated' error."
+        )
+        assert result["final_response"] == "Completed on the fallback provider."
+        assert result["completed"] is True
+        assert result.get("error") is None
+
+    def test_no_fallback_chain_still_returns_truncated_error(self, loop_agent):
+        """With no configured fallback chain the loop keeps returning the
+        original 'Response remained truncated' error (unchanged behavior)."""
+        from tests.run_agent.test_run_agent import _mock_response, _mock_assistant_msg
+
+        def _truncated(content, i):
+            return SimpleNamespace(
+                id=f"resp_{i}",
+                model="test/model",
+                choices=[SimpleNamespace(
+                    index=0,
+                    message=_mock_assistant_msg(content=content),
+                    finish_reason=FINISH_REASON_LENGTH,
+                )],
+                usage=None,
+            )
+
+        loop_agent._fallback_chain = []
+        loop_agent._fallback_index = 0
+        loop_agent.client.chat.completions.create.side_effect = [
+            _truncated("part one ", 1),
+            _truncated("part two ", 2),
+            _truncated("part three ", 3),
+            _truncated("part four ", 4),
+        ]
+        fb_calls = {"n": 0}
+
+        def _fake_activate(reason=None):
+            fb_calls["n"] += 1
+            return False
+
+        with (
+            patch.object(loop_agent, "_persist_session"),
+            patch.object(loop_agent, "_save_trajectory"),
+            patch.object(loop_agent, "_cleanup_task_resources"),
+            patch.object(loop_agent, "_try_activate_fallback",
+                         side_effect=_fake_activate),
+        ):
+            result = loop_agent.run_conversation("write a very long report")
+
+        assert fb_calls["n"] == 0, (
+            "With an empty fallback chain the loop must NOT attempt "
+            "fallback activation and must return the original error."
+        )
+        assert result["completed"] is False
+        assert "truncated after 4 continuation attempts" in (result.get("error") or "")
+
+
+
 class TestEmptyPartialStreamStubNotPersisted:
     """Regression for the session-poisoning bug hit with moonshotai/kimi-k3
     via OpenRouter (2026-07-20): a stream dropped mid-``write_file`` tool

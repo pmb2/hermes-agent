@@ -3100,6 +3100,43 @@ def run_conversation(
                                 _retry.restart_with_length_continuation = True
                                 break
 
+                            # ── Persistent truncation → fallback escalation ──
+                            # The output cap / reasoning-heavy truncation can be
+                            # deterministic for THIS provider: every continuation
+                            # against the same model just re-hits the same wall
+                            # (e.g. a small local model, or a free tier with a
+                            # reduced max output).  Before giving up with a hard
+                            # "remained truncated" error, escalate to the next
+                            # configured fallback provider — mirroring the
+                            # content-filter escalation above.  A fresh provider
+                            # with a larger output budget often completes the turn
+                            # instead of dropping it.
+                            if agent._fallback_index < len(agent._fallback_chain):
+                                agent._vprint(
+                                    f"{agent.log_prefix}⚠️  Response truncated after "
+                                    f"{length_continue_retries} continuation "
+                                    f"attempts — activating fallback provider...",
+                                    force=True,
+                                )
+                                agent._emit_status(
+                                    "Response truncated; switching to fallback provider..."
+                                )
+                                if agent._try_activate_fallback():
+                                    # Roll the partial content (if any was already
+                                    # appended in a prior continuation pass) back to
+                                    # the last clean turn so the fallback provider
+                                    # gets a coherent continuation point.
+                                    if truncated_response_parts:
+                                        messages = agent._get_messages_up_to_last_assistant(messages)
+                                    agent._session_messages = messages
+                                    length_continue_retries = 0
+                                    truncated_response_parts = []
+                                    retry_count = 0
+                                    compression_attempts = 0
+                                    _retry.primary_recovery_attempted = False
+                                    _retry.restart_with_rebuilt_messages = True
+                                    break
+
                             partial_response = agent._strip_think_blocks("".join(truncated_response_parts)).strip()
                             agent._cleanup_task_resources(effective_task_id)
                             agent._persist_session(messages, conversation_history)
