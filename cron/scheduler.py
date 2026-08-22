@@ -3548,23 +3548,42 @@ def run_job(
         # Run the agent with an *inactivity*-based timeout: the job can run
         # for hours if it's actively calling tools / receiving stream tokens,
         # but a hung API call or stuck tool with no activity for the configured
-        # duration is caught and killed.  Default 600s (10 min inactivity);
-        # override via HERMES_CRON_TIMEOUT env var.  0 = unlimited.
+        # duration is caught and killed.  Default 600s (10 min inactivity).
+        # Resolution order: config.yaml `cron.inactivity_timeout` → the
+        # HERMES_CRON_TIMEOUT env var (legacy bridge) → 600s default.  0 = unlimited.
+        #
+        # A slow-but-working non-streaming provider can legitimately exceed the
+        # default 600s inactivity cap on a single in-flight request, so the
+        # config override lets operators raise the limit without killing
+        # healthy-but-slow jobs.  Mirrors the `cron.session_db_timeout_seconds`
+        # config-bridge pattern.
         #
         # Uses the agent's built-in activity tracker (updated by
         # _touch_activity() on every tool call, API call, and stream delta).
-        _raw_cron_timeout = os.getenv("HERMES_CRON_TIMEOUT", "").strip()
-        if _raw_cron_timeout:
-            try:
-                _cron_timeout = float(_raw_cron_timeout)
-            except (ValueError, TypeError):
-                logger.warning(
-                    "Invalid HERMES_CRON_TIMEOUT=%r; using default 600s",
-                    _raw_cron_timeout,
-                )
+        _cron_timeout: float | None = None
+        try:
+            _user_cron_cfg = load_config().get("cron") or {}
+            if isinstance(_user_cron_cfg, dict) and _user_cron_cfg.get("inactivity_timeout") is not None:
+                _cfg_inactivity = float(_user_cron_cfg["inactivity_timeout"])
+                if _cfg_inactivity >= 0:
+                    _cron_timeout = _cfg_inactivity
+        except Exception:
+            logger.debug(
+                "Failed to load cron.inactivity_timeout from config", exc_info=True
+            )
+        if _cron_timeout is None:
+            _raw_cron_timeout = os.getenv("HERMES_CRON_TIMEOUT", "").strip()
+            if _raw_cron_timeout:
+                try:
+                    _cron_timeout = float(_raw_cron_timeout)
+                except (ValueError, TypeError):
+                    logger.warning(
+                        "Invalid HERMES_CRON_TIMEOUT=%r; using default 600s",
+                        _raw_cron_timeout,
+                    )
+                    _cron_timeout = 600.0
+            else:
                 _cron_timeout = 600.0
-        else:
-            _cron_timeout = 600.0
         _cron_inactivity_limit = _cron_timeout if _cron_timeout > 0 else None
         _POLL_INTERVAL = 5.0
         # Keep the one-shot run_claim fresh while the run is alive (#62002):

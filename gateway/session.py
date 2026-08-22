@@ -28,6 +28,38 @@ def _now() -> datetime:
     return datetime.now()
 
 
+def _coerce_datetime(value: Any) -> Optional[datetime]:
+    """Parse an ISO-ish string into a datetime; return None on absence/error.
+
+    Mirrors the previous ``datetime.fromisoformat``-only read but tolerates the
+    extra whitespace and ``Z``/offset suffixes that handlers write (modern
+    ``datetime.fromisoformat`` in 3.11 handles most of these itself).
+    """
+    if not value:
+        return None
+    if isinstance(value, datetime):
+        return value
+    try:
+        return datetime.fromisoformat(str(value))
+    except (TypeError, ValueError):
+        return None
+
+
+def _coerce_local_naive(dt: Optional[datetime]) -> Optional[datetime]:
+    """Return ``dt`` as an offset-naive datetime in local (wall) time.
+
+    Persisted entries round-trip through ``fromisoformat``; an entry written by
+    an older build or a timezone-aware handler may carry a tzinfo offset even
+    though the rest of this module (``_now()``) is naive. Comparing such a
+    value against naive now raises ``TypeError: can't subtract offset-naive and
+    offset-aware datetimes`` and crashed the gateway during resume scheduling.
+    Normalize to naive local time so every subtraction site is consistent.
+    """
+    if dt is None or dt.tzinfo is None:
+        return dt
+    return dt.astimezone().replace(tzinfo=None)
+
+
 # Default auto-continue freshness window in seconds (1 hour).  A session
 # interrupted by a restart is only auto-resumed — and only returned by
 # ``get_or_create_session`` — while it stays within this window of when
@@ -915,13 +947,9 @@ class SessionEntry:
             except ValueError as e:
                 logger.debug("Unknown platform value %r: %s", data["platform"], e)
 
-        last_resume_marked_at = None
-        _lrma = data.get("last_resume_marked_at")
-        if _lrma:
-            try:
-                last_resume_marked_at = datetime.fromisoformat(_lrma)
-            except (TypeError, ValueError):
-                last_resume_marked_at = None
+        last_resume_marked_at = _coerce_local_naive(
+            _coerce_datetime(data.get("last_resume_marked_at"))
+        )
 
         session_key = data["session_key"]
         session_id = data["session_id"]
@@ -945,8 +973,8 @@ class SessionEntry:
         return cls(
             session_key=session_key,
             session_id=session_id,
-            created_at=datetime.fromisoformat(data["created_at"]),
-            updated_at=datetime.fromisoformat(data["updated_at"]),
+            created_at=_coerce_local_naive(_coerce_datetime(data.get("created_at"))),
+            updated_at=_coerce_local_naive(_coerce_datetime(data.get("updated_at"))),
             origin=origin,
             display_name=data.get("display_name"),
             platform=platform,

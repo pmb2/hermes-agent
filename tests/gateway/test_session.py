@@ -1054,6 +1054,62 @@ class TestSessionEntryFromDictTraversalValidation:
             SessionEntry.from_dict(self._entry(session_id="good/../bad"))
 
 
+class TestSessionEntryFromDictTimezoneNormalization:
+    """Regression: from_dict must normalize persisted datetimes to naive local time.
+
+    Entries round-trip through ``datetime.fromisoformat``; data written by an
+    older build (or a timezone-aware handler) can carry a ``+00:00``/``Z``
+    offset while ``_now()`` is naive. Comparing the two raised
+    ``TypeError: can't subtract offset-naive and offset-aware datetimes`` and
+    crashed the gateway during resume scheduling. See #hermes-resume-loop.
+    """
+
+    BASE = {
+        "session_key": "agent:main:local:dm",
+        "session_id": "abc123",
+        "created_at": "2026-01-01T00:00:00",
+        "updated_at": "2026-01-01T00:00:00",
+        "last_resume_marked_at": None,
+    }
+
+    def _entry(self, **overrides):
+        from gateway.session import SessionEntry as _S
+        return {**self.BASE, **overrides}
+
+    def assert_naive(self, dt):
+        assert dt is not None
+        assert dt.tzinfo is None
+
+    def test_naive_iso_round_trip_stays_naive(self):
+        from gateway.session import SessionEntry
+        entry = SessionEntry.from_dict(self._entry())
+        self.assert_naive(entry.created_at)
+        self.assert_naive(entry.updated_at)
+
+    def test_offset_aware_updated_at_is_normalized_to_naive(self):
+        from gateway.session import SessionEntry
+        entry = SessionEntry.from_dict(
+            self._entry(updated_at="2026-01-01T00:00:00+00:00")
+        )
+        self.assert_naive(entry.updated_at)
+
+    def test_offset_aware_last_resume_marked_at_is_normalized_to_naive(self):
+        from gateway.session import SessionEntry
+        entry = SessionEntry.from_dict(
+            self._entry(last_resume_marked_at="2026-01-01T00:00:00+05:00")
+        )
+        self.assert_naive(entry.last_resume_marked_at)
+
+    def test_normalized_values_are_subtractable_from_now(self):
+        from datetime import datetime
+        from gateway.session import SessionEntry
+        entry = SessionEntry.from_dict(
+            self._entry(last_resume_marked_at="2026-01-01T00:00:00+00:00")
+        )
+        delta = (datetime.now() - entry.last_resume_marked_at).total_seconds()
+        assert delta > 0
+
+
 class TestSessionEntryFromDictGoogleChatKeyAccepted:
     """Regression: from_dict must accept Google Chat session_keys with interior '/'.
 

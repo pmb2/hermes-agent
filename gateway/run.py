@@ -10416,6 +10416,14 @@ class GatewayRunner(GatewayAuthorizationMixin, GatewayKanbanWatchersMixin, Gatew
         scheduled = 0
         for entry in candidates:
             marker = entry.last_resume_marked_at or entry.updated_at
+            # Resume markers are persisted via ``SessionEntry.to_dict()``/``from_dict()``
+            # (``datetime.fromisoformat``), so an entry loaded from state.db may carry a
+            # timezone offset even though ``_now()``/``datetime.now()`` here is naive.
+            # Comparing them directly raises ``TypeError: can't subtract offset-naive and
+            # offset-aware datetimes`` and crashed the gateway on startup, wedging the
+            # watchdog in a restart loop. Normalize to naive local time before subtracting.
+            if marker is not None and marker.tzinfo is not None:
+                marker = marker.astimezone().replace(tzinfo=None)
             if marker is not None and (now - marker).total_seconds() > window:
                 continue
 

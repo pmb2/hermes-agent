@@ -208,6 +208,7 @@ CREATE TABLE IF NOT EXISTS sessions (
     system_prompt TEXT,
     system_prompt_hash TEXT,
     parent_session_id TEXT,
+    created_at REAL,
     started_at REAL NOT NULL,
     ended_at REAL,
     end_reason TEXT,
