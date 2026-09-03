@@ -33,8 +33,17 @@ from hermes_constants import (
 class TestGetDefaultHermesRoot:
     """Tests for get_default_hermes_root() — Docker/custom deployment awareness."""
 
-    def test_no_hermes_home_returns_native(self, tmp_path, monkeypatch):
-        """When HERMES_HOME is not set, returns ~/.hermes."""
+    @pytest.mark.linux_only
+    def test_no_hermes_home_returns_native_linux(self, tmp_path, monkeypatch):
+        """When HERMES_HOME is not set, returns ~/.hermes (POSIX hosts)."""
+        monkeypatch.delenv("HERMES_HOME", raising=False)
+        monkeypatch.setattr(Path, "home", lambda: tmp_path)
+
+        assert get_default_hermes_root() == tmp_path / ".hermes"
+
+    @pytest.mark.macos_only
+    def test_no_hermes_home_returns_native_macos(self, tmp_path, monkeypatch):
+        """When HERMES_HOME is not set, returns ~/.hermes (POSIX hosts)."""
         monkeypatch.delenv("HERMES_HOME", raising=False)
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
 

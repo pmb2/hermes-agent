@@ -592,9 +592,11 @@ class TestWindowsBashScriptPathConversion:
 
         captured = {}
 
-        def fake_run(argv, **kwargs):
+        def fake_popen(argv, **kwargs):
             captured["argv"] = argv
-            return SimpleNamespace(returncode=0, stdout="ok\n", stderr="")
+            proc = SimpleNamespace(returncode=0)
+            proc.communicate = lambda timeout=None: ("ok\n", "")
+            return proc
 
         monkeypatch.setattr(sched_mod.sys, "platform", "win32")
         monkeypatch.setattr(
@@ -603,7 +605,7 @@ class TestWindowsBashScriptPathConversion:
             lambda name: "C:\\Program Files\\Git\\bin\\bash.exe" if name == "bash" else None,
         )
         monkeypatch.setattr(sched_mod, "windows_hide_flags", lambda: 0x08000000)
-        monkeypatch.setattr(sched_mod.subprocess, "run", fake_run)
+        monkeypatch.setattr(sched_mod.subprocess, "Popen", fake_popen)
 
         success, output = _run_job_script("job.sh")
 
@@ -624,9 +626,11 @@ class TestWindowsBashScriptPathConversion:
 
         captured = {}
 
-        def fake_run(argv, **kwargs):
+        def fake_popen(argv, **kwargs):
             captured["argv"] = argv
-            return SimpleNamespace(returncode=0, stdout="ok\n", stderr="")
+            proc = SimpleNamespace(returncode=0)
+            proc.communicate = lambda timeout=None: ("ok\n", "")
+            return proc
 
         monkeypatch.setattr(sched_mod.sys, "platform", "linux")
         monkeypatch.setattr(
@@ -634,7 +638,7 @@ class TestWindowsBashScriptPathConversion:
             "which",
             lambda name: "/usr/bin/bash" if name == "bash" else None,
         )
-        monkeypatch.setattr(sched_mod.subprocess, "run", fake_run)
+        monkeypatch.setattr(sched_mod.subprocess, "Popen", fake_popen)
 
         success, output = _run_job_script("job.sh")
 

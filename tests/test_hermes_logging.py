@@ -138,9 +138,12 @@ class TestSetupLogging:
         assert "profile-routed cron record" in (
             profile_home / "logs" / "agent.log"
         ).read_text()
-        assert "profile-routed cron record" not in (
-            hermes_home / "logs" / "agent.log"
-        ).read_text()
+        # On Windows the rotating handler opens lazily, so a base log that never
+        # received a record may not exist at all - an absent file still proves
+        # the record was NOT written to the default home (Windows compat).
+        base_log = hermes_home / "logs" / "agent.log"
+        base_content = base_log.read_text() if base_log.exists() else ""
+        assert "profile-routed cron record" not in base_content
 
 
 
@@ -382,7 +385,15 @@ class TestAddRotatingHandler:
                 logger.removeHandler(h)
                 h.close()
 
+    @pytest.mark.linux_only
     def test_managed_mode_initial_open_sets_group_writable(self, tmp_path):
+        """Managed-mode group-writable perms use the stdlib handler lifecycle.
+
+        ``linux_only``: managed mode (NixOS systemd/setgid) relies on stdlib
+        ``RotatingFileHandler``'s eager ``_open()`` + chmod-0660. On Windows
+        ``RotatingFileHandler`` is aliased to ``ConcurrentRotatingFileHandler``,
+        which opens lazily and never eagerly creates the file.
+        """
         log_path = tmp_path / "managed-open.log"
         logger = logging.getLogger("_test_rotating_managed_open")
         formatter = logging.Formatter("%(message)s")
